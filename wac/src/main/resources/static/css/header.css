@@ -43,6 +43,9 @@ a.menuBtn:hover {
 }
 
 .signList div{
+	display:flex;
+	align-items:center;
+	justify-content:center;
 	color: blue;
 	padding: 2vh 1vw;
 }
@@ -210,5 +213,31 @@ div.signBtn {
 		width: auto;
 		margin-top: -10px;
 	}
+	
+		div.signBtn {
+		height: 2vh;
+		width: 50vw;
+	}
+	
+	a.signInBtn {
+
+		padding: 10px 40%;
+	}
+	
+	a.signInBtn:hover{
+		font-size: 15pt;
+	}
+	
+	
+	a.signUpBtn {
+
+		padding: 10px 40%;
+	
+	}
+	
+	a.signUpBtn:hover{
+		font-size: 15pt;
+	}
+	
 	
 }
