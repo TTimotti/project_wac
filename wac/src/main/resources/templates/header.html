@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <title>왁도날두</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/css/header.css">    
+    <link rel="stylesheet" th:href="@{/css/header.css}">    
 </head>
 <body>
     <header>        
         <nav class="nav" id="nav">
             <div class="logo">
-                <a href=""><img src="../static/img/logo/wacdonaldu_logo.png" alt="왁도날드" class="logo"></a>
+                <a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="왁도날드" class="logo"></a>
             </div>
             <div class="navList" id="navList">
 	            <div class="navBtn">
@@ -43,6 +43,6 @@
     
     
 
-    <script src="../static/script/header.js"></script>
+    <script th:src="@{/script/header.js}"></script>
 </body>
 </html>
