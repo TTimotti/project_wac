@@ -16,6 +16,55 @@ public class HomeController {
     public String home() {
         log.info("header() 호출");
         
-        return "/header";   
+        return "/mainPage";   
     }
+    
+	/**
+	 * 메뉴 페이지
+	 * 생성자 : 장민석
+	 */
+	@GetMapping("/menu")
+	public String menu() {
+		log.info("MenuPage()");
+		return "/menu";
+	}
+	
+	/**
+	 *  Store 페이지
+	 * 생성자 : 장민석
+	 */
+	@GetMapping("/store")
+	public String store() {
+		log.info("Store()");
+		return "/store";
+	}
+	
+	/**
+	 *   주문 페이지
+	 * 생성자 : 장민석
+	 */
+	@GetMapping("/order")
+	public String order() {
+		log.info("Order()");
+		return "/order";
+	}
+	/**
+	 *  Story 페이지
+	 * 생성자 : 장민석
+	 */
+	@GetMapping("/story")
+	public String story() {
+		log.info("Story()");
+		return "/story";	
+	}
+	
+	/**
+	 *  What`s News 페이지
+	 *  생성자 : 장민석
+	 */
+	@GetMapping("/whatNews")
+	public String whats() {
+		log.info("whats()");
+		return "/whats";
+	}
 }
