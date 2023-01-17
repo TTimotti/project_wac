@@ -8,6 +8,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 	font-family: fantasy;
+
 }
 
 a {
@@ -25,6 +26,7 @@ a {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+	width: 250px;
 }
 
 a.menuBtn {
@@ -48,8 +50,9 @@ a.menuBtn:hover {
 a.signInBtn {
 	border: 2px solid red;
 	border-radius: 20px;
-	padding: 0.5vh 1vw;
 	color: red;
+	width: 80px;
+padding: 8px 12px;
 }
 
 a.signInBtn:hover{
@@ -60,8 +63,10 @@ a.signInBtn:hover{
 a.signUpBtn {
 	border: 2px solid orange;
 	border-radius: 20px;
-	padding: 0.5vh 1vw;
 	color: orange;
+	width: 80px;
+padding: 8px 12px;
+
 }
 
 a.signUpBtn:hover{
@@ -69,9 +74,142 @@ a.signUpBtn:hover{
 	background-color: orange;
 }
 
+div.signBtn {
+	height: 20px;
+	width: 80px;
+}
+
 .logo {
 	margin-left: 20px;
 	width: 150px;
 	height: 120px;
+}
 
+@media(max-width:1200px){
+		header {
+		margin: 1vh;
+	}
+	
+	.nav {
+		justify-content: space-around;
+		font-family: fantasy;
+	
+	}
+	
+	.navList {
+		justify-content: flex-end;		
+		margin-left: 50px
+	}
+	
+	.signList {
+		flex-direction:column;
+	}
+	
+	a.menuBtn {
+		padding: 0px 20px;
+		color: rgba(58, 58, 60);
+		font-family: fantasy;
+		font-size: 20px;
+		margin-right: 3vw;
+		padding: 4vh 2vw;
+	}
+	
+	a.menuBtn:hover {
+		border-bottom: 2px orange solid;
+	}
+	
+	.signList div{
+		color: blue;
+		padding: 2vh 1vw;
+	}
+	
+	a.signInBtn {
+		border: 2px solid red;
+		border-radius: 20px;
+		color: red;
+		width: 80px;
+	padding: 8px 12px;
+	}
+	
+	a.signInBtn:hover{
+		color: buttonhighlight;
+		background-color: red;
+	}
+	
+	a.signUpBtn {
+		border: 2px solid orange;
+		border-radius: 20px;
+		color: orange;
+		width: 80px;
+	padding: 8px 12px;
+	
+	}
+	
+	a.signUpBtn:hover{
+		color: buttonhighlight;
+		background-color: orange;
+	}
+	
+	div.signBtn {
+		height: 20px;
+		width: 80px;
+	}
+	
+	.logo {
+		margin-left: 20px;
+		width: 150px;
+		height: 120px;
+	}
+}
+
+@media(max-width:800px){
+
+	
+	.logo {
+		display: none;
+	}
+	
+	header {
+		margin:0;
+	}
+	
+	.nav {
+		flex-direction: column;
+		justify-content: flex-end;
+
+	}
+	
+	.navList {
+		flex-direction: column;
+		justify-content: flex-start;
+		margin: -10px 0 1vh 0;
+	}
+	
+	.navBtn{
+		margin: 1vh 0;
+	}
+	
+	a.menuBtn {
+		padding: 10px 100vw;	
+		font-family: fantasy;
+		font-size: 20px;
+		background-color: orange;
+		color: ghostwhite;
+	}
+	
+	a.menuBtn:hover {
+		border-bottom: none;
+		color: rgba(58, 58, 60);
+		font-size: 25px;
+	}
+	
+	.signList {
+		flex-direction: row;
+		justify-content: space-around;
+		width: auto;
+		margin-top: -10px;
+	}
+	
+
+	
 }
