@@ -136,6 +136,7 @@ div.signBtn {
 		background-color: red;
 	}
 	
+	
 	a.signUpBtn {
 		border: 2px solid orange;
 		border-radius: 20px;
@@ -209,7 +210,5 @@ div.signBtn {
 		width: auto;
 		margin-top: -10px;
 	}
-	
-
 	
 }
