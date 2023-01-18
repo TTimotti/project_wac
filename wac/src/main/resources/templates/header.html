@@ -12,6 +12,7 @@
 <body>
     <header class="header">    	
         <nav class="nav" id="nav">
+        
             <a href="">
             	<img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="왁도날드" class="logo">
             </a>
@@ -24,12 +25,6 @@
            	</div>
            	
           	<div class="signList" >
-          		<div class="signBtn">
-          			<a class="signInBtn" href="">Sign In</a>
-          		</div>
-          		<div class="signBtn" id = "signUpBtn">
-          			<a class="signUpBtn" th:href="@{ /user/signUp }">Sign Up</a>
-          		</div>
           		<th:block sec:authorize="isAnonymous()">
           			<a class="signInBtn" href="">Login</a>
           			<a class="signUpBtn" href="">Sign Up</a>
@@ -39,6 +34,8 @@
           			<a class="myPageBtn d-none" href="">My Page</a>
           		</th:block>
           	</div>
+          			
+
         </nav>
     </header> 
 	<script th:inline="javascript">

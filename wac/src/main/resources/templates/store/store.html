@@ -7,16 +7,20 @@
 	<link rel="stylesheet" th:href="@{/css/store.css}">
 </th:block>
 <div layout:fragment="content">
-
-	<div class="storeContainer">
-		<h2>Test</h2>
+	<div class=storebanner>
+		<div class="inner">
+			<h1 class=storeFont>매장찾기</h1>
+			<ul class=navPath>
+				<li><a href="">Home</a></li>
+				<li><a href="">Store</a></li>
+				<li><a href="">매장찾기</a></li>
+			</ul>
+		</div>
 	</div>
-
-	<!-- 여기다가 개발하세요.
- content 안에.. -->
-
+	<div class="storeContainer">
+	<div id="map"></div>
+	</div>
 </div>
-<script layout:fragment="script" th:inline="javascript">
-	
-</script>
+<script layout:fragment="script" th:inline="javascript"></script>
+<script type="text/javascript" th:src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	abaecbd1f25256beda80cb6e2837cf2b&libraries=services"></script>
 </html>
