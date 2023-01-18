@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-footer {
+footer * {
     color: #fff;
     font-size: 14px;
     line-height: 1.6;
-    background-color: #292929;
+    background-color: #292929!important;
     }
         
 .footArea {

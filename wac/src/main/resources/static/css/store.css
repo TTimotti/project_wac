@@ -3,11 +3,61 @@
 /** 
 생성자 장민석.
 **/
-
 .storeContainer {
 	float: center;
-	border:1px, black;
-	width: 1200px;
+	border-collapse :1px, black;
+	width: 1882px;
 	height: 800px;
-	background-color: dodgerblue;
+	background-color: lightgray;
+	margin-bottom : 20px;
+}
+.storebanner {
+	background-color: lightgray;
+	padding : 5px;
+	background-image: url('../img/storelogo.png');
+	background-size: 1900px 300px;
+}
+.inner {
+	width : 1168;
+	height: 130;
+	margin: 60px 218px;
+	padding:20px;
+	background-color:transparent;
+}
+.storeFont {
+	color: white;
+	font-size: 50px;
+	background-color:transparent;
+}
+.navPath  {
+	list-style: none;
+	padding: 0px;
+	margin-top:30px;
+}
+.navPath li+li:before {	
+	content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 14px 0 10px;
+    vertical-align: middle;
+    border-radius: 100%;
+    background: #f5bd43;	
+}
+li {
+	margin : 0px;
+	float:left;
+	background-color:transparent;
+}
+a {
+	color: white;
+	font-size: 15px;
+	font-family: SpeedeeK, Malgun Gothic,'맑은 고딕', 
+	Dotum,'돋움', Arial, sans-serif;
+	font-weight: bold;
+	background-color:transparent;
+}
+#map {
+	width:80%; 
+	height:700px;
 }
