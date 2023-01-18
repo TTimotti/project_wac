@@ -25,7 +25,7 @@ public class HomeController {
 	 */
 	@GetMapping("/menu")
 	public String menu() {
-		log.info("MenuPage()");
+		log.info("menu() 호출");
 		return "/menu";
 	}
 	
@@ -35,7 +35,7 @@ public class HomeController {
 	 */
 	@GetMapping("/store")
 	public String store() {
-		log.info("Store()");
+		log.info("store()");
 		return "/store/store";
 	}
 	
@@ -45,7 +45,7 @@ public class HomeController {
 	 */
 	@GetMapping("/order")
 	public String order() {
-		log.info("Order()");
+		log.info("order()");
 		return "/order";
 	}
 	/**
@@ -54,7 +54,7 @@ public class HomeController {
 	 */
 	@GetMapping("/story")
 	public String story() {
-		log.info("Story()");
+		log.info("story()");
 		return "/story";	
 	}
 	
