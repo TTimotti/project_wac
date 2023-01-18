@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{ /layout/basic-layout }">
+    
+<head>   
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+</th:block>
+</head>
+
+
+<div layout:fragment="content">
+<!-- 개발 공간. -->
+
+<div class="visualArea bgMenu01">
+    <div class="inner">
+        <h1 class="titDep1">버거</h1>
+        <p class="subCopy">
+        "빅맥"
+        <sub class="reg">®</sub>
+        "에서 맥스파이시"
+        <sub class="reg">®</sub> 
+        "상하이버거까지"
+        <br>
+        "주문 즉시 바로 조리해 더욱 맛있는, 왁도날드의 다양한 버거를 소개합니다."
+        </p>
+        <ul class="navPath">
+            <li>
+                <a href="/">home</a>
+            </li>
+            <li>
+                <a href="/menu">menu</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="jb-sidebar-left">
+
+
+</div>
+
+<div id="jb-sidebar-left">
+
+
+</div>
+<div id="jb-center">
+<div class="inner">
+<ul class="tabType01">
+	<li class="nav-item">
+	  <a class="nav-link active" aria-current="page" href="#">버거</a>
+	</li>
+	<li class="nav-item">
+	  <a class="nav-link" href="#">세트</a>
+	</li>
+	<li class="nav-item">
+	  <a class="nav-link" href="#">사이드 & 디저트</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#">카페 & 음료</a>
+	</li>
+</ul>
+</div>
+
+    <div class="wacMenu m-8">
+    <p class="count" id="count">
+        
+		<ul class="menuList" id="menuList">
+			<li>
+				<a href="/">햄버거를 리스트로 할지 div로 할지... </a> <!-- 자바스크립트 -->
+			</li>
+		</ul>
+    
+   
+        <div class="row row-cols-1 row-cols-md-3 g-4 mr-5 ml-5">
+            <div class="col-5 m-150 p-100">
+                <div class="card h-100">
+                    <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1671786570159.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">행운버거 골드</h5>
+                        <p class="card-text">욘맛탱</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col m-150">
+                <div class="card h-100">
+                    <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1671786784357.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">행운버거 골드 스페셜</h5>
+                        <p class="card-text">존맛탱</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col m-150">
+                <div class="card h-100">
+                    <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1653436835912.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">맥크리시피 디럭스 버거</h5>
+                        <p class="card-text">꿀맛탱</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="btnMore" id="btnMore">
+			<button type="button" class="more" onclick="more()">더보기</button>
+		</div>
+
+    </div>
+</div>     
+
+
+
+
+
+
+
+</div>
+<script layout:fragment="script" th:inline="javascript">
+</script>
+</html>
+
+
+
