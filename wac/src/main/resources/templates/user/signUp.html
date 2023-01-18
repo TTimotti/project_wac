@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ layout/basic-layout.html }">
+
+<div layout:fragment="content">
+    <div>
+        <h1>회원 가입 페이지</h1>
+    </div>
+    <div>
+        <form method = "post">
+            <div>
+                <label for="userName">아이디</label>
+                <input type="text" id = "userName" name ="userName" required autofocus>
+            </div>
+            <div>
+                <label for="userPassword">비밀번호</label>
+                <input type = "password" id ="userPassword" name = "userPassword" required>
+            </div>
+            <div>
+                <label for="userPasswordCheck">비밀번호 확인</label>
+                <input type = "password" id ="userPasswordCheck" name = "userPasswordCheck" required>
+            </div>
+            <div>
+                <label for="age">나이</label>
+                <input type="number" id = "age" name ="age" required>
+            </div>
+            <div>
+                <label for ="address">주소</label>
+                <input type="text" id = "address" name ="address" required>
+            </div>
+            <div>
+                <label for="email">이메일</label> 
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div>
+                <label for="phone">휴대폰</label> 
+                <input type="text" id="phone" name="phone" required />
+            </div>
+            <div>
+                <label for="gender" id="gender">성별</label>
+                <select name="gender" id="selectGender">
+                    <option selected>선택</option>
+                    <option value="남자">남자</option>
+                    <option value="여자">여자</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" id=btnCreate value="회원가입" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script layout:fragment="script" th:inline="javaScript">
+
+</script>
+</html>
