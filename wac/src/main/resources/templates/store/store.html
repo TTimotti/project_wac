@@ -2,13 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{ /layout/basic-layout }">
-<link rel="stylesheet" th:href="@{/css/mainPage.css}">
+
+<th:block layout:fragment="css">
+	<link rel="stylesheet" th:href="@{/css/store.css}">
+</th:block>
 <div layout:fragment="content">
-	<!-- 개발 공간. -->
-	<div class="mainContainer">
-		<h2>WacDonald's LIVE</h2>
+
+	<div class="storeContainer">
+		<h2>Test</h2>
 	</div>
+
+	<!-- 여기다가 개발하세요.
+ content 안에.. -->
+
 </div>
 <script layout:fragment="script" th:inline="javascript">
+	
 </script>
 </html>
