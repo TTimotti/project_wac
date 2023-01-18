@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/** 
+생성자 장민석.
+**/
+
+.storeContainer {
+	
+	border:1px, black;
+	width: 800px;
+	height: 1000px;
+	background-color: dodgerblue;
+}
