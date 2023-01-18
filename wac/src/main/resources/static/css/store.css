@@ -58,6 +58,12 @@ a {
 #map {
 	margin : 5px;
 	height: 800px;
-	width: 80%;
+	width:80%;
 	border-radius : 5px 5px 5px 5px;
+}
+@media (max-width: 792px) {
+	#map {
+        width: 450px;
+        height: 350px;
+      }
 }
