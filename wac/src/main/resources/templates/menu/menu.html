@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{ /layout/basic-layout }">
+    
+<head>
+<title>Wacdonaldo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+</th:block>
+</head>
+
+
+<div layout:fragment="content">
+<!-- 개발 공간. -->
+
+<div class="visualArea bgMenu01">
+    <div class="inner">
+        <h1 class="titDep1">버거</h1>
+        <p class="subCopy">
+        "빅맥"
+        <sub class="reg">®</sub>
+        "에서 맥스파이시"
+        <sub class="reg">®</sub> 
+        "상하이버거까지"
+        <br>
+        "주문 즉시 바로 조리해 더욱 맛있는, 왁도날드의 다양한 버거를 소개합니다."
+        </p>
+        <ul class="navPath">
+            <li>
+                <a href="/">home</a>
+            </li>
+            <li>
+                <a href="/menu">menu</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="jb-sidebar-left">
+
+
+</div>
+
+<div id="jb-sidebar-left">
+
+
+</div>
+<div id="jb-center">
+<div class="inner">
+<ul class="tabType01">
+	<li class="nav-item">
+	  <a class="nav-link active" aria-current="page" href="#">버거</a>
+	</li>
+	<li class="nav-item">
+	  <a class="nav-link" href="#">세트</a>
+	</li>
+	<li class="nav-item">
+	  <a class="nav-link" href="#">사이드 & 디저트</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#">카페 & 음료</a>
+	</li>
+</ul>
+</div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-quarter">
+      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1671786570159.png" alt="Sandwich" style="width:100%">
+      <h3>행운버거 골드</h3>
+      <p>신메뉴 넘모 맛있고~ </p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1671786784357.png" alt="Steak" style="width:100%">
+      <h3>행운버거 골드 스페셜</h3>
+      <p>행운행운열매 스페셜 금금열매</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1653436835912.png" alt="Cherries" style="width:100%">
+      <h3>핫 크리시피 버거</h3>
+      <p>이건 롯데리아메뉸데....</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1653436573153.png" alt="Pasta and Wine" style="width:100%">
+      <h3>클래식 치즈 버거</h3>
+      <p>이것도 롯데리아 메뉴 이거 맛있음 추천 ㅇㅇ</p>
+    </div>
+  </div>
+  
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1583727841393.png" alt="Popsicle" style="width:100%">
+      <h3>All I Need Is a Popsicle</h3>
+      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1583728339451.png" alt="Salmon" style="width:100%">
+      <h3>Salmon For Your Skin</h3>
+      <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1599119588089.png" alt="Sandwich" style="width:100%">
+      <h3>The Perfect Sandwich, A Real Classic</h3>
+      <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1583727487454.png" alt="Croissant" style="width:100%">
+      <h3>Le French</h3>
+      <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+  
+</div>
+
+
+</div>     
+
+
+
+</div>
+<script layout:fragment="script" th:inline="javascript">
+</script>
+</html>
+
+
+

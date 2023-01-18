@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{ /layout/basic-layout }">
+<html xmlns:th="http://www.thymeleaf.org/"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ /layout/basic-layout }">
 <th:block layout:fragment="css">
-	<link rel="stylesheet" th:href="@{/css/mainPage.css}">
+    <link rel="stylesheet" th:href="@{/css/mainPage.css}">
 </th:block>
 <div layout:fragment="content">
-	<!-- 개발 공간. -->
-	<div class="mainContainer">
-		<h2>WacDonald's LIVE</h2>
+    <div class="mainContainer">
+   		<div id="banner">
+   			<ul class="slides">
+		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
+		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
+		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
+		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
+		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
+		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
+		    </ul>  
+		</div>
+				
 	</div>
 </div>
 <script layout:fragment="script" th:inline="javascript">

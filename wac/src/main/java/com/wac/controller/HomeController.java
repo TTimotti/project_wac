@@ -26,7 +26,7 @@ public class HomeController {
 	@GetMapping("/menu")
 	public String menu() {
 		log.info("menu() 호출");
-		return "/menu";
+		return "/menu/menu";
 	}
 	
 	/**
