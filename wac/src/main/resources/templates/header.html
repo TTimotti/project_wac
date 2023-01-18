@@ -25,12 +25,6 @@
            	</div>
            	
           	<div class="signList" >
-          		<div class="signBtn">
-          			<a class="signInBtn" href="">Sign In</a>
-          		</div>
-          		<div class="signBtn" id = "signUpBtn">
-          			<a class="signUpBtn" th:href="@{ /user/signUp }">Sign Up</a>
-          		</div>
           		<th:block sec:authorize="isAnonymous()">
           			<a class="signInBtn" href="">Login</a>
           			<a class="signUpBtn" href="">Sign Up</a>

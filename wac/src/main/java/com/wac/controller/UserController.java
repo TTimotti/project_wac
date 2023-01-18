@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.wac.dto.userCreateDto;
+import com.wac.dto.UserCreateDto;
 import com.wac.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -38,10 +38,16 @@ public class UserController {
      * 생성자 : 이존규
      */
     @PostMapping("/signUp")
-    public String create(userCreateDto dto) {
+    public String create(UserCreateDto dto) {
         
         userService.createUser(dto);
         
         return "redirect:/";
+    }
+    
+    
+    @GetMapping("/userList")
+    public void signIn() {
+        log.info("wac - userList");
     }
 }

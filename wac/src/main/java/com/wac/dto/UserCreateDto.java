@@ -1,6 +1,7 @@
 package com.wac.dto;
 
 import com.wac.domain.User;
+import com.wac.domain.UserRole;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,9 +15,9 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 @Data
-public class userCreateDto {
+public class UserCreateDto {
 
-    private String userName;        // 로그인에 사용할 이름
+    private String userName;        // 로그인에 사용할 이름 
     private String userPassword;    // 로그인에 사용할 비밀번호
     private String phone;           // 개인정보 확인을 위한 휴대폰 번호
     
@@ -28,6 +29,6 @@ public class userCreateDto {
     private String gender;          // 데이터 분석에 사용할 성별
     
     public User toEntity() {
-        return User.builder().userName(userName).userPassword(userPassword).phone(phone).email(email).address(address).age(age).gender(gender).build();
+        return User.builder().userName(userName).userPassword(userPassword).phone(phone).email(email).address(address).age(age).gender(gender).build().addRole(UserRole.USER);
     }
 }
