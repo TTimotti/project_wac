@@ -73,12 +73,15 @@ a {
 	font-family: fantasy;
 	font-size: 20px;
 	color: rgba(58, 58, 60);
-	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .nav {
 	display: flex;
 	justify-content: space-between;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /* logo */

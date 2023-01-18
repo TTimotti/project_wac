@@ -1,21 +1,13 @@
 @charset "UTF-8";
 
-<<<<<<< HEAD
-footer * {
-=======
 .footer * {
->>>>>>> branch 'master' of https://github.com/TTimotti/project_wac.git
+
     color: #fff;
     font-size: 14px;
     line-height: 1.6;
-<<<<<<< HEAD
-    background-color: #292929!important;
-    }
-=======
     background-color: #292929;
 }
->>>>>>> branch 'master' of https://github.com/TTimotti/project_wac.git
-        
+
 .footArea {
     display:flex;
     justify-content: space-around;

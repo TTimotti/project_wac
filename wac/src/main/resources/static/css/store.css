@@ -3,10 +3,11 @@
 /** 
 생성자 장민석.
 **/
+
 .storeContainer {
 	float: center;
 	border-collapse :1px, black;
-	width: 1882px;
+	width: 1920px;
 	height: 800px;
 	background-color: lightgray;
 	margin-bottom : 20px;
@@ -15,7 +16,7 @@
 	background-color: lightgray;
 	padding : 5px;
 	background-image: url('../img/storelogo.png');
-	background-size: 1900px 300px;
+	background-size: 1920px 300px;
 }
 .inner {
 	width : 1168;
@@ -57,7 +58,7 @@ a {
 	font-weight: bold;
 	background-color:transparent;
 }
-#map {
+#map * {
 	width:80%; 
 	height:700px;
 }
