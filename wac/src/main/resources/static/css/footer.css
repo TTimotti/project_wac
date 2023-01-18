@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
-footer {
+.footer * {
     color: #fff;
     font-size: 14px;
     line-height: 1.6;
     background-color: #292929;
-    }
+}
         
 .footArea {
     display:flex;
     justify-content: space-around;
     padding: 45px 0 55px;
-    }
+}
         
 .tLogo {
     right: 20px;
@@ -19,12 +19,12 @@ footer {
     height: 120px;
     border: 1px white;
     border-radius: 12px;   
-    }
+}
 
 .tInfo {
     width: 450px;
     display: inline-block;
-    }
+}
 
 .info {
     overflow:hidden;
@@ -32,7 +32,7 @@ footer {
     font-weight: 400;
     list-style: none;
     opacity: .6;
-    }
+}
 
 @media(max-width:600px){
     .tLogo {
