@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="utf-8">
 <title>왁도날두</title>
@@ -10,39 +11,35 @@
 <th:block layout:fragment="css"></th:block>
 </head>
 <body>
-	<header>
-		<nav class="nav" id="nav">
-			<div class="logo">
-				<a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}"
-					alt="왁도날드" class="logo"></a>
-			</div>
-			<div class="navList" id="navList">
-				<div class="navBtn">
-					<a class="menuBtn" href="">Home</a>
-				</div>
-				<div class="navBtn">
-					<a class="menuBtn" href="">Menu</a>
-				</div>
-				<div class="navBtn">
-					<a class="menuBtn" href="">Store</a>
-				</div>
-				<div class="navBtn">
-					<a class="menuBtn" href="">Story</a>
-				</div>
-				<div class="navBtn" style="display: none">
-					<a class="menuBtn" href="">Admin</a>
-				</div>
-			</div>
-			<div class="signList">
-				<div class="signBtn">
-					<a class="signInBtn" href="">Sign In</a>
-				</div>
-				<div class="signBtn">
-					<a class="signUpBtn" href="">Sign Up</a>
-				</div>
-			</div>
-		</nav>
-	</header>
+	<header class="header">    	
+        <nav class="nav" id="nav">
+        
+            <a href="">
+            	<img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="왁도날드" class="logo">
+            </a>
+            <div class="navList" id="navList">
+	            <a class="navBtn" href="">Home</a>
+	           	<a class="navBtn" href="">Store</a>
+	           	<a class="navBtn" href="">Order</a>
+	           	<a class="navBtn" href="">Menu</a>
+	           	<a class="navBtn d-none" id="adminBtn" href="">Admin</a>
+           	</div>
+           	
+          	<div class="signList" >
+          		<th:block sec:authorize="isAnonymous()">
+          			<a class="signInBtn" href="">Login</a>
+          			<a class="signUpBtn" href="">Sign Up</a>
+          		</th:block>
+          		<th:block sec:authorize="isAuthenticated()"> 
+          			<a class="signOutBtn d-none" href="">Logout</a>
+          			<a class="myPageBtn d-none" href="">My Page</a>
+          		</th:block>
+          	</div>
+          			
+
+        </nav>
+    </header> 
+	
 	<!--/* 메인 컨텐트가 삽입될 위치 */-->
 	<div layout:fragment="content"></div>
 
@@ -61,8 +58,13 @@
             </div>
         </div>
     </footer>
+    
 	<!--/* 페이지에서 사용되는 자바스크립트가 삽입될 위치 */-->
 	<th:block layout:fragment="script"></th:block>
+	<script th:inline="javascript">
+		const loginUser = [[ ${ #authentication.name } ]];
+	</script>
+    <script th:src="@{/script/header.js}"></script>
 	
 </body>
 </html>

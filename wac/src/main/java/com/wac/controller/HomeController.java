@@ -14,7 +14,7 @@ public class HomeController {
 
     @GetMapping("/") 
     public String home() {
-        log.info("header() 호출");
+        log.info("home() 호출");
         
         return "/mainPage";   
     }
