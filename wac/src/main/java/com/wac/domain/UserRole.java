@@ -8,7 +8,7 @@ public enum UserRole {
     , ADMIN("ROLE_ADMIN");
     
     
-    private String role;
+    private String role; 
     
     UserRole(String role){
         

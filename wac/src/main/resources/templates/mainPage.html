@@ -4,22 +4,16 @@
     layout:decorate="~{ /layout/basic-layout }">
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/mainPage.css}">
+    <script src="https://kit.fontawesome.com/df851af08f.js" crossorigin="anonymous"></script>
 </th:block>
 <div layout:fragment="content">
     <div class="mainContainer">
    		<div id="banner">
-   			<ul class="slides">
-		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
-		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
-		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
-		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
-		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
-		      <li><a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="배너 이미지"></a></li>
-		    </ul>  
-		</div>
-				
+   			<a href="#" class="bannerBtn prev" id="prevBtn"><i class="fa-solid fa-caret-left fa-4x"></i></a>		
+		    <a href="###" class="bImg"><img id="bannerImg" th:src="@{/img/banner/2.jpg}" alt="배너 이미지"></a>
+		    <a href="#" class="bannerBtn next" id="nextBtn"><i class="fa-solid fa-caret-right fa-4x"></i></a>		     
+		</div>				
 	</div>
 </div>
-<script layout:fragment="script" th:inline="javascript">
-</script>
+<script layout:fragment="script" th:inline="javascript"></script>
 </html>

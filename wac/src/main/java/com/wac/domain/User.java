@@ -62,13 +62,32 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false)
     private Integer age; // 데이터 분석에 사용할 성별
 
+    /**
+     * Spring security, 관리자 기능을 사용하기 위한 roles settring
+     */
     @ElementCollection(fetch = FetchType.LAZY)
-    @Builder.Default 
+    @Builder.Default
     private Set<UserRole> roles = new HashSet<>();
 
+    /**
+     * 회원가입 한 유저들에게 Role 을 부여. Default = USER
+     * 
+     * @param role (USER or ADMIN)
+     * @return default = USER
+     */
     public User addRole(UserRole role) {
-        roles.add(role);  
+        roles.add(role);
 
+        return this;
+    }
+
+    public User update(String email, String phone, String address, String gender, Integer age) {
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.gender = gender;
+        this.age = age;
+        
         return this;
     }
 }

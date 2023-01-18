@@ -3,85 +3,50 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-/** mainPage.css : 김지훈 **/
-.mainContainer {
-	width: 1000px;
 }
 
-.mainContainer{
-	display: flex;
-	justify-content: colum;
+/** mainPage.css : 김지훈 **/
+.mainContainer {
+	width: 100vw;
 }
 
 /* banner */
 #banner { 
-	width: 1920px;
 	height: 540px;
-	position: relative;
-    margin: 50px auto;
-    overflow: hidden;   
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.slides{
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2500px; /* 슬라이드할 사진과 마진 총 넓이 */
-  transition: left 0.5s ease-out; 
-  /*ease-out: 처음에는 느렸다가 점점 빨라짐*/
+.bImg {
+	z-index: 1;
 }
 
-/* 첫 번째 슬라이드 가운데에 정렬하기위해
-첫번째 슬라이드만 margin-left조정 */
-.slides li:first-child{
-  margin-left: 100px;
+.bImg img{
+	height: 540px;
+	width: 100vw;
+	margin-bottom: auto;
 }
 
-/* 슬라이드들 옆으로 정렬 */
-.slides li:not(:last-child){
-  float: left;
-  margin-right: 100px;
+.bannerBtn {
+	text-align: center;
+	line-height: 150px;
+	width: 90px;
+	height: 90px;
+	z-index: 2;
 }
 
-.slides li{
-  float: left;
+.prev {
+	margin-right: -12vw;
+
 }
 
-.controller span{
-  position:absolute;
-  background-color: transparent;
-  color: black;
-  text-align: center;
-  border-radius: 50%;
-  padding: 10px 20px;
-  top: 50%;
-  font-size: 1.3em;
-  cursor: pointer;
+.next {
+	margin-left: -12vw;
 }
 
-/* 이전, 다음 화살표에 마우스 커서가 올라가 있을때 */
-.controller span:hover{
-  background-color: rgba(128, 128, 128, 0.11);
-}
-
-.prev{
-  left: 10px;
-}
-
-/* 이전 화살표에 마우스 커서가 올라가 있을때 
-이전 화살표가 살짝 왼쪽으로 이동하는 효과*/
-.prev:hover{
-  transform: translateX(-10px);
-}
-
-.next{
-  right: 10px;
-}
-
-/* 다음 화살표에 마우스 커서가 올라가 있을때 
-이전 화살표가 살짝 오른쪽으로 이동하는 효과*/
-.next:hover{
-  transform: translateX(10px);
+.bannerBtn i {
+	align-self: center;
+	color:rgba(200, 200, 200, 0.5);
 }

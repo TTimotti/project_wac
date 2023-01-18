@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ layout/basic-layout.html }">
+
+<div layout:fragment="content">
+    <div>
+        <h1>마이 페이지</h1>
+    </div>
+    <div>
+        <form id="form">
+            <div>
+                <label for="userId">고객 번호</label> <input type="number"
+                    id="userId" name="userId"
+                    th:value="${ user.userId }" readonly />
+            </div>
+            <div>
+                <label for="userName">아이디</label> <input type="text"
+                    id="userName" name="userName"
+                    th:value="${ user.userName }" readonly>
+            </div>
+            <div>
+                <label for="age">나이</label> <input type="number"
+                    id="age" name="age" th:value="${ user.age }"
+                    readonly>
+            </div>
+            <div>
+                <label for="address">주소</label> <input type="text"
+                    id="address" name="address"
+                    th:value="${ user.address }" readonly>
+            </div>
+            <div>
+                <label for="email">이메일</label> <input type="email"
+                    id="email" name="email" th:value="${ user.email }"
+                    readonly />
+            </div>
+            <div>
+                <label for="phone">휴대폰</label> <input type="text"
+                    id="phone" name="phone" th:value="${ user.phone }"
+                    readonly />
+            </div>
+            <div>
+                <label for="gender" id="gender">성별</label> <input
+                    type="text" id="gender" name="gender"
+                    th:value="${ user.gender }" readonly />
+            </div>
+            <div class="my-2">
+                <a
+                    th:href="@{ /user/update?userId={userId} (userId = ${ user.userId }) }">수정하기</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script layout:fragment="script" th:inline="javaScript">
+	
+</script>
+</html>
