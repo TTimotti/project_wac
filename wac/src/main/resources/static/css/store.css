@@ -5,11 +5,8 @@
 **/
 
 .storeContainer {
-	float: center;
 	border-collapse :1px, black;
 	width: 1920px;
-	height: 800px;
-	background-color: lightgray;
 	margin-bottom : 20px;
 }
 .storebanner {
@@ -58,7 +55,9 @@ a {
 	font-weight: bold;
 	background-color:transparent;
 }
-#map * {
-	width:80%; 
-	height:700px;
+#map {
+	margin : 5px;
+	height: 800px;
+	width: 80%;
+	border-radius : 5px 5px 5px 5px;
 }
