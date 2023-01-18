@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html lang="ko" 
-    xmlns:th="http://www.thymeleaf.org">
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="utf-8">
     <title>왁도날두</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{/css/header.css}">    
+    <link rel="stylesheet" th:href="@{/css/header.css}">
 </head>
 <body>
-    <header>        
+    <header class="header">    	
         <nav class="nav" id="nav">
-            <div class="logo">
-                <a href=""><img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="왁도날드" class="logo"></a>
-            </div>
+        
+            <a href="">
+            	<img th:src="@{/img/logo/wacdonaldu_logo.png}" alt="왁도날드" class="logo">
+            </a>
             <div class="navList" id="navList">
-	            <div class="navBtn">
-	              	<a class="menuBtn" href="">Home</a>
-	           	</div>
-	           	<div class="navBtn">
-	              	<a class="menuBtn" href="">Menu</a>
-	           	</div>
-	           	<div class="navBtn">
-	              	<a class="menuBtn" href="">Store</a>
-	           	</div>
-	           	<div class="navBtn">
-	              	<a class="menuBtn" href="">Story</a>
-	           	</div>
-	           	<div class="navBtn" style="display:none">
-	              	<a class="menuBtn" href="">Admin</a>
-	           	</div>
+	            <a class="navBtn" href="">Home</a>
+	           	<a class="navBtn" href="">Store</a>
+	           	<a class="navBtn" href="">Order</a>
+	           	<a class="navBtn" href="">Menu</a>
+	           	<a class="navBtn d-none" id="adminBtn" href="">Admin</a>
            	</div>
+           	
           	<div class="signList" >
           		<div class="signBtn">
           			<a class="signInBtn" href="">Sign In</a>
@@ -37,12 +31,22 @@
           		<div class="signBtn" id = "signUpBtn">
           			<a class="signUpBtn" th:href="@{ /user/signUp }">Sign Up</a>
           		</div>
+          		<th:block sec:authorize="isAnonymous()">
+          			<a class="signInBtn" href="">Login</a>
+          			<a class="signUpBtn" href="">Sign Up</a>
+          		</th:block>
+          		<th:block sec:authorize="isAuthenticated()"> 
+          			<a class="signOutBtn d-none" href="">Logout</a>
+          			<a class="myPageBtn d-none" href="">My Page</a>
+          		</th:block>
           	</div>
-        </nav>
-    </header>
-    
-    
+          			
 
+        </nav>
+    </header> 
+	<script th:inline="javascript">
+		const loginUser = [[ ${ #authentication.name } ]];
+	</script>
     <script th:src="@{/script/header.js}"></script>
 </body>
 </html>

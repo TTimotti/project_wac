@@ -4,7 +4,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.wac.domain.User;
-import com.wac.dto.userCreateDto;
+import com.wac.dto.UserCreateDto;
 import com.wac.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -39,10 +39,9 @@ public class UserService {
      * @param user Create에 필요한 정보를 dto로 형태로 입력받음
      * @return 입력받은 dto의 userPassword를 암호화 하여 user 생성.
      */
-    public User createUser(userCreateDto dto) {
+    public User createUser(UserCreateDto dto) {
         log.info("User Create(userCreate Dto = {})", dto);
         dto.setUserPassword(passwordEncoder.encode(dto.getUserPassword())); // 입력받은 비밀번호를 암호화
-        
         User entity = userRepository.save(dto.toEntity());
         
         log.info("entity = {}", entity);
