@@ -1,10 +1,14 @@
 package com.wac.service;
 
+import java.util.List;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.wac.domain.User;
 import com.wac.dto.UserCreateDto;
+import com.wac.dto.UserUpdateDto;
 import com.wac.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -28,6 +32,7 @@ public class UserService {
      * @param userId
      * @return User 객체
      */
+    @Transactional(readOnly = true)
     public User read(Integer userId) {
         log.info("User read(userId = {})", userId);
         
@@ -49,4 +54,27 @@ public class UserService {
         return entity;
     }
     
+    /**
+     * 
+     * @return
+     */
+    @Transactional(readOnly = true)
+    public List<User> read() {
+        log.info("read all");
+        
+        return userRepository.findByOrderByUserIdDesc();
+    }
+    
+    
+    @Transactional
+    public Integer update(UserUpdateDto dto) {
+        log.info("user update (dto) ={}",dto);
+        
+        User entity = userRepository.findById(dto.getUserId()).get();
+        
+        entity.update(dto.getEmail(), dto.getPhone(), dto.getAddress(),dto.getGender(), dto.getAge());
+        
+        return entity.getUserId();
+    }
+
 }

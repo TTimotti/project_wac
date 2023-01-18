@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ layout/basic-layout.html }">
+
+<div layout:fragment="content">
+    <div>
+        <div>
+            <h1>정보 수정 페이지</h1>
+        </div>
+
+        <div class="my-2">
+            <form method="post" id="formUpdate">
+                <div>
+                    <label for="userId">고객 번호</label> 
+                    <input type="number" id="userId" name="userId" th:value="${ user.userId }" readonly />
+                </div>
+                <div>
+                    <label for="userName">아이디</label> 
+                    <input type="text" id="userName" name="userName" th:value="${ user.userName }" readonly />
+                </div>
+                <div>
+                    <label for="password">비밀번호</label> 
+                    <input type="password" id="password" name="password" />
+                </div>
+                <div>
+                    <label for="passwordcheck">비밀번호 확인</label> 
+                    <input type="password" id="passwordcheck" />
+                </div>
+                <div>
+                    <label for="age">나이</label> 
+                    <input type="number" id="age" name="age" th:value="${ user.age }">
+                </div>
+                <div>
+                    <label for="address">주소</label> 
+                    <input type="text" id="address" name="address" th:value="${ user.address }">
+                </div>
+                <div>
+                    <label for="email">이메일</label> 
+                    <input type="email" id="email" name="email" th:value="${ user.email }" />
+                </div>
+                <div>
+                    <label for="phone">휴대폰</label> 
+                    <input type="text" id="phone" name="phone" th:value="${ user.phone }" />
+                </div>
+                <div>
+                    <label for="selectGender">성별</label> 
+                    <select name="gender" id="selectGender">
+                        <option selected>성별</option>
+                        <option value="남자">남자</option>
+                        <option value="여자">여자</option>
+                    </select>
+                </div>
+            </form>
+            <div class="row">
+                <div class="my-2 col-3">
+                    <button
+                        class="form-control btn btn-outline-success disabled"
+                        id="btnUpdate">수정하기</button>
+                </div>
+                <div class="my-2 col-3">
+                    <button
+                        class="form-control btn btn-outline-warning "
+                        id="btnCancel">뒤로가기</button>
+                </div>
+                <div class="my-2 col-3">
+                    <button
+                        class="form-control btn btn-outline-primary disabled"
+                        id="btnPasswordChange">비밀번호 변경</button>
+                </div>
+                <div class="my-2 col-3">
+                    <button
+                        class="form-control btn btn-outline-danger disabled"
+                        id="btnDeleteUser">회원 탈퇴</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- end content -->
+<script layout:fragment="script" th:inline="javaScript">
+	
+</script>
+</html>
