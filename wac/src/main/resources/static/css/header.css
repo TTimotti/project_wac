@@ -1,243 +1,205 @@
 @charset "utf-8";
 
-header {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+   CSS 초기화
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	background-color: ghostwhite;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* 공용 CSS */
+.header {
 	margin: 3vh 5vw;
 }
 
-.nav {
-	display: flex;
-	justify-content: space-between;
-	font-family: fantasy;
-
+.d-none {
+	display: none;
 }
 
 a {
 	text-decoration: none;
 }
 
-.navList {
+/* header.html|css */
+
+/* nav */
+.nav * {
+	font-family: fantasy;
+	font-size: 20px;
+	color: rgba(58, 58, 60);
+	text-align: center;
+}
+
+.nav {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
+}
+
+/* logo */
+.logo {
+	width: 120px;
+	height: 114px;
+	border: 0px solid;
+	border-radius: 100px;
+}
+
+/* List */
+.navList, .signList {
+	display: flex;
+	justify-content: space-between;
 	align-items: center;
+	text-align: center;
+	width: 50vw;
+}
+
+.navBtn {
+	line-height:116px;
+	width: 105px;
+	height: 116px;
 	
+}
+.navBtn:hover {
+	border-bottom: 1px solid orange;
+	font-size: 22px;
 }
 
 .signList {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	width: 250px;
+	width: 10vw;
+	flex-direction: column;
+	justify-content: center;
 }
 
-a.menuBtn {
-	padding: 0px 20px;
-	color: rgba(58, 58, 60);
-	font-family: fantasy;
-	font-size: 20px;
-	margin-right: 3vw;
-	padding: 4vh 2vw;
+.signList * {
+	border: 1px solid;
+	border-radius: 15px;
+	font-size: 16px;
+	width: 95px;
+	height: 25px;
+	line-height: 25px;
+	margin-bottom: 10px;
 }
 
-a.menuBtn:hover {
-	border-bottom: 2px orange solid;
+.signInBtn{
+	color: #f1f1f1;
+	border-color: green;
+	background-color: green;
+}
+.signInBtn:hover{
+	font-size:20px;
+	color:green;
+	background-color: ghostwhite;
 }
 
-.signList div{
-	display:flex;
-	align-items:center;
-	justify-content:center;
-	color: blue;
-	padding: 2vh 1vw;
-}
-
-a.signInBtn {
-	border: 2px solid red;
-	border-radius: 20px;
-	color: red;
-	width: 80px;
-padding: 8px 12px;
-}
-
-a.signInBtn:hover{
-	color: buttonhighlight;
-	background-color: red;
-}
-
-a.signUpBtn {
-	border: 2px solid orange;
-	border-radius: 20px;
-	color: orange;
-	width: 80px;
-padding: 8px 12px;
-
-}
-
-a.signUpBtn:hover{
-	color: buttonhighlight;
+.signUpBtn{
+	color: #f1f1f1;
+	border-color: orange;
 	background-color: orange;
 }
-
-div.signBtn {
-	height: 20px;
-	width: 80px;
+.signUpBtn:hover{
+	font-size:20px;
+	color:orange;
+	background-color: ghostwhite;
 }
 
-.logo {
-	margin-left: 20px;
-	width: 150px;
-	height: 120px;
-}
-
-@media(max-width:1200px){
-		header {
-		margin: 1vh;
+/* 792px 이하 해상도 */
+@media(max-width:792px){
+	.header {
+		margin: 0;
+		padding: 0;
+		font-size: 100%;
 	}
 	
-	.nav {
-		justify-content: space-around;
-		font-family: fantasy;
-	
-	}
-	
-	.navList {
-		justify-content: flex-end;		
-		margin-left: 50px
-	}
-	
-	.signList {
-		flex-direction:column;
-	}
-	
-	a.menuBtn {
-		padding: 0px 20px;
-		color: rgba(58, 58, 60);
-		font-family: fantasy;
-		font-size: 20px;
-		margin-right: 3vw;
-		padding: 4vh 2vw;
-	}
-	
-	a.menuBtn:hover {
-		border-bottom: 2px orange solid;
-	}
-	
-	.signList div{
-		color: blue;
-		padding: 2vh 1vw;
-	}
-	
-	a.signInBtn {
-		border: 2px solid red;
-		border-radius: 20px;
-		color: red;
-		width: 80px;
-	padding: 8px 12px;
-	}
-	
-	a.signInBtn:hover{
-		color: buttonhighlight;
-		background-color: red;
-	}
-	
-	
-	a.signUpBtn {
-		border: 2px solid orange;
-		border-radius: 20px;
-		color: orange;
-		width: 80px;
-	padding: 8px 12px;
-	
-	}
-	
-	a.signUpBtn:hover{
-		color: buttonhighlight;
-		background-color: orange;
-	}
-	
-	div.signBtn {
-		height: 20px;
-		width: 80px;
-	}
-	
-	.logo {
-		margin-left: 20px;
-		width: 150px;
-		height: 120px;
-	}
-}
-
-@media(max-width:800px){
-
-	
-	.logo {
+	.logo{
 		display: none;
 	}
 	
-	header {
-		margin:0;
-	}
-	
-	.nav {
-		flex-direction: column;
-		justify-content: flex-end;
-
+	.nav, .nav * {
+		background-color: orange;
+		justify-content: space-around;
 	}
 	
 	.navList {
-		flex-direction: column;
-		justify-content: flex-start;
-		margin: -10px 0 1vh 0;
+		margin-right: 100px;
 	}
+		
+	.navBtn {
+		line-height:25px;
+		width: 80px;
+		height: 25px;
 	
-	.navBtn{
-		margin: 1vh 0;
 	}
-	
-	a.menuBtn {
-		padding: 10px 100vw;	
-		font-family: fantasy;
-		font-size: 20px;
-		background-color: orange;
-		color: ghostwhite;
-	}
-	
-	a.menuBtn:hover {
-		border-bottom: none;
-		color: rgba(58, 58, 60);
-		font-size: 25px;
+	.navBtn:hover {
+		border-bottom: 1px solid orange;
+		font-size: 22px;
 	}
 	
 	.signList {
 		flex-direction: row;
-		justify-content: space-around;
-		width: auto;
-		margin-top: -10px;
+		margin-right: 10px;
+		width: 200px;
+		height: 50px;
 	}
 	
-		div.signBtn {
-		height: 2vh;
-		width: 50vw;
+	.signList * {
+		margin: 15px 5px;
 	}
 	
-	a.signInBtn {
-
-		padding: 10px 40%;
+	.signInBtn{
+		background-color: green;
 	}
 	
-	a.signInBtn:hover{
-		font-size: 15pt;
+	.signUpBtn{
+		background-color: red;
 	}
-	
-	
-	a.signUpBtn {
-
-		padding: 10px 40%;
-	
+	.signUpBtn:hover{
+		color: red;
+		border-color: red;
 	}
-	
-	a.signUpBtn:hover{
-		font-size: 15pt;
-	}
-	
 	
 }
