@@ -25,7 +25,7 @@ import lombok.ToString;
  *
  */
 @Entity(name = "USERS")
-@SequenceGenerator(name ="USERS_SEQ_GEN", sequenceName = "USERS_SEQ", allocationSize = 1)
+@SequenceGenerator(name ="USERA_SEQ_GEN", sequenceName = "USERA_SEQ", allocationSize = 1)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -34,7 +34,7 @@ import lombok.ToString;
 public class User extends BaseTimeEntity{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ_GEN")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERA_SEQ_GEN")
     private Integer userId;     // 개인마다 고유한 번호 부여. => CRUD에 사용
     
     @Column(unique = true, nullable = false)  

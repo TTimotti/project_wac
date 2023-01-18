@@ -42,6 +42,6 @@ public class UserController {
         
         userService.createUser(dto);
         
-        return "redirect:/mainPage";
+        return "redirect:/";
     }
 }
