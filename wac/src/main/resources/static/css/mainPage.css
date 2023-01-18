@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
 }
+
 /** mainPage.css : 김지훈 **/
 .mainContainer {
 	width: 100vw;
@@ -22,7 +23,7 @@
 	z-index: 1;
 }
 
-.bImg a img{
+.bImg img{
 	height: 540px;
 	width: 100vw;
 	margin-bottom: auto;
