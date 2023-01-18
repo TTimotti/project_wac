@@ -5,9 +5,9 @@
 **/
 
 .storeContainer {
-	
+	float: center;
 	border:1px, black;
-	width: 800px;
-	height: 1000px;
+	width: 1200px;
+	height: 800px;
 	background-color: dodgerblue;
 }
