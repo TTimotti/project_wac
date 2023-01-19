@@ -1,10 +1,8 @@
 @charset "UTF-8";
 
-.footerBody {
-	display:flex;
-	flex-direction: column;
-	height: 100%;
-    flex: 1;
+.footer {
+	margin: 1vh 0px ;
+	padding: 1vh 0px ;
 }
 
 
@@ -19,6 +17,7 @@
     display:flex;
     justify-content: space-around;
     padding: 45px 0 55px;
+    margin: 1vh 0px ;
 }
         
 .tLogo {
