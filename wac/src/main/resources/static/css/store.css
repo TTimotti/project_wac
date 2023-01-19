@@ -36,7 +36,7 @@
 	background-color: transparent;
 }
 
-.navPath {
+.navPath{
 	list-style: none;
 	padding: 0px;
 	margin-top: 30px;
@@ -53,7 +53,7 @@
 	background: #f5bd43;
 }
 
-li {
+.navPath li {
 	margin: 0px;
 	float: left;
 	background-color: transparent;
