@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ /layout/basic-layout }">
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/menuDetail.css}">
+</th:block>
+
+<div layout:fragment="content">
+    <div class="wrapper">
+        <div id="container">
+            <div class="contents">
+            
+                    <!-- 상단 배너 -->
+                    <div class="bannerArea bgImage">
+                        <div class="inner">
+                            <h1 class="title" data-title="프로모션" data-desc="프로모션">왁도날드 프로모션</h1>
+                            <ul class="navPath">
+                                <li><a href="/kor/main.do">Home</a></li>
+                                <li><a href="/kor/main.do">What's New</a></li>
+                                <li><a href="/kor/main.do">맥도날드 프로모션</a></li>
+                            </ul>
+                        </div> <!-- inner -->
+                    </div> <!-- visualArea -->
+                    
+                    
+                    <!-- 메뉴 소개 -->
+                    <div class="contArea">
+                        <div class="inner">
+                            <div class="menuView">
+                                <div class="viewTop">
+                                    <div class="name">
+                                        <h2 class="ko">행운버거 골드 스페셜</h2>
+                                        <em class="en">Prosperity Burger GOLD Special</em>
+                                    </div>
+                                    
+                                    
+                                      <div class="info" data-title="행운버거 골드 스페셜(버거)" data-desc="버거 메뉴">
+                                        <!-- 이미지 -->
+                                        <div class="visual">
+                                            <img src="https://www.mcdonalds.co.kr/upload/product/pcfile/1671786588154.png" alt="행운버거 골드 스페셜" />
+                                        </div>
+                                        
+                                        <!-- 설명 -->
+                                        <div class="desc">
+                                            행운버거 골드에 바삭한 해쉬브라운이 더해져~ 
+                                            <br/>
+                                            기분좋은 꽉 찬 맛!
+                                        </div>
+                                        
+                                        <!-- 화살 -->
+                                        <div class="other">
+                                            <a href="javascript:goDetail(516);" class="arrow prev">
+                                                《
+                                            </a>
+                                            <a href="javascript:goDetail(461);" class="arrow next">
+                                                》
+                                            </a>
+                                        </div>
+                                      </div> <!-- info -->
+                                       
+                                    
+                            </div> <!-- viewTop -->
+                            
+                            <div class="viewCon">
+                                <div class="toggle">
+                                    <h4 class="tit">영양정보</h4>
+                                    <button type="button" aria-selected="false" aria-controls="toggle02" aria-expanded="false" value="+">
+                                    "영양정보 보기"
+                                    </button>
+                                    <!-- toggle 버튼 선택 시 aria-selected 값 true로 변경 / aria-expanded 값 true로 변경 -->
+                                    <div id="toggle02" class="toggleCon" style="display: none;">
+                                    <!-- element.style= {display.none}으로 바뀌어야 함. -->
+                                        <table class="tableType01 nutrDesc">
+                                            <caption>영양정보 - 영양소별 함량, 영양소기준치 정보표</caption>
+                                            <colgroup>
+                                                <col style="width:15%">
+                                                <col>
+                                            </colgroup>
+                                        
+                                            <thead>
+                                                <tr>
+                                                    <th scope="row">영양소</th>
+                                                    <th scope="col">중량(g)</th>
+                                                    <th scope="col">중량(ml)</th>
+                                                    <th scope="col">열량</th>
+                                                    <th scope="col">당</th>
+                                                    <th scope="col">단백질</th>
+                                                    <th scope="col">포화지방</th>
+                                                    <th scope="col">나트륨</th>
+                                                    <th scope="col">카페인</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">함량</th>
+                                                    <th>-</th>
+                                                    <th>-</th>
+                                                    <th>684kcal</th>
+                                                    <th>13g</th>
+                                                    <th>26g</th>
+                                                    <th>8g</th>
+                                                    <th>1426mg</th>
+                                                    <th>-</th>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">영양소기준치</th>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>13%</td>
+                                                    <td>48%</td>
+                                                    <td>56%</td>
+                                                    <td>71%</td>
+                                                    <td>-</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="toggle">
+                                    <h4 class="tit">알레르기 정보</h4>
+                                    <button type="button" aria-selected="false" aria-controls="toggle03" aria-expanded="false" value="+">
+                                    "알레르기 정보 보기"
+                                    </button>
+                                    <div id="toggle03" class="toggleCon">
+                                        <div class="allerDesc">
+                                            <p>
+                                                <b>알레르기 유발 가능 식재료</b>
+                                                " (난류,대두,밀,돼지고기,토마토,굴)"
+                                                <br>
+                                                <b>* 일부 튀김류 제품은 새우 패티와 같은 조리기구를 사용하고 있습니다.</b>
+                                            </p>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="toggle">
+                                    <h4 class="tit">원산지 정보</h4>
+                                    <button type="button" aria-selected="false" aria-controls="toggle04" aria-expanded="false" value="+">
+                                    "알레르기 정보 보기"
+                                    </button>
+                                    <div id="toggle04" class="toggleCon">
+                                        <ul class="origin_info"> <li> 돼지고기: 미국산 </li></ul>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div> <!-- menuView -->
+                    </div> <!-- inner -->
+                </div> <!-- contArea -->
+            </div> <!-- contents -->
+        </div> <!-- container -->
+    </div> <!-- div wrapper -->
+</div>  <!-- layout:fragment -->
+
+<script layout:fragment="script" th:inline="javascript"></script>
+<th:block layout:fragment="script"> 
+    <script th:src="@{/script/menuDetail.js}"></script>
+    <script>
+    
+    </script>
+
+</th:block>
+
+</html>
