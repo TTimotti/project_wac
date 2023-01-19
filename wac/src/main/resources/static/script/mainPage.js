@@ -28,6 +28,5 @@ prevBtn.addEventListener("click", () => {
 	}		
 	bannerImage.setAttribute('src', '/img/banner/' + i + '.jpg');
 	
-
 });    
    
