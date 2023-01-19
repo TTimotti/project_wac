@@ -3,67 +3,115 @@
 /** 
 생성자 장민석.
 **/
-
 .storeContainer {
-	border-collapse :1px, black;
-	width: 1920px;
-	margin-bottom : 20px;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
 }
+
+.storeContainer2 {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
 .storebanner {
 	background-color: lightgray;
-	padding : 5px;
+	padding: 5px;
 	background-image: url('../img/storelogo.png');
 	background-size: 1920px 300px;
 }
+
 .inner {
-	width : 1168;
+	width: 1168;
 	height: 130;
 	margin: 60px 218px;
-	padding:20px;
-	background-color:transparent;
+	padding: 20px;
+	background-color: transparent;
 }
+
 .storeFont {
 	color: white;
 	font-size: 50px;
-	background-color:transparent;
+	background-color: transparent;
 }
-.navPath  {
+
+.navPath {
 	list-style: none;
 	padding: 0px;
-	margin-top:30px;
+	margin-top: 30px;
 }
-.navPath li+li:before {	
+
+.navPath li+li:before {
 	content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    margin: 0 14px 0 10px;
-    vertical-align: middle;
-    border-radius: 100%;
-    background: #f5bd43;	
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	margin: 0 14px 0 10px;
+	vertical-align: middle;
+	border-radius: 100%;
+	background: #f5bd43;
 }
+
 li {
-	margin : 0px;
-	float:left;
-	background-color:transparent;
+	margin: 0px;
+	float: left;
+	background-color: transparent;
 }
+
 a {
 	color: white;
 	font-size: 15px;
-	font-family: SpeedeeK, Malgun Gothic,'맑은 고딕', 
-	Dotum,'돋움', Arial, sans-serif;
+	font-family: SpeedeeK, Malgun Gothic, '맑은 고딕', Dotum, '돋움', Arial,
+		sans-serif;
 	font-weight: bold;
-	background-color:transparent;
+	background-color: transparent;
 }
+
 #map {
-	margin : 5px;
+	margin: 5px;
 	height: 800px;
-	width:80%;
-	border-radius : 5px 5px 5px 5px;
+	width: 1350px;
+	border-radius: 5px 5px 5px 5px;
+	display: inline-block
 }
-@media (max-width: 792px) {
-	#map {
-        width: 450px;
-        height: 350px;
-      }
+
+.storePlace {
+	margin: 5px;
+	border-radius: 5px 5px 5px 5px;
+	display: inline-block
+}
+
+table {
+	width: 1350px;
+	border-top: 3px solid #444444;
+	border-bottom: 3px solid #444444;
+	border-collapse: collapse;
+}
+
+th, td {
+	border-bottom: 1px solid #444444;
+	padding: 30px;
+	font-family: SpeedeeK, Malgun Gothic, '맑은 고딕', Dotum, '돋움', Arial,
+		sans-serif;
+}
+th {
+	font-weight: 900;
+}
+.frontFont {
+	margin : 20px;
+	padding : 20px;
+	font-size: 50px;
+	font-family: 'Do Hyeon', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 3px solid black;
+}
+@media ( max-width : 792px) {
+	#map, table {
+		width: 450px;
+		height: 350px;
+		text-align: center;
+		font-size: 5px;
+	}
 }

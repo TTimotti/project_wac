@@ -4,6 +4,11 @@
 	layout:decorate="~{ /layout/basic-layout }">
 <th:block layout:fragment="css">
 	<link rel="stylesheet" th:href="@{/css/store.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+		rel="stylesheet">
 </th:block>
 <div layout:fragment="content">
 	<div class=storebanner>
@@ -16,8 +21,34 @@
 			</ul>
 		</div>
 	</div>
-	<div class="storeContainer">
+	<div class="frontFont">
+		<h1>Wacdonald 매장 안내</h1>
+	</div>
+	<div class ="storeContainer">
 		<div id="map"></div>
+	</div>
+	<div class="storeContainer2">
+		<div class="storePlace">
+		<table>
+			<thead>
+				<tr>
+					<th>매장명/주소</th>
+					<th>전화번호</th>
+					<th>영업시간</th>
+					<th>이용가능 서비스</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>테스트매장</td>
+					<td>02-1234-1234</td>
+					<td>07:30 ~ 21:30</td>
+					<td>딜리버리,드라이브쓰루</td>
+				<tr>
+			</tbody>
+			
+		</table>
+		</div>
 	</div>
 </div>
 <th:block layout:fragment="script">
