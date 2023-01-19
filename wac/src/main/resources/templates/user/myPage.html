@@ -44,14 +44,14 @@
                     type="text" id="gender" name="gender"
                     th:value="${ user.gender }" readonly />
             </div>
-            <div class="my-2">
+            <div>
                 <a
                     th:href="@{ /user/update?userId={userId} (userId = ${ user.userId }) }">수정하기</a>
             </div>
         </form>
     </div>
 </div>
-<script layout:fragment="script" th:inline="javaScript">
-	
-</script>
+<th:block layout:fragment="script" th:inline="javaScript">
+
+</th:block>
 </html>

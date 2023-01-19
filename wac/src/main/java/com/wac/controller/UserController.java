@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wac.domain.User;
+import com.wac.dto.PasswordChangeDto;
 import com.wac.dto.UserCreateDto;
 import com.wac.dto.UserUpdateDto;
 import com.wac.service.UserService;
@@ -85,11 +86,10 @@ public class UserController {
         log.info("mypage(id = {})", userId);
         User user = userService.read(userId);
         model.addAttribute("user", user);
-
     }
     
     /**
-     * 개인정보 병경을 위한 update 페이지
+     * 개인정보 변경을 위한 update 페이지
      * @param : user Id 값을 입력받음
      * return : user Id와 일치하는 계정을 가진 개인정보 변경 페이지로 이동
      * 작성자 : 이존규
@@ -116,13 +116,40 @@ public class UserController {
         Integer userId = userService.update(dto);
         
         log.info("updated user id = {}", userId);
-        return "redirect:/user/myPage?userId=" + dto.getUserId();
+        return "redirect:/user/myPage?userId=" + dto.getUserId(); 
     }
 
+    /**
+     * 회원 탈퇴 기능
+     */
+    @PostMapping("/delete")
+    public String delete(Integer userId) {
+        log.info("delete //  user id = {}", userId);
+        
+        return "redirect:/";
+    }
+
+    /**
+     * 비밀번호 변경 기능 (GET)
+     */
+    @GetMapping("/passwordChange")
+    public void passwordChange(Integer userId, Model model) {
+        log.info("password Change // user id = {}", userId);
+        
+        User user = userService.read(userId);
+        
+        model.addAttribute(user);
+        
+    }
     
-    @GetMapping("/wth")
-    public void wth() {
-        log.info("wac - sign Up");
+    /**
+     * 비밀번호 변경 기능 (POST)
+     * @param dto 입력받은 값을 UserUpadateDto 형태로 입력받음
+     * @return
+     */
+    @PostMapping("/passwordChange")
+    public String passwordChangePost(PasswordChangeDto dto) {
+        log.info("password ChangeDto(dto) = {}", dto);
+        return "redirect:/";
     }
-
-}
+} 
