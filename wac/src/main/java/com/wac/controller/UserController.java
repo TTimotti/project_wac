@@ -114,8 +114,15 @@ public class UserController {
     public String updatePost(UserUpdateDto dto) {
         log.info("updateDto(dto) ={}", dto);
         Integer userId = userService.update(dto);
-
+        
+        log.info("updated user id = {}", userId);
         return "redirect:/user/myPage?userId=" + dto.getUserId();
+    }
+
+    
+    @GetMapping("/wth")
+    public void wth() {
+        log.info("wac - sign Up");
     }
 
 }

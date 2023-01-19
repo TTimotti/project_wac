@@ -51,36 +51,28 @@
                         <option value="여자">여자</option>
                     </select>
                 </div>
+                <div>
+                    <div>
+                        <button id="btnUpdate">수정하기</button>
+                    </div>
+                    <div>
+                        <button id="btnCancel">뒤로가기</button>
+                    </div>
+                    <div>
+                        <button id="btnPasswordChange">비밀번호 변경</button>
+                    </div>
+                    <div>
+                        <button id="btnDeleteUser">회원 탈퇴</button>
+                    </div>
+                </div>
             </form>
-            <div class="row">
-                <div class="my-2 col-3">
-                    <button
-                        class="form-control btn btn-outline-success disabled"
-                        id="btnUpdate">수정하기</button>
-                </div>
-                <div class="my-2 col-3">
-                    <button
-                        class="form-control btn btn-outline-warning "
-                        id="btnCancel">뒤로가기</button>
-                </div>
-                <div class="my-2 col-3">
-                    <button
-                        class="form-control btn btn-outline-primary disabled"
-                        id="btnPasswordChange">비밀번호 변경</button>
-                </div>
-                <div class="my-2 col-3">
-                    <button
-                        class="form-control btn btn-outline-danger disabled"
-                        id="btnDeleteUser">회원 탈퇴</button>
-                </div>
-            </div>
 
         </div>
 
     </div>
 </div>
 <!-- end content -->
+<script th:src=" @{ /js/userUpdate.js}"></script>
 <script layout:fragment="script" th:inline="javaScript">
-	
 </script>
 </html>
