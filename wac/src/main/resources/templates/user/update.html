@@ -53,16 +53,16 @@
                 </div>
                 <div>
                     <div>
-                        <button id="btnUpdate">수정하기</button>
+                        <button type="button" id="btnUpdate" >수정하기</button>
                     </div>
                     <div>
-                        <button id="btnCancel">뒤로가기</button>
+                        <button type="button" id="btnCancel" >뒤로가기</button>
                     </div>
                     <div>
-                        <button id="btnPasswordChange">비밀번호 변경</button>
+                        <button type="button" id="btnPasswordChange" th:onclick="'location.href=\'' + @{/user/passwordChange?userId={userId} (userId = ${ user.userId })} + '\''">비밀번호 변경</button>
                     </div>
                     <div>
-                        <button id="btnDeleteUser">회원 탈퇴</button>
+                        <button type="button" id="btnDeleteUser" >회원 탈퇴</button>
                     </div>
                 </div>
             </form>
@@ -72,7 +72,7 @@
     </div>
 </div>
 <!-- end content -->
-<script th:src=" @{ /js/userUpdate.js}"></script>
-<script layout:fragment="script" th:inline="javaScript">
-</script>
+<th:block layout:fragment="script" th:inline="javaScript">
+<script th:src=" @{/script/userUpdate.js}"></script>
+</th:block>
 </html>
