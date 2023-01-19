@@ -28,7 +28,7 @@
           	<div class="signList" >
           		<th:block sec:authorize="isAnonymous()">
           			<a class="signInBtn" href="">Login</a>
-          			<a class="signUpBtn" href="">Sign Up</a>
+          			<a class="signUpBtn" th:href="@{user/signUp}">Sign Up</a>
           		</th:block>
           		<th:block sec:authorize="isAuthenticated()"> 
           			<a class="signOutBtn d-none" href="">Logout</a>
