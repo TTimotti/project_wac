@@ -4,9 +4,9 @@
     layout:decorate="~{ /layout/basic-layout }">
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/mainPage.css}">
-    <script src="https://kit.fontawesome.com/df851af08f.js" crossorigin="anonymous"></script>
+    
 </th:block>
-<div layout:fragment="content">
+<div layout:fragment="content" class="content">
     <div class="mainContainer">
    		<div id="banner">
    			<a href="#" class="bannerBtn prev" id="prevBtn"><i class="fa-solid fa-caret-left fa-4x"></i></a>		
@@ -16,4 +16,10 @@
 	</div>
 </div>
 <script layout:fragment="script" th:inline="javascript"></script>
+<th:block layout:fragment="script">	
+	<script src="https://kit.fontawesome.com/df851af08f.js" crossorigin="anonymous"></script>
+    <script th:src="@{/script/mainPage.js}"></script>
+</th:block>
+
+
 </html>
