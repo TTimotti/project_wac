@@ -122,7 +122,7 @@ public class UserController {
     }
 
     /**
-     * 회원 탈퇴 기능
+     * 회원 탈퇴 기능 (미작성)
      */
     @PostMapping("/delete")
     public String delete(Integer userId) {
@@ -132,7 +132,7 @@ public class UserController {
     }
 
     /**
-     * 비밀번호 변경 기능 (GET)
+     * 비밀번호 변경 기능 (GET),  (미작성)
      */
     @GetMapping("/passwordChange")
     public void passwordChange(Integer userId, Model model) {
@@ -145,9 +145,10 @@ public class UserController {
     }
     
     /**
-     * 비밀번호 변경 기능 (POST)
+     * 비밀번호 변경 기능 (POST) (미작성)
      * @param dto 입력받은 값을 UserUpadateDto 형태로 입력받음
      * @return
+     * @author 이존규
      */
     @PostMapping("/passwordChange")
     public String passwordChangePost(PasswordChangeDto dto) {
@@ -161,6 +162,7 @@ public class UserController {
      * @param userId 정보 변경/ 삭제를 원하는 유저의 ID값
      * @param password 유저가 입력한 비밓번호 값
      * @return
+     * @author 이존규
      */
     @GetMapping("/checkpw")
     @ResponseBody

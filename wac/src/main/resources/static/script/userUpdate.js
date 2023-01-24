@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     })
 
-    // 비밀번호 확인 기능 (입력한 두 비밀번호가 일치 하는지, 하지 않는지)
+    // 비밀번호 확인 기능 (입력한 비밀번호가 DB에 저장된 값과 일치하는지)
     const password = document.querySelector('#password');
     const passwordCheck = document.querySelector('#passwordCheck');
     const pcheck = document.getElementById("pcheck");
@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', function() {
             
 
     });
-
+    // 비밀번호 확인 기능 (입력한 두 비밀번호가 일치 하는지)
     passwordCheck.addEventListener('change', function() {
 
         const pokDiv = document.querySelector('#pok');

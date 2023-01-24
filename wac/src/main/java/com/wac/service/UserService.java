@@ -55,8 +55,9 @@ public class UserService {
     }
     
     /**
-     * 
-     * @return
+     * 모든 User의 정보를 return
+     * @return 모든 User의 정보
+     * @author 이존규
      */
     @Transactional(readOnly = true)
     public List<User> read() {
@@ -66,9 +67,9 @@ public class UserService {
     }
     
     /**
-     * 
-     * @param dto
-     * @return
+     * 입력받은 Email, Phone, Address, Gender, Age정보를 해당하는 ID의 유저의 기존 정보에 덮어씌움
+     * @param userId, email, phone, address, gender, age 정보를 담은 dto
+     * @return 최신화 된 유저의 Id값
      */
     @Transactional
     public Integer update(UserUpdateDto dto) {
@@ -82,10 +83,11 @@ public class UserService {
     }
     
     /**
-     * 
-     * @param userId
-     * @param password
-     * @return
+     * 입력받은 2개의 비밀번호를 확인
+     * @param userId 입력받은 유저의 id값
+     * @param password 입력받은 비밀번호 값
+     * @return DB에 저장된 userId와 일치하는 password 값을 일치하면 ok, 일치하지 않으면 nok를 return
+     * @author 이존규
      */
     public String checkPw(Integer userId, String password) {
 
@@ -115,7 +117,8 @@ public class UserService {
      * 2개의 비밀번호를 비교하여 일치하면 true, 불일치하면 false를 return
      * @param password DB에 저장된 유저의 암호화 된 비밀번호
      * @param password2 유저가 입력한 비밀번호를 암호화한 값
-     * @return
+     * @return 2개의 비밀번호를 비교하여 일치하면 true, 불일치하면 false를 return
+     * @author 이존규
      */
 	public boolean confirm(String password, String password2) {
 		return passwordEncoder.matches(password, password2);
