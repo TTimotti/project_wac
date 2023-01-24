@@ -65,7 +65,11 @@ public class UserService {
         return userRepository.findByOrderByUserIdDesc();
     }
     
-    
+    /**
+     * 
+     * @param dto
+     * @return
+     */
     @Transactional
     public Integer update(UserUpdateDto dto) {
         log.info("user update (dto) ={}",dto);
@@ -76,5 +80,45 @@ public class UserService {
         
         return entity.getUserId();
     }
+    
+    /**
+     * 
+     * @param userId
+     * @param password
+     * @return
+     */
+    public String checkPw(Integer userId, String password) {
 
+		log.info("checkPw userid = {} password = {}", userId, password);
+		
+		User user = userRepository.findById(userId).get();
+		
+		log.info("ckpw user = {}", user);
+		String enCodingPw = user.getUserPassword();
+		
+		log.info(enCodingPw);
+		
+		Boolean confirm = confirm(password, enCodingPw);
+		
+		
+		log.info("confirm = {}", confirm);
+		
+		if (confirm == true) {
+			return "ok";
+		} else {
+			return "nok";
+		}
+	
+	}
+	
+    /**
+     * 2개의 비밀번호를 비교하여 일치하면 true, 불일치하면 false를 return
+     * @param password DB에 저장된 유저의 암호화 된 비밀번호
+     * @param password2 유저가 입력한 비밀번호를 암호화한 값
+     * @return
+     */
+	public boolean confirm(String password, String password2) {
+		return passwordEncoder.matches(password, password2);
+	}
+    
 }
