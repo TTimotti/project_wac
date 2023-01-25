@@ -65,16 +65,16 @@
                 </div>
                 <div>
                     <div>
-                        <button type="button" id="btnUpdate" >수정하기</button>
+                        <button type="button" id="btnUpdate" disabled="disabled">수정하기</button>
                     </div>
                     <div>
-                        <button type="button" id="btnCancel" >뒤로가기</button>
+                        <button type="button" id="btnCancel">뒤로가기</button>
                     </div>
                     <div>
-                        <button type="button" id="btnPasswordChange" th:onclick="'location.href=\'' + @{/user/passwordChange?userId={userId} (userId = ${ user.userId })} + '\''">비밀번호 변경</button>
+                        <button type="button" id="btnPasswordChange" disabled="disabled" th:onclick="'location.href=\'' + @{/user/passwordChange?userId={userId} (userId = ${ user.userId })} + '\''">비밀번호 변경</button>
                     </div>
                     <div>
-                        <button type="button" id="btnDeleteUser" >회원 탈퇴</button>
+                        <button type="button" id="btnDeleteUser" disabled="disabled" >회원 탈퇴</button>
                     </div>
                 </div>
             </form>
