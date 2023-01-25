@@ -10,15 +10,25 @@ window.addEventListener('DOMContentLoaded', function() {
 
     const pokDiv = document.querySelector('#pok');
     const pnokDiv = document.querySelector('#pnok');
+
+    const btnCreate = document.getElementById('btnCreate')
+
     passwordCheck.addEventListener('change', function() {
 
         if (password.value == passwordCheck.value) {
             pokDiv.style.display = "block";
             pnokDiv.style.display = "none";
+            btnCreate.disabled = false;
+            
+            if (idnokDiv.style.display == "block") {
+                btnCreate.disabled = true;
+            }
+
 
         } else {
             pokDiv.style.display = "none";
             pnokDiv.style.display = "block";
+            btnCreate.disabled = true;
         }
 
     });
@@ -27,13 +37,20 @@ window.addEventListener('DOMContentLoaded', function() {
         if (password.value == passwordCheck.value) {
             pokDiv.style.display = "block";
             pnokDiv.style.display = "none";
+            btnCreate.disabled = false;
+
+            if (idnokDiv.style.display == "block") {
+                btnCreate.disabled = true;
+            }
 
         } else {
             pokDiv.style.display = "none";
             pnokDiv.style.display = "block";
+            btnCreate.disabled = true;
         }
 
     });
+
     // 아이디 중복확인 
     const usernameInput = document.querySelector('#userName');
     const idokDiv = document.querySelector('#idok');
@@ -51,9 +68,18 @@ window.addEventListener('DOMContentLoaded', function() {
         if (data == 'ok') {
             idokDiv.style.display = "block";
             idnokDiv.style.display = "none";
+            btnCreate.disabled = false;
+
+            if (password.value != passwordCheck.value) {
+                btnCreate.disabled = true;
+            }
+
         } else {
+
             idokDiv.style.display = "none";
             idnokDiv.style.display = "block";
+            btnCreate.disabled = true;
+
         }
 
     }
