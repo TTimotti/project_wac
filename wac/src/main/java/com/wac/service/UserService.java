@@ -1,6 +1,7 @@
 package com.wac.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -124,4 +125,20 @@ public class UserService {
 		return passwordEncoder.matches(password, password2);
 	}
     
+	/**
+	 * 기존에 입력받은 Id 값으로 DB에서 검색.
+	 * @param userName 입력받은 ID값
+	 * @return 일치하는 ID가 있으면 nok, 일치하는 ID가 없으면 ok를 return
+	 */
+    public String checkUsername(String userName) {
+        log.info("checkUsername(username={})", userName);
+
+        Optional<User> result = userRepository.findByUserName(userName);
+        if (result.isPresent()) { // username이 일치하는 생성된 객체가 존재하는 경우.
+            return "nok";
+        } else { // username이 일치하는 생성된 객체가 존재하지 않는 경우.
+            return "ok";
+        }
+    }
+	
 }

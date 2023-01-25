@@ -173,5 +173,19 @@ public class UserController {
 
         return ResponseEntity.ok(result);
     }
-    
+    /**
+     * ID 중복 확인 기능
+     * ID로 입력한 값이 DB에 저장된 아이디와 일치하는지 확인하는 기능.
+     * @param userName 입력받은 userName값
+     * @return userName과 일치하는 ID가 DB에 있으면 nok, 없으면 ok를 return
+     */
+    @GetMapping("/checkid")
+    @ResponseBody // 컨트롤러 메서드가 리턴하는 값이 뷰의 이름이 아니라 클라이언트로 직접 전송되는 데이터인 경우 사용
+    public ResponseEntity<String> checkUsername(String userName) {
+        log.info("checkUserName() = {}", userName);
+
+        String result = userService.checkUsername(userName);
+
+        return ResponseEntity.ok(result);
+    }
 } 

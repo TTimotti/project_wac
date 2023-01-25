@@ -75,11 +75,11 @@ window.addEventListener('DOMContentLoaded', function() {
             
 
     });
+    
     // 비밀번호 확인 기능 (입력한 두 비밀번호가 일치 하는지)
-    passwordCheck.addEventListener('change', function() {
-
         const pokDiv = document.querySelector('#pok');
         const pnokDiv = document.querySelector('#pnok');
+    passwordCheck.addEventListener('change', function() {
 
         if (password.value == passwordCheck.value) {
             pokDiv.style.display = "block";

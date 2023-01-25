@@ -13,6 +13,12 @@
                 <label for="userName">아이디</label>
                 <input type="text" id = "userName" name ="userName" required autofocus>
             </div>
+            <div  id="idok" style="display: none">
+                <p >사용 가능한 아이디입니다.</p>
+            </div>
+            <div id="idnok" style="display: none">
+                <p >사용이 불가능한 아이디입니다.</p>
+            </div>
             <div>
                 <label for="userPassword">비밀번호</label>
                 <input type = "password" id ="userPassword" name = "userPassword" required>
@@ -21,6 +27,12 @@
                 <label for="userPasswordCheck">비밀번호 확인</label>
                 <input type = "password" id ="userPasswordCheck" name = "userPasswordCheck" required>
             </div>
+            <div  id="pok" style="display: none">
+                <p >비밀번호가 확인 되었습니다.</p>
+            </div>
+            <div  id="pnok" style="display: none">
+                <p>비밀번호가 서로 다릅니다.</p>
+             </div>
             <div>
                 <label for="age">나이</label>
                 <input type="number" id = "age" name ="age" required>
@@ -53,6 +65,7 @@
 </div>
 
 <th:block layout:fragment="script" th:inline="javaScript">
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script th:src=" @{/script/userSignUp.js}"></script>
 </th:block>
 </html>
