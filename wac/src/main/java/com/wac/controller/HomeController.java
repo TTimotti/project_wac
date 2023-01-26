@@ -27,16 +27,7 @@ public class HomeController {
 		log.info("menu() 호출");
 		return "/menu/menu";
 	}
-	
-	/**
-	 *  Store 페이지
-	 * 생성자 : 장민석
-	 */
-	@GetMapping("/store")
-	public String store() {
-		log.info("store()");
-		return "/store/store";
-	}
+
 	
 	/**
 	 *   주문 페이지
