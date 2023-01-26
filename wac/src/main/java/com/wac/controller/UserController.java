@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.wac.domain.User;
 import com.wac.dto.PasswordChangeDto;
 import com.wac.dto.UserCreateDto;
-import com.wac.dto.UserSignInDto;
 import com.wac.dto.UserUpdateDto;
 import com.wac.service.UserService;
 
@@ -204,5 +203,4 @@ public class UserController {
         log.info("1");
     }
 
-    
 } 

@@ -41,4 +41,6 @@ public class Store extends BaseTimeEntity {
     
     @Column(name = "store_time")
     private String storeTime;
+    
+    
 }
