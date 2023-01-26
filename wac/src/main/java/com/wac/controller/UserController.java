@@ -201,15 +201,13 @@ public class UserController {
         log.info("wac - signIn");
     }
     
-<<<<<<< HEAD
+
 //    @PostMapping("/signIn")
 //    public String signIn(UserSignInDto dto) {
 //        log.info("signIn dto = {}", dto);
 //        
 //        return "redirect:/";
 //    }
-=======
 
->>>>>>> branch 'master' of https://github.com/TTimotti/project_wac.git
     
 } 
