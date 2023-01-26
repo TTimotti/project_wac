@@ -122,17 +122,19 @@ public class UserController {
     }
 
     /**
-     * 회원 탈퇴 기능 (미작성)
+     * 회원 탈퇴 기능 
      */
     @PostMapping("/delete")
     public String delete(Integer userId) {
         log.info("delete //  user id = {}", userId);
         
+        Integer result = userService.delete(userId);
+        
         return "redirect:/";
     }
 
     /**
-     * 비밀번호 변경 기능 (GET),  (미작성)
+     * 비밀번호 변경 기능 (GET)
      */
     @GetMapping("/passwordChange")
     public void passwordChange(Integer userId, Model model) {
@@ -153,7 +155,12 @@ public class UserController {
     @PostMapping("/passwordChange")
     public String passwordChangePost(PasswordChangeDto dto) {
         log.info("password ChangeDto(dto) = {}", dto);
-        return "redirect:/";
+        
+        User user = userService.read(dto.getUserId());
+        
+        Integer result = userService.passwordChange(dto);
+                
+        return "redirect:/user/myPage?userId=" + dto.getUserId();
     }
     
     /**

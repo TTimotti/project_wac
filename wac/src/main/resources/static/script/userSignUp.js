@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', function() {
             pokDiv.style.display = "block";
             pnokDiv.style.display = "none";
             btnCreate.disabled = false;
-            
+
             if (idnokDiv.style.display == "block") {
                 btnCreate.disabled = true;
             }
@@ -83,4 +83,19 @@ window.addEventListener('DOMContentLoaded', function() {
         }
 
     }
+
+    // 주소 찾기 기능
+    const btnAddress = document.querySelector('#btnAddress');
+
+    btnAddress.addEventListener('click', function() {
+        
+        new daum.Postcode({
+            oncomplete: function(data) {
+                document.getElementById("address").value = data.address; // 주소 넣기
+                document.querySelector('#address2').focus(); //상세입력 포커싱
+            }
+
+        }).open();
+    });
+
 });
