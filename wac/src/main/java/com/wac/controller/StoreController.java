@@ -15,20 +15,18 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * Store 페이지 컨트롤러
  * @author 장민석
- *
  */
 
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-
 public class StoreController {
 	
 	private final StoreService storeService;
 	
 	/**
 	 *  Store 페이지
-	 * 생성자 : 장민석
+	 * @author 장민석
 	 */
 	@GetMapping("/store")
 	public String store(Model model) {
