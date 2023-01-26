@@ -5,9 +5,10 @@
 
 
 window.addEventListener('DOMContentLoaded', function() {
-    const userId = document.querySelector('#userId')
+    const userId = document.querySelector('#userId');
     const userIdValue = userId.value;
-
+    const formUpdate = document.querySelector('#formUpdate');
+    
     // 뒤로가기 버튼
     const btnCancel = document.querySelector('#btnCancel');
     btnCancel.addEventListener('click', function() {

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wac.domain.User;
+import com.wac.dto.PasswordChangeDto;
 import com.wac.dto.UserCreateDto;
 import com.wac.dto.UserUpdateDto;
 import com.wac.repository.UserRepository;
@@ -141,4 +142,27 @@ public class UserService {
         }
     }
 	
+    /**
+     * 비밀번호 변경 기능
+     * 입력받은 password를 기존의 password와 변경
+     * @param dto 변경하고자 하는 user id, password
+     * @return
+     */
+    @Transactional
+    public Integer passwordChange(PasswordChangeDto dto) {
+        log.info("password change service dto = {}", dto);
+        
+        dto.setChangePassword(passwordEncoder.encode(dto.getChangePassword()));
+        
+        User entity = userRepository.findById(dto.getUserId()).get();
+        
+        log.info("before change ={}", entity.getUserPassword());
+        
+        entity.passwordChange(dto.getChangePassword());
+        
+        log.info("after change = {}", entity.getUserPassword());
+        
+        return dto.getUserId();
+    }
+    
 }
