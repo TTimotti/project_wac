@@ -62,9 +62,19 @@ public class HomeController {
 	 *  What`s News 페이지
 	 *  생성자 : 장민석
 	 */
-	@GetMapping("/whatNews")
+	@GetMapping("/news")
 	public String whats() {
 		log.info("whats()");
-		return "/whats";
+		return "/news/news";
 	}
+	
+	/**
+	 * 관리자가 프로모션이나 이벤트 작성하는 페이지 
+	 * @author: 추지훈
+	 */
+	@GetMapping("/admin")
+    public String newsAdmin() {
+        log.info("newsAdmin()");
+        return "/admin/admin";
+    }
 }
