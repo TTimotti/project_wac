@@ -3,6 +3,7 @@ package com.wac.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.wac.domain.User;
 import com.wac.dto.PasswordChangeDto;
 import com.wac.dto.UserCreateDto;
+import com.wac.dto.UserSignInDto;
 import com.wac.dto.UserUpdateDto;
 import com.wac.service.UserService;
 
@@ -28,7 +30,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
-    
+
+    private final PasswordEncoder passwordEncoder;
     private final UserService userService;
     
     /**
@@ -198,9 +201,8 @@ public class UserController {
     
     @GetMapping("/signIn")
     public void signIn() {
-        log.info("wac - signIn");
+        log.info("1");
     }
-    
 
     
 } 
