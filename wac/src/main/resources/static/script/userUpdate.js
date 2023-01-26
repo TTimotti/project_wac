@@ -68,9 +68,6 @@ window.addEventListener('DOMContentLoaded', function() {
                 btnDisable();
             }
 
-            if (pokDiv.style.display == "block") {
-                btnAble();
-            }
 
         } else {
             pinput.style.display = "block";
@@ -111,10 +108,14 @@ window.addEventListener('DOMContentLoaded', function() {
         console.log(data)
         if (data == 'ok') {
             pcheck.style.display = "none";
-            if (password.value != passwordCheck.value) {
+            if ((password.value == passwordCheck.value) & (password.value != "")) {
+                pok.style.display = "block";
+                pnok.style.display = "none";
+                btnAble();
             }
         } else {
             pcheck.style.display = "block";
+            btnDisable();
             if (password.value == '') {
                 pcheck.style.display = "none";
                 pinput.style.display = "block";
