@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.wac.domain.User;
 import com.wac.dto.PasswordChangeDto;
 import com.wac.dto.UserCreateDto;
+import com.wac.dto.UserSignInDto;
 import com.wac.dto.UserUpdateDto;
 import com.wac.service.UserService;
 
@@ -50,7 +51,7 @@ public class UserController {
         
         userService.createUser(dto);
         
-        return "redirect:/";
+        return "redirect:/user/signIn";
     }
     
     /**
@@ -195,4 +196,17 @@ public class UserController {
 
         return ResponseEntity.ok(result);
     }
+    
+    @GetMapping("/signIn")
+    public void signIn() {
+        log.info("wac - signIn");
+    }
+    
+    @PostMapping("/signIn")
+    public String signIn(UserSignInDto dto) {
+        log.info("signIn dto = {}", dto);
+        
+        return "redirect:/";
+    }
+    
 } 
