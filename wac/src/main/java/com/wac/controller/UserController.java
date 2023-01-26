@@ -122,11 +122,13 @@ public class UserController {
     }
 
     /**
-     * 회원 탈퇴 기능 (미작성)
+     * 회원 탈퇴 기능 
      */
     @PostMapping("/delete")
     public String delete(Integer userId) {
         log.info("delete //  user id = {}", userId);
+        
+        Integer result = userService.delete(userId);
         
         return "redirect:/";
     }
