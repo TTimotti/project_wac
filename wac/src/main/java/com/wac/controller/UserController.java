@@ -151,7 +151,7 @@ public class UserController {
 
         Users user = userService.read(userId);
 
-        model.addAttribute(user);
+        model.addAttribute("user", user);
 
     }
 
@@ -209,20 +209,7 @@ public class UserController {
 
     @GetMapping("/signIn")
     public void signIn() {
-        log.info("1");
+        log.info("wac - signIn");
     }
-<<<<<<< HEAD
 
-    
-
-    @PostMapping("/signIn")
-    public String signIn(UserSignInDto dto) {
-        log.info("signIn dto = {}", dto);
-        
-        return "redirect:/";
-    }
 }
-
-=======
-}
->>>>>>> branch 'master' of https://github.com/TTimotti/project_wac.git
