@@ -122,20 +122,22 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-
+    
+    // 버튼 활성화 함수
     function btnDisable() {
         btnUpdate.disabled = true;
         btnDelete.disabled = true;
         btnPasswordChange.disabled = true;
     }
 
+    // 버튼 비활성화 함수
     function btnAble() {
         btnUpdate.disabled = false;
         btnDelete.disabled = false;
         btnPasswordChange.disabled = false;
     }
     
-        // 로그인 유저 체크
+    // 로그인 유저 체크
     const ifDifferent = document.querySelector('#ifDifferent');
     const ifSame = document.querySelector('#ifSame');
     
@@ -148,5 +150,19 @@ window.addEventListener('DOMContentLoaded', function() {
         } else{
             ifDifferent.style.display="block";
         }
+
+    // 주소 찾기 기능
+    const btnAddress = document.querySelector('#btnAddress');
+
+    btnAddress.addEventListener('click', function() {
+
+        new daum.Postcode({
+            oncomplete: function(data) {
+                document.getElementById("address").value = data.address; // 주소 넣기
+                document.querySelector('#address2').focus(); //상세입력 포커싱
+            }
+
+        }).open();
+    });
 
 });

@@ -6,7 +6,7 @@
 <div layout:fragment="content">
 
         
-            <!-- 로그인 하지 않은 유저에게 보여지는 div -->
+        <!-- 로그인 하지 않은 유저에게 보여지는 div -->
         <th:block sec:authorize="isAnonymous()">
             <div id="ifNone" style="display: block">
                 <h1>비정상적인 접근입니다.</h1>
@@ -73,7 +73,12 @@
                 </div>
                 <div>
                     <label for="address">주소</label> 
-                    <input type="text" id="address" name="address" th:value="${ user.address }">
+                    <input type="text" id="address" name="address" th:value="${ user.address }" readonly="readonly">
+                    <button class="button" type="button" id="btnAddress">주소 찾기</button>
+                </div>
+                <div>
+                    <label for="address2">상세주소</label> 
+                    <input type="text" id="address2" name="address2">
                 </div>
                 <div>
                     <label for="email">이메일</label> 
@@ -119,5 +124,7 @@
                     const userName = [[ ${ user.userName }]];
 </script>
 <script th:src=" @{/script/userUpdate.js}"></script>
+    <script
+        src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </th:block>
 </html>

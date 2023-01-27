@@ -96,7 +96,9 @@ public class UserService {
         
         Users entity = userRepository.findById(dto.getUserId()).get();
         
-        entity.update(dto.getEmail(), dto.getPhone(), dto.getAddress(),dto.getGender(), dto.getAge());
+        Users u = dto.toEntity();
+        
+        entity.update(u.getEmail(), u.getPhone(), u.getAddress(), u.getGender(), u.getAge());
         
         return entity.getUserId();
     }
