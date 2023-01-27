@@ -9,16 +9,21 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import com.wac.domain.Users;
 
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+@ToString
 public class UserSecurityDto extends org.springframework.security.core.userdetails.User {
 
-    private String userName;
-    private String userPassword;
+    private String username;
+    private String password;
 
-    public UserSecurityDto(String userName, String userPassword, Collection<? extends GrantedAuthority> authorities) {
-        super(userName, userPassword, authorities);
+    public UserSecurityDto(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, authorities);
 
-        this.userName = userName;
-        this.userPassword = userPassword;
+        this.username = username;
+        this.password = password;
 
     }
 

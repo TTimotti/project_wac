@@ -20,4 +20,4 @@ public enum UserRole {
         return this.role;
     } 
     
-} 
+}  

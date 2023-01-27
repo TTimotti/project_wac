@@ -8,7 +8,6 @@
 <title>Wacdonaldo</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <th:block layout:fragment="css">
 
 </th:block>
@@ -20,16 +19,16 @@
         <h1>로그인 페이지</h1> 
     </div>
 
-    <section class="login-wrap">
+    <section>
         <form method="post" id="formSignIn">
-            <div class="login-id-wrap">
-                <input type = "text" id = "userName" placeholder="아이디를 입력하세요" name="userName">
+            <div >
+                <input type = "text" id = "userName" placeholder="아이디를 입력하세요" name="username">
             </div>
-            <div class="login-pw-wrap">
-                <input type = "password" id = "userPassword" placeholder="비밀번호를 입력하세요" name="userPassword">
+            <div >
+                <input type = "password" id = "userPassword" placeholder="비밀번호를 입력하세요" name="password">
             </div>
             <div>
-                <input class="login-btn-btn" type="submit" value="로그인" id="btnSignIn">                
+                <input type="submit" value="로그인" id="btnSignIn">
             </div>
         </form>
             <button type="button" id="btnPasswordChange" th:onclick="'location.href=\'' + @{/user/signUp} + '\''">회원가입</button>        
@@ -43,6 +42,5 @@
 <th:block layout:fragment="script" th:inline="javaScript">
 
 <script th:src=" @{/script/userSignIn.js}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </th:block>
 </html>
