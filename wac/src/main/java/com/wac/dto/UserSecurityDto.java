@@ -7,13 +7,8 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.wac.domain.User;
+import com.wac.domain.Users;
 
-import lombok.Getter;
-import lombok.ToString;
-
-@Getter
-@ToString
 public class UserSecurityDto extends org.springframework.security.core.userdetails.User {
 
     private String userName;
@@ -27,11 +22,13 @@ public class UserSecurityDto extends org.springframework.security.core.userdetai
 
     }
 
-    public static UserSecurityDto fromEntity(User u) {
-        List<GrantedAuthority> authorities = u.getRoles().stream().map(x -> new SimpleGrantedAuthority(x.getRole()))
+    public static UserSecurityDto fromEntity(Users u) {
+        List<GrantedAuthority> authorities = u.getRoles().stream()
+                .map(x -> new SimpleGrantedAuthority(x.getRole()))
                 .collect(Collectors.toList());
         
-        UserSecurityDto dto = new UserSecurityDto(u.getUserName(), u.getUserPassword(), authorities);
+        UserSecurityDto dto = new UserSecurityDto(u.getUserName(), 
+                u.getUserPassword(), authorities);
         
         return dto;
     }

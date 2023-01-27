@@ -1,6 +1,6 @@
 package com.wac.dto;
 
-import com.wac.domain.User;
+import com.wac.domain.Users;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,7 @@ public class PasswordChangeDto {
     
     private String changePassword;
     
-    public User toEntity() {
-        return User.builder().userId(userId).userPassword(changePassword).build();
+    public Users toEntity() {
+        return Users.builder().userId(userId).userPassword(changePassword).build();
     }
 }

@@ -29,16 +29,16 @@ import lombok.ToString;
  *
  */
 @Entity(name = "USERS")
-@SequenceGenerator(name = "USERA_SEQ_GEN", sequenceName = "USERA_SEQ", allocationSize = 1)
+@SequenceGenerator(name = "USERSA_SEQ_GEN", sequenceName = "USERSA_SEQ", allocationSize = 1)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Getter
 @ToString
-public class User extends BaseTimeEntity {
+public class Users extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERA_SEQ_GEN")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERSA_SEQ_GEN")
     private Integer userId; // 개인마다 고유한 번호 부여. => CRUD에 사용
 
     @Column(unique = true, nullable = false)
@@ -76,7 +76,7 @@ public class User extends BaseTimeEntity {
      * @return default = USER
      * @author 이존규
      */
-    public User addRole(UserRole role) {
+    public Users addRole(UserRole role) {
         roles.add(role);
 
         return this;
@@ -88,7 +88,7 @@ public class User extends BaseTimeEntity {
      * @return 기존의 값들을 변경할 값들로 바꿈
      * @author 이존규
      */
-    public User update(String email, String phone, String address, String gender, Integer age) {
+    public Users update(String email, String phone, String address, String gender, Integer age) {
         this.email = email;
         this.phone = phone;
         this.address = address;
@@ -104,7 +104,7 @@ public class User extends BaseTimeEntity {
      * @return 기존의 비밀번호를 변경할 비밀번호로 변경
      * @author 이존규
      */
-    public User passwordChange(String password) {
+    public Users passwordChange(String password) {
         this.userPassword = password;
         
         return this;

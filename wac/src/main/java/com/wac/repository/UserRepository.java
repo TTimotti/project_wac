@@ -6,14 +6,15 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.wac.domain.User;
+import com.wac.domain.Users;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<Users, Integer> {
 
-    List<User> findByOrderByUserIdDesc();
+    List<Users> findByOrderByUserIdDesc();
     
     // 사용자 로그인 아이디(UserName)가 일치하는 사용자 정보 검색
     @EntityGraph(attributePaths = "roles")
-    Optional<User> findByUserName(String userName);
+    Optional<Users> findByUserName(String userName);
 
+    Optional<Users> findByUserId(Integer userId);
 }

@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.wac.domain.User;
+import com.wac.domain.Users;
 import com.wac.dto.PasswordChangeDto;
 import com.wac.dto.UserCreateDto;
 import com.wac.dto.UserUpdateDto;
@@ -36,7 +36,7 @@ public class UserService {
      * @author 이존규
      */
     @Transactional(readOnly = true)
-    public List<User> read() {
+    public List<Users> read() {
         log.info("read all");
         
         return userRepository.findByOrderByUserIdDesc();
@@ -48,7 +48,7 @@ public class UserService {
      * @return User 객체
      */
     @Transactional(readOnly = true)
-    public User read(Integer userId) {
+    public Users read(Integer userId) {
         log.info("User read(userId = {})", userId);
         
         return userRepository.findById(userId).get();
@@ -59,10 +59,10 @@ public class UserService {
      * @param user Create에 필요한 정보를 dto로 형태로 입력받음
      * @return 입력받은 dto의 userPassword를 암호화 하여 user 생성.
      */
-    public User createUser(UserCreateDto dto) {
+    public Users createUser(UserCreateDto dto) {
         log.info("User Create(userCreate Dto = {})", dto);
         dto.setUserPassword(passwordEncoder.encode(dto.getUserPassword())); // 입력받은 비밀번호를 암호화
-        User entity = userRepository.save(dto.toEntity());
+        Users entity = userRepository.save(dto.toEntity());
         
         log.info("entity = {}", entity);
         
@@ -80,7 +80,7 @@ public class UserService {
     public Integer update(UserUpdateDto dto) {
         log.info("user update (dto) ={}",dto);
         
-        User entity = userRepository.findById(dto.getUserId()).get();
+        Users entity = userRepository.findById(dto.getUserId()).get();
         
         entity.update(dto.getEmail(), dto.getPhone(), dto.getAddress(),dto.getGender(), dto.getAge());
         
@@ -101,7 +101,7 @@ public class UserService {
         
         dto.setChangePassword(passwordEncoder.encode(dto.getChangePassword()));
         
-        User entity = userRepository.findById(dto.getUserId()).get();
+        Users entity = userRepository.findById(dto.getUserId()).get();
         
         log.info("before change ={}", entity.getUserPassword());
         
@@ -137,7 +137,7 @@ public class UserService {
 
         log.info("checkPw userid = {} password = {}", userId, password);
         
-        User user = userRepository.findById(userId).get();
+        Users user = userRepository.findById(userId).get();
         
         log.info("ckpw user = {}", user);
         String enCodingPw = user.getUserPassword();
@@ -176,7 +176,7 @@ public class UserService {
     public String checkUsername(String userName) {
         log.info("checkUsername(username={})", userName);
 
-        Optional<User> result = userRepository.findByUserName(userName);
+        Optional<Users> result = userRepository.findByUserName(userName);
         if (result.isPresent()) { // username이 일치하는 생성된 객체가 존재하는 경우.
             return "nok";
         } else { // username이 일치하는 생성된 객체가 존재하지 않는 경우.
