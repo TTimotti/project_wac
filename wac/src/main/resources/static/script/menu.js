@@ -2,21 +2,58 @@
  * menu.js
  * 추지훈
  */
-window.addEventListener('DOMContentLoaded', () => {
-    var kind;
+window.addEventListener('DOMContentLoaded', function() {
+    var kind = 1;
+    showMenuList(kind); 
+    const btnBuger = document.querySelector('#buger');
+    const btnMeal = document.querySelector('#meal');
+    const btnSide = document.querySelector('#side');
+    const btnDrink = document.querySelector('#drink');
+    const btnMorning = document.querySelector('#morning');
+    const btnMorningMeal = document.querySelector('#morningMeal');
     
-    const btnBuger = document.querySelector('#buger').value;
-    const btnMeal = document.querySelector('#meal').value;
-    const btnSide = document.querySelector('#side').value;
-    const btnDrink = document.querySelector('#drink').value;
-    const btnMorning = document.querySelector('#morning').value;
-    const btnMorningMeal = document.querySelector('#morningMeal').value;
+    console.log(btnBuger);
+    btnBuger.addEventListener("click", () => {
+        kind = 1;
+        console.log(kind);
+        showMenuList(kind);       
+    });
     
-    btnBuger.addEventListener('click')
+    console.log(btnMeal);
+    btnMeal.addEventListener("click", () => {
+        kind = 2;
+        console.log(kind);
+        showMenuList(kind);       
+    });
     
-    showMenuList(kind);
+    console.log(btnSide);
+    btnSide.addEventListener("click", () => {
+        kind = 3;
+        console.log(kind);
+        showMenuList(kind);       
+    });
     
-      
+    console.log(btnDrink);
+    btnDrink.addEventListener("click", () => {
+        kind = 4;
+        console.log(kind);
+        showMenuList(kind);       
+    });
+    
+    console.log(btnMorning);
+    btnMorning.addEventListener("click", () => {
+        kind = 5;
+        console.log(kind);
+        showMenuList(kind);       
+    });
+    
+    console.log(btnMorningMeal);
+    btnMorningMeal.addEventListener("click", () => {
+        kind = 6;
+        console.log(kind);
+        showMenuList(kind);       
+    });
+    
 
 function showMenuList(kind) {
     
