@@ -75,6 +75,11 @@ public class HomeController {
 	    return "/menuDetail";
 	}
 
+	/**
+	 * 로그인 페이지에서 아이디 혹은 비밀번호 오류 발생 시 안내 문구를 띄우기 위해서 이동시키는 페이지
+	 * @return
+	 * @author 이존규
+	 */
     @PostMapping("/signInErr") 
     public String signInErr() {
         log.info("signInErr() post 호출");
