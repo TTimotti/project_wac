@@ -4,11 +4,39 @@
     layout:decorate="~{ layout/basic-layout.html }">
 
 <div layout:fragment="content">
-    <div>
+
+        
+            <!-- 로그인 하지 않은 유저에게 보여지는 div -->
+        <th:block sec:authorize="isAnonymous()">
+            <div id="ifNone" style="display: block">
+                <h1>비정상적인 접근입니다.</h1>
+                <h1>로그인 혹은 회원가입 후 이용하세요</h1>
+                <button type="button" id="btnSignIn"
+                    th:onclick="'location.href=\'' + @{/user/signIn} + '\''">로그인</button>
+                <button type="button" id="btnSignUp"
+                    th:onclick="'location.href=\'' + @{/user/signUp} + '\''">회원가입</button>
+            </div>
+
+        </th:block>
+
+    <th:block sec:authorize="isAuthenticated()">
+
+        <!-- 로그인 정보가 다를 경우 보여지는 div -->
+        <div id="ifDifferent" style="display: none">
+            <h1>비정상적인 접근입니다.</h1>
+
+            <button type="button" id="btnMain"
+                th:onclick="'location.href=\'' + @{/} + '\''">Main</button>
+            <button type="button" id="btnMyPage"
+                th:onclick="'location.href=\'' + @{ /user/myPage?userName={userName} (userName = ${ #authentication.name }) } + '\''">My
+                page</button>
+        </div>
+
+        <!-- 로그인 정보와 회원 정보가 일치하는 경우 보여지는 div -->
+            <div  id="ifSame" style="display: none">
         <div>
             <h1>정보 수정 페이지</h1>
         </div>
-
         <div class="my-2">
             <form method="post" id="formUpdate">
                 <div>
@@ -78,14 +106,18 @@
                     </div>
                 </div>
             </form>
-
         </div>
-
+        </div>
+        </th:block>
+        
     </div>
-</div>
+
 <!-- end content -->
 <th:block layout:fragment="script" th:inline="javaScript">
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+                    const userName = [[ ${ user.userName }]];
+</script>
 <script th:src=" @{/script/userUpdate.js}"></script>
 </th:block>
 </html>

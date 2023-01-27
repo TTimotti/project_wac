@@ -103,6 +103,25 @@ window.addEventListener('DOMContentLoaded', function() {
 
     });
 
+    changePassword.addEventListener('change', function() {
+
+        if (changePassword.value == changePasswordCheck.value) {
+            pokDiv.style.display = "block";
+            pnokDiv.style.display = "none";
+
+            if ((pokDiv.style.display == "block") & (pcheck.style.display == "none")) {
+                btnAble();
+
+            }
+
+        } else {
+            pokDiv.style.display = "none";
+            pnokDiv.style.display = "block";
+            btnDisable();
+        }
+
+    });
+
 
     function btnDisable() {
         btnPasswordChange.disabled = true;
@@ -110,6 +129,20 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function btnAble() {
         btnPasswordChange.disabled = false;
+    }
+
+    // 로그인 유저 체크
+    const ifDifferent = document.querySelector('#ifDifferent');
+    const ifSame = document.querySelector('#ifSame');
+
+    console.log(loginUser);
+    console.log(userName);
+
+    if (userName == loginUser) {
+        ifSame.style.display = "block";
+
+    } else {
+        ifDifferent.style.display = "block";
     }
 
 });

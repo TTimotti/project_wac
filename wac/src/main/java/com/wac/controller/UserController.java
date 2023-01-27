@@ -151,7 +151,7 @@ public class UserController {
 
         Users user = userService.read(userId);
 
-        model.addAttribute(user);
+        model.addAttribute("user", user);
 
     }
 
@@ -209,7 +209,7 @@ public class UserController {
 
     @GetMapping("/signIn")
     public void signIn() {
-        log.info("1");
+        log.info("wac - signIn");
     }
 
 }
