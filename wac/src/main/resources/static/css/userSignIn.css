@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 .signIn_head {
+    border: 1px solid grean;
     vertical-align: top;
-    background-repeat: no-repeat;
     text-align: center;
     font-size: 25px;
 }
@@ -23,6 +23,7 @@
     width: 100%;
     padding: 14px 17px 13px;
     box-sizing: border-box;
+    
 }
 
 .input_text {

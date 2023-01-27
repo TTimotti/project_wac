@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+.signUp_head {
+    vertical-align: top;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-size: 25px;
+
+}
+
+.signUp_panel {
+    border: 1px solid gray;
+    margin: 16px;
+    padding: 20px 20px;
+    text-align: inherit;
+}
+
+.btnCreate {
+
+    text-align: center;
+}
+
+.signUp.button {
+    text-align: center;
+}
+
+.inputs {
+    border: solid 1px green;
+    width: 100%;
+    padding: 14px 17px 13px;
+    box-sizing: border-box;
+    align-content: center;
+}
+
+.div_label {
+    width: 20%;
+}
+
+.inputs#address {
+    border: solid 1px green;
+    width: 80%;
+    padding: 14px 17px 13px;
+    box-sizing: border-box;
+    align-content: center;
+}
+
+.buttons {
+    
+}
+
+.button#btnAddress {
+    width: 19%;
+    padding: 13px 0 13px;
+    border-radius: 6px;
+    border: solid 1px white;
+    background-color: gray;
+    color: white;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+.button#btnAddress:hover {
+    width: 19%;
+    padding: 13px 0 13px;
+    border-radius: 6px;
+    border: solid 1px gray;
+    background-color: white;
+    color: gray;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+.button#btnCreate {
+    margin: 10px;
+    width: 50%;
+    padding: 13px 0 13px;
+    border-radius: 6px;
+    border: solid 1px white;
+    background-color: green;
+    color: white;
+    box-sizing: border-box;
+    font: inherit;
+    align-content: center;
+}
+
+.button#btnCreate:hover {
+    width: 50%;
+    padding: 13px 0 13px;
+    border-radius: 6px;
+    border: solid 1px green;
+    background-color: white;
+    color: green;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+.select_options {
+    font-size: 15px;
+}
