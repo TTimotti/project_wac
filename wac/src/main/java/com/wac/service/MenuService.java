@@ -34,6 +34,7 @@ public class MenuService {
         
         Menu menu = Menu.builder()
                 .menuName(dto.getMenuName())
+                .menuEnName(dto.getMenuEnName())
                 .kind(dto.getKind())
                 .content(dto.getContent())
                 .price(dto.getPrice())
