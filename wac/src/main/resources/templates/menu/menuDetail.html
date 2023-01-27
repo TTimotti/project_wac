@@ -32,7 +32,7 @@
                                 <div class="viewTop">
                                     <div class="name">
                                         <!-- thymeleaf로 가져오기. -->
-                                        <h2 class="ko">행운버거 골드 스페셜</h2>
+                                        <h2 class="ko" th:text="${menu.menuName}"></h2>
                                         <em class="en">Prosperity Burger GOLD Special</em>
                                     </div>
                                     
@@ -44,10 +44,7 @@
                                         </div>
                                         
                                         <!-- 설명 -->
-                                        <div class="desc">
-                                            행운버거 골드에 바삭한 해쉬브라운이 더해져~ 
-                                            <br/>
-                                            기분좋은 꽉 찬 맛!
+                                        <div class="desc" th:text="${menu.content}">
                                         </div>
                                         
                                         <!-- 화살 -->

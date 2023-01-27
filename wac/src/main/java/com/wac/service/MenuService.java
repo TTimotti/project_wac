@@ -49,4 +49,15 @@ public class MenuService {
         return menus;
     }
     
+    /**
+     * 메뉴 상세 페이지
+     * @param testId
+     * @author 서범수
+     * @return
+     */
+    public Menu readById(Integer testId) {
+        log.info("read(menuId={})", testId);
+        return menuRepository.findById(testId).get();
+    }
+    
 }
