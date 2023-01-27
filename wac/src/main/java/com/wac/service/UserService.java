@@ -27,6 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserService {
 
     private final PasswordEncoder passwordEncoder;
+    
     private final UserRepository userRepository;
 
     
@@ -61,6 +62,7 @@ public class UserService {
      */
     public Users createUser(UserCreateDto dto) {
         log.info("User Create(userCreate Dto = {})", dto);
+        
         dto.setUserPassword(passwordEncoder.encode(dto.getUserPassword())); // 입력받은 비밀번호를 암호화
         Users entity = userRepository.save(dto.toEntity());
         
