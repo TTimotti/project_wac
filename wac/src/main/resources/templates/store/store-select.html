@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{ /layout/basic-layout }">
+<th:block layout:fragment="css">
+	<link rel="stylesheet" th:href="@{/css/store-select.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+		rel="stylesheet">
+</th:block>
+<div layout:fragment="content">
+	<div class=storebanner>
+		<div class="inner">
+			<h1 class=storeFont>매장 선택</h1>
+			<ul class=navPath>
+				<li><a href="/">Home</a></li>
+				<li><a href="">Order</a></li>
+				<li><a href="">매장선택</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="frontFont">
+		<h1>주문 매장 선택 </h1>
+	</div>
+	<div class ="storeContainer">
+		<div id="map"></div>
+
+		<div class="storePlace">
+		<table>
+			<thead>
+				<tr>
+					<th>매장명</th>
+					<th>전화번호</th>
+					<th>영업시간</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="store : ${ storeInfo }">
+					<td th:text="${ store.storeName }"></td>
+					<td th:text="${ store.storePhone }"></td>
+					<td th:text="${ store.storeTime }"></td>
+				<tr>
+			</tbody>
+		</table>
+		</div>
+</div>
+</div>
+<th:block layout:fragment="script">
+	<!-- kakao -->
+	<script type="text/javascript"
+	     	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=abaecbd1f25256beda80cb6e2837cf2b&libraries=services"></script>
+	<script th:src="@{/script/store.js}"></script>
+</th:block>
+</html>

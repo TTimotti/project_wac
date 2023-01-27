@@ -6,19 +6,16 @@
 .storeContainer {
 	width: 100%;
 	text-align: center;
+	padding: 30px;
 	margin-bottom: 20px;
+	display: inline-block
 }
 
-.storeContainer2 {
-	width: 100%;
-	text-align: center;
-	margin-bottom: 20px;
-}
 
 .storebanner {
 	background-color: lightgray;
 	padding: 5px;
-	background-image: url('../img/storelogo.png');
+	background-image: url('../img/storeselect.png');
 	background-size: 100% 250px;
 }
 
@@ -68,10 +65,10 @@ a {
 
 #map {
 	margin: 5px;
-	height: 800px;
-	width: 1350px;
+	height: 600px;
+	width: 1000px;
 	border-radius: 5px 5px 5px 5px;
-	display: inline-block
+	float: left;
 }
 
 .storePlace {
@@ -81,7 +78,7 @@ a {
 }
 
 table {
-	width: 1350px;
+	width: 450px;
 	border-top: 3px solid #444444;
 	border-bottom: 3px solid #444444;
 	border-collapse: collapse;
