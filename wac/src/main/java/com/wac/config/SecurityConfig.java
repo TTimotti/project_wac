@@ -2,6 +2,7 @@ package com.wac.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -44,13 +45,7 @@ public class SecurityConfig {
         http.csrf().disable();
         
         // 로그인/ 로그아웃 관련 설정
-        http.formLogin()
-        .loginPage("/user/signIn")
-        .defaultSuccessUrl("/", true)
-        .failureForwardUrl("/signInErr");
-        
-        
-        http.logout() // 로그아웃 관련 설정 시작
+        http.formLogin(Customizer.withDefaults()).logout() // 로그아웃 관련 설정 시작
         .logoutSuccessUrl("/user/signIn"); // 로그아웃 성공 후 이동할 url
         
         // 특정 경로에 시큐리티 적용 : 권한을 가지고 있는 사용자만 접근할 수 있는 경로
