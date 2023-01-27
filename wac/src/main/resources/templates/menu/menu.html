@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{ /layout/basic-layout }">
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ /layout/basic-layout }">
     
 <title>Wacdonaldo</title>
 
@@ -41,12 +41,12 @@
             <div class="inner">
                 <ul class="tabType01">
 
-                    <li class="button buger" id="buger" th:value="1">버거</li>
-                    <li class="button meal" id="meal" th:value="2">세트메뉴</li>
-                    <li class="button side" id="side" th:value="3">사이드 & 디저트</li>
-                    <li class="button drink" id="drink" th:value="4">음료 & 카페</li>
-                    <li class="button morning" id="morning" th:value="5">맥모닝</li>
-                    <li class="button morningMeal" id="morningMeal" th:value="6">맥모닝 세트</li>
+                    <li class="button buger"><a class="btn form-control" id="buger">버거</a></li>
+                    <li class="button meal"><a id="meal">세트메뉴</a></li>
+                    <li class="button side"><a id="side">사이드 & 디저트</a></li>
+                    <li class="button drink"><a id="drink">음료 & 카페</a></li>
+                    <li class="button morning"><a id="morning">맥모닝</a></li>
+                    <li class="button morningMeal"><a id="morningMeal">맥모닝 세트</a></li>
 
                 </ul>
                 <div class="mcMenu">
@@ -118,7 +118,7 @@ function more(){
 }
 
 function goHome() {
-	alert("hello")
+    alert("hello")
 }
 
 </script>

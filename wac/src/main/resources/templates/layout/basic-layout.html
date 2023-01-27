@@ -31,7 +31,7 @@
           			<a class="signUpBtn" th:href="@{user/signUp}">Sign Up</a>
           		</th:block>
           		<th:block sec:authorize="isAuthenticated()"> 
-          			<a class="signOutBtn d-none" href="">Logout</a>
+          			<a class="signOutBtn" th:href="@{ /logout }">Logout</a>
           			<a class="myPageBtn" th:href="@{ /user/myPage?userName={userName} (userName = ${ #authentication.name }) }">My Page</a>
           		</th:block>
           	</div>
