@@ -5,8 +5,10 @@
 
 
 window.addEventListener('DOMContentLoaded', function() {
-    const userId = document.querySelector('#userId')
+    const userId = document.querySelector('#userId');
     const userIdValue = userId.value;
+    const formUpdate = document.querySelector('#formUpdate');
+    
     // 뒤로가기 버튼
     const btnCancel = document.querySelector('#btnCancel');
     btnCancel.addEventListener('click', function() {
@@ -19,10 +21,11 @@ window.addEventListener('DOMContentLoaded', function() {
 
     });
 
-    // 수정 완료 버튼 찾아서 이벤트 리스너 등록 TODO
+    // 수정 완료 버튼
     const btnUpdate = document.querySelector('#btnUpdate');
     btnUpdate.addEventListener('click', function() {
         const result = confirm('입력한 값으로 개인정보를 변경하겠습니까?');
+
         if (result) {
             formUpdate.action = '/user/update';
             formUpdate.method = 'post';
@@ -49,5 +52,87 @@ window.addEventListener('DOMContentLoaded', function() {
     btnPasswordChange.addEventListener('click', function() {
 
     })
+
+    // 비밀번호 확인 기능 (입력한 비밀번호가 DB에 저장된 값과 일치하는지)
+    const password = document.querySelector('#password');
+    const passwordCheck = document.querySelector('#passwordCheck');
+    const pcheck = document.getElementById("pcheck");
+    const pinput = document.getElementById("pinput");
+
+    password.addEventListener('change', function() {
+        if (password.value != '') {
+            pinput.style.display = "none";
+
+            if (password.value != passwordCheck.value) {
+                pcheck.style.display = "block";
+                btnDisable();
+            }
+
+
+        } else {
+            pinput.style.display = "block";
+            btnDisable();
+        }
+
+        axios.get('/user/checkpw?password=' + password.value + '&userId=' + userIdValue)
+            .then(response => { checkPwResult(response.data) })
+            .catch(err => { console.log(err) });
+
+
+    });
+
+    // 비밀번호 확인 기능 (입력한 두 비밀번호가 일치 하는지)
+    const pokDiv = document.querySelector('#pok');
+    const pnokDiv = document.querySelector('#pnok');
+
+    passwordCheck.addEventListener('change', function() {
+
+        if (password.value == passwordCheck.value) {
+            pokDiv.style.display = "block";
+            pnokDiv.style.display = "none";
+
+            if ((pokDiv.style.display == "block") & (pcheck.style.display == "none")) {
+                btnAble();
+            }
+
+        } else {
+            pokDiv.style.display = "none";
+            pnokDiv.style.display = "block";
+            btnDisable();
+        }
+
+    });
+
+    // 입력한 비밀번호와 DB에 저장된 비밀번호가 일치하는지에 대한 결과
+    function checkPwResult(data) {
+        console.log(data)
+        if (data == 'ok') {
+            pcheck.style.display = "none";
+            if ((password.value == passwordCheck.value) & (password.value != "")) {
+                pok.style.display = "block";
+                pnok.style.display = "none";
+                btnAble();
+            }
+        } else {
+            pcheck.style.display = "block";
+            btnDisable();
+            if (password.value == '') {
+                pcheck.style.display = "none";
+                pinput.style.display = "block";
+            }
+        }
+    }
+
+    function btnDisable() {
+        btnUpdate.disabled = true;
+        btnDelete.disabled = true;
+        btnPasswordChange.disabled = true;
+    }
+
+    function btnAble() {
+        btnUpdate.disabled = false;
+        btnDelete.disabled = false;
+        btnPasswordChange.disabled = false;
+    }
 
 });

@@ -23,9 +23,21 @@
                     <label for="password">비밀번호</label> 
                     <input type="password" id="password" name="password" />
                 </div>
+                <div id="pinput" style="display: block">
+                    <p>비밀번호를 입력해주세요.</p>
+                </div> 
+                <div id="pcheck" style="display: none">
+                    <p>비밀번호가 올바르지 않습니다..</p>
+                </div>      
                 <div>
-                    <label for="passwordcheck">비밀번호 확인</label> 
-                    <input type="password" id="passwordcheck" />
+                    <label for="passwordCheck">비밀번호 확인</label> 
+                    <input type="password" id="passwordCheck" />
+                </div>
+                <div  id="pok" style="display: none">
+                    <p >비밀번호가 서로 일치합니다.</p>
+                </div>
+                <div  id="pnok" style="display: none">
+                    <p>비밀번호가 서로 다릅니다.</p>
                 </div>
                 <div>
                     <label for="age">나이</label> 
@@ -53,16 +65,16 @@
                 </div>
                 <div>
                     <div>
-                        <button type="button" id="btnUpdate" >수정하기</button>
+                        <button type="button" id="btnUpdate" disabled="disabled">수정하기</button>
                     </div>
                     <div>
-                        <button type="button" id="btnCancel" >뒤로가기</button>
+                        <button type="button" id="btnCancel">뒤로가기</button>
                     </div>
                     <div>
-                        <button type="button" id="btnPasswordChange" th:onclick="'location.href=\'' + @{/user/passwordChange?userId={userId} (userId = ${ user.userId })} + '\''">비밀번호 변경</button>
+                        <button type="button" id="btnPasswordChange" disabled="disabled" th:onclick="'location.href=\'' + @{/user/passwordChange?userId={userId} (userId = ${ user.userId })} + '\''">비밀번호 변경</button>
                     </div>
                     <div>
-                        <button type="button" id="btnDeleteUser" >회원 탈퇴</button>
+                        <button type="button" id="btnDeleteUser" disabled="disabled" >회원 탈퇴</button>
                     </div>
                 </div>
             </form>
@@ -73,6 +85,7 @@
 </div>
 <!-- end content -->
 <th:block layout:fragment="script" th:inline="javaScript">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script th:src=" @{/script/userUpdate.js}"></script>
 </th:block>
 </html>

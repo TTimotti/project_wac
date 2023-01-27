@@ -32,18 +32,20 @@
 		<table>
 			<thead>
 				<tr>
-					<th>매장명/주소</th>
+					<th>매장명</th>
 					<th>전화번호</th>
+					<th>주소</th>
 					<th>영업시간</th>
 					<th>이용가능 서비스</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>테스트매장</td>
-					<td>02-1234-1234</td>
-					<td>07:30 ~ 21:30</td>
-					<td>딜리버리,드라이브쓰루</td>
+				<tr th:each="store : ${ storeInfo }">
+					<td th:text="${ store.storeName }"></td>
+					<td th:text="${ store.storePhone }"></td>
+					<td th:text="${ store.storeAddress }"></td>
+					<td th:text="${ store.storeTime }"></td>
+					<td th:text="${ store.drinkExplain }"></td>
 				<tr>
 			</tbody>
 		</table>

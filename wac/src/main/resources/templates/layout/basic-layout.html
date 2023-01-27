@@ -27,7 +27,7 @@
            	</div>         	
           	<div class="signList" >
           		<th:block sec:authorize="isAnonymous()">
-          			<a class="signInBtn" href="">Login</a>
+          			<a class="signInBtn" th:href="@{user/signIn}">Login</a>
           			<a class="signUpBtn" th:href="@{user/signUp}">Sign Up</a>
           		</th:block>
           		<th:block sec:authorize="isAuthenticated()"> 
@@ -44,8 +44,8 @@
             <div class="tInfo">
                 <ul class="info">
                     <li>아이티윌0410</li>
-                    <li>팀장: 김용훈</li>
-                    <li>팀원: 김지훈, 서범수, 이존규, 장민석, 추지훈</li>
+                    <li>팀장: 서범수</li>
+                    <li>팀원: 김지훈,이존규, 장민석, 추지훈</li>
                     <li>TEAM SBS</li>
                 </ul>
            </div>
