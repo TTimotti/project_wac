@@ -52,10 +52,18 @@
                                         <!-- 화살 -->
                                         <div class="other">
                                             <a href="javascript:goDetail(516);" class="arrow prev">
-                                                《
+                                                <span>《 </span>
+                                                <div class="img">
+                                                    <img src="https://www.mcdonalds.co.kr/upload/product/pcthum/1653436578916.png" alt="맥크리스피 클래식 버거"/>
+                                                </div>
+                                                <strong class="tit">맥크리스피™ 클래식 버거</strong>
                                             </a>
                                             <a href="javascript:goDetail(461);" class="arrow next">
-                                                》
+                                                <span> 》</span>
+                                                <div class="img">
+                                                    <img src="https://www.mcdonalds.co.kr/upload/product/pcthum/1583728346366.png" alt="맥스파이시® 상하이 버거" />
+                                                </div>
+                                                <strong class="tit">맥스파이시 상하이버거</strong>
                                             </a>
                                         </div>
                                       </div> <!-- info -->
@@ -67,7 +75,7 @@
                                 <div class="toggle">
                                     <h4 class="tit">영양정보</h4>
                                     <button type="button" aria-selected="false" aria-controls="toggle02" aria-expanded="false" value="+">
-                                    "영양정보 보기"
+                                    영양정보 보기
                                     </button>
                                     <!-- toggle 버튼 선택 시 aria-selected 값 true로 변경 / aria-expanded 값 true로 변경 -->
                                     <div id="toggle02" class="toggleCon" style="display: none;">
@@ -122,9 +130,9 @@
                                 <div class="toggle">
                                     <h4 class="tit">알레르기 정보</h4>
                                     <button type="button" aria-selected="false" aria-controls="toggle03" aria-expanded="false" value="+">
-                                    "알레르기 정보 보기"
+                                    알레르기 정보 보기
                                     </button>
-                                    <div id="toggle03" class="toggleCon">
+                                    <div id="toggle03" class="toggleCon" style="display: none;">
                                         <div class="allerDesc">
                                             <p>
                                                 <b>알레르기 유발 가능 식재료</b>
@@ -138,9 +146,9 @@
                                 <div class="toggle">
                                     <h4 class="tit">원산지 정보</h4>
                                     <button type="button" aria-selected="false" aria-controls="toggle04" aria-expanded="false" value="+">
-                                    "알레르기 정보 보기"
+                                    원산지 정보 보기
                                     </button>
-                                    <div id="toggle04" class="toggleCon">
+                                    <div id="toggle04" class="toggleCon" style="display: none;">
                                         <ul class="origin_info"> <li> 돼지고기: 미국산 </li></ul>
                                     </div>
                                 </div>
@@ -156,9 +164,7 @@
 <script layout:fragment="script" th:inline="javascript"></script>
 <th:block layout:fragment="script"> 
     <script th:src="@{/script/menuDetail.js}"></script>
-    <script>
-    
-    </script>
+
 
 </th:block>
 
