@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.wac.domain.User;
+import com.wac.domain.Users;
 import com.wac.dto.PasswordChangeDto;
 import com.wac.dto.UserCreateDto;
 import com.wac.dto.UserUpdateDto;
@@ -60,7 +60,7 @@ public class UserController {
     @GetMapping("/userList")
     public String signIn(Model model) {
         log.info("wac - userList");
-        List<User> list = userService.read();
+        List<Users> list = userService.read();
         model.addAttribute("list", list);
         return "/user/userList";
     }
@@ -73,7 +73,7 @@ public class UserController {
     @GetMapping("/myPage")
     public void myPage(Model model, Integer userId) {
         log.info("mypage(id = {})", userId);
-        User user = userService.read(userId);
+        Users user = userService.read(userId);
         model.addAttribute("user", user);
 
     }
@@ -86,7 +86,7 @@ public class UserController {
     @PostMapping("/myPage")
     public void myPagePOST(Model model, Integer userId) {
         log.info("mypage(id = {})", userId);
-        User user = userService.read(userId);
+        Users user = userService.read(userId);
         model.addAttribute("user", user);
     }
 
@@ -101,7 +101,7 @@ public class UserController {
     public void update(Integer userId, Model model) {
         log.info("update(id) id = {}", userId);
 
-        User user = userService.read(userId);
+        Users user = userService.read(userId);
         log.info("user = {}", user);
 
         model.addAttribute("user", user);
@@ -141,7 +141,7 @@ public class UserController {
     public void passwordChange(Integer userId, Model model) {
         log.info("password Change // user id = {}", userId);
 
-        User user = userService.read(userId);
+        Users user = userService.read(userId);
 
         model.addAttribute(user);
 
@@ -158,7 +158,7 @@ public class UserController {
     public String passwordChangePost(PasswordChangeDto dto) {
         log.info("password ChangeDto(dto) = {}", dto);
 
-        User user = userService.read(dto.getUserId());
+        Users user = userService.read(dto.getUserId());
 
         Integer result = userService.passwordChange(dto);
 
