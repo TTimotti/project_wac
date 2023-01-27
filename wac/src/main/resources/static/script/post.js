@@ -31,7 +31,7 @@ function showPostList(kind) {
 }
 
 function updatePostList(data) {
-    const divMenuList = document.querySelector('#posts');  
+    const divPostList = document.querySelector('#posts');  
 
     let str = '';
     for (let p of data) {
@@ -42,7 +42,7 @@ function updatePostList(data) {
         + '</div></a>'
         + '</li>';
     }
-    divMenuList.innerHTML = str;
+    divPostList.innerHTML = str;
 }
 
 });
