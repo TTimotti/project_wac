@@ -154,44 +154,38 @@ a {
     
     /* 화살표와 화살표:hover */
     
-    /* 화살표 디자인 */
+    /* 화살표 DIV */
     .menuView .viewTop .info .other .arrow {
         position: absolute;
         top: 150px;
         min-width: 85px;
-        height: 80px;
-        padding: 10px;
+        height: 85px;
+        padding: 5px;
         border-radius: 110px;
         background: #ffbc0d;
     }
-    
-    /* 화살표 디자인:hover */
-    .menuView .viewTop .info .other .arrow:hover {
-        position: absolute;
-        top: 150px;
-        min-width: 200px;
-        height: 80px;
-        padding: 10px;
-        border-radius: 110px;
-        background: #ffbc0d;
-    }
-    
+        
     /* 화살표 prev */
     .menuView .viewTop .info .other .arrow.prev {
         left: 0;
         font-size: 50px;
         line-height: 1.5;
-        padding-left: 5px;
     }
+    
+    .menuView .viewTop .info .other .arrow.prev span {
+        padding-right: 8px;
+    }    
     
     /* 화살표 next */
     .menuView .viewTop .info .other .arrow.next {
         right: 0;
         font-size: 50px;
         line-height: 1.5;
-        padding-right: 5px;
-        
     }
+    
+    .menuView .viewTop .info .other .arrow.next span {
+        padding-left: 8px;
+    }    
     
     /* 화살표:hover */
     .menuView .viewTop .info .other .arrow:hover span {
@@ -202,74 +196,20 @@ a {
         padding-left: 5px;
     }
     
-    /* :hover 예정 */
-    /*
-    .menuView .viewTop .info .other .arrow .arr {
-        position: absolute;
-        justify-content: center;
-        overflow: hidden;
-        font-size: 50px;
-    }
-    */
-    
     /* 화살표 안 버거 img */
     .menuView .viewTop .info .other .arrow .img {
-        display: block;
-        position: relative;
-        width: 85px;
-        height: 85px;
-        overflow: hidden;
-        border-radius: 100%;
-
-    }
-    
-    .menuView .viewTop .info .other .arrow:hover .img {
-        display: block;
-        position: relative;
-        width: 85px;
-        height: 85px;
-        overflow: hidden;
-        border-radius: 100%;
-
-    }
-    
-    .menuView .viewTop .info .other .arrow.prev .img {
-        float: left;
-        margin-left: 10px;
-    }
-
-    .menuView .viewTop .info .other .arrow.next .img {
-        float: right;
-        margin-right: 10px;
-    }
-        
-    .menuView .viewTop .info .other:hover .arrow .tit {
-        position: relative;
-        overflow: hidden;
-        width: 158px;
-        height: 90px;
-        color: #292929;
-        vertical-align: middle;
-        line-height: 1.5;
-    }
-    
-        .menuView .viewTop .info .other .arrow .tit {
         display: none;
         position: relative;
+        width: 85px;
+        height: 85px;
         overflow: hidden;
-        width: 158px;
-        height: 90px;
-        color: #292929;
-        vertical-align: middle;
-        line-height: 1.5;
+        border-radius: 100%;
+
     }
     
-
-    
-
-
-     .menuView .viewTop .info .other .arrow.prev .tit {
-        text-align: left;
+    /* 화살표 안 버거 img:hover */
+    .menuView .viewTop .info .other .arrow:hover .img {
+        display: block;
     }
     
     @media(max-width:792px){
@@ -281,7 +221,20 @@ a {
             padding: 10px;
             border-radius: 110px;
             background: transparent;
-    }
+        }    
+        /* 화살표 안 버거 img:hover */
+        .menuView .viewTop .info .other .arrow:hover .img {
+            display: none;
+        }
+        
+        /* 화살표 안 버거 img */
+        .menuView .viewTop .info .other .arrow .img {
+            display: none;
+        }
+        /* 화살표:hover */
+        .menuView .viewTop .info .other .arrow:hover span {
+            display:block;
+        }
     }
     
     /* 영양성분 등 표시 */
