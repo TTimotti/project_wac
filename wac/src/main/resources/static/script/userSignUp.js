@@ -88,7 +88,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const btnAddress = document.querySelector('#btnAddress');
 
     btnAddress.addEventListener('click', function() {
-        
+
         new daum.Postcode({
             oncomplete: function(data) {
                 document.getElementById("address").value = data.address; // 주소 넣기
@@ -97,5 +97,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
         }).open();
     });
+
+
+
 
 });

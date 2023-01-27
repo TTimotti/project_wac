@@ -124,6 +124,7 @@ public class UserController {
     @PostMapping("/update")
     public String updatePost(UserUpdateDto dto) {
         log.info("updateDto(dto) ={}", dto);
+        
         Integer userId = userService.update(dto);
 
         log.info("updated user id = {}", userId);

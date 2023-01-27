@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.wac.domain.Menu;
 import com.wac.dto.MenuCreateDto;
 import com.wac.dto.MenuReadDto;
 import com.wac.service.ImagesService;
@@ -91,10 +92,12 @@ public class MenuController {
      * 포스트매핑으로 넘길까 생각 중...(맥도날드처럼)
      * @author: 서범수
      */
-    @GetMapping("/menuDetail")
-    public String MenuDetail() {
+    @GetMapping("/menu/menuDetail")
+    public void MenuDetail(Integer menuId, Model model) {
         log.info("MenuDetail()");
-        return "/menuDetail";
+
+        Menu menu = menuService.readById(menuId);
+        model.addAttribute("menu", menu);
     }
 
     

@@ -34,6 +34,7 @@ public class MenuService {
         
         Menu menu = Menu.builder()
                 .menuName(dto.getMenuName())
+                .menuEnName(dto.getMenuEnName())
                 .kind(dto.getKind())
                 .content(dto.getContent())
                 .price(dto.getPrice())
@@ -47,6 +48,17 @@ public class MenuService {
     public Integer countMenus(Integer kind) {
         Integer menus = menuRepository.countByKind(kind);
         return menus;
+    }
+    
+    /**
+     * 메뉴 상세 페이지
+     * @param testId
+     * @author 서범수
+     * @return
+     */
+    public Menu readById(Integer testId) {
+        log.info("read(menuId={})", testId);
+        return menuRepository.findById(testId).get();
     }
     
 }

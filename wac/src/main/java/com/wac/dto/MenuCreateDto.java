@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class MenuCreateDto {
     private String menuName;
+    private String menuEnName;
     private Integer kind;
     private String price;
     private String content;
@@ -21,6 +22,7 @@ public class MenuCreateDto {
     public Menu toEntity() {
         return Menu.builder()
                 .menuName(menuName)
+                .menuEnName(menuEnName)
                 .kind(kind)
                 .price(price) 
                 .content(content)

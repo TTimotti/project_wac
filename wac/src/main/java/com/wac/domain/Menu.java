@@ -30,6 +30,9 @@ public class Menu extends BaseTimeEntity {
     @Column(name = "menu_name")
     private String menuName;
     
+    @Column(name = "menu_en_name")
+    private String menuEnName;
+    
     @Column
     private Integer kind; // 버거: 1, 사이드: 2, 음료: 3, 세트: 4, 맥모닝: 5, 맥모닝 세트: 6, 맥런치 세트: 7
     

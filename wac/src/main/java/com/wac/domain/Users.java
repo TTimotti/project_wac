@@ -26,14 +26,14 @@ import lombok.ToString;
  * time(BaseTimeEntity) 값을 받음
  * 
  * @author 이존규
- *
+ * 
  */
 @Entity(name = "USERS")
 @SequenceGenerator(name = "USERSA_SEQ_GEN", sequenceName = "USERSA_SEQ", allocationSize = 1)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Getter
+@Getter 
 @ToString
 public class Users extends BaseTimeEntity {
 
@@ -45,7 +45,7 @@ public class Users extends BaseTimeEntity {
     private String userName; // 로그인에 사용할 이름(아이디)
 
     @Column(nullable = false)
-    private String userPassword; // 로그인에 사용할 비밀번호 
+    private String userPassword; // 로그인에 사용할 비밀번호
 
     @Column(nullable = false)
     private String email; // 아이디 인증, 비밀번호 찾기 등의 기능을 위한 email
