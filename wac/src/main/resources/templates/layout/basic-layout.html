@@ -32,7 +32,7 @@
           		</th:block>
           		<th:block sec:authorize="isAuthenticated()"> 
           			<a class="signOutBtn d-none" href="">Logout</a>
-          			<a class="myPageBtn d-none" href="">My Page</a>
+          			<a class="myPageBtn" th:href="@{ /user/myPage?userName={userName} (userName = ${ #authentication.name }) }">My Page</a>
           		</th:block>
           	</div>
         </nav>

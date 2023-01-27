@@ -71,9 +71,17 @@ public class UserController {
      * @param userId 값을 입력 받음 return : userId와 일치하는 계정을 가진 사람의 홈페이지로 이동
      */
     @GetMapping("/myPage")
-    public void myPage(Model model, Integer userId) {
-        log.info("mypage(id = {})", userId);
-        Users user = userService.read(userId);
+    public void myPage(Model model, Integer userId, String userName) {
+        log.info("mypage(id = {}, userName= {})", userId, userName);
+        
+        Users user = null;
+        
+        if(userName == null) {
+            user = userService.read(userId);
+        } else {
+            user = userService.read(userName);
+        }
+        
         model.addAttribute("user", user);
 
     }
