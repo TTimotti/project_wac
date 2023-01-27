@@ -12,14 +12,14 @@ window.addEventListener('DOMContentLoaded', function() {
     btnPromotion.addEventListener("click", () => {
         kind = 1;
         console.log(kind);
-        showMenuList(kind);       
+        showPostList(kind);       
     });
     
     console.log(btnNews);
     btnNews.addEventListener("click", () => {
         kind = 2;
         console.log(kind);
-        showMenuList(kind);       
+        showPostList(kind);       
     });
     
 
