@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.wac.domain.User;
+import com.wac.domain.Users;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -16,22 +16,24 @@ import lombok.ToString;
 @ToString
 public class UserSecurityDto extends org.springframework.security.core.userdetails.User {
 
-    private String userName;
-    private String userPassword;
+    private String username;
+    private String password;
 
-    public UserSecurityDto(String userName, String userPassword, Collection<? extends GrantedAuthority> authorities) {
-        super(userName, userPassword, authorities);
+    public UserSecurityDto(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, authorities);
 
-        this.userName = userName;
-        this.userPassword = userPassword;
+        this.username = username;
+        this.password = password;
 
     }
 
-    public static UserSecurityDto fromEntity(User u) {
-        List<GrantedAuthority> authorities = u.getRoles().stream().map(x -> new SimpleGrantedAuthority(x.getRole()))
+    public static UserSecurityDto fromEntity(Users u) {
+        List<GrantedAuthority> authorities = u.getRoles().stream()
+                .map(x -> new SimpleGrantedAuthority(x.getRole()))
                 .collect(Collectors.toList());
         
-        UserSecurityDto dto = new UserSecurityDto(u.getUserName(), u.getUserPassword(), authorities);
+        UserSecurityDto dto = new UserSecurityDto(u.getUserName(), 
+                u.getUserPassword(), authorities);
         
         return dto;
     }

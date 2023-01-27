@@ -2,6 +2,7 @@ package com.wac.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -52,20 +53,32 @@ public class HomeController {
 	 *  What`s News 페이지
 	 *  생성자 : 장민석
 	 */
-	@GetMapping("/whatNews")
+	@GetMapping("/news")
 	public String whats() {
 		log.info("whats()");
-		return "/whats";
+		return "/news/news";
 	}
 	
 	/**
-	 * 
-	 * 	 MenuDetail 페이지
-	 *  생성자 : 서범수
+	 * 관리자가 프로모션이나 이벤트 작성하는 페이지 
+	 * @author: 추지훈
 	 */
-	@GetMapping("/menuDetail")
-	public String MenuDetail() {
-	    log.info("MenuDetail()");
-	    return "/menuDetail";
-	}
+	@GetMapping("/admin")
+    public String newsAdmin() {
+        log.info("newsAdmin()");
+        return "/admin/admin";
+    }
+
+	/**
+	 * 로그인 페이지에서 아이디 혹은 비밀번호 오류 발생 시 안내 문구를 띄우기 위해서 이동시키는 페이지
+	 * @return
+	 * @author 이존규
+	 */
+    @PostMapping("/signInErr") 
+    public String signInErr() {
+        log.info("signInErr() post 호출");
+        
+        return "redirect:/user/signIn?error";
+    }
+
 }

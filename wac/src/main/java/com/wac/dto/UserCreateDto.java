@@ -1,6 +1,6 @@
 package com.wac.dto;
 
-import com.wac.domain.User;
+import com.wac.domain.Users;
 import com.wac.domain.UserRole;
 
 import lombok.Data;
@@ -30,7 +30,7 @@ public class UserCreateDto {
     private String gender;          // 데이터 분석에 사용할 성별
     
     
-    public User toEntity() {
-        return User.builder().userName(userName).userPassword(userPassword).phone(phone).email(email).address(address + " " + address2).age(age).gender(gender).build().addRole(UserRole.USER);
+    public Users toEntity() {
+        return Users.builder().userName(userName).userPassword(userPassword).phone(phone).email(email).address(address + " " + address2).age(age).gender(gender).build().addRole(UserRole.USER);
     }
 }

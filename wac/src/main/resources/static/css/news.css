@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+.visualArea.bgMenu01 {
+    background: url(https://www.mcdonalds.co.kr/uploadFolder/images/whats/bg_visual_whats02.jpg) 50% 50% no-repeat;
+}
+
+.visualArea {
+    display: flex;
+    position: relative;
+    min-height: 220px;
+    padding: 10px 0;
+    color: #292929;
+    text-align: left;
+}
+
+.inner {
+    position: relative;
+    width: 1168px;
+    margin: 0 auto;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, select, textarea, p, blockquote, th, td, button {
+    margin: 0;
+    padding: 0;
+}
+
+body, input, select, textarea, button, pre {
+    font-family: SpeedeeK, Malgun Gothic,'맑은 고딕', Dotum,'돋움', Arial, sans-serif;
+    color: #808080;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.9;
+}
+
+
+* {
+    -webkit-text-size-adjust: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+.visualArea .subCopy {
+    min-height: 34px;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.visualArea .navPath {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.tabType01 {
+    margin: 0 -40px 60px;
+    text-align: center;
+}
+
+.wacMenu {
+    position: relative;
+}
+
+.tabType01 li {
+    display: inline-block;
+    margin: 0 40px;
+    vertical-align: top;
+}
+
+.btnMore .more {
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    vertical-align: top;
+    text-indent: -9999px;
+    background: url(https://www.mcdonalds.co.kr/kor/images/common/btn_more.png) 0 0 no-repeat;
+}
+
+button, input[type='button'], input[type='submit'], input[type='reset'] {
+    cursor: pointer;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
+    border: 0;
+    vertical-align: middle;
+    background: none;
+}
+
+.menuList li a {
+    display: block;
+    height: 100%;
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #f8f8f8;
+    background: #f8f8f8;
+}
+
+ul, ol, li {
+    list-style: none outside;
+}
+
+
+
+
+
+
+

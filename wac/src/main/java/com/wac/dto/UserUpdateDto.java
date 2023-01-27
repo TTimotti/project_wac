@@ -2,7 +2,7 @@ package com.wac.dto;
 
 import javax.persistence.Entity;
 
-import com.wac.domain.User;
+import com.wac.domain.Users;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +23,7 @@ public class UserUpdateDto {
     
     private Integer age;
 
-    public User toEntity() {
-        return User.builder().userId(userId).email(email).gender(gender).phone(phone).address(address).age(age).build();
+    public Users toEntity() {
+        return Users.builder().userId(userId).email(email).gender(gender).phone(phone).address(address).age(age).build();
     }
 }
