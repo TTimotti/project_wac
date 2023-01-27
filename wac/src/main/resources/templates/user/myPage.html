@@ -45,8 +45,7 @@
                     th:value="${ user.gender }" readonly />
             </div>
             <div>
-                <a
-                    th:href="@{ /user/update?userId={userId} (userId = ${ user.userId }) }">수정하기</a>
+                <button type="button" id="btnPasswordChange" th:onclick="'location.href=\'' + @{/user/update?userId={userId} (userId = ${ user.userId })} + '\''">수정하기</button>
             </div>
         </form>
     </div>

@@ -2,11 +2,13 @@ package com.wac.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wac.domain.User;
 import com.wac.dto.PasswordChangeDto;
@@ -48,7 +50,7 @@ public class UserController {
         
         userService.createUser(dto);
         
-        return "redirect:/";
+        return "redirect:/user/signIn";
     }
     
     /**
@@ -120,11 +122,13 @@ public class UserController {
     }
 
     /**
-     * 회원 탈퇴 기능
+     * 회원 탈퇴 기능 
      */
     @PostMapping("/delete")
     public String delete(Integer userId) {
         log.info("delete //  user id = {}", userId);
+        
+        Integer result = userService.delete(userId);
         
         return "redirect:/";
     }
@@ -143,13 +147,60 @@ public class UserController {
     }
     
     /**
-     * 비밀번호 변경 기능 (POST)
+     * 비밀번호 변경 기능 (POST) (미작성)
      * @param dto 입력받은 값을 UserUpadateDto 형태로 입력받음
      * @return
+     * @author 이존규
      */
     @PostMapping("/passwordChange")
     public String passwordChangePost(PasswordChangeDto dto) {
         log.info("password ChangeDto(dto) = {}", dto);
-        return "redirect:/";
+        
+        User user = userService.read(dto.getUserId());
+        
+        Integer result = userService.passwordChange(dto);
+                
+        return "redirect:/user/myPage?userId=" + dto.getUserId();
     }
+    
+    /**
+     * 비밀번호 확인 기능.
+     * 유저 정보 변경, 삭제 등에서 사용자가 입력한 비밀번호와 실제 DB에 저장된 비밀번호가 일치하는지 확인.
+     * @param userId 정보 변경/ 삭제를 원하는 유저의 ID값
+     * @param password 유저가 입력한 비밓번호 값
+     * @return
+     * @author 이존규
+     */
+    @GetMapping("/checkpw")
+    @ResponseBody
+    public ResponseEntity<String> checkPw(Integer userId, String password) {
+        log.info("User id = {}, password = {}", userId, password);
+
+        String result = userService.checkPw(userId, password);
+
+        return ResponseEntity.ok(result);
+    }
+    /**
+     * ID 중복 확인 기능
+     * ID로 입력한 값이 DB에 저장된 아이디와 일치하는지 확인하는 기능.
+     * @param userName 입력받은 userName값
+     * @return userName과 일치하는 ID가 DB에 있으면 nok, 없으면 ok를 return
+     */
+    @GetMapping("/checkid")
+    @ResponseBody // 컨트롤러 메서드가 리턴하는 값이 뷰의 이름이 아니라 클라이언트로 직접 전송되는 데이터인 경우 사용
+    public ResponseEntity<String> checkUsername(String userName) {
+        log.info("checkUserName() = {}", userName);
+
+        String result = userService.checkUsername(userName);
+
+        return ResponseEntity.ok(result);
+    }
+    
+    @GetMapping("/signIn")
+    public void signIn() {
+        log.info("wac - signIn");
+    }
+    
+
+    
 } 

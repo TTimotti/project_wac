@@ -3,146 +3,144 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{ /layout/basic-layout }">
     
-<head>
 <title>Wacdonaldo</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/menu.css}">
-</th:block>
-</head>
-
 
 <div layout:fragment="content">
 <!-- 개발 공간. -->
 
-<div class="visualArea bgMenu01">
-    <div class="inner">
-        <h1 class="titDep1">버거</h1>
-        <p class="subCopy">
-        "빅맥"
-        <sub class="reg">®</sub>
-        "에서 맥스파이시"
-        <sub class="reg">®</sub> 
-        "상하이버거까지"
-        <br>
-        "주문 즉시 바로 조리해 더욱 맛있는, 왁도날드의 다양한 버거를 소개합니다."
-        </p>
-        <ul class="navPath">
-            <li>
-                <a href="/">home</a>
-            </li>
-            <li>
-                <a href="/menu">menu</a>
-            </li>
-        </ul>
-    </div>
-</div>
 <div id="jb-sidebar-left">
-
-
 </div>
 
 <div id="jb-sidebar-left">
-
-
 </div>
-<div id="jb-center">
-<div class="inner">
-<ul class="tabType01">
-	<li class="nav-item">
-	  <a class="nav-link active" aria-current="page" href="#">버거</a>
-	</li>
-	<li class="nav-item">
-	  <a class="nav-link" href="#">세트</a>
-	</li>
-	<li class="nav-item">
-	  <a class="nav-link" href="#">사이드 & 디저트</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="#">카페 & 음료</a>
-	</li>
+
+    <div id="jb-center">
+        <div class="visualArea bgMenu01">
+            <div class="inner">
+                <h1 class="titDep1">버거</h1>
+                <p class="subCopy">
+                    빅맥<sub class="reg">®</sub>에서 맥스파이시<sub class="reg">®</sub>
+                    상하이버거까지, <br>주문 즉시 바로 조리해 더욱 맛있는, 맥도날드의 다양한 버거를
+                    소개합니다.
+                </p>
+                <ul class="navPath">
+                    <li><a href="javascript:goHome()">Home</a></li>
+                    <li><a href="javascript:gotoMenu(1);">Menu</a></li>
+                    <li><a href="javascript:gotoMenu(1);">버거</a></li>
+                </ul>
+            </div>
+        </div>
+
+<div>
+<ul>
+<li><a th:href="@{ /menu/create }">새 메뉴 등록</a></li>
 </ul>
 </div>
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+        <div class="contArea">
+            <div class="inner">
+                <ul class="tabType01">
 
-  <!-- First Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <div class="w3-quarter">
-      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1671786570159.png" alt="Sandwich" style="width:100%">
-      <h3>행운버거 골드</h3>
-      <p>신메뉴 넘모 맛있고~ </p>
-    </div>
-    <div class="w3-quarter">
-      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1671786784357.png" alt="Steak" style="width:100%">
-      <h3>행운버거 골드 스페셜</h3>
-      <p>행운행운열매 스페셜 금금열매</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1653436835912.png" alt="Cherries" style="width:100%">
-      <h3>핫 크리시피 버거</h3>
-      <p>이건 롯데리아메뉸데....</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1653436573153.png" alt="Pasta and Wine" style="width:100%">
-      <h3>클래식 치즈 버거</h3>
-      <p>이것도 롯데리아 메뉴 이거 맛있음 추천 ㅇㅇ</p>
-    </div>
-  </div>
-  
-  <!-- Second Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center">
-    <div class="w3-quarter">
-      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1583727841393.png" alt="Popsicle" style="width:100%">
-      <h3>All I Need Is a Popsicle</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1583728339451.png" alt="Salmon" style="width:100%">
-      <h3>Salmon For Your Skin</h3>
-      <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1599119588089.png" alt="Sandwich" style="width:100%">
-      <h3>The Perfect Sandwich, A Real Classic</h3>
-      <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1583727487454.png" alt="Croissant" style="width:100%">
-      <h3>Le French</h3>
-      <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-  </div>
+                    <li class="button buger" id="buger" th:value="1">버거</li>
+                    <li class="button meal" id="meal" th:value="2">세트메뉴</li>
+                    <li class="button side" id="side" th:value="3">사이드 & 디저트</li>
+                    <li class="button drink" id="drink" th:value="4">음료 & 카페</li>
+                    <li class="button morning" id="morning" th:value="5">맥모닝</li>
+                    <li class="button morningMeal" id="morningMeal" th:value="6">맥모닝 세트</li>
 
-  <!-- Pagination -->
-  <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
-      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+                </ul>
+                <div class="mcMenu">
+                    <p class="count" id="count"></p>
+                    <ul class="menuList" id="menuList">
+
+                    </ul>
+                    
+                    <ul class="menuList2" id="menuList2">
+                    
+                    </ul>
+                    <div class="btnMore" id="btnMore">
+                        <button type="button" class="more"
+                            onclick="more()">더보기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-  </div>
-  
-</div>
-
-
-</div>     
 
 
 
 </div>
-<script layout:fragment="script" th:inline="javascript">
+<script>
+var init_page =0;
+var totalPage =0;
+$(document).ready(function (){
+    getList(1);
+});
+function getList(page_val){
+    $.post("/kor/menu/listContent.do",
+            {   
+                page:page_val,
+                sub_category_seq:1
+            },  function(data){
+                if(data.is_ok=="ok"){
+                    totalPage=data.totalPage;
+                    init_page=data.page;
+                    $("#count").html(data.totalCount+" Products")
+                    for(var i=0;i<data.list.length;i++){
+                        $("#menuList").append(addList(data.list[i]));
+                    }
+                    if(page_val>1){
+                        $("[data-seq='"+data.list[0].seq+"']").focus();
+                    }
+                    altEscapeTag();
+                    if(totalPage==page_val){
+                        $("#btnMore").hide();
+                    }
+                }else{
+                    alert("목록가져오기에 실패하였습니다\관리자에게 문의하세요");
+                }
+            }
+            
+    );
+    
+}
+function goDetail(seq){
+        $("#seq").val(seq);
+        $("#searchForm").attr("action","/kor/menu/detail.do");
+        $("#searchForm").submit();
+}
+function addList(data){
+    return makeHtml("menu",data);
+}
+function more(){
+    getList(init_page+1);
+}
+
+function goHome() {
+	alert("hello")
+}
+
 </script>
+<script id="menu" type="text/templet">
+<li>
+    <a href="javascript:goDetail({seq})" data-seq="{seq}">
+        <div class="thum"><img src="{pc_list_image_url}" alt="{pc_list_kor_alt}"></div>
+        <div class="name">
+        <strong class="ko">{kor_name}</strong>
+    <em class="en">{eng_name}</em>
+</div>
+</a>
+    </li>
+</script>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+</th:block>
+<th:block layout:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{ /script/menu.js }"></script>
+</th:block>
 </html>
 
 

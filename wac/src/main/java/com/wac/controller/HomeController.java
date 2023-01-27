@@ -3,7 +3,6 @@ package com.wac.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,16 +27,7 @@ public class HomeController {
 		log.info("menu() 호출");
 		return "/menu/menu";
 	}
-	
-	/**
-	 *  Store 페이지
-	 * 생성자 : 장민석
-	 */
-	@GetMapping("/store")
-	public String store() {
-		log.info("store()");
-		return "/store/store";
-	}
+
 	
 	/**
 	 *   주문 페이지
@@ -77,4 +67,11 @@ public class HomeController {
         log.info("newsAdmin()");
         return "/admin/admin";
     }
+
+	@GetMapping("/menuDetail")
+	public String MenuDetail() {
+	    log.info("MenuDetail()");
+	    return "/menuDetail";
+	}
+
 }

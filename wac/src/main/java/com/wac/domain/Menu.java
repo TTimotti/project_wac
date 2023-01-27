@@ -18,20 +18,20 @@ import lombok.ToString;
 @Builder
 @Getter
 @ToString
-@Entity(name = "FOODS")
-@SequenceGenerator(name = "FOODS_SEQ_GEN", sequenceName = "FOODS_SEQ", initialValue = 1, allocationSize = 1)
-public class Food extends BaseTimeEntity {
+@Entity(name = "MENUS")
+@SequenceGenerator(name = "MENUS_SEQ_GEN", sequenceName = "MENUS_SEQ", initialValue = 1, allocationSize = 1)
+public class Menu extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FOODS_SEQ_GEN")
-    @Column(name = "food_id")
-    private Integer foodId;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MENUS_SEQ_GEN")
+    @Column(name = "menu_id")
+    private Integer menuId;
     
-    @Column(name = "food_name")
-    private String foodName;
+    @Column(name = "menu_name")
+    private String menuName;
     
     @Column
-    private String kind; // 버거: 1, 사이드: 2, 음료: 3, 세트: 4, 맥모닝: 5, 맥모닝 세트: 6, 맥런치 세트: 7
+    private Integer kind; // 버거: 1, 사이드: 2, 음료: 3, 세트: 4, 맥모닝: 5, 맥모닝 세트: 6, 맥런치 세트: 7
     
     @Column
     private String price;
@@ -40,8 +40,8 @@ public class Food extends BaseTimeEntity {
     private String content;
     
     @Column
-    private String image;
+    private Integer image;
     
     @Column
-    private String selltf; // 판매 중: t , 판매중단: f
+    private String sellyn; // 판매 중: y , 판매중단: n
 }

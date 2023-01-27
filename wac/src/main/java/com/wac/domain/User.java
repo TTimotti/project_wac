@@ -74,19 +74,38 @@ public class User extends BaseTimeEntity {
      * 
      * @param role (USER or ADMIN)
      * @return default = USER
+     * @author 이존규
      */
     public User addRole(UserRole role) {
         roles.add(role);
 
         return this;
     }
-
+    
+    /**
+     * 정보 변경 시 사용할 메서드
+     * @param 변경할 값들
+     * @return 기존의 값들을 변경할 값들로 바꿈
+     * @author 이존규
+     */
     public User update(String email, String phone, String address, String gender, Integer age) {
         this.email = email;
         this.phone = phone;
         this.address = address;
         this.gender = gender;
         this.age = age;
+        
+        return this;
+    }
+    
+    /**
+     * 비밀번호 변경 시 사용할 메서드
+     * @param password 변경하고자 하는 비밀번호
+     * @return 기존의 비밀번호를 변경할 비밀번호로 변경
+     * @author 이존규
+     */
+    public User passwordChange(String password) {
+        this.userPassword = password;
         
         return this;
     }
