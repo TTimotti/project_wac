@@ -67,6 +67,17 @@ public class MenuController {
         
         return ResponseEntity.ok(members);
     }
+    
+    /**
+     * 메뉴 상세 페이지로 넘어갑니다.
+     * 포스트매핑으로 넘길까 생각 중...(맥도날드처럼)
+     * @author: 서범수
+     */
+    @GetMapping("/menuDetail")
+    public String MenuDetail() {
+        log.info("MenuDetail()");
+        return "/menuDetail";
+    }
 
     
 }
