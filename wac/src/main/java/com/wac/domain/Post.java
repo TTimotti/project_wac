@@ -1,3 +1,6 @@
+/**
+ * @author 추지훈
+ */
 package com.wac.domain;
 
 import javax.persistence.Column;
@@ -29,10 +32,18 @@ public class Post extends BaseTimeEntity {
     
     @Column
     private String title;
+    
     @Column
     private String content;
+    
     @Column
-    private String author;
+    private String author; // 근데 이거 사실 회원은 주문만가능하고 추가는 관리자만해서 필요가 없긴합니다. 일단 둘게요
+    
+    @Column
+    private Integer kind; // 1: 프로모션, 2: 새로운소식(공지사항), 3: 스토리, 4: 기타.
+    
+    @Column
+    private Integer image;
     
     public  Post update(String title, String content) {
         this.title = title;

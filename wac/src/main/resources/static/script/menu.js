@@ -56,33 +56,21 @@ window.addEventListener('DOMContentLoaded', function() {
     
 
 function showMenuList(kind) {
-    
-
-if (kind == 1) {
-   
-} else {
-    
-}
-
     axios
     .get('/menu/all', {params: {kind}})
     .then(response => { updateMenuList(response.data) })
     .catch(err => { console.log(err) });
-
-
-    
 }
 
 function updateMenuList(data) {
     const divMenuList = document.querySelector('#menuList');  
-
 
     let str = '';
     for (let m of data) {
         str += '<li class="card my-5 col-3">'
         + '<a href="/">' /* 여기 링크에 상세페이지 달기 */
         + '<div class="card col-3 my-5">' + m.menuName
-        + '<p>' + m.menuId + '</p>'
+        + '<p>' + m.content + '</p>'
         + '</div></a>'
         + '</li>';
     }

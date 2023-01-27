@@ -17,23 +17,21 @@
     <div id="jb-center">
         <div class="visualArea bgMenu01">
             <div class="inner">
-                <h1 class="titDep1">버거</h1>
+                <h1 class="titDep1">What's News</h1>
                 <p class="subCopy">
-                    빅맥<sub class="reg">®</sub>에서 맥스파이시<sub class="reg">®</sub>
-                    상하이버거까지, <br>주문 즉시 바로 조리해 더욱 맛있는, 맥도날드의 다양한 버거를
-                    소개합니다.
+                    <strong>왁도날드 프로모션</strong>
                 </p>
                 <ul class="navPath">
                     <li><a href="javascript:goHome()">Home</a></li>
-                    <li><a href="javascript:gotoMenu(1);">Menu</a></li>
-                    <li><a href="javascript:gotoMenu(1);">버거</a></li>
+                    <li><a href="javascript:gotoMenu(1);">What's new</a></li>
+                    <li><a href="javascript:gotoMenu(1);">프로모션</a></li>
                 </ul>
             </div>
         </div>
 
 <div>
 <ul>
-<li><a th:href="@{ /menu/create }">새 메뉴 등록</a></li>
+<li><a th:href="@{ /post/create }">새 글 작성</a></li>
 </ul>
 </div>
 
@@ -41,19 +39,16 @@
             <div class="inner">
                 <ul class="tabType01">
 
-                    <li class="button buger"><a class="btn form-control" id="buger">버거</a></li>
-                    <li class="button meal"><a id="meal">세트메뉴</a></li>
-                    <li class="button side"><a id="side">사이드 & 디저트</a></li>
-                    <li class="button drink"><a id="drink">음료 & 카페</a></li>
-                    <li class="button morning"><a id="morning">맥모닝</a></li>
-                    <li class="button morningMeal"><a id="morningMeal">맥모닝 세트</a></li>
+                    <li class="button promotion"><a class="btn form-control" id="promotion">프로모션</a></li>
+                    <li class="button post"><a id="news">새로운 소식 (공지사항)</a></li>
 
                 </ul>
-                <div class="mcMenu">
+                <div class="postList">
                     <p class="count" id="count"></p>
-                    <ul class="menuList" id="menuList">
-                    
+                    <ul class="posts" id="posts">
+
                     </ul>
+                  
                     <div class="btnMore" id="btnMore">
                         <button type="button" class="more"
                             onclick="more()">더보기</button>
@@ -130,12 +125,12 @@ function goHome() {
     </li>
 </script>
 <th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/menu.css}">
+    <link rel="stylesheet" th:href="@{/css/post.css}">
 </th:block>
 <th:block layout:fragment="script">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script th:src="@{ /script/menu.js }"></script>
+    <script th:src="@{ /script/post.js }"></script>
 </th:block>
 </html>
 

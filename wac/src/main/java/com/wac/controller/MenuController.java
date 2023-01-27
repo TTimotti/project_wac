@@ -31,7 +31,12 @@ public class MenuController {
     
     
    
-    
+    /**
+     * 메뉴 전체 리스트 kind(종료)별로 불러오는 메서드.
+     * @param kind
+     * @return
+     * @author 추지훈
+     */
     @GetMapping("/menu/all")
     public ResponseEntity<List<MenuReadDto>> readAllMenus(Integer kind) {
         log.info("readAllMenus()");
@@ -47,6 +52,12 @@ public class MenuController {
         model.addAttribute("id", id);
     }
     
+    /**
+     * 메뉴 생성메서드 이미지는 보류
+     * @param dto, image
+     * @return
+     * @author 추지훈
+     */
     @PostMapping("/menu/create")
     public String create(MenuCreateDto dto) { // ,  @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException {
         log.info("create() dto = {}", dto);
@@ -59,9 +70,16 @@ public class MenuController {
         return "redirect:/menu";
     }
     
+    /**
+     * 메뉴판에 개수를 새는 메서드 왼쪽 상단에 몇개의 메뉴가 표출되어있는지 표시하기위함.
+     * 아직 view에 넣진않음.
+     * @param kind
+     * @return
+     * @author 추지훈
+     */
     @GetMapping("/menu/countMenus/{kind}")
     @ResponseBody
-    public ResponseEntity<Integer> countMemus(@PathVariable Integer kind) {
+    public ResponseEntity<Integer> countMemus(Integer kind) {
         log.info("countMemus kind = {}", kind);
         Integer members = menuService.countMenus(kind);
         

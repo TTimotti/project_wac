@@ -60,13 +60,13 @@ public class HomeController {
 	}
 	
 	/**
-	 * 관리자가 프로모션이나 이벤트 작성하는 페이지 
+	 * 프로모션이나 공지사항을 작성하는 페이지 
 	 * @author: 추지훈
 	 */
-	@GetMapping("/admin")
+	@GetMapping("/post")
     public String newsAdmin() {
         log.info("newsAdmin()");
-        return "/admin/admin";
+        return "/post/post";
     }
 
 	/**
