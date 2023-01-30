@@ -74,11 +74,10 @@ public class MenuController {
     public String create(MenuCreateDto dto, @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException { // ,  @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException {
         log.info("create() dto = {}, file = {}", dto, file);
         // Menu entity = 
-        menuService.create(dto);
         
-        Integer img = imagesService.saveMenuImage(file);
         
-        dto.setImage(img);
+        Integer fid = imagesService.saveMenuImage(file);
+        menuService.create(dto, fid);
         
         return "redirect:/menu";
     }
@@ -110,6 +109,12 @@ public class MenuController {
 
         Menu menu = menuService.readById(menuId);
         model.addAttribute("menu", menu);
+
+        Menu prevMenu = menuService.readPrevMenuById(menuId);
+        model.addAttribute("prevMenu", prevMenu);        
+        
+        Menu nextMenu = menuService.readNextMenuById(menuId);
+        model.addAttribute("nextMenu", nextMenu);
     }
 
     

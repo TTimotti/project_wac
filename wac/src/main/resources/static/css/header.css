@@ -150,6 +150,39 @@ a {
 	background-color: ghostwhite;
 }
 
+.signOutBtn{
+    color: #f1f1f1;
+    border-color: green;
+    background-color: green;
+}
+.signOutBtn:hover{
+    font-size:20px;
+    color:green;
+    background-color: ghostwhite;
+}
+
+.myPageBtn{
+    color: #f1f1f1;
+    border-color: orange;
+    background-color: orange;
+}
+.myPageBtn:hover{
+    font-size:20px;
+    color:orange;
+    background-color: ghostwhite;
+}
+
+.cartBtn{
+    color: #f1f1f1;
+    border-color: tomato;
+    background-color: tomato;
+}
+.cartBtn:hover{
+    font-size:20px;
+    color:tomato;
+    background-color: ghostwhite;
+}
+
 /* 792px 이하 해상도 */
 @media(max-width:792px){
 	.header {

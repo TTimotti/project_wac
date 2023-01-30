@@ -38,6 +38,7 @@
 
 .btnUpdate {
     width:50%;
+    height:70px;
     padding: 13px 0 13px;
     border-radius: 6px;
     border: solid 1px white;
@@ -49,6 +50,7 @@
 
 .btnUpdate:hover {
     width:50%;
+    height:70px;
     padding: 13px 0 13px;
     border-radius: 6px;
     border: solid 1px gray;
@@ -166,7 +168,4 @@
     padding: 10px 10px;
     text-align: center;
     font-size: 20px;
-}
-
-#ifDifferent{
 }

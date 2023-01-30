@@ -18,6 +18,12 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
     
     List<Menu> findByMenuIdOrderByMenuId(Integer menuId);
 
+    /**
+     * 분류별 메뉴 리스트 가져오기
+     * @param kind
+     * @return
+     * @author 추지훈
+     */
     @Query("select m from MENUS m where m.kind = :kind")
     List<Menu> readAllList(@Param("kind") Integer kind);
 
@@ -30,4 +36,24 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
     Integer countByKind(Integer kind);
 
     MenuReadDto findByMenuId(Integer menuId);
+    
+    /**
+     * 
+     * @param menuId
+     * @return prev 메뉴를 보여줍니다.
+     * @author 서범수
+     */
+    // select * from menus where menu_id = (select max(menu_id) from menus where menu_id < 2) or menu_id = (select min(menu_id) from menus where menu_id > 2);..
+    @Query("select m from MENUS m where m.menuId = (select max(m.menuId) from MENUS m where m.menuId < :menuId)")
+    Menu readPrevMenuById(@Param("menuId") Integer menuId);
+    
+    /**
+     * 
+     * @param menuId
+     * @return next 메뉴를 보여줍니다.
+     * @author 서범수
+     */
+    // select * from menus where menu_id = (select max(menu_id) from menus where menu_id < 2) or menu_id = (select min(menu_id) from menus where menu_id > 2);..
+    @Query("select m from MENUS m where m.menuId = (select min(m.menuId) from MENUS m where m.menuId > :menuId)")
+    Menu readNextMenuById(@Param("menuId") Integer menuId);
 }

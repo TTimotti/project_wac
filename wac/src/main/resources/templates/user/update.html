@@ -72,10 +72,10 @@
                             <input class="inputs" type="password"
                                 id="password" name="password" />
                         </div>
-                        <div id="pinput" style="display: block">
+                        <div class="check" id="pinput" style="display: block">
                             <p>비밀번호를 입력해주세요.</p>
                         </div>
-                        <div id="pcheck" style="display: none">
+                        <div class="err" id="pcheck" style="display: none">
                             <p>비밀번호가 올바르지 않습니다..</p>
                         </div>
                         <div>
@@ -86,10 +86,10 @@
                             <input class="inputs" type="password"
                                 id="passwordCheck" />
                         </div>
-                        <div id="pok" style="display: none">
+                        <div class="check" id="pok" style="display: none">
                             <p>비밀번호가 서로 일치합니다.</p>
                         </div>
-                        <div id="pnok" style="display: none">
+                        <div class="err" id="pnok" style="display: none">
                             <p>비밀번호가 서로 다릅니다.</p>
                         </div>
                         <div>
@@ -145,22 +145,22 @@
                         </div>
                         <div class="btns">
                             <div>
-                                <button class="btnUpdate" type="button"
+                                <button class="btn" type="button"
                                     id="btnUpdate" disabled="disabled">수정하기</button>
                             </div>
                             <div>
-                                <button class="btnBack" type="button"
+                                <button class="btn" type="button"
                                     id="btnCancel">뒤로가기</button>
                             </div>
                             <div>
-                                <button class="btnPasswordChange"
-                                    type="button" id="btnPasswordChange"
+                                <button class="btn" type="button"
+                                    id="btnPasswordChange"
                                     disabled="disabled"
                                     th:onclick="'location.href=\'' + @{/user/passwordChange?userId={userId} (userId = ${ user.userId })} + '\''">비밀번호
                                     변경</button>
                             </div>
                             <div>
-                                <button class="btnDelete" type="button"
+                                <button class="btn" type="button"
                                     id="btnDeleteUser"
                                     disabled="disabled">회원 탈퇴</button>
                             </div>
