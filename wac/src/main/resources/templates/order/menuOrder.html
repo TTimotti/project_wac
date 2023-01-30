@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ /layout/basic-layout }">
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/menuOrder.css}">
+</th:block>
+
+<div layout:fragment="content">
+    <div class="wrapper">
+        <div id="container">
+            <div class="contents">
+                <!-- 상단 배너 -->
+                <div class="bannerArea bgImage">
+                    <div class="inner">
+                        <h1 class="title" data-title="프로모션" data-desc="프로모션">왁도날드 딜리버리</h1>
+                        <ul class="navPath">
+                            <li><a href="/kor/main.do">Home</a></li>
+                            <li><a href="/kor/main.do">Order</a></li>
+                            <li><a href="/kor/main.do">왁도날드 딜리버리</a></li>
+                        </ul>
+                    </div> <!-- inner -->
+                </div> <!-- bannerArea -->
+                
+                <!-- 주문 내역 -->
+                <div class="contArea">
+                    <div class="inner" >
+                        <!-- padding이 껴있는 inner 태그 안에... menuView 태그는 그 안에 또 만들어지니까 여백 안에서 보임? -->
+                        <div class="menuView">
+                            <div class="receipt" style="background-color: #f8f8f8;">
+                                <div class="reciptTitle">
+                                    <!-- 사진 -->
+                                    <div>
+                                        <img th:src="@{/image/display?fid=5}" alt="공사중....."/>
+                                    </div>
+                                
+                                    <!-- 제목 -->
+                                    <span>
+                                        아이티윌버거
+                                    </span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+      
+</html>
