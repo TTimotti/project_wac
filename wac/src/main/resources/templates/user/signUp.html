@@ -30,10 +30,10 @@
                 </div>
                 <input class="inputs" type="text" id="userName" name="userName" autofocus required>
             </div>
-            <div id="idok" style="display: none">
+            <div class="check" id="idok" style="display: none">
                 <p>사용 가능한 아이디입니다.</p>
             </div>
-            <div id="idnok" style="display: none">
+            <div class ="err" id="idnok" style="display: none">
                 <p>사용이 불가능한 아이디입니다.</p>
             </div>
             <div>
@@ -48,10 +48,10 @@
                 </div>
                     <input class="inputs" type="password" id="userPasswordCheck" name="userPasswordCheck" required>
             </div>
-            <div id="pok" style="display: none">
+            <div class="check" id="pok" style="display: none">
                 <p>비밀번호가 확인 되었습니다.</p>
             </div>
-            <div id="pnok" style="display: none">
+            <div class ="err" id="pnok" style="display: none">
                 <p>비밀번호가 서로 다릅니다.</p>
             </div>
             <div>
@@ -64,7 +64,7 @@
                 <div class="div_label">
                     <label class="label" for="address">주소</label> 
                 </div>
-                <input class="inputs" type="text" id="address" name="address" readonly>
+                <input class="inputs" type="text" id="address" name="address" placeholder="주소 찾기 버튼을 클릭하세요" readonly>
                 <button class="button" type="button" id="btnAddress">주소 찾기</button>
             </div>
             <div>

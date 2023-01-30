@@ -3,30 +3,41 @@
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     layout:decorate="~{ layout/basic-layout.html }">
 
+<title>Wacdonaldo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/userMyPage.css}">
+</th:block>
+
 <div layout:fragment="content">
 
 
     <!-- 로그인 하지 않은 유저에게 보여지는 div -->
     <th:block sec:authorize="isAnonymous()">
-        <div id="ifNone" style="display: block">
+        <div class="err" id="ifNone" style="display: block">
             <h1>비정상적인 접근입니다.</h1>
             <h1>로그인 혹은 회원가입 후 이용하세요</h1>
-            <button type="button" id="btnSignIn"
-                th:onclick="'location.href=\'' + @{/user/signIn} + '\''">로그인</button>
-            <button type="button" id="btnSignUp"
-                th:onclick="'location.href=\'' + @{/user/signUp} + '\''">회원가입</button>
+
+            <button class="btnSignIn" type="button" id="btnSignIn"
+                th:onclick="'location.href=\'' + @{/user/signIn} + '\''">Login</button>
+            <button class="btnCreate" type="button" id="btnSignUp"
+                th:onclick="'location.href=\'' + @{/user/signUp} + '\''">Sign
+                Up</button>
+
         </div>
     </th:block>
 
     <th:block sec:authorize="isAuthenticated()">
 
         <!-- 로그인 정보가 다를 경우 보여지는 div -->
-        <div id="ifDifferent" style="display: none">
+        <div class="err" id="ifDifferent" style="display: none">
             <h1>비정상적인 접근입니다.</h1>
 
-            <button type="button" id="btnMain"
+            <button class="btnMain" type="button" id="btnMain"
                 th:onclick="'location.href=\'' + @{/} + '\''">Main</button>
-            <button type="button" id="btnMyPage"
+            <button class="btnMyPage" type="button" id="btnMyPage"
                 th:onclick="'location.href=\'' + @{ /user/myPage?userName={userName} (userName = ${ #authentication.name }) } + '\''">My
                 page</button>
 
@@ -35,48 +46,67 @@
         <!-- 로그인 정보와 회원 정보가 일치하는 경우 보여지는 div -->
 
         <div id="ifSame" style="display: none">
-            <div>
+            <div class="myPage_head">
                 <h1>마이 페이지</h1>
             </div>
             <form id="form">
-                <div>
-                    <label for="userId">고객 번호</label> <input
-                        type="number" id="userId" name="userId"
-                        th:value="${ user.userId }" readonly />
-                </div>
-                <div>
-                    <label for="userName">아이디</label> <input type="text"
-                        id="userName" name="userName"
-                        th:value="${ user.userName }" readonly>
-                </div>
-                <div>
-                    <label for="age">나이</label> <input type="number"
-                        id="age" name="age" th:value="${ user.age }"
-                        readonly>
-                </div>
-                <div>
-                    <label for="address">주소</label> <input type="text"
-                        id="address" name="address"
-                        th:value="${ user.address }" readonly>
-                </div>
-                <div>
-                    <label for="email">이메일</label> <input type="email"
-                        id="email" name="email"
-                        th:value="${ user.email }" readonly />
-                </div>
-                <div>
-                    <label for="phone">휴대폰</label> <input type="text"
-                        id="phone" name="phone"
-                        th:value="${ user.phone }" readonly />
-                </div>
-                <div>
-                    <label for="gender" id="gender">성별</label> <input
-                        type="text" id="gender" name="gender"
-                        th:value="${ user.gender }" readonly />
-                </div>
-                <div>
-                    <button type="button" id="btnPasswordChange"
-                        th:onclick="'location.href=\'' + @{/user/update?userId={userId} (userId = ${ user.userId })} + '\''">수정하기</button>
+                <div class="myPage_panel">
+                    <div>
+                        <div class="div_label">
+                            <label for="userId">고객 번호</label>
+                        </div>
+                        <input class="inputs" type="number" id="userId"
+                            name="userId" th:value="${ user.userId }"
+                            readonly />
+
+                    </div>
+                    <div>
+                        <div class="div_label">
+                            <label for="userName">아이디</label>
+                        </div>
+                        <input class="inputs" type="text" id="userName"
+                            name="userName"
+                            th:value="${ user.userName }" readonly>
+                    </div>
+                    <div>
+                        <div class="div_label">
+                            <label for="age">나이</label>
+                        </div>
+                        <input class="inputs" type="number" id="age" name="age"
+                            th:value="${ user.age }" readonly>
+                    </div>
+                    <div>
+                        <div class="div_label">
+                            <label for="address">주소</label>
+                        </div>
+                        <input class="inputs" type="text" id="address" name="address"
+                            th:value="${ user.address }" readonly>
+                    </div>
+                    <div>
+                        <div class="div_label">
+                            <label for="email">이메일</label>
+                        </div>
+                        <input class="inputs" type="email" id="email" name="email"
+                            th:value="${ user.email }" readonly />
+                    </div>
+                    <div>
+                        <div class="div_label">
+                            <label for="phone">휴대폰</label>
+                        </div>
+                        <input class="inputs" type="text" id="phone" name="phone"
+                            th:value="${ user.phone }" readonly />
+                    </div>
+                    <div>
+                        <div class="div_label">
+                            <label for="gender" id="gender">성별</label>
+                        </div>
+                        <input class="inputs" type="text" id="gender" name="gender"
+                            th:value="${ user.gender }" readonly />
+                    </div>
+                    <div class="btn">
+                        <button class="btnUpdate" type="button" id="btnUpadte"
+                            th:onclick="'location.href=\'' + @{/user/update?userId={userId} (userId = ${ user.userId })} + '\''">수정하기</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -85,7 +115,7 @@
 
 <th:block layout:fragment="script" th:inline="javaScript">
     <script>
-                    const userName = [[ ${ user.userName }]];
+             const userName = [[ ${ user.userName }]];
 </script>
     <script th:src="@{ /script/myPage.js }"></script>
 </th:block>
