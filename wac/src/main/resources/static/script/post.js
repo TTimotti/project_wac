@@ -45,6 +45,19 @@ function updatePostList(data) {
     divPostList.innerHTML = str;
 }
 
+    // admin check
+    const adminOnly = document.querySelector('#adminOnly');
+
+    
+    console.log(loginUser);
+    
+        if(loginUser == "admin") {
+            adminOnly.style.display="block";
+            
+        } else{
+            adminOnly.style.display="none";
+        }
+
 });
 
 
