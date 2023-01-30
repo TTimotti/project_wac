@@ -1,15 +1,17 @@
 package com.wac.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.wac.domain.Menu;
 import com.wac.dto.MenuCreateDto;
@@ -58,15 +60,17 @@ public class MenuController {
      * @param dto, image
      * @return
      * @author 추지훈
+     * @throws IOException 
+     * @throws IllegalStateException 
      */
     @PostMapping("/menu/create")
-    public String create(MenuCreateDto dto) { // ,  @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException {
-        log.info("create() dto = {}", dto);
+    public String create(MenuCreateDto dto, @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException { // ,  @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException {
+        log.info("create() dto = {}, file = {}", dto, file);
         // Menu entity = 
         menuService.create(dto);
         
-//        Integer img = imagesService.saveMenuImage(file);
-//        dto.setImage(img);
+        Integer img = imagesService.saveImage(file);
+        dto.setImage(img);
         
         return "redirect:/menu";
     }

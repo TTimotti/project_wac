@@ -35,6 +35,7 @@
           		<th:block sec:authorize="isAuthenticated()"> 
           			<a class="signOutBtn" th:href="@{ /logout }">Logout</a>
           			<a class="myPageBtn" th:href="@{ /user/myPage?userName={userName} (userName = ${ #authentication.name }) }">My Page</a>
+          			<a class="cartBtn" th:href="@{ /user/cart?userName={userName} (userName = ${ #authentication.name }) }">My Cart</a>
           		</th:block>
           	</div>
         </nav>
