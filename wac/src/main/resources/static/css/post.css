@@ -1,7 +1,9 @@
 @charset "UTF-8";
 
 .visualArea.bgMenu01 {
-    background: url(https://www.mcdonalds.co.kr/uploadFolder/images/whats/bg_visual_whats02.jpg) 50% 50% no-repeat;
+    background:
+        url(https://www.mcdonalds.co.kr/uploadFolder/images/whats/bg_visual_whats02.jpg)
+        50% 50% no-repeat;
 }
 
 .visualArea {
@@ -19,19 +21,19 @@
     margin: 0 auto;
 }
 
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, select, textarea, p, blockquote, th, td, button {
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form,
+    fieldset, input, select, textarea, p, blockquote, th, td, button {
     margin: 0;
     padding: 0;
 }
 
-body, input, select, textarea, button, pre {
-    font-family: SpeedeeK, Malgun Gothic,'맑은 고딕', Dotum,'돋움', Arial, sans-serif;
-    color: #808080;
+body, input, select, textarea, pre {
+    font-family: SpeedeeK, Malgun Gothic, '맑은 고딕', Dotum, '돋움', Arial,
+        sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.9;
 }
-
 
 * {
     -webkit-text-size-adjust: none;
@@ -39,11 +41,13 @@ body, input, select, textarea, button, pre {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 user agent stylesheet
 sub {
     vertical-align: sub;
     font-size: smaller;
 }
+
 .visualArea .subCopy {
     min-height: 34px;
     margin-top: 20px;
@@ -78,10 +82,13 @@ sub {
     overflow: hidden;
     vertical-align: top;
     text-indent: -9999px;
-    background: url(https://www.mcdonalds.co.kr/kor/images/common/btn_more.png) 0 0 no-repeat;
+    background:
+        url(https://www.mcdonalds.co.kr/kor/images/common/btn_more.png)
+        0 0 no-repeat;
 }
 
-button, input[type='button'], input[type='submit'], input[type='reset'] {
+button, input[type='button'], input[type='submit'], input[type='reset']
+    {
     cursor: pointer;
     border-radius: 0;
     -webkit-border-radius: 0;
@@ -105,9 +112,61 @@ ul, ol, li {
     list-style: none outside;
 }
 
+.postCreate_head {
+    vertical-align: top;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-size: 25px;
+}
 
+.postCreate_panel {
+    border: 1px solid gray;
+    margin: 16px;
+    padding: 20px 20px;
+    text-align: inherit;
+}
 
+.inputs {
+    border: solid 1px green;
+    width: 100%;
+    padding: 14px 17px 13px;
+    box-sizing: border-box;
+    align-content: center;
+}
 
+.div_label {
+    padding: 10px 10px;
+    width: 20%;
+}
 
+.btn {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
 
+#btnSubmit {
+    width: 50%;
+    height: 70px;
+    padding: 13px 0 13px;
+    border-radius: 6px;
+    border: solid 1px white;
+    background-color: green;
+    color: white;
+    box-sizing: border-box;
+    font-size: 16px;
+}
 
+#btnSubmit:hover {
+    width: 50%;
+    height: 70px;
+    padding: 13px 0 13px;
+    border-radius: 6px;
+    border: solid 1px green;
+    background-color: white;
+    color: green;
+    box-sizing: border-box;
+    font-size: 20px;
+}

@@ -7,34 +7,50 @@
 
 <div layout:fragment="content">
 
-<div class="card-body">
-    <form id="formCreatePost" method="post" enctype="multipart/form-data">
-        <div class="my-4">
-            <label for="title" class="form-label">글 제목</label> 
-            <input id="title" class="form-control" type="text" name="title" autofocus/>
+    <div>
+        <div class="postCreate_head">
+            <h1>마이 페이지</h1>
         </div>
-        <div class="my-4">
-            <label for="kind" class="form-label">분류</label>
-            <input id="kind" class="form-control" type="text" name="kind"/>
-        </div>
-        <div class="my-4">
-            <label for="author" class="form-label">작성자</label>
-            <input id="author" class="form-control" type="text" name="author"/>
-        </div>
-        <div class="my-4">
-            <label for="content" class="form-label">내용</label>
-            <textarea id="content" class="form-control" name="content" ></textarea>
-        </div>
-        <div class="my-4">
-            <label for="image" class="form-label">포스터 이미지</label>
-            <input type="file" id="image" class="form-form form-create form-image" name="image"/>
-        </div>
-        <div class="my-4">
-            <!-- <input type="submit" class="form-control btn btn-primary" value="작성 완료" />  -->
-            <a class="btn btn-outline-primary btn-sm form-control" id="btnSubmit">생성하기!</a>
-        </div>
-    </form>
-</div>
+
+        <form id="formCreatePost" method="post"
+            enctype="multipart/form-data">
+            <div class="postCreate_panel">
+                <div>
+                    <div class="div_label">
+                        <label for="title">글 제목</label>
+                    </div>
+                    <input class="inputs" id="title" type="text" name="title" autofocus />
+                </div>
+                <div>
+                    <div class="div_label">
+                        <label for="kind">분류</label>
+                    </div>
+                    <input class="inputs" id="kind" type="text" name="kind" />
+                </div>
+                <div>
+                    <div class="div_label">
+                        <label for="author">작성자</label>
+                    </div>
+                    <input class="inputs" id="author" type="text" name="author" />
+                </div>
+                <div>
+                    <div class="div_label">
+                        <label for="content">내용</label>
+                    </div>
+                    <textarea class="inputs" id="content" name="content"></textarea>
+                </div>
+                <div>
+                    <div class="div_label">
+                        <label for="image">포스터 이미지</label>
+                    </div>
+                    <input class="inputs" type="file" id="image" name="image" />
+                </div>
+                <div class="btn">
+                    <button type="button" id="btnSubmit">생성하기</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
 
 
@@ -45,7 +61,8 @@
     <link rel="stylesheet" th:href="@{/css/post.css}">
 </th:block>
 <th:block layout:fragment="script">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script th:src="@{ /script/postCreate.js }"></script>
 </th:block>
