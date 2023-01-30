@@ -56,55 +56,6 @@ public class ImagesService {
      * @throws IOException
      * 김지훈
      */
-    public Integer saveMenuImage(MultipartFile file) throws IllegalStateException, IOException {
-        log.info("saveImage(file={}) 호출", file);
-        if (file.isEmpty()) {
-            return null;
-        }
-
-        // 원래 파일 이름 추출
-        String origName = file.getOriginalFilename();
-
-        // 저장할 이름 생성
-        String fileName = "Menu" + origName.substring(0, origName.indexOf("."));
-
-        // 확장자 추출(ex : .png)
-        String extension = origName.substring(origName.lastIndexOf("."));
-
-        // 파일을 불러올 때 사용할 파일 경로
-        String savedPath = fileDir + fileName + extension;
-
-        // 파일 엔티티 생성
-        Images image = Images.builder().originalName(origName).fileName(fileName).fileUrl(savedPath)
-                .extension(extension).build();
-
-        File makeFolder = new File("C:\\sbs");
-        return null;
-    }
-    /**
-     * fileName으로 이미지 찾는 서비스
-     * 
-     * @param String fileName
-     * @return Images
-     * @author 김지훈
-     */
-    public Images readByFileName(String fileName) {
-        log.info("readByFileName(fileName={}) 호출", fileName);
-        
-        return imagesRepository.findByFileName(fileName);
-    }
-    
-    
-    /**
-     * 메뉴 이미지 저장 메서드
-     * 경로는 TEAMS_FID를 이용해서 IMAGES와 연동
-     * C:\Users\sbs\이미지파일.확장자
-     * @param file
-     * @return fid 값(Integer)
-     * @throws IllegalStateException 
-     * @throws IOException
-     * 김지훈
-     */
     public Integer saveImage(MultipartFile file) throws IllegalStateException, IOException {
         log.info("saveImage(file={}) 호출", file);
         if (file.isEmpty()) {

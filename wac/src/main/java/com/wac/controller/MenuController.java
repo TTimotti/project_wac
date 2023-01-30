@@ -36,8 +36,6 @@ public class MenuController {
     public ResponseEntity<MenuReadDto> tossCart(Integer menuId) {
         log.info("tossCart menuId = {}", menuId);
         MenuReadDto menu = menuService.readMenu(menuId);
-        
-        
         return ResponseEntity.ok(menu);
     }
    
@@ -70,13 +68,10 @@ public class MenuController {
      * @throws IOException 
      * @throws IllegalStateException 
      */
-    @PostMapping("/menu/create")
-    public String create(MenuCreateDto dto, @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException { // ,  @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException {
+    @PostMapping("/menu/create")    
+    public String create(MenuCreateDto dto, @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException { 
         log.info("create() dto = {}, file = {}", dto, file);
-        // Menu entity = 
-        
-        
-        Integer fid = imagesService.saveMenuImage(file);
+        Integer fid = imagesService.saveImage(file);
         menuService.create(dto, fid);
         
         return "redirect:/menu";
