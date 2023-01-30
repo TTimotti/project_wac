@@ -71,9 +71,13 @@ function updateMenuList(data) {
         + '<a href="/menu/menuDetail?menuId='
         + m.menuId /* 여기 링크에 상세페이지 달기 */
         + '">'
-        + '<div class="card col-3 my-5">' + m.menuName
+        + '<div>' + m.menuName
         + '<p>' + m.content + '</p>'
         + '</div></a>'
+        + '<div><form>'
+        + '<a class="btn btn-success" th:href="@{ /menu/tossCart }">'
+        + '장바구니 추가'
+        + '</button></form></div>'
         + '</li>';
     }
     divMenuList.innerHTML = str;
