@@ -17,7 +17,7 @@ public class PostCreateDto {
     private Integer kind;
     private String content;
     private String author;
-    private Integer image;
+    
     
     public Post toEntity() {
         return Post.builder()
@@ -25,7 +25,6 @@ public class PostCreateDto {
                 .kind(kind)
                 .content(content)
                 .author(author)
-                .image(image)
                 .build();
     }
 }

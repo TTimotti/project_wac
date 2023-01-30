@@ -29,14 +29,15 @@ public class PostService {
         return list.stream().map(PostReadDto::fromEntity).toList();
     }
     
-    public Post create(PostCreateDto dto) {
-        log.info("create(dto={}", dto);
+    public Post create(PostCreateDto dto, Integer fid) {
+        log.info("create(dto={})", dto);
         
-        Post post = Post.builder() // TODO: 나중에 image 넣어줘야함.
+        Post post = Post.builder()
                 .title(dto.getTitle())
                 .kind(dto.getKind())
                 .content(dto.getContent())
                 .author(dto.getAuthor())
+                .image(fid)
                 .build();
         
         Post entity = postRepository.save(post);
