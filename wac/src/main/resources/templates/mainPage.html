@@ -4,7 +4,7 @@
     layout:decorate="~{ /layout/basic-layout }">
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/mainPage.css}">
-    
+    <link rel="stylesheet" th:href="@{/css/post.css}">
 </th:block>
 <div layout:fragment="content" class="content">
     <div class="mainContainer">
@@ -14,11 +14,36 @@
 		    <a href="#" class="bannerBtn next" id="nextBtn"><i class="fa-solid fa-caret-right fa-4x"></i></a>		     
 		</div>				
 	</div>
+    
+<div class="contArea">
+    <div class="inner">
+        <ul class="tabType01">
+            <!-- <li class="button promotion"><a class="btn form-control" id="promotion">프로모션</a></li>  -->
+            <!-- <li class="button post"><a id="news">새로운 소식 (공지사항)</a></li>  -->
+        </ul>
+        <div class="postList">
+            <p class="count" id="count"></p>
+            <ul class="posts" id="posts">
+
+            </ul>
+            <!-- 
+            <div class="btnMore" id="btnMore">
+                <button type="button" class="more" onclick="more()">더보기</button>
+            </div>
+             -->
+        </div>
+    </div>
 </div>
+    
+    
+</div>
+
 <script layout:fragment="script" th:inline="javascript"></script>
 <th:block layout:fragment="script">	
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="https://kit.fontawesome.com/df851af08f.js" crossorigin="anonymous"></script>
     <script th:src="@{/script/mainPage.js}"></script>
+    <script th:src="@{/script/post.js}"></script>
 </th:block>
 
 

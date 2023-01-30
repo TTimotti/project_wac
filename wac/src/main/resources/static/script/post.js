@@ -1,5 +1,5 @@
 /**
- * menu.js
+ * post.js
  * 추지훈
  */
 window.addEventListener('DOMContentLoaded', function() {
