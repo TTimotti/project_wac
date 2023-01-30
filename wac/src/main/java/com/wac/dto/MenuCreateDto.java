@@ -17,7 +17,6 @@ public class MenuCreateDto {
     private Integer kind;
     private String price;
     private String content;
-    private Integer image;
     
     public Menu toEntity() {
         return Menu.builder()
@@ -26,7 +25,6 @@ public class MenuCreateDto {
                 .kind(kind)
                 .price(price) 
                 .content(content)
-                .image(image)
                 .build();
     }
 }

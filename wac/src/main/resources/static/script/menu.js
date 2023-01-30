@@ -75,13 +75,29 @@ function updateMenuList(data) {
         + '<p>' + m.content + '</p>'
         + '</div></a>'
         + '<div><form>'
-        + '<a class="btn btn-success" th:href="@{ /menu/tossCart }">'
+        + `<a class="btn btn-success" id="btnTossCart" data-menuId="${ m.menuId }">`
         + '장바구니 추가'
         + '</button></form></div>'
         + '</li>';
     }
     divMenuList.innerHTML = str;
+    
+    const btnTossCart = document.querySelector('#btnTossCart');
+    
+        btnTossCart.addEventListener('click', (tossCart));
 }
+
+function tossCart(data) {
+    const menuId = data.target.getAttribute('data-menuId');
+    console.log("카트로 넘어가는 메뉴", menuId);
+    
+    axios
+    .get('/menu/toss', {param : {menuId}})
+    .then(response => { response.data })
+    .catch(err => { console.log(err)});
+    
+}
+
 
 });
 

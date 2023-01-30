@@ -32,7 +32,12 @@ public class MenuController {
     
     private final ImagesService imagesService;
     
-    
+    @GetMapping("/menu/toss")
+    public ResponseEntity<MenuReadDto> tossCart(Integer menuId) {
+        log.info("tossCart menuId = {}", menuId);
+        MenuReadDto menu = menuService.readMenu(menuId);
+        return ResponseEntity.ok(menu);
+    }
    
     /**
      * 메뉴 전체 리스트 kind(종료)별로 불러오는 메서드.
@@ -63,14 +68,11 @@ public class MenuController {
      * @throws IOException 
      * @throws IllegalStateException 
      */
-    @PostMapping("/menu/create")
-    public String create(MenuCreateDto dto, @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException { // ,  @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException {
+    @PostMapping("/menu/create")    
+    public String create(MenuCreateDto dto, @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException { 
         log.info("create() dto = {}, file = {}", dto, file);
-        // Menu entity = 
-        menuService.create(dto);
-        
-        Integer img = imagesService.saveImage(file);
-        dto.setImage(img);
+        Integer fid = imagesService.saveImage(file);
+        menuService.create(dto, fid);
         
         return "redirect:/menu";
     }

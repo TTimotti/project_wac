@@ -36,7 +36,9 @@ function updatePostList(data) {
     let str = '';
     for (let p of data) {
         str += '<li class="card my-5 col-3">'
-        + '<a href="/">' /* 여기 링크에 상세페이지 달기 */
+        + '<a href="/">'
+        + '<img src="/image/display?fid=' + p.image 
+        + '" alt="메뉴 이미지" style="width:350px; height:200px;"/>'
         + '<div class="card col-3 my-5">' + p.title
         + '<p>' + p.content + '</p>'
         + '</div></a>'
@@ -44,6 +46,19 @@ function updatePostList(data) {
     }
     divPostList.innerHTML = str;
 }
+
+    // admin check : admin 계정으로만 '새 글 작성' 기능 사용할 수 있게 적용
+    const adminOnly = document.querySelector('#adminOnly');
+
+    
+    console.log(loginUser);
+    
+        if(loginUser == "admin") {
+            adminOnly.style.display="block";
+            
+        } else{
+            adminOnly.style.display="none";
+        }
 
 });
 

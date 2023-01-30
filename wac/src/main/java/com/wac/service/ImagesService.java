@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.beans.factory.annotation.Value;
 
 import com.wac.domain.Images;
 import com.wac.repository.ImagesRepository;
@@ -44,20 +44,7 @@ public class ImagesService {
         
         return imagesRepository.findByFid(fid);
     }
-    
-    /**
-     * fileName으로 이미지 찾는 서비스
-     * 
-     * @param String fileName
-     * @return Images
-     * @author 김지훈
-     */
-    public Images readByFileName(String fileName) {
-        log.info("readByFileName(fileName={}) 호출", fileName);
-        
-        return imagesRepository.findByFileName(fileName);
-    }
-    
+
     
     /**
      * 메뉴 이미지 저장 메서드
