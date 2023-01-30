@@ -50,14 +50,14 @@
                                         
                                         <!-- 화살 -->
                                         <div class="other">
-                                            <a th:if= "${prevMenu != null}" th:href="@{/menu/menuDetail?menuId={menuId} (menuId = ${prevMenu.menuId})}" class="arrow prev">
+                                            <a th:if= "${prevMenu != null}" th:href="@{/menu/menuDetail?kind={kind}&menuId={menuId} (kind = ${menu.kind}, menuId = ${prevMenu.menuId})}" class="arrow prev">
                                                 <span>《 </span>
                                                 
                                                     <img th:src="@{/image/display?fid={fid} (fid = ${prevMenu.image})}" th:alt="${prevMenu.menuName}" />
                                                 
                                             </a>
                                             
-                                            <a th:if= "${nextMenu != null}" th:href="@{/menu/menuDetail?menuId={menuId} (menuId = ${nextMenu.menuId})}" class="arrow next">
+                                            <a th:if= "${nextMenu != null}" th:href="@{/menu/menuDetail?kind={kind}&menuId={menuId} (kind = ${menu.kind}, menuId = ${nextMenu.menuId})}" class="arrow next">
                                                 <span> 》</span>
 
                                                     <img th:src="@{/image/display?fid={fid} (fid = ${nextMenu.image})}" th:alt="${nextMenu.menuName}" />
