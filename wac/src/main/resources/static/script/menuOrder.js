@@ -74,6 +74,10 @@ function updateMenuList(data) {
         + '<div>' + m.menuName
         + '<p>' + m.content + '</p>'
         + '</div></a>'
+        + '<div><form>'
+        + `<a class="btn btn-success" id="btnTossCart" data-menuId="${ m.menuId }">`
+        + '장바구니 추가'
+        + '</button></form></div>'
         + '</li>';
     }
     divMenuList.innerHTML = str;

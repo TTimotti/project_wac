@@ -37,7 +37,7 @@ public class HomeController {
 	@GetMapping("/order")
 	public String order() {
 		log.info("order()");
-		return "/order";
+		return "/order/order";
 	}
 	/**
 	 *  Story 페이지
