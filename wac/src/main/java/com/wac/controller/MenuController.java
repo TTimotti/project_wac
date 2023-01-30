@@ -71,12 +71,9 @@ public class MenuController {
      */
     @PostMapping("/menu/create")
         
-    public String create(MenuCreateDto dto, @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException { // ,  @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException {
+    public String create(MenuCreateDto dto, @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException { 
         log.info("create() dto = {}, file = {}", dto, file);
-        // Menu entity = 
-        
-        
-        Integer fid = imagesService.saveMenuImage(file);
+        Integer fid = imagesService.saveImage(file);
         menuService.create(dto, fid);
         
         return "redirect:/menu";

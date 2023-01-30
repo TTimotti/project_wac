@@ -42,7 +42,7 @@ public class MenuService {
      * @author 추지훈
      */
     public Menu create(MenuCreateDto dto, Integer fid) {
-        log.info("create(dto={}", dto);
+        log.info("Menu.create(dto={}, file = {})", dto, fid);
         
         Menu menu = Menu.builder()
                 .menuName(dto.getMenuName())

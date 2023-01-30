@@ -11,5 +11,4 @@ public interface ImagesRepository extends JpaRepository<Images, Integer>  {
     List<Images> findByOrderByFidDesc();
 
     Images findByFid(Integer fid);
-    Images findByFileName(String fileName);
 }
