@@ -49,14 +49,14 @@
                                         
                                         <!-- 화살 -->
                                         <div class="other">
-                                            <a href="javascript:menuDetail(516);" class="arrow prev">
+                                            <a th:if= "${prevMenu != null}" th:href="@{/menu/menuDetail?menuId={menuId} (menuId = ${prevMenu.menuId})}" class="arrow prev">
                                                 <span>《 </span>
                                                 <div class="img">
                                                     <img src="https://www.mcdonalds.co.kr/upload/product/pcthum/1653436578916.png" alt="맥크리스피 클래식 버거"/>
                                                 </div>
                                             </a>
                                             
-                                            <a href="javascript:menuDetail(461);" class="arrow next">
+                                            <a th:if= "${nextMenu != null}" th:href="@{/menu/menuDetail?menuId={menuId} (menuId = ${nextMenu.menuId})}" class="arrow next">
                                                 <span> 》</span>
                                                 <div class="img">
                                                     <img src="https://www.mcdonalds.co.kr/upload/product/pcthum/1583728346366.png" alt="맥스파이시® 상하이 버거" />
@@ -159,15 +159,14 @@
     </div> <!-- div wrapper -->
 </div>  <!-- layout:fragment -->
 
-<script layout:fragment="script" th:inline="javascript"></script>
-<th:block layout:fragment="script"> 
-<script th:src="@{/script/menuDetail.js}"></script>
-<script>
-function menuDetail(seq) {
-	console.log(seq);
-}
-</script>
 
+
+
+<th:block layout:fragment="script" th:inline="javaScript">
+    <script>
+    const besideMenus = [[${ besideMenu }]];
+    </script>
+    <script th:src="@{/script/menuDetail.js}"></script>
 </th:block>
 
 </html>

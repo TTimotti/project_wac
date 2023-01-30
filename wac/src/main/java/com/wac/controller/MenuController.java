@@ -102,6 +102,12 @@ public class MenuController {
 
         Menu menu = menuService.readById(menuId);
         model.addAttribute("menu", menu);
+
+        Menu prevMenu = menuService.readPrevMenuById(menuId);
+        model.addAttribute("prevMenu", prevMenu);        
+        
+        Menu nextMenu = menuService.readNextMenuById(menuId);
+        model.addAttribute("nextMenu", nextMenu);
     }
 
     
