@@ -38,7 +38,7 @@ function updatePostList(data) {
         str += '<li class="card my-5 col-3">'
         + '<a href="/">'
         + '<img src="/image/display?fid=' + p.image 
-        + '" alt="메뉴 이미지" style="width:350px; height:200px;"/>'
+        + '" alt="포스트 이미지" style="width:350px; height:200px;"/>'
         + '<div class="card col-3 my-5">' + p.title
         + '<p>' + p.content + '</p>'
         + '</div></a>'

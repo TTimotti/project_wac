@@ -71,27 +71,14 @@ function updateMenuList(data) {
         + '<a href="/menu/menuDetail?menuId='
         + m.menuId /* 여기 링크에 상세페이지 달기 */
         + '">'
+        + '<img src="/image/display?fid=' + m.image 
+        + '" alt="메뉴 이미지" style="width:350px; height:200px;"/>'
         + '<div>' + m.menuName
         + '<p>' + m.content + '</p>'
         + '</div></a>'
         + '</li>';
     }
     divMenuList.innerHTML = str;
-    
-    const btnTossCart = document.querySelector('#btnTossCart');
-    
-        btnTossCart.addEventListener('click', (tossCart));
-}
-
-function tossCart(data) {
-    const menuId = data.target.getAttribute('data-menuId');
-    console.log("카트로 넘어가는 메뉴", menuId);
-    
-    axios
-    .get('/menu/toss', {param : {menuId}})
-    .then(response => { response.data })
-    .catch(err => { console.log(err)});
-    
 }
 
 
