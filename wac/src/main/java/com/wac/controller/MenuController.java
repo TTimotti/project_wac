@@ -33,10 +33,10 @@ public class MenuController {
     private final ImagesService imagesService;
     
     @GetMapping("/menu/toss")
-    public ResponseEntity<MenuReadDto> tossCart(Integer menuId) {
+    public MenuReadDto tossCart(Integer menuId) {
         log.info("tossCart menuId = {}", menuId);
         MenuReadDto menu = menuService.readMenu(menuId);
-        return ResponseEntity.ok(menu);
+        return menu;
     }
    
     /**

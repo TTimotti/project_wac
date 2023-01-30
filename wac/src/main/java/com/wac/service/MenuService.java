@@ -34,6 +34,21 @@ public class MenuService {
         
         return list.stream().map(MenuReadDto::fromEntity).toList();
     }
+    
+    /**
+     * 메뉴 하나를 불러오는 메서드
+     * 상세보기나 특정메뉴 검색이나 장바구니로 특정 메뉴를 보낼때 사용
+     * @param menuId
+     * @return
+     * @author 추지훈
+     */
+    @Transactional(readOnly = true)
+    public MenuReadDto readMenu(Integer menuId) {
+        log.info("readMenu menuId = {}", menuId);
+        
+        return menuRepository.findByMenuId(menuId);
+    }
+    
 
     /**
      * 메뉴 생성 메서드
@@ -96,17 +111,5 @@ public class MenuService {
         return menuRepository.readNextMenuById(menuId);
     }
 
-    /**
-     * 메뉴 하나를 불러오는 메서드
-     * 상세보기나 특정메뉴 검색이나 장바구니로 특정 메뉴를 보낼때 사용
-     * @param menuId
-     * @return
-     * @author 추지훈
-     */
-    public MenuReadDto readMenu(Integer menuId) {
-        log.info("readMenu menuId = {}", menuId);
-        
-        return menuRepository.findByMenuId(menuId);
-    }
     
 }

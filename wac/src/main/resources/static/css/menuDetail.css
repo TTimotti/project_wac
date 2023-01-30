@@ -141,7 +141,8 @@ a {
     
     /* 메뉴 사진 */
     .menuView .viewTop .info .visual img {
-        width: 500px;
+        width: 450px;
+        height: 400.92px;
     }
     
     /* 제품 소개란 */
@@ -197,18 +198,16 @@ a {
     }
     
     /* 화살표 안 버거 img */
-    .menuView .viewTop .info .other .arrow .img {
+    .menuView .viewTop .info .other img {
         display: none;
         position: relative;
         width: 85px;
         height: 85px;
-        overflow: hidden;
         border-radius: 100%;
-
     }
     
     /* 화살표 안 버거 img:hover */
-    .menuView .viewTop .info .other .arrow:hover .img {
+    .menuView .viewTop .info .other .arrow:hover img {
         display: block;
     }
     
