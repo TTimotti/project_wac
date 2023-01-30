@@ -5,7 +5,6 @@
     background-repeat: no-repeat;
     text-align: center;
     font-size: 25px;
-
 }
 
 .signUp_panel {
@@ -16,7 +15,6 @@
 }
 
 .btnCreate {
-
     text-align: center;
 }
 
@@ -33,7 +31,12 @@
 }
 
 .div_label {
+    
+    padding: 10px 10px;  
     width: 20%;
+}
+
+.label {
 }
 
 .inputs#address {
@@ -96,4 +99,16 @@
 
 .select_options {
     font-size: 15px;
+}
+
+.check {
+    padding: 10px 10px;
+    color: green;
+    text-align: center;
+}
+
+.err {
+    color: red;
+    padding: 10px 10px;
+    text-align: center;
 }

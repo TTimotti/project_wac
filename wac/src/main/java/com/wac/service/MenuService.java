@@ -20,6 +20,12 @@ public class MenuService {
     
     private final MenuRepository menuRepository;
     
+    /**
+     * 전체 메뉴 불러오는 메서드
+     * @param kind
+     * @return
+     * @author 추지훈
+     */
     @Transactional(readOnly = true)
     public List<MenuReadDto> readMenus(Integer kind) {
         log.info("readMenus");
@@ -29,6 +35,12 @@ public class MenuService {
         return list.stream().map(MenuReadDto::fromEntity).toList();
     }
 
+    /**
+     * 메뉴 생성 메서드
+     * @param dto
+     * @return
+     * @author 추지훈
+     */
     public Menu create(MenuCreateDto dto) {
         log.info("create(dto={}", dto);
         
@@ -59,6 +71,19 @@ public class MenuService {
     public Menu readById(Integer testId) {
         log.info("read(menuId={})", testId);
         return menuRepository.findById(testId).get();
+    }
+
+    /**
+     * 메뉴 하나를 불러오는 메서드
+     * 상세보기나 특정메뉴 검색이나 장바구니로 특정 메뉴를 보낼때 사용
+     * @param menuId
+     * @return
+     * @author 추지훈
+     */
+    public MenuReadDto readMenu(Integer menuId) {
+        log.info("readMenu menuId = {}", menuId);
+        
+        return menuRepository.findByMenuId(menuId);
     }
     
 }

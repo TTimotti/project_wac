@@ -1,5 +1,6 @@
 package com.wac.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -8,9 +9,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.wac.dto.PostCreateDto;
 import com.wac.dto.PostReadDto;
+import com.wac.service.ImagesService;
 import com.wac.service.PostService;
 
 import lombok.RequiredArgsConstructor;
@@ -23,6 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 public class PostController {
 
     private final PostService postService;
+    private final ImagesService imagesService;
     
     /**
      * post 전체 리스트 kind(종료)별로 불러오는 메서드.
@@ -52,10 +57,12 @@ public class PostController {
      * @author 추지훈
      */
     @PostMapping("/post/create")
-    public String create(PostCreateDto dto) {
-        log.info("create() dto = {}", dto);
+    public String create(PostCreateDto dto, @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException {
+        log.info("create() dto = {}, file = {}", dto, file);
         
-        postService.create(dto);
+        Integer fid = imagesService.saveImage(file);
+        postService.create(dto, fid);
+        
         
         return "redirect:/post";
     }
