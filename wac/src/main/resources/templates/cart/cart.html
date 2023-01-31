@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ layout/basic-layout.html }">
+
+<title>Wacdonaldo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<th:block layout:fragment="css">
+
+</th:block>
+
+<div layout:fragment="content">
+
+
+    <!-- 로그인 하지 않은 유저에게 보여지는 div -->
+    <th:block sec:authorize="isAnonymous()">
+        <div class="err" id="ifNone" style="display: block">
+            <h1>비정상적인 접근입니다.</h1>
+            <h1>로그인 혹은 회원가입 후 이용하세요</h1>
+
+            <button class="btnSignIn" type="button" id="btnSignIn"
+                th:onclick="'location.href=\'' + @{/user/signIn} + '\''">Login</button>
+            <button class="btnCreate" type="button" id="btnSignUp"
+                th:onclick="'location.href=\'' + @{/user/signUp} + '\''">Sign
+                Up</button>
+
+        </div>
+    </th:block>
+
+    <th:block sec:authorize="isAuthenticated()">
+
+        <!-- 로그인 정보가 다를 경우 보여지는 div -->
+        <div class="err" id="ifDifferent" style="display: none">
+            <h1>비정상적인 접근입니다.</h1>
+
+            <button class="btnMain" type="button" id="btnMain"
+                th:onclick="'location.href=\'' + @{/} + '\''">Main</button>
+            <button class="btnMyPage" type="button" id="btnMyPage"
+                th:onclick="'location.href=\'' + @{ /user/myPage?userName={userName} (userName = ${ #authentication.name }) } + '\''">My
+                page</button>
+
+        </div>
+
+        <!-- 로그인 정보와 회원 정보가 일치하는 경우 보여지는 div -->
+
+        <div id="ifSame" style="display: none">
+            <div class="myPage_head">
+                <h1>Cart page</h1>
+            </div>
+        </div>
+
+        <th:block layout:fragment="script" th:inline="javaScript">
+            <script>
+             const userName = [[ ${ user.userName }]];
+</script>
+            <script th:src="@{ /script/cart.js }"></script>
+        </th:block>
+</html>
