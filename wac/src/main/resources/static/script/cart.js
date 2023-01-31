@@ -19,6 +19,7 @@ window.addEventListener('DOMContentLoaded', function() {
         } else{
             ifDifferent.style.display="block";
         }
-
+    
+    // 버튼 기능 활성화
 
 });
