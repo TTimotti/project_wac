@@ -1,7 +1,5 @@
 package com.wac.domain;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,15 +33,15 @@ public class Cart extends BaseTimeEntity {
     @Column(name = "user_id")
     private Integer userId; // 장바구니를 이용하는 회원
     
-    @Column(name = "prod_num")
-    private Integer prodNum; // 상품 번호 
+    @Column(name = "menuId")
+    private Integer menuId; // 상품 번호 
     
     @Column
     private Integer quantity; // 수량
     
     @Column(name = "shipping")
-    private String shipping; // 배송 전: 1, 배송 후: 2
+    private Integer shipping; // 배송 전: 1, 배송 후: 2
     
-    @Column(name = "cart_indate")
-    private LocalDateTime cartIndate; // 장바구니에 담은 날짜 ? 이건 createdate로 통일가능한지 고민좀
+//    @Column(name = "cart_indate")
+//    private LocalDateTime cartIndate; // 장바구니에 담은 날짜 ? 이건 createdate로 통일가능한지 고민좀
 }
