@@ -37,9 +37,9 @@
 
             <button class="btnMain" type="button" id="btnMain"
                 th:onclick="'location.href=\'' + @{/} + '\''">Main</button>
-            <button class="btnMyPage" type="button" id="btnMyPage"
-                th:onclick="'location.href=\'' + @{ /user/myPage?userName={userName} (userName = ${ #authentication.name }) } + '\''">My
-                page</button>
+            <button class="btnMyCart" type="button" id="btnMyCart"
+                th:onclick="'location.href=\'' + @{ /cart/cart?userName={userName} (userName = ${ #authentication.name }) } + '\''">My
+                Cart</button>
 
         </div>
 

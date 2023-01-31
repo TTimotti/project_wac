@@ -57,6 +57,7 @@ public class CartController {
 	        }else {
 		        model.addAttribute("order",order);
 	        }
+	        
 	        model.addAttribute("user", user);
 	        
 	}
