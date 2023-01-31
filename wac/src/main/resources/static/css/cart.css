@@ -1,13 +1,20 @@
 @charset "UTF-8";
 
-.cart_head {
+.cartHead {
     vertical-align: top;
     background-repeat: no-repeat;
     text-align: center;
     font-size: 25px;
 }
 
-.cart_panel {
+.orderPanel {
+    border: 1px solid gray;
+    margin: 16px;
+    padding: 20px 20px;
+    text-align: inherit;
+}
+
+.cartPanel {
     border: 1px solid gray;
     margin: 16px;
     padding: 20px 20px;

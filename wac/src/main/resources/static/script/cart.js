@@ -10,8 +10,10 @@ window.addEventListener('DOMContentLoaded', function() {
     const ifDifferent = document.querySelector('#ifDifferent');
     const ifSame = document.querySelector('#ifSame');
 
-    console.log(loginUser);
-    console.log(userName);
+    console.log(" login user = ", loginUser);
+    console.log("username =", userName);
+    console.log("Cart =", myCart);
+    console.log("Order = ", myOrder);
 
     if (userName == loginUser) {
         ifSame.style.display = "block";
@@ -36,14 +38,42 @@ window.addEventListener('DOMContentLoaded', function() {
         cartDivOn();
     });
 
+    //  order 보여주기
+
     function orderDivOn() {
         orderDiv.style.display = "block";
         cartDiv.style.display = "none";
+
+        const orderIsNotNull = document.querySelector('#orderIsNotNull');
+        const orderIsNull = document.querySelector('#orderIsNull');
+
+        if (myOrder == null) {
+            orderIsNotNull.style.display = "none";
+            orderIsNull.style.display = "block";
+        } else {
+            orderIsNotNull.style.display = "block";
+            orderIsNull.style.display = "none";
+        }
+
     }
 
+    // cart 보여주기
     function cartDivOn() {
         orderDiv.style.display = "none";
         cartDiv.style.display = "block";
+        
+        const cartIsNotNull = document.querySelector('#cartIsNotNull');
+        const cartIsNull = document.querySelector('#cartIsNull');
+
+        if (myCart == null) {
+            cartIsNotNull.style.display = "none";
+            cartIsNull.style.display = "block";
+        } else {
+            cartIsNotNull.style.display = "block";
+            cartIsNull.style.display = "none";
+        }
+
     }
+
 
 });
