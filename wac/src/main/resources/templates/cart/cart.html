@@ -53,7 +53,8 @@
 
             <div class="btns">
                 <div>
-                    <button class="btn" type="button" id="btnOrder">주문 내역</button>
+                    <button class="btn" type="button" id="btnOrder">주문
+                        내역</button>
                 </div>
                 <div>
                     <button class="btn" type="button" id="btnCart">장바구니</button>
@@ -61,20 +62,21 @@
             </div>
 
             <div class="cart_panel" style="display: none">
-            <h1> cart panel </h1>
+                <h1>cart panel</h1>
             </div>
 
             <div class="order_panel" style="display: none">
-            <h1> order panel </h1>
+                <h1>order panel</h1>
             </div>
 
         </div>
+
         </th:block>
 </div>
         <th:block layout:fragment="script" th:inline="javaScript">
             <script>
              const userName = [[ ${ user.userName }]];
 </script>
-            <script th:src="@{ /script/cart.js }"></script>
-        </th:block>
+    <script th:src="@{ /script/cart.js }"></script>
+</th:block>
 </html>

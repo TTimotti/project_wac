@@ -26,26 +26,138 @@
                 <!-- 주문 내역 -->
                 <div class="contArea">
                     <div class="inner" >
-                        <!-- padding이 껴있는 inner 태그 안에... menuView 태그는 그 안에 또 만들어지니까 여백 안에서 보임? -->
-                        <div class="menuView">
-                            <div class="receipt" style="background-color: #f8f8f8;">
-                                <div class="reciptTitle">
-                                    <!-- 사진 -->
-                                    <div>
-                                        <img th:src="@{/image/display?fid=5}" alt="공사중....."/>
+                        <ul class="cart_list">
+                            <li>
+                                <div class="cont">
+                                    <div class="menu_titWrap">
+                                        <label class="menu_name">
+                                            <span class="tit">
+                                                <strong>
+                                                    <!-- 메뉴 제목 -->
+                                                    <span>빅맥</span>
+                                                </strong>
+                                            </span>
+                                            <span class="set_info"></span>
+                                            <span class="price">
+                                                <!-- 가격 -->
+                                                <strong>
+                                                    <span>12,200</span>
+                                                    <span class="unit">원</span>
+                                                </strong>
+                                            </span>
+                                        </label> <!-- menuName -->
+                                        <div class="prd_img">
+                                            <span>
+                                                <img th:src="@{/image/display?fid=5}" alt="공사중..." style="display: inline; opacity: 1"/>
+                                            </span>
+                                        </div> <!-- prd_img -->
+                                    </div> <!-- menu_titWrap -->
+                                    <div class="setmenu_detail">
+                                        <dl>
+                                            <dt>사이드</dt>
+                                            <dd>
+                                                <div class="list">
+                                                    <span class="txt">프렌치프라이L</span>
+                                                    <strong class="amount">
+                                                        +
+                                                        <span>0</span>
+                                                        <span class="unit">원</span>
+                                                    </strong>
+                                                </div>
+                                                <button type="button" class="btn04 h02 btn_edit">
+                                                    <span>변경</span>
+                                                </button>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>음료</dt>
+                                            <dd>
+                                                <div class="list">
+                                                    <span class="txt">콜라L</span>
+                                                    <strong class="amount">
+                                                        +
+                                                        <span>0</span>
+                                                        <span class="unit">원</span>
+                                                    </strong>
+                                                </div>
+                                                <button type="button" class="btn04 h02 btn_edit">
+                                                    <span>변경</span>
+                                                </button>
+                                            </dd>
+                                        </dl>                                        
+                                    </div> <!-- setmenu_detail -->
+                                    <div class="quantity">
+                                        <strong class="tit">수량</strong>
+                                        <div class="num_set">
+                                            <button type="button" class="btn_minus">
+                                                <span style="color: white;">-</span>
+                                            </button>
+                                            <input type="number" readonly="readonly" />
+                                            <button type="button" class="btn_plus">
+                                                <span style="color: white;">+</span>
+                                            </button>
+                                        </div>
                                     </div>
-                                
-                                    <!-- 제목 -->
-                                    <span>
-                                        아이티윌버거
-                                    </span>
-                                </div>
-                            </div>
-                            
+                                </div> <!-- cont -->
+                                <div class="sumWrap">
+                                    <dl>
+                                        <dt>합계금액</dt>
+                                        <dd>
+                                            <strong>
+                                                <em>
+                                                    <span>10,200</span>
+                                                    <span class="unit">원</span>
+                                                </em>
+                                            </strong>
+                                        </dd>
+                                    </dl>
+                                </div> <!-- sumWrap -->
+                                <button type="button" class="btn_del02">
+                                    <span>X</span>
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="sumWrap">
+                            <dl>
+                                <dt>총 주문금액</dt>
+                                <dd>
+                                    <strong>
+                                        <em>
+                                            <span>10,200</span>
+                                            <span class="unit">원</span>
+                                        </em>
+                                    </strong>
+                                </dd>
+                            </dl>
                         </div>
+                        <div class="cartinfo">
+                            <div class="c_btn item2">
+                                <button type="button" class="btn01 m ico add">
+                                    <span>
+                                        메뉴 추가
+                                    </span>
+                                </button>
+                                <button type="button" class="btn01 m red">
+                                    <span>
+                                        주문하기
+                                    </span>
+                                </button>
+                            </div>
+                            <ul class="txtlist01">
+                                <li>
+                                    주문하기 전에 꼭 상품명, 수량 및 가격을 확인해주세요.
+                                </li>
+                                <li>
+                                    배달 최소금액은 15,000원입니다.
+                                </li>
+                            </ul>
+                        </div> <!-- cartinfo -->
                     </div>
                 </div>
             </div>
+        </div>
+        <div>
+        
         </div>
     </div>
 </div>  
