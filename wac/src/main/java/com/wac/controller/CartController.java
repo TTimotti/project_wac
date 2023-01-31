@@ -75,7 +75,7 @@ public class CartController {
      * @return
      * @author 추지훈
      */
-    @PostMapping("/cart/menuOrder")
+    @PostMapping("/create")
     public String menuOrder(Integer menuId, String loginUser) {
         log.info("tossCart menuId = {}", menuId);
         

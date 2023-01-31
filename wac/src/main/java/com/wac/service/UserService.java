@@ -201,7 +201,7 @@ public class UserService {
     }
 
     public Integer getUserIdByUserName(String userName) {
-        
+        log.info("유저이름으로 아이디불러오기 = {} ", userName);
         return userRepository.findUserIdByUserName(userName);
     }
 }

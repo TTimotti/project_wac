@@ -94,13 +94,23 @@ function tossCart(data) {
     const menuId = data.target.getAttribute('data-menuId');
     console.log("카트로 넘어가는 메뉴", menuId);
     console.log("유저이름", loginUser);
+    const cartMenuId = menuId.value;
+    
+    const userName = loginUser.value;
+    
+    btnTossCart.action = '/cart/create';
+    btnTossCart.method = 'post';
+    btnTossCart.submit();
+    
+    alert("장바구니 추가.");
     
     
+    /**
     axios
-    .get('/cart/menuOrder', {params : {menuId, loginUser}})
+    .get('/cart/create', {params : {menuId, loginUser}})
     .then(response => { response.data })
     .catch(err => { console.log(err)});
-    
+     */
 };
 
 
