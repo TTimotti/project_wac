@@ -24,7 +24,7 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
      * @return
      * @author 추지훈
      */
-    @Query("select m from MENUS m where m.kind = :kind")
+    @Query("select m from MENUS m where m.kind = :kind order by m.menuId")
     List<Menu> readAllList(@Param("kind") Integer kind);
 
     /**
