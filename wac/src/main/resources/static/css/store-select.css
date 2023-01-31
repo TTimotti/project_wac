@@ -4,11 +4,14 @@
 생성자 장민석.
 **/
 .storeContainer {
-	width: 100%;
+	width: 80%;
+	height: 650px;
 	text-align: center;
 	padding: 50px;
 	margin-bottom: 20px;
-	display: inline-block
+	margin-left:auto;
+	margin-right:auto;
+	
 }
 
 
@@ -66,7 +69,7 @@ a {
 #map {
 	margin: 5px;
 	height: 600px;
-	width: 1200px;
+	width: 700px;
 	border-radius: 5px 5px 5px 5px;
 	float: left;
 }
@@ -79,7 +82,6 @@ a {
 
 table {
 	border-collapse: collapse;
-    margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
@@ -89,15 +91,26 @@ table {
 }
 
 thead tr {
-    background-color: #009879;
-    color: #ffffff;
+    background-color: black;
+    color: #FFD126;
     text-align: left;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 th, td {
 	text-align: center;
+	font-weight: bolder;
 	padding: 12px 15px;
+    font-size: 20px;
+    opacity: 1.0;
+    cursor: pointer;
 }
+
+td:hover {
+	opacity: 0.5;
+}
+
 tbody tr {
     border-bottom: 1px solid #dddddd;
 }
@@ -105,7 +118,7 @@ tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid lightgray;
 }
 tbody tr.active-row {
     font-weight: bold;
@@ -119,6 +132,9 @@ tbody tr.active-row {
 	font-weight: bold;
 	text-align: center;
 	border-bottom: 3px solid black;
+}
+.storeInfo { 
+	
 }
 .customoverlay {
 	position: relative;

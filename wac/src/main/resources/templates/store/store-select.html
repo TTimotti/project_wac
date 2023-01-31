@@ -22,35 +22,40 @@
 		</div>
 	</div>
 	<div class="frontFont">
-		<h1>주문 매장 선택 </h1>
+		<h1>주문 매장 선택</h1>
 	</div>
-	<div class ="storeContainer">
+	<div class="storeContainer">
 		<div id="map"></div>
-
 		<div class="storePlace">
-		<table>
-			<thead>
-				<tr>
-					<th>매장명</th>
-					<th>전화번호</th>
-					<th>영업시간</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="store : ${ storeInfo }">
-					<td th:text="${ store.storeName }"></td>
-					<td th:text="${ store.storePhone }"></td>
-					<td th:text="${ store.storeTime }"></td>
-				<tr>
-			</tbody>
-		</table>
+			<table>
+				<thead>
+					<tr>
+						<th>매장명</th>
+						<th>전화번호</th>
+						<th>영업시간</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="storeInfo" th:each="store : ${ storeInfo }">
+						<td class ="storeName" th:text="${ store.storeName }"
+							th:data-storeName="${ store.storeName }"></td>
+						<td th:text="${ store.storePhone }"></td>
+						<td th:text="${ store.storeTime }"></td>
+					<tr>
+				</tbody>
+			</table>
 		</div>
-</div>
+		<h1>선택 매장 :<input type="text" class="dInfo"></h1>
+	</div>
 </div>
 <th:block layout:fragment="script">
+	<!-- Jquery JS-->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<!-- Axios -->
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<!-- kakao -->
 	<script type="text/javascript"
 	     	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=abaecbd1f25256beda80cb6e2837cf2b&libraries=services"></script>
-	<script th:src="@{/script/store.js}"></script>
+	<script th:src="@{/script/store-select.js}"></script>
 </th:block>
 </html>
