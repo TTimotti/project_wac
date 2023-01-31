@@ -23,21 +23,27 @@ window.addEventListener('DOMContentLoaded', function() {
     // 버튼 기능 활성화
     const cartDiv = document.querySelector('#cartDiv');
     const orderDiv = document.querySelector('#orderDiv');
-    const btnOrder = document.querySelector('#btnOreder');
+    const btnOrder = document.querySelector('#btnOrder');
     const btnCart = document.querySelector('#btnCart');
 
     // Order 버튼 누르면 Order Dive 활성화
     btnOrder.addEventListener('click', function() {
-
+        orderDivOn();
     });
 
     // Cart 버튼 누르면 Cart div 활성화
     btnCart.addEventListener('click', function() {
-
+        cartDivOn();
     });
 
-    function OrderDiv() {
-    
+    function orderDivOn() {
+        orderDiv.style.display = "block";
+        cartDiv.style.display = "none";
     }
-    
+
+    function cartDivOn() {
+        orderDiv.style.display = "none";
+        cartDiv.style.display = "block";
+    }
+
 });

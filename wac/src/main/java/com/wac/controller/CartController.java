@@ -34,6 +34,16 @@ public class CartController {
 	private final OrderService orderService;
 	private final CartService cartService;
 	
+	/**
+	 * username, userId를 입력 받아서 User 객체 생성.
+	 * 생성된 User 객체의 .getUserId() 메서드로 userId값을 얻음.
+	 * 얻은 userId값으로 cart, order 객체에서 일치하는 userId 값의 데이터가 있는지 탐색.
+	 * @param model
+	 * @param userName
+	 * @param userId
+	 * @return userId가 포함된 Cart, Order 객체. 없으면 null을 html에 보냄
+	 * @author 이존규
+	 */
 	@GetMapping("cart")
 	public void cartPage(Model model, String userName, Integer userId) {
 		log.info("cart page = userId{}, userName{]", userId, userName);
