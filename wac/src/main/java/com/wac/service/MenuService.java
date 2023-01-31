@@ -42,11 +42,11 @@ public class MenuService {
      * @return
      * @author 추지훈
      */
-    @Transactional(readOnly = true)
-    public MenuReadDto readMenu(Integer menuId) {
+    public Menu readMenu(Integer menuId) {
         log.info("readMenu menuId = {}", menuId);
+        Menu menu = menuRepository.findByMenuId(menuId).get();
         
-        return menuRepository.findByMenuId(menuId);
+        return menu;
     }
     
 

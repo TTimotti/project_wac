@@ -31,13 +31,6 @@ public class MenuController {
     private final MenuService menuService;
     
     private final ImagesService imagesService;
-    
-    @GetMapping("/menu/toss")
-    public MenuReadDto tossCart(Integer menuId) {
-        log.info("tossCart menuId = {}", menuId);
-        MenuReadDto menu = menuService.readMenu(menuId);
-        return menu;
-    }
    
     /**
      * 메뉴 전체 리스트 kind(종료)별로 불러오는 메서드.
