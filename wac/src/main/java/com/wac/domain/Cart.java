@@ -39,6 +39,9 @@ public class Cart extends BaseTimeEntity {
     @Column
     private Integer quantity; // 수량
     
+    @Column
+    private String address; // 주소
+    
     @Column(name = "shipping")
     private Integer shipping; // 배송 전: 1, 배송 후: 2
     

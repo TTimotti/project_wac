@@ -212,5 +212,22 @@ public class UserController {
     public void signIn() {
         log.info("wac - signIn");
     }
+    
+    @GetMapping("/getUserId")
+    public void getUserId(String userName) {
+        
+    }
+    
+    @PostMapping("/getUserId")
+    public Integer getUserId(String userName, Model model) {
+        
+        Integer userId = userService.getUserIdByUserName(userName);
+        model.addAttribute(userId);
+        
+        return userId;
+    }
+    
+    
+    
 
 }

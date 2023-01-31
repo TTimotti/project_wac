@@ -87,19 +87,25 @@ function updateMenuList(data) {
     btnTossCart.forEach(btn => {
         btn.addEventListener('click', tossCart);
     })
-}
+}    
     
 function tossCart(data) {
     
     const menuId = data.target.getAttribute('data-menuId');
     console.log("카트로 넘어가는 메뉴", menuId);
+    console.log("유저이름", loginUser);
+    
     
     axios
-    .get('/order/menuOrder', {param : {menuId}})
+    .get('/cart/menuOrder', {params : {menuId, loginUser}})
     .then(response => { response.data })
     .catch(err => { console.log(err)});
     
 };
+
+
+
+
 
 
 });

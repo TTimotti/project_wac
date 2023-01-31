@@ -70,9 +70,11 @@
             </div>
 
         </div>
+
+        </th:block>
 </div>
-<th:block layout:fragment="script" th:inline="javaScript">
-    <script>
+        <th:block layout:fragment="script" th:inline="javaScript">
+            <script>
              const userName = [[ ${ user.userName }]];
 </script>
     <script th:src="@{ /script/cart.js }"></script>
