@@ -5,6 +5,37 @@ a {
     color: inherit;
 }
 
+img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+}
+
+button {
+    margin: 0;
+    font-size: 1em;
+    font-family: SDGothic, sans-serif;
+    color: #000;
+    vertical-align: middle;
+    background: 0;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+}
+
+em {
+    color: #e22219;
+    font-style: normal;    
+}
+
+a, div, li {
+    box-sizing: border-box;
+}
+
+input {
+    border: none;
+}
+
 /* 상단 배너 */
 
     /* 배너 DIV */
@@ -79,6 +110,388 @@ a {
     }
     
     .contArea .inner {
-        padding-left: 100px;
-        padding-right: 100px;
+        position: relative;
+        width: 1192px;
+        vertical-align: middle;
+        margin: 0 auto;
     }
+    
+    .cart_list>li {
+        position: relative;
+        margin-bottom: 21px;
+        background-color: #f8f8f8;
+    }
+    
+    .cart_list .cont {
+        padding: 32px 64px 0;
+    }
+    
+    .cart_list .menu_titWrap {
+        position: relative;
+        min-height: 178px;
+        padding: 50px 320px 20px 0;
+        font-weight: 500;
+        font-size: 1.125rem;
+        border-bottom: 1px solid #ffbc0d;
+    }
+    
+    .cart_list .menu_titWrap .tit {
+        margin-bottom: 10px;
+        font-size: 2.5rem;
+        color: #000;
+        line-height: 100%;
+    }
+    
+    .cart_list .menu_titWrap .set_info {
+        margin: 11px 0 13px;
+    }
+    
+    .cart_list .menu_titWrap .set_info+.price {
+        margin-top: 13px;
+    }
+    
+    .cart_list .price {
+        margin-top: 34px;
+        font-size: 2rem;
+    }
+    
+    label, label>span {
+        vertical-align: middle;
+    }
+    
+    .cart_list .menu_titWrap .menu_name>* {
+    display: block;
+    }
+    
+    .cart_list .menu_titWrap .menu_name {
+        position: ralative;
+        display: block;
+        padding-left: 50px;
+    }
+    
+    .prd_img {
+        position: relative;
+    }
+    
+    .cart_list .prd_img {
+        position: absolute;
+        right: 0px;
+        bottom: 10px;
+        width: 300px;
+        height: 200px;
+        overflow: hidden;
+    }
+    
+    .setmenu_detail {
+        padding: 33px 0 23px;
+        border-bottom: 1px dashed #ffbc0d;
+    }
+    
+    .setmenu_detail dl {
+        position: relative;
+        padding: 14px 20% 14px 0;
+        font-size: 1.375rem;
+        line-height: 164%;
+    }
+    
+    .setmenu_detail dt {
+        float: left;
+        width: 120px;
+        padding-right: 10px;
+        color: #ffbc0d;
+    }
+    
+    .setmenu_detail dd {
+        margin-left: 130px;
+    }
+    
+    .setmenu_detail .list li, .setmenu_detail div.list {
+        display: flex;
+        justify-content: space-between;
+        overflow:hidden;
+    }
+    
+    .setmenu_detail .list, .setmenu_detail .list li {
+        overflow: hidden;
+    }
+    
+    .setmenu_detail .list .txt {
+        float: left;
+        max-width: 60%;
+        max-width: calc(100% -3rem -10px);
+    }
+    
+    .setmenu_detail .list .amount {
+        float: right;
+        min-width: 3rem;
+        padding-left: 10px;
+        font-weight: 700;
+        text-align: right;
+        white-space: nowrap;
+    }
+    
+    .setmenu_detail .btn_edit {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        font-size: 1.25rem;
+        transform: translateY(-50%);
+    }
+    
+    .btn04.h02 {
+        min-width: 72px;
+        height: 44px;
+        font-size: 1.25rem;
+    }
+    
+    .btn04 {
+        display: inline-block;
+        min-width: 3.5em;
+        height: 36px;
+        padding: 5px 10px;
+        font-size: 1rem;
+        color: #fff;
+        background: #2e2e2e;
+        border-radius: 5px;
+    }
+    
+    .cart_list .sumWrap {
+        display: table;
+        width: 100%;
+        height: 143px;
+        padding: 12px 64px 12px 50%;
+        background: none;
+        overflow: hidden;
+    }
+    
+    .sumWrap {
+        height: 96px;
+        padding: 12px 55px 12px 44px;
+        background: #f8f8f8;
+    }
+    
+    .cart_list .sumWrap dl {
+        display: table-row;
+        height: auto;
+    }
+    
+    .sumWrap dl {
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .cart_list .sumWrap dt {
+        font-size: 1.25rem;
+        text-align: right;
+    }
+    
+    .sumWrap dt {
+        font-weight: 700;
+        font-size: 1.625rem;
+    }
+    
+    .sumWrap dd, .sumWrap dt {
+        display: table-cell;
+        height: 24px;
+        vertical-align: middle;
+    }
+    
+    .cart_list .sumWrap dd {
+        width: 40%;
+        font-size: 1.75rem;
+        color: #000;
+    }
+    
+    .sumWrap dd {
+        padding-left: 20px;
+        font-weight: 700;
+        font-size: 2rem;
+        color: #e2231a;
+        text-align: right;
+    }
+    
+    .cart_list .quantity {
+        position: absolute;
+        left: 64px;
+        bottom: 60px;
+    }
+    
+    .quantity, .quantity>* {
+        display: inline-block;
+    }
+    
+    .cart_list .quantity .tit {
+        float: left;
+        width: 130px;
+        margin: 0;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: #000;
+        line-height: 39px;
+    }
+    
+    .quantity>* {
+        vertical-align: middle;
+    }
+    
+    .cart_list .quantity .num_set {
+        float: right;
+    }
+    
+    .num_set {
+        position: relative;
+        display: inline-block;
+        width: 135px;
+        height: 39px;
+        padding: 0 39px;
+        background: #fff;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .num_set .btn_minus {
+        left: 0;
+    }
+    
+    .num_set .btn_plus {
+        right: 0;
+    }
+    
+    .num_set button {
+        position: absolute;
+        top: 0;
+        width: 39px;
+        height: 100%;
+        background-color: #d9d9d9!important;
+        border: 0;
+    }
+    
+    .num_set input {
+        width: 100%;
+        height: 100%;
+        padding: 0!important;
+        font-weight: 700;
+        font-size: 1.125rem;
+        text-align: center;
+        background: none!important;
+    }
+    
+    input[readonly=readonly] {
+        color: #434343;
+    }
+    
+    .cart_list .menu_titWrap .menu_name>* {
+        display: block;
+    }
+    
+    .cart_list .btn_del02 {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .btn_del02, .btn_view01 {
+        height: 40px;
+        /*text-indent: -9999em;*/
+    }
+    
+    .cart_list>li:after {
+        content: "";
+        display: block;
+        clear: both;
+        height: 0;
+    }
+    
+    .cartinfo {
+        position: relative;
+        margin-top: 45px;
+        padding-right: 450px;
+    }
+    
+    .cartinfo .c_btn {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .c_btn:first-child {
+       margin-top: 0; 
+    }
+    
+    .c_btn {
+        margin: 40px 0 80px;
+        text-align: center;
+        overflow: hidden;
+    }
+    
+    .cartinfo .c_btn button {
+        width: 216px;
+        margin-left: 10px;
+    }
+    
+    .c_btn.item2 a, .c_btn.item2 button {
+        float: left;
+    
+    }
+    
+    .btn01.m {
+        width: 216px;
+        height: 68px; 
+        font-size: 1.5rem;
+        line-height: 46px;
+    }
+    
+    .btn01 {
+        display: inline-block;
+        width: 256px;
+        height: 68px;
+        font-size: 1.5rem;
+        padding: 12px 10px 10px;
+        font-weight: 400;
+        color: #fff;
+        text-align: center;
+        line-height: 46px;
+        background: #512314;
+        border: 1px solid #512314;
+        border-radius: 10px;
+        font-family: dabanggu;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    .c_btn.item2 a:last-child, .c_btn.item2 button:last-child {
+        float: right;
+    }
+    
+    .btn01.red {
+        background: #d72300;
+        border: 1px solid #d72300;
+    }
+    
+    .txtlist01 {
+        margin: 7px 0 7px 5px;
+        line-height: 167%;
+    }
+    
+    .txtlist01>li {
+        position: relative;
+        padding-left: 12px;
+    }
+    
+    .txtlist01>li:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 6px;
+        background: #f5bd43;
+        border-radius: 100%;
+        margin-top: 10px;
+        
+    }
+    
