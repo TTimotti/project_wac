@@ -199,4 +199,9 @@ public class UserService {
             return "ok";
         }
     }
+
+    public Integer getUserIdByUserName(String userName) {
+        
+        return userRepository.findUserIdByUserName(userName);
+    }
 }
