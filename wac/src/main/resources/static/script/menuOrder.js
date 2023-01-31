@@ -97,7 +97,7 @@ function tossCart(data) {
     
     
     axios
-    .get('/order/menuOrder', {params : {menuId, loginUser}})
+    .get('/cart/menuOrder', {params : {menuId, loginUser}})
     .then(response => { response.data })
     .catch(err => { console.log(err)});
     
