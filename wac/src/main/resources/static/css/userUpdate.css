@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-.update_head {
+.updateHead {
     vertical-align: top;
     background-repeat: no-repeat;
     text-align: center;
     font-size: 25px;
 }
 
-.update_panel {
+.updatePanel {
     border: 1px solid gray;
     margin: 16px;
     padding: 20px 20px;
@@ -52,20 +52,20 @@
     align-content: center;
 }
 
-.div_label {
+.divLabel {
     padding: 10px 10px;
     width: 20%;
 }
 
 .btns {
     padding: 10px 10px;
-    width: 1000px;
+    width: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
 
 .btn {
-    width: 250px;
+    width: 25%;
     height: 70px;
     float: left;
 }
@@ -250,8 +250,8 @@
     font: inherit;
 }
 
-.select_options {
-    font-size: 15px;
+.selectOptions {
+    font-size: 12px;
 }
 
 .check {

@@ -17,88 +17,102 @@
 
 
 <div layout:fragment="content">
-    <div class="signUp_head">
+    <div class="signUpHead">
         <h1>회원 가입 페이지</h1>
     </div>
 
 
     <form method="post" id="formCreate">
-        <div class="signUp_panel">
+        <div class="signUpPanel">
             <div>
-                <div class="div_label">
-                    <label class="label" for="userName">아이디</label> 
+                <div class="divLabel">
+                    <label class="label" for="userName">아이디</label>
                 </div>
-                <input class="inputs" type="text" id="userName" name="userName" autofocus required>
+                <input class="inputs" type="text" id="userName"
+                    name="userName" autofocus required>
             </div>
             <div class="check" id="idok" style="display: none">
                 <p>사용 가능한 아이디입니다.</p>
             </div>
-            <div class ="err" id="idnok" style="display: none">
+            <div class="err" id="idnok" style="display: none">
                 <p>사용이 불가능한 아이디입니다.</p>
             </div>
             <div>
-                <div class="div_label">
-                    <label class="label" for="userPassword">비밀번호</label> 
+                <div class="divLabel">
+                    <label class="label" for="userPassword">비밀번호</label>
                 </div>
-                <input class="inputs" type="password" id="userPassword" name="userPassword" required>
+                <input class="inputs" type="password" id="userPassword"
+                    name="userPassword" required>
             </div>
             <div>
-                <div class="div_label">
-                    <label class="label" for="userPasswordCheck">비밀번호 확인</label> 
+                <div class="divLabel">
+                    <label class="label" for="userPasswordCheck">비밀번호
+                        확인</label>
                 </div>
-                    <input class="inputs" type="password" id="userPasswordCheck" name="userPasswordCheck" required>
+                <input class="inputs" type="password"
+                    id="userPasswordCheck" name="userPasswordCheck"
+                    required>
             </div>
             <div class="check" id="pok" style="display: none">
                 <p>비밀번호가 확인 되었습니다.</p>
             </div>
-            <div class ="err" id="pnok" style="display: none">
+            <div class="err" id="pnok" style="display: none">
                 <p>비밀번호가 서로 다릅니다.</p>
             </div>
             <div>
-                <div class="div_label">
-                    <label class="label" for="age">나이</label> 
+                <div class="divLabel">
+                    <label class="label" for="age">나이</label>
                 </div>
-                <input class="inputs" type="number" id="age" name="age" required>
+                <input class="inputs" type="number" id="age" name="age"
+                    required>
             </div>
             <div>
-                <div class="div_label">
-                    <label class="label" for="address">주소</label> 
+                <div class="divLabel">
+                    <label class="label" for="address">주소</label>
                 </div>
-                <input class="inputs" type="text" id="address" name="address" placeholder="주소 찾기 버튼을 클릭하세요" readonly>
-                <button class="button" type="button" id="btnAddress">주소 찾기</button>
+                <input class="inputs" type="text" id="address"
+                    name="address" placeholder="주소 찾기 버튼을 클릭하세요"
+                    readonly>
+                <button class="button" type="button" id="btnAddress">주소
+                    찾기</button>
             </div>
             <div>
-                <div class="div_label">
-                    <label class="label" for="address2">상세 주소</label> 
+                <div class="divLabel">
+                    <label class="label" for="address2">상세 주소</label>
                 </div>
-                <input class="inputs" type="text" id="address2" name="address2" required>
+                <input class="inputs" type="text" id="address2"
+                    name="address2" required>
             </div>
             <div>
-                <div class="div_label">
-                    <label class="label" for="email">이메일</label> 
+                <div class="divLabel">
+                    <label class="label" for="email">이메일</label>
                 </div>
-                <input class="inputs" type="email" id="email" name="email" required />
+                <input class="inputs" type="email" id="email"
+                    name="email" required />
             </div>
             <div>
-                <div class="div_label">
-                    <label class="label" for="phone">휴대폰</label> 
+                <div class="divLabel">
+                    <label class="label" for="phone">휴대폰</label>
                 </div>
-                <input class="inputs" type="text" id="phone" name="phone" required />
+                <input class="inputs" type="text" id="phone"
+                    name="phone" required />
             </div>
             <div>
-                <div class="div_label">
+                <div class="divLabel">
                     <label class="label" for="gender" id="gender">성별</label>
                 </div>
-                <select class="inputs" name="gender" id="selectGender" required>
-                    <option class="select_options" value="Null" selected>선택</option>
-                    <option class="select_options" value="남자">남자</option>
-                    <option class="select_options" value="여자">여자</option>
+                <select class="inputs" name="gender" id="selectGender"
+                    required>
+                    <option class="selectOptions" value="Null" selected>선택</option>
+                    <option class="selectOptions" value="남자">남자</option>
+                    <option class="selectOptions" value="여자">여자</option>
                 </select>
             </div>
         </div>
         <div class="btnCreate">
             <div class="buttons">
-                <input class="button" type="submit" id="btnCreate" value="회원가입" disabled="disabled" />
+                <input class="button" type="submit" id="btnCreate"
+                    value="회원가입" disabled="disabled" />
             </div>
         </div>
     </form>
