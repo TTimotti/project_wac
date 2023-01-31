@@ -38,8 +38,8 @@ window.addEventListener('DOMContentLoaded', function() {
         cartDivOn();
     });
 
-    //  order 보여주기
-
+    // order 보여주기
+    // order가 null인 경우, order 페이지로 이동하는 버튼만 보여주도록 함
     function orderDivOn() {
         orderDiv.style.display = "block";
         cartDiv.style.display = "none";
@@ -58,6 +58,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     // cart 보여주기
+    // cart가 null인 경우, order 페이지로 이동하는 버튼만 보여주도록 함
     function cartDivOn() {
         orderDiv.style.display = "none";
         cartDiv.style.display = "block";
@@ -68,7 +69,7 @@ window.addEventListener('DOMContentLoaded', function() {
         if (myCart == null) {
             cartIsNotNull.style.display = "none";
             cartIsNull.style.display = "block";
-        } else {
+        } else {       
             cartIsNotNull.style.display = "block";
             cartIsNull.style.display = "none";
         }
