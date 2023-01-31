@@ -11,7 +11,7 @@ public class MenuReadDto {
 
     private Integer menuId;
     private String menuName;
-    private String price;
+    private Integer price;
     private Integer kind;
     private String content;
     private Integer image;

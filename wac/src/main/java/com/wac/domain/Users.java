@@ -26,7 +26,7 @@ import lombok.ToString;
  * time(BaseTimeEntity) 값을 받음
  * 
  * @author 이존규
- * 
+ *  
  */
 @Entity(name = "USERS")
 @SequenceGenerator(name = "USERSA_SEQ_GEN", sequenceName = "USERSA_SEQ", allocationSize = 1)

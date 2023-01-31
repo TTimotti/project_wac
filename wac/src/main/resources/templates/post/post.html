@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div id="adminOnly" style="display: none">
+        <div id="adminOnly" style="display: block"> <!-- TODO 테스트 끝나고 none 으로 변경 후 js 주석해제 -->
             <ul>
                 <li><a th:href="@{ /post/create }">새 글 작성</a></li>
             </ul>
@@ -39,7 +39,7 @@
                 <ul class="tabType01">
 
                     <li class="button promotion"><a class="btn form-control" id="promotion">프로모션</a></li>
-                    <li class="button post"><a id="news">새로운 소식 (공지사항)</a></li>
+                    <li class="button post"><a class="btn form-control" id="news">새로운 소식 (공지사항)</a></li>
 
                 </ul>
                 <div class="postList">

@@ -1,0 +1,51 @@
+<!-- post/detail.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ /layout/basic-layout }">
+<title>Wacdonaldo</title>
+
+
+<div layout:fragment="content">
+
+    <div>
+        <div class="post_detail_head">
+            <h1>새 글 작성 (관리자 전용)</h1>
+        </div>
+        <div class="post_detail">
+        	<div>
+                <label for="image">포스터 이미지</label>
+                <img th:alt="${ post.title }" th:src="@{ /image/display?fid={fid} (fid = ${ post.image }) }">
+            </div>
+            <div>                  
+                <label for="title">글 제목</label>                   
+                <input readonly th:value="${ post.title }" />
+            </div>
+            <div>                   
+                <label for="kind">분류</label>                   
+                <input readonly th:value="${ post.kind }" />
+            </div>
+            <div>                   
+                <label for="author">작성자</label>                  
+                <input readonly th:value="${ post.author }" />
+            </div>
+            <div>
+                <label for="content">내용</label>
+                <input readonly th:value="${ post.content }" />
+            </div>            
+        </div>
+    </div>
+
+</div>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/postDetail.css}">
+</th:block>
+<th:block layout:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script th:src="@{ /script/postDetail.js }"></script>
+</th:block>
+</html>
+
+
+

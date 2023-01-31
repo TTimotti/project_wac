@@ -36,7 +36,7 @@ function updatePostList(data) {
     let str = '';
     for (let p of data) {
         str += '<li class="card my-5 col-3">'
-        + '<a href="/">'
+        + '<a href="/post/detail?postId='+ p.postId +'">'
         + '<img src="/image/display?fid=' + p.image 
         + '" alt="포스트 이미지" style="width:350px; height:200px;"/>'
         + '<div class="card col-3 my-5">' + p.title
@@ -46,6 +46,9 @@ function updatePostList(data) {
     }
     divPostList.innerHTML = str;
 }
+
+/**
+테스트할때마다 번거로워서 잠깐 주석처리 해놓을게요.
 
     // admin check : admin 계정으로만 '새 글 작성' 기능 사용할 수 있게 적용
     const adminOnly = document.querySelector('#adminOnly');
@@ -59,6 +62,7 @@ function updatePostList(data) {
         } else{
             adminOnly.style.display="none";
         }
+*/
 
 });
 

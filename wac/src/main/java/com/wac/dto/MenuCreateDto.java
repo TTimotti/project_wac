@@ -15,7 +15,7 @@ public class MenuCreateDto {
     private String menuName;
     private String menuEnName;
     private Integer kind;
-    private String price;
+    private Integer price;
     private String content;
     
     public Menu toEntity() {

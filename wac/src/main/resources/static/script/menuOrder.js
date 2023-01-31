@@ -53,7 +53,6 @@ window.addEventListener('DOMContentLoaded', function() {
         console.log(kind);
         showMenuList(kind);       
     });
-    
 
 function showMenuList(kind) {
     axios
@@ -76,28 +75,31 @@ function updateMenuList(data) {
         + '<p>' + m.content + '</p>'
         + '</div></a>'
         + '<div><form>'
-        + `<a class="btn btn-success" id="btnTossCart" data-menuId="${ m.menuId }">`
+        + `<a class="btnTossCart btn btn-success" id="btnTossCart" data-menuId="${ m.menuId }">`
         + '장바구니 추가'
         + '</button></form></div>'
         + '</li>';
     }
     divMenuList.innerHTML = str;
-    
-    const btnTossCart = document.querySelector('#btnTossCart');
-    
-        btnTossCart.addEventListener('click', (tossCart));
-}
+ 
+    const btnTossCart = document.querySelectorAll('.btnTossCart');
 
+    btnTossCart.forEach(btn => {
+        btn.addEventListener('click', tossCart);
+    })
+}
+    
 function tossCart(data) {
+    
     const menuId = data.target.getAttribute('data-menuId');
     console.log("카트로 넘어가는 메뉴", menuId);
     
     axios
-    .get('/menu/toss', {param : {menuId}})
+    .get('/order/menuOrder', {param : {menuId}})
     .then(response => { response.data })
     .catch(err => { console.log(err)});
     
-}
+};
 
 
 });

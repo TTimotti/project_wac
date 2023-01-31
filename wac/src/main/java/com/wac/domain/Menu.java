@@ -37,7 +37,7 @@ public class Menu extends BaseTimeEntity {
     private Integer kind; // 버거: 1, 세트: 2, 사이드: 3, 음료: 4, 맥모닝: 5, 맥모닝 세트: 6
     
     @Column
-    private String price;
+    private Integer price;
     
     @Column
     private String content;
