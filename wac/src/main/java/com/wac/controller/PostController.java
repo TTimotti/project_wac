@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.wac.domain.Images;
 import com.wac.dto.PostCreateDto;
 import com.wac.dto.PostReadDto;
 import com.wac.service.ImagesService;
@@ -65,6 +66,19 @@ public class PostController {
         
         
         return "redirect:/post";
+    }
+    
+    /**
+     * Post 객체를 DB에서 받아와 Model에 담아 View로 전달.
+     * @param kind
+     * @return
+     * @author 추지훈
+     */
+    @GetMapping("/post/detail")
+    public void detail(@RequestParam("postId") Integer postId, Model model) {
+        log.info("post/detail(postId = {})", postId);
+        PostReadDto postDto = postService.readPost(postId);
+        model.addAttribute("post", postDto);        
     }
     
     

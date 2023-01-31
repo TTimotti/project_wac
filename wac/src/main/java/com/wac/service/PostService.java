@@ -45,4 +45,12 @@ public class PostService {
         return entity;
     }
 
+	public PostReadDto readPost(Integer postId) {
+		log.info("readPost(postId = {})", postId);
+		Post post = postRepository.findByPostId(postId);
+		PostReadDto postDto = PostReadDto.fromEntity(post);
+		
+		return postDto;
+	}
+
 }

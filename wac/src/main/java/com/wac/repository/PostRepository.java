@@ -12,5 +12,6 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 
     @Query("select p from POSTS p where p.kind = :kind")
     List<Post> readAllList(@Param("kind") Integer kind);
+    Post findByPostId(Integer postId);
 
 }
