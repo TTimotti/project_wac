@@ -99,16 +99,16 @@ public class MenuController {
      * @author: 서범수
      */
     @GetMapping("/menu/menuDetail")
-    public void MenuDetail(Integer menuId, Model model) {
-        log.info("MenuDetail()");
+    public void MenuDetail(Integer kind, Integer menuId, Model model) {
+        log.info("MenuDetail(kind={}, menuId={})", kind, menuId);
 
         Menu menu = menuService.readById(menuId);
         model.addAttribute("menu", menu);
 
-        Menu prevMenu = menuService.readPrevMenuById(menuId);
+        Menu prevMenu = menuService.readPrevMenuById(menuId, kind);
         model.addAttribute("prevMenu", prevMenu);        
         
-        Menu nextMenu = menuService.readNextMenuById(menuId);
+        Menu nextMenu = menuService.readNextMenuById(menuId, kind);
         model.addAttribute("nextMenu", nextMenu);
     }
 

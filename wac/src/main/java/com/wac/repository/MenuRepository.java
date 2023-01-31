@@ -44,8 +44,8 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
      * @author 서범수
      */
     // select * from menus where menu_id = (select max(menu_id) from menus where menu_id < 2) or menu_id = (select min(menu_id) from menus where menu_id > 2);..
-    @Query("select m from MENUS m where m.menuId = (select max(m.menuId) from MENUS m where m.menuId < :menuId)")
-    Menu readPrevMenuById(@Param("menuId") Integer menuId);
+    @Query("select m from MENUS m where m.menuId = (select max(m.menuId) from MENUS m where m.menuId < :menuId and m.kind = :kind)")
+    Menu readPrevMenuById(@Param("menuId") Integer menuId, @Param("kind") Integer kind);
     
     /**
      * 
@@ -54,6 +54,6 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
      * @author 서범수
      */
     // select * from menus where menu_id = (select max(menu_id) from menus where menu_id < 2) or menu_id = (select min(menu_id) from menus where menu_id > 2);..
-    @Query("select m from MENUS m where m.menuId = (select min(m.menuId) from MENUS m where m.menuId > :menuId)")
-    Menu readNextMenuById(@Param("menuId") Integer menuId);
+    @Query("select m from MENUS m where m.menuId = (select min(m.menuId) from MENUS m where m.menuId > :menuId and m.kind = :kind)")
+    Menu readNextMenuById(@Param("menuId") Integer menuId, @Param("kind") Integer kind);
 }

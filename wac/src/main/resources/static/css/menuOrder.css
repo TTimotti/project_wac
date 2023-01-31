@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+/* 태그 기본 속성 */
+a {
+    color: inherit;
+}
+
+/* 상단 배너 */
+
+    /* 배너 DIV */
+    .bannerArea {
+        display: flex;
+        position: relative;
+        min-height: 220px;
+        padding: 10px 0;
+        color: #fff;
+    }
+    
+    /* 배너 사진 넣기 */
+    .bannerArea.bgImage {
+        background: url('https://www.mcdonalds.co.kr/uploadFolder/images/whats/bg_visual_whats02.jpg') 50% 50% no-repeat;
+    }     
+    
+    /* 배너 글 설정 */
+    .bannerArea .inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        padding-bottom: 15px;
+        width: 1168px;
+        position: relative;
+        margin: 0 auto;
+        background: none;
+        height:170px;
+        margin:60px auto 0;
+    }
+    
+    /* 배너 글 제목 */
+    .bannerArea .title {
+        color: inherit;
+        font-size: 50px;
+    }
+    
+    /* 밑 Nav */
+    .bannerArea .navPath {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        /* padding-inline-start: 40px; */ 
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }       
+    
+    .bannerArea .navPath li {
+        display: inline-block;
+        background-color:transparent;
+    }
+    
+    .bannerArea .navPath li+li:before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        margin: 0 14px 10px;
+        vertical-align: middle;
+        border-radius: 100%;
+        background: #f5bd43;
+        margin-top: 5px;
+    }
+    
+/* 영수증 DIV */
+    .contArea {
+        padding: 30px 0 30px;
+    }
+    
+    .contArea .inner {
+        padding-left: 100px;
+        padding-right: 100px;
+    }

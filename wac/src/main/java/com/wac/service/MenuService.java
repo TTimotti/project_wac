@@ -95,9 +95,9 @@ public class MenuService {
      * @return prev 메뉴를 보여줍니다.
      * @author 서범수
      */
-    public Menu readPrevMenuById(Integer menuId) {
-        log.info("readNextMenuById={}", menuId);
-        return menuRepository.readPrevMenuById(menuId);
+    public Menu readPrevMenuById(Integer kind, Integer menuId) {
+        log.info("readPrevMenuById(kind={}, menuId={})", kind, menuId);
+        return menuRepository.readPrevMenuById(kind, menuId);
     }
     
     /**
@@ -106,9 +106,9 @@ public class MenuService {
      * @return next 메뉴를 보여줍니다.
      * @author 서범수
      */
-    public Menu readNextMenuById(Integer menuId) {
-        log.info("readNextMenuById={}", menuId);
-        return menuRepository.readNextMenuById(menuId);
+    public Menu readNextMenuById(Integer kind, Integer menuId) {
+        log.info("readNextMenuById(kind={}, menuId={})", kind, menuId);
+        return menuRepository.readNextMenuById(kind, menuId);
     }
 
     

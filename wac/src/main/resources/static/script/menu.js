@@ -68,7 +68,9 @@ function updateMenuList(data) {
     let str = '';
     for (let m of data) {
         str += '<li class="card my-5 col-3">'
-        + '<a href="/menu/menuDetail?menuId='
+        + '<a href="/menu/menuDetail?kind='
+        + kind
+        + '&menuId='
         + m.menuId /* 여기 링크에 상세페이지 달기 */
         + '">'
         + '<img src="/image/display?fid=' + m.image 

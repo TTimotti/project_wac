@@ -17,9 +17,18 @@
             <label for="menuEnName" class="form-label">메뉴영어이름</label> 
             <input id="menuEnName" class="form-control" type="text" name="menuEnName" autofocus/>
         </div>
+        
+        <!-- // 버거: 1, 사이드: 2, 음료: 3, 세트: 4, 맥모닝: 5, 맥모닝 세트: 6, 맥런치 세트: 7 -->
         <div class="my-4">
             <label for="kind" class="form-label">분류</label>
-            <input id="kind" class="form-control" type="text" name="kind"/>
+            <select id="kind" class="form-control" name = "kind">
+                <option value = "1">버거</option>
+                <option value = "2">세트</option>
+                <option value = "3">사이드</option>
+                <option value = "4">음료</option>
+                <option value = "5">맥모닝</option>
+                <option value = "6">맥모닝 세트</option>
+            </select>
         </div>
         <div class="my-4">
             <label for="price" class="form-label">가격</label>
