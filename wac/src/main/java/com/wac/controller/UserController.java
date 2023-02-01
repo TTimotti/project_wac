@@ -49,8 +49,10 @@ public class UserController {
     @PostMapping("/signUp")
     public String create(UserCreateDto dto) {
 
-        userService.createUser(dto);
-
+    	Users user = userService.createUser(dto);
+        
+        log.info("user role = {}", user.getRoles());
+        
         return "redirect:/user/signIn";
     }
 
