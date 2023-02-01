@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+input {
+	display:block;
+}
+
+#main {
+	display: flex;
+	flex-direction: column;
+	margin: 25px 100px;		
+}
+
+#head {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 20px;
+	height: 50px;
+	border-bottom: solid black 6px;
+}
+
+.h-label {
+	border: none;
+	text-align:center;
+	font-family: sans-serif;
+	font-size: 20px;
+	font-style: inherit;
+}
+
+#title.h-label {
+	margin-right: auto;
+	text-align:left;
+}
+
+.post_detail {
+	display: flex;
+	flex-direction: column;
+}
+
+.img { 
+	align-self: center;
+}
+
+img {
+	width:350px;
+	border: 0px;
+	border-radius: 15px;
+	margin-bottom: 50px;
+}
+
+label {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.label {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: solid black 3px;
+}
+
+.label * {
+	font-family: sans-serif;
+	font-size: 20px;
+	font-style: inherit;
+}
+
+.b-label {
+	align-items: center;
+	margin: 0 auto;
+	border: none;
+	width: 700px;
+}
+
+.btn {
+	align-self: flex-end;
+	padding-bottom: 20px;
+}
+
+button {
+	height: 35px;
+	width: 100px;
+}
+
+#update {
+	color: #f1f1f1;
+    border-color: orange;
+    background-color: orange;
+}
+
+#update:hover {
+
+    color:orange;
+    background-color: ghostwhite;
+}
+
+#delete {
+	color: #f1f1f1;
+    border-color: red;
+    background-color: red;
+}
+
+#delete:hover {
+
+    color:orange;
+    background-color: ghostwhite;
+}
+
+
+
