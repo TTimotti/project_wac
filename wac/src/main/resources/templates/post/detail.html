@@ -8,32 +8,24 @@
 
 <div layout:fragment="content">
 
-    <div>
-        <div class="post_detail_head">
-            <h1>새 글 작성 (관리자 전용)</h1>
+    <div id="main">    	
+        <div id="head">                                   
+	            <input readonly th:value="${ post.title }" class="h-label" id="title" />                                 
+	            <input readonly th:value="${ post.author }" class="h-label" />                                     
+	            <input readonly th:value="${ post.kind }" class="h-label" />
         </div>
-        <div class="post_detail">
-        	<div>
-                <label for="image">포스터 이미지</label>
-                <img th:alt="${ post.title }" th:src="@{ /image/display?fid={fid} (fid = ${ post.image }) }">
-            </div>
-            <div>                  
-                <label for="title">글 제목</label>                   
-                <input readonly th:value="${ post.title }" />
-            </div>
-            <div>                   
-                <label for="kind">분류</label>                   
-                <input readonly th:value="${ post.kind }" />
-            </div>
-            <div>                   
-                <label for="author">작성자</label>                  
-                <input readonly th:value="${ post.author }" />
-            </div>
-            <div>
-                <label for="content">내용</label>
-                <input readonly th:value="${ post.content }" />
-            </div>            
+        
+    	<div class="img">
+            <img th:alt="${ post.title }" th:src="@{ /image/display?fid={fid} (fid = ${ post.image }) }">
+        </div>        
+        
+        <div class="label">
+            <input readonly th:value="${ post.content }" class="b-label"/>
         </div>
+        <div class="btn">
+	        <button id="update">수정하기</button>
+	        <button id="delete">삭제하기</button>
+        </div>            
     </div>
 
 </div>
