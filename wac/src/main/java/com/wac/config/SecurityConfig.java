@@ -41,7 +41,8 @@ public class SecurityConfig {
         http.logout() // 로그아웃 관련 설정 시작
         .logoutSuccessUrl("/user/signIn"); // 로그아웃 성공 후 이동할 url
 
-
+        http.exceptionHandling() // 접근 권한 없을 때 이동할 페이지
+        .accessDeniedPage("/denied");
         
         
         return http.build();

@@ -80,5 +80,13 @@ public class HomeController {
         
         return "redirect:/user/signIn?error";
     }
+    
+    /**
+     * 접근 권한이 맞지 않을 때 이동시킬 페이지
+     */
+	@GetMapping("/denied")
+    public void denied() {
+        log.info("접근 제한");
+    }
 
 }
