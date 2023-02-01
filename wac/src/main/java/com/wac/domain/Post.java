@@ -33,7 +33,7 @@ public class Post extends BaseTimeEntity {
     @Column
     private String title;
     
-    @Column
+    @Column(length = 1000000)
     private String content;
     
     @Column
