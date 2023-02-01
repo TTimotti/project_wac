@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.wac.domain.Store;
+import com.wac.dto.StoreCreateDto;
 import com.wac.repository.StoreRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -23,11 +24,24 @@ public class StoreService {
 	
 	private final StoreRepository storeRepository;
 	
-	
+	/**
+	 * @author 장민석
+	 * 매장 정보 Read
+	 */
 	public List<Store> readStoreInfo() {
-		
 		log.info("readStoreInfo");
-		
 		return storeRepository.findByOrderByStoreId();
 	}
+	/**
+	 * 매장 생성
+	 * @author 장민석
+	 * @param dto
+	 * @return entity
+	 */
+	public Store storeCreate(StoreCreateDto dto) {
+		log.info("storeCreate()");
+		Store entity = storeRepository.save(dto.toEntity());
+		return entity;
+	}
+	
 }

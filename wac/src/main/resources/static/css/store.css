@@ -155,6 +155,19 @@ th {
 	background:
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
 }
+.storeCreate {
+	padding: 20px;
+	font-size: 30px;
+	font-weight: bolder;
+	background-color: #FFD126;
+	border: none;
+	border-radius: 5px 5px 5px 5px;
+	font-family: 'Do Hyeon', sans-serif;
+	cursor: pointer;
+}
+.storeCreate:hover {
+	opacity: 0.5;
+}
 
 @media ( max-width : 792px) {
 	#map, table {
