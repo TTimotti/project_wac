@@ -3,6 +3,7 @@ package com.wac.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,8 +50,10 @@ public class UserController {
     @PostMapping("/signUp")
     public String create(UserCreateDto dto) {
 
-        userService.createUser(dto);
-
+    	Users user = userService.createUser(dto);
+        
+        log.info("user role = {}", user.getRoles());
+        
         return "redirect:/user/signIn";
     }
 
@@ -70,6 +73,7 @@ public class UserController {
      * 
      * @param userId 값을 입력 받음 return : userId와 일치하는 계정을 가진 사람의 홈페이지로 이동
      */
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @GetMapping("/myPage")
     public void myPage(Model model, Integer userId, String userName) {
         log.info("mypage(id = {}, userName= {})", userId, userName);

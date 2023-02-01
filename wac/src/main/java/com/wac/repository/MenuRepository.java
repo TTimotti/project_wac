@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.wac.domain.Menu;
+import com.wac.dto.MenuReadDto;
 
 /**
  * @author 추지훈
@@ -35,7 +36,7 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
     @Query("select count(m.kind) from MENUS m where m.kind = :kind")
     Integer countByKind(Integer kind);
 
-    Optional<Menu> findByMenuId(Integer menuId);
+    Optional<MenuReadDto> findByMenuId(Integer menuId);
     
     /**
      * 

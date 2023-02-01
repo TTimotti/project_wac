@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,14 +40,16 @@ public class MenuController {
      * @author 추지훈
      */
     @GetMapping("/menu/all")
+    @ResponseBody
     public ResponseEntity<List<MenuReadDto>> readAllMenus(Integer kind) {
         log.info("readAllMenus()");
         List<MenuReadDto> list = menuService.readMenus(kind);
-        log.info("FoodReadDto list()", list);
+        log.info("FoodReadDto list(list={})", list);
         
         return ResponseEntity.ok(list);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/menu/create")
     public void create(Integer id, Model model) {
         log.info("create");
@@ -54,7 +57,7 @@ public class MenuController {
     }
     
     /**
-     * 메뉴 생성메서드 이미지는 보류
+     * 메뉴 생성메서드
      * @param dto, image
      * @return
      * @author 추지훈

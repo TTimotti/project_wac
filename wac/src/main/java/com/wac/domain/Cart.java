@@ -33,11 +33,23 @@ public class Cart extends BaseTimeEntity {
     @Column(name = "user_id") // userId를 cartNum 로 똑같이 쓰자 그러고 카트 지워버리기 
     private Integer userId; // 장바구니를 이용하는 회원
     
-    @Column(name = "menuId")
-    private Integer menuId; // 상품 번호 
+    @Column(name = "menu1_id") // 단품 
+    private Integer menuId1; // 상품 번호 
+    
+    @Column(name = "menu2_id") // 세트: 세트일 경우 나머지 메뉴아이디 자동채움. 
+    private Integer menuId2; // 상품 번호
+    
+    @Column(name = "menu3_id") // 사이드
+    private Integer menuId3; // 상품 번호
+    
+    @Column(name = "menu4_id") // 음료
+    private Integer menuId4; // 상품 번호
     
     @Column // default: 1
     private Integer quantity; // 수량
+    
+    @Column(name = "store_id")
+    private Integer storeId; // 매장 아이디
     
     @Column // 매장선택하고 상세주소 가져오기
     private String address; // 주소

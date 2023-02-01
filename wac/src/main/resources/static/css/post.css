@@ -101,7 +101,7 @@ button, input[type='button'], input[type='submit'], input[type='reset']
 .posts li a {
     display: block;
     height: 100%;
-    padding: 20px 30px;
+    padding: 1px;
     text-align: center;
     border-radius: 10px;
     border: 1px solid #f8f8f8;
@@ -139,7 +139,7 @@ ul, ol, li {
     width: 20%;
 }
 
-.btn {
+.div_btn {
     width: 100%;
     text-align: center;
     display: inline-block;

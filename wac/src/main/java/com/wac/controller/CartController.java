@@ -1,16 +1,20 @@
 package com.wac.controller;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wac.domain.Cart;
-import com.wac.domain.Menu;
 import com.wac.domain.Order;
 import com.wac.domain.Users;
-import com.wac.dto.OrderCreateDto;
+import com.wac.dto.CartCreateDto;
+import com.wac.dto.CartTossDto;
+import com.wac.dto.MenuReadDto;
 import com.wac.service.CartService;
 import com.wac.service.MenuService;
 import com.wac.service.OrderService;
@@ -44,6 +48,7 @@ public class CartController {
 	 * @return userId가 포함된 Cart, Order 객체. 없으면 null을 html에 보냄
 	 * @author 이존규
 	 */
+	@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 	@GetMapping("cart")
 	public void cartPage(Model model, String userName, Integer userId) {
 		log.info("cart page = userId{}, userName{]", userId, userName);
@@ -74,22 +79,44 @@ public class CartController {
 	 * @return
 	 * @author 추지훈
 	 */
-	@PostMapping("/create")
-	public String menuOrder(Integer menuId, String loginUser) {
-		log.info("tossCart menuId = {}", menuId);
+    @SuppressWarnings("null")
+    @GetMapping("/create/{data}")
+//    @ResponseBody
+    public ResponseEntity<CartTossDto> create(@RequestBody Integer menuId, String userName) {
+        CartTossDto cartToss = null;
+        cartToss.setMenuId(menuId);
+        cartToss.setUserName(userName);
+        return ResponseEntity.ok(cartToss);
+    }
+	
+	@SuppressWarnings("null")
+    @PostMapping("/create")
+	public String create(CartTossDto dto) {
+		log.info("create menuId = {}, userName = {}", dto.getMenuId(), dto.getUserName());
 
-		Integer userId = userService.getUserIdByUserName(loginUser);
-
+		Integer userId = userService.getUserIdByUserName(dto.getUserName());
 		log.info("유저 아이디 = {}", userId);
 
-		Menu menu = menuService.readMenu(menuId);
-		// TODO
-		OrderCreateDto dto;
-//        dto.setMenuId(menuId);
-//        dto.setUserId(userId);
-//        orderService.create(dto);
-
-//        orderService.create(menuId)
+		MenuReadDto menu = menuService.readMenu(dto.getMenuId());
+		log.info("메뉴 정보 = {}", menu);
+		
+		CartCreateDto cartDto = null;
+		log.info("메뉴 점검 전 카트 = {}", cartDto);
+		if (menu.getKind() == 2) {
+		    cartDto.setMenuId2(dto.getMenuId());
+		    cartDto.setUserId(userId);
+		    cartDto.setQuantity(1);
+	        cartDto.setMenuId1(1);
+	        cartDto.setMenuId3(1);
+	        cartDto.setMenuId4(1);
+		} else {
+    		cartDto.setMenuId1(dto.getMenuId());
+    		cartDto.setUserId(userId);
+    		cartDto.setQuantity(1);
+		}
+		log.info("메뉴 점검 후 카트 = {}", cartDto);
+		cartService.create(cartDto);
+		
 
 		return "redirect:/order/menuOrder";
 	}
