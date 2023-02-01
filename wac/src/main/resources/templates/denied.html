@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ /layout/basic-layout }">
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/mainPage.css}">
+</th:block>
+<div layout:fragment="content" class="content">
+    <div class="mainContainer">
+   		<div class="err">
+            <h1>접근 권한이 없습니다.</h1>
+		</div>				
+	</div>
+    
+    
+</div>
+
+<script layout:fragment="script" th:inline="javascript"></script>
+<th:block layout:fragment="script">	
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://kit.fontawesome.com/df851af08f.js" crossorigin="anonymous"></script>
+    <script th:src="@{/script/mainPage.js}"></script>
+    <script th:src="@{/script/post.js}"></script>
+</th:block>
+
+
+</html>

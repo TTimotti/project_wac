@@ -2,9 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     layout:decorate="~{ layout/basic-layout.html }">
-
 <head>
-
 <title>Wacdonaldo</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -116,11 +114,6 @@
             </div>
         </div>
     </form>
-
-
-
-
-
 </div>
 
 <th:block layout:fragment="script" th:inline="javaScript">
@@ -128,6 +121,5 @@
     <script th:src=" @{/script/userSignUp.js}"></script>
     <script
         src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
 </th:block>
 </html>

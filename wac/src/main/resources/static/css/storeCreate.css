@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.frontFont {
+	margin : 20px;
+	padding : 20px;
+	font-size: 50px;
+	font-family: 'Do Hyeon', sans-serif;
+	text-align: center;
+	border-bottom: 3px solid black;
+}
+
+.Container {
+	width: 1100px;
+	text-align: left;
+	padding: 50px;
+	margin-bottom: 20px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color: #f8f8f8;
+	border-radius: 5px 5px 5px 5px;
+	font-family: 'Do Hyeon', sans-serif;
+}
+.div_label {
+	font-size: 30px;
+	margin-left:280px;
+}
+input {
+	width: 550px;
+	height: 50px;
+	font-size: 30px;
+	margin-left:280px;
+}
+.buttons  {
+	padding: 10px;
+	font-size: 30px;
+	background-color: #FFD126;
+	border: none;
+	border-radius: 5px 5px 5px 5px;
+	font-family: 'Do Hyeon', sans-serif;
+	cursor: pointer;
+	margin-right: 110px;
+	margin-left:280px;
+	width: 560px;
+	}
+.buttons:hover {
+	opacity: 0.5;
+}

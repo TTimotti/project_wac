@@ -2,12 +2,13 @@ package com.wac.controller;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.wac.domain.Store;
+import com.wac.dto.StoreCreateDto;
 import com.wac.service.StoreService;
 
 import lombok.RequiredArgsConstructor;
@@ -39,29 +40,37 @@ public class StoreController {
 		return "/store/store";
 	}
 	/**
-	 * Select 페이지
+	 * Store-Select 페이지
 	 * @author 장민석
 	 */
 	@GetMapping("/store-select")
 	public String select(Model model) {
-		log.info("store-select");
+		log.info("store-select()");
 		List<Store> storeInfo = storeService.readStoreInfo();
 		model.addAttribute("storeInfo",storeInfo);
 		return "/store/store-select";
 	}
 	
 	/**
-	 * 스토어 목록에서 스토어 선택시 선택한 매장명을
-	 * 리스트에서 추출.
-	 * @author 장민석
-	 * @param Store
-	 * @return
+	 * store Create 페이지
 	 */
-	public ResponseEntity<List<Store>> select(String Store) {
-		
-		
-		
-		return ResponseEntity.ok(null);
+	@GetMapping("/storeCreate")
+	public String storeCreate() {
+		log.info("storeCreate()");
+		return "/store/storeCreate";
+	}
+
+	/**
+	 * Store Create 생성
+	 * @param dto
+	 * @return
+	 * @author 장민석
+	 */
+	@PostMapping("/storeCreate")
+	public String createStore(StoreCreateDto dto) {
+		log.info("store-create()");
+		storeService.storeCreate(dto);
+		return "redirect:/store";
 	}
 	
 }

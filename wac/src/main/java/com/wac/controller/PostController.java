@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.wac.domain.Images;
 import com.wac.dto.PostCreateDto;
 import com.wac.dto.PostReadDto;
 import com.wac.service.ImagesService;
@@ -45,6 +45,7 @@ public class PostController {
         return ResponseEntity.ok(list);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/post/create")
     public void create(Integer id, Model model) {
         log.info("create");
