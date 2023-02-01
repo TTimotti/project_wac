@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.wac.domain.Store;
 import com.wac.dto.StoreCreateDto;
+import com.wac.dto.StoreReadDto;
 import com.wac.repository.StoreRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -42,6 +43,12 @@ public class StoreService {
 		log.info("storeCreate()");
 		Store entity = storeRepository.save(dto.toEntity());
 		return entity;
+	}
+	public StoreReadDto readStore(Integer storeId) {
+		log.info("StoreReadById()",storeId);
+		Store store = storeRepository.findBystoreId(storeId);
+		StoreReadDto storeDto = StoreReadDto.fromEntity(store);
+		return storeDto;
 	}
 	
 }

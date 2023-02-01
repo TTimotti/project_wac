@@ -6,9 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wac.domain.Store;
 import com.wac.dto.StoreCreateDto;
+import com.wac.dto.StoreReadDto;
 import com.wac.service.StoreService;
 
 import lombok.RequiredArgsConstructor;
@@ -73,4 +76,10 @@ public class StoreController {
 		return "redirect:/store";
 	}
 	
+	@GetMapping("store/storeDetail")
+	public void storeDetail (@RequestParam("storeId") Integer storeId, Model model) {
+		log.info("storeDetail()",storeId);
+		StoreReadDto storeDto = storeService.readStore(storeId);
+		model.addAttribute("store", storeDto);
+	}
 }
