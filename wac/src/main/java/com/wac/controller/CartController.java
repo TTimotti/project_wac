@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -83,7 +84,7 @@ public class CartController {
 	 */
     @GetMapping("/toss/{menuId}")
     @ResponseBody
-    public ResponseEntity<Menu> create(@PathVariable Integer menuId) {
+    public ResponseEntity<Menu> create1(@PathVariable Integer menuId) {
 //        CartTossDto cartToss = null;
 //        cartToss.setMenuId(menuId);
 //        cartToss.setUserName(userName);
@@ -93,29 +94,30 @@ public class CartController {
     }
 	
 	@SuppressWarnings("null")
-    @PostMapping("/create/{data}")
+    @GetMapping("/create")
 	@ResponseBody
-	public ResponseEntity<Cart> create(@PathVariable CartTossDto dto) {
-		log.info("create menuId = {}, userName = {}", dto.getMenuId(), dto.getUserName());
+	public ResponseEntity<Cart> create(Integer menuId) {
+		log.info("create menuId = {}, userName = {}", menuId);
 
-		Integer userId = userService.getUserIdByUserName(dto.getUserName());
-		log.info("유저 아이디 = {}", userId);
+//		Integer userId = userService.getUserIdByUserName(loginUser);
+//		log.info("유저 아이디 = {}", userId);
 
-		MenuReadDto menu = menuService.readMenu(dto.getMenuId());
+		MenuReadDto menu = menuService.readMenu(menuId);
 		log.info("메뉴 정보 = {}", menu);
 		
 		CartCreateDto cartDto = null;
+	
 		log.info("메뉴 점검 전 카트 = {}", cartDto);
 		if (menu.getKind() == 2) {
-		    cartDto.setMenuId2(dto.getMenuId());
-		    cartDto.setUserId(userId);
+		    cartDto.setMenuId2(menuId);
+//		    cartDto.setUserId(userId);
 		    cartDto.setQuantity(1);
 	        cartDto.setMenuId1(1);
 	        cartDto.setMenuId3(1);
 	        cartDto.setMenuId4(1);
 		} else {
-    		cartDto.setMenuId1(dto.getMenuId());
-    		cartDto.setUserId(userId);
+    		cartDto.setMenuId1(menuId);
+//    		cartDto.setUserId(userId);
     		cartDto.setQuantity(1);
 		}
 		log.info("메뉴 점검 후 카트 = {}", cartDto);

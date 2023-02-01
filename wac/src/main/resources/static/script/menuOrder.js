@@ -91,15 +91,26 @@ function updateMenuList(data) {
     
 function tossCartModal(event) {
     
-    const menuId = event.target.getAttribute('data-menuId');
-    console.log("카트로 넘어가는 메뉴", menuId);
+    const data_menuId = event.target.getAttribute('data-menuId');
+    console.log("카트로 넘어가는 메뉴", data_menuId);
     console.log("유저이름", loginUser);
-
+    
+    const data = {
+            menuId: data_menuId,
+            userName: loginUser
+        }
+    btnTossCart.href = "/order/cart";
+     axios
+    .get('/cart/create/', {params: {data_menuId}})
+    .then(btnTossCart.href = "/order/cart")
+    .catch(err => { console.log(err)});
+    
+/**
     axios
     .get('/cart/toss/' + menuId)
     .then(response => { showModal(response.data) })
     .catch(err => { console.log(err)});
-
+ */
 };
 
 // 모달
@@ -125,17 +136,20 @@ function tossMenu() {
     const nokDiv = document.querySelector('#nok');
     console.log("여긴 모달 장바구니 추가 버튼까지 누른상태");
     modalBtnToss.href = "/order/cart";
-    const data = {
+    const dto = {
             menuId: tossMenuId,
             userName: loginUser
         }
-    alert("장바구니 추가 성공")    
+       
     axios
-    .post('/cart/create' + data)
-    .then(function() {
-            tossModal.hide();
-        }
-    );               
+    .get('/cart/create' + dto)
+    .then( response => { 
+        tossModal.hide();
+        response.data
+        .alert("장바구니 추가됨.")        
+        })
+    .catch(err => { console.log(err)});
+                   
 }
     
 
