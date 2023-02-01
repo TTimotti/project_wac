@@ -4,12 +4,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wac.domain.Cart;
+import com.wac.domain.Menu;
 import com.wac.domain.Order;
 import com.wac.domain.Users;
 import com.wac.dto.CartCreateDto;
@@ -78,19 +79,21 @@ public class CartController {
 	 * @return
 	 * @author 추지훈
 	 */
-    @SuppressWarnings("null")
-    @GetMapping("/create/{data}")
-//    @ResponseBody
-    public ResponseEntity<CartTossDto> create(@RequestBody Integer menuId, String userName) {
-        CartTossDto cartToss = null;
-        cartToss.setMenuId(menuId);
-        cartToss.setUserName(userName);
-        return ResponseEntity.ok(cartToss);
+    @GetMapping("/toss/{menuId}")
+    @ResponseBody
+    public ResponseEntity<Menu> create(@PathVariable Integer menuId) {
+//        CartTossDto cartToss = null;
+//        cartToss.setMenuId(menuId);
+//        cartToss.setUserName(userName);
+        
+        Menu menu = menuService.readById(menuId);
+        return ResponseEntity.ok(menu);
     }
 	
 	@SuppressWarnings("null")
-    @PostMapping("/create")
-	public String create(CartTossDto dto) {
+    @PostMapping("/create/{data}")
+	@ResponseBody
+	public ResponseEntity<Cart> create(@PathVariable CartTossDto dto) {
 		log.info("create menuId = {}, userName = {}", dto.getMenuId(), dto.getUserName());
 
 		Integer userId = userService.getUserIdByUserName(dto.getUserName());
@@ -114,10 +117,10 @@ public class CartController {
     		cartDto.setQuantity(1);
 		}
 		log.info("메뉴 점검 후 카트 = {}", cartDto);
-		cartService.create(cartDto);
+		Cart cart = cartService.create(cartDto);
 		
 
-		return "redirect:/order/menuOrder";
+		return ResponseEntity.ok(cart);
 	}
 
 }

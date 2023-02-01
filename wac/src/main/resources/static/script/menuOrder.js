@@ -85,29 +85,59 @@ function updateMenuList(data) {
     const btnTossCart = document.querySelectorAll('.btnTossCart');
 
     btnTossCart.forEach(btn => {
-        btn.addEventListener('click', tossCart);
+        btn.addEventListener('click', tossCartModal);
     })
 }    
     
-function tossCart(event) {
+function tossCartModal(event) {
     
-    const menu_id = event.target.getAttribute('data-menuId');
-    console.log("카트로 넘어가는 메뉴", menu_id);
+    const menuId = event.target.getAttribute('data-menuId');
+    console.log("카트로 넘어가는 메뉴", menuId);
     console.log("유저이름", loginUser);
 
-    const data = {
-            menuId: menu_id,
-            userName: loginUser
-        }
     axios
-    .get('/cart/create', {params : {data}})
-    .then(response => { response.data })
+    .get('/cart/toss/' + menuId)
+    .then(response => { showModal(response.data) })
     .catch(err => { console.log(err)});
 
 };
 
+// 모달
+const tossDivModal = document.querySelector('#tossModal');
+const tossModal = new bootstrap.Modal(tossDivModal);
+// 메뉴 아이디 칸
+const modalMenuId = document.querySelector('#modalMenuId');
+// 들어가기 버튼
+const modalBtnToss = document.querySelector('#modalBtnToss');
 
+function showModal(menu) {
+    // 칸(input)에 값 집어넣기.
+    modalMenuId.value = menu.menuId;
+    tossModal.show();
 
+}
+
+modalBtnToss.addEventListener('click', tossMenu);
+
+function tossMenu() {
+    const tossMenuId = modalMenuId.value;
+    const okDiv = document.querySelector('#ok');
+    const nokDiv = document.querySelector('#nok');
+    console.log("여긴 모달 장바구니 추가 버튼까지 누른상태");
+    modalBtnToss.href = "/order/cart";
+    const data = {
+            menuId: tossMenuId,
+            userName: loginUser
+        }
+    alert("장바구니 추가 성공")    
+    axios
+    .post('/cart/create' + data)
+    .then(function() {
+            tossModal.hide();
+        }
+    );               
+}
+    
 
 
 
