@@ -47,33 +47,83 @@
         <!-- 로그인 정보와 회원 정보가 일치하는 경우 보여지는 div -->
 
         <div id="ifSame" style="display: none">
-            <div class="cart_head">
+            <div class="cartHead">
                 <h1>Cart page</h1>
             </div>
 
             <div class="btns">
                 <div>
-                    <button class="btn" type="button" id="btnOrder">주문 내역</button>
+                    <button class="btn" type="button" id="btnOrder">주문
+                        내역</button>
                 </div>
                 <div>
                     <button class="btn" type="button" id="btnCart">장바구니</button>
                 </div>
             </div>
 
-            <div class="cart_panel" style="display: none">
-            <h1> cart panel </h1>
-            </div>
+            <div class="cartPanel" style="display: none" id="cartDiv">
 
-            <div class="order_panel" style="display: none">
-            <h1> order panel </h1>
-            </div>
+                <!-- Cart 객체가 null인 경우 보여줄 div -->
+                <div id="cartIsNull">
+                    <h1>장바구니가 비었습니다.</h1>
+                    <button class="btnGoOrder" type="button"
+                        id="btnGoOrder"
+                        th:onclick="'location.href=\'' + @{ /order } + '\''">주문하러
+                        가기</button>
+                </div> <!-- cart is null end -->
+                
+                <!-- Cart 객체가 null이 아닌 경우 경우 보여줄 div -->
+                <div id="cartIsNotNull">
+                    <div>
+                        <div class="divLabel">
+                            <label for="cartrId">주문번호</label>
+                        </div>
+                        <input class="inputs" type="text" id="cartId"
+                            name="cartId" 
+                            readonly />
+                    </div>
+                    
+                    <div>
+                        <div class="divLabel">
+                            <label for="menuId">상품번호</label>
+                        </div>
+                        <input class="inputs" type="text" id="menuId"
+                            name="menuId"  readonly>
+                    </div>
+                </div> <!-- Cart is not null end -->
+            </div> <!-- Cart panel end -->
+            
+            <!-- order Panel -->
+            <div class="orderPanel" style="display: none" id="orderDiv">
+
+                <!-- Order 객체가 null인 경우 보여줄 div -->
+                <div id="orderIsNull">
+                    <h1>주문 내역이 없습니다.</h1>
+                    <button class="btnGoOrder" type="button"
+                        id="btnGoOrder"
+                        th:onclick="'location.href=\'' + @{ /order } + '\''">주문하러
+                        가기</button>
+
+                </div> <!-- order is null end -->
+                
+                <!-- Order 객체가 null이 아닌 경우 보여줄 div -->
+                <div id="orderIsNotNull">
+                
+                </div> <!-- Order is non null end -->
+            </div> <!-- Order panel end -->
 
         </div>
 
-        <th:block layout:fragment="script" th:inline="javaScript">
-            <script>
+    </th:block>
+</div>
+<th:block layout:fragment="script" th:inline="javaScript">
+    <script>
              const userName = [[ ${ user.userName }]];
+             
+             const myCart = [[ ${ cart }]];
+             
+             const myOrder = [[ ${ order }]];
 </script>
-            <script th:src="@{ /script/cart.js }"></script>
-        </th:block>
+    <script th:src="@{ /script/cart.js }"></script>
+</th:block>
 </html>

@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-.myPage_head {
+.myPageHead {
     vertical-align: top;
     background-repeat: no-repeat;
     text-align: center;
     font-size: 25px;
 }
 
-.myPage_panel {
+.myPagePanel {
     border: 1px solid gray;
     margin: 16px;
     padding: 20px 20px;
@@ -22,7 +22,7 @@
     align-content: center;
 }
 
-.div_label {
+.divLabel {
     
     padding: 10px 10px;  
     width: 20%;
@@ -152,10 +152,6 @@
     font: inherit;
 }
 
-
-.select_options {
-    font-size: 15px;
-}
 
 .check {
     padding: 10px 10px;

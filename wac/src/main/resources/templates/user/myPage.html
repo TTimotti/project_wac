@@ -46,13 +46,13 @@
         <!-- 로그인 정보와 회원 정보가 일치하는 경우 보여지는 div -->
 
         <div id="ifSame" style="display: none">
-            <div class="myPage_head">
+            <div class="myPageHead">
                 <h1>마이 페이지</h1>
             </div>
             <form id="form">
-                <div class="myPage_panel">
+                <div class="myPagePanel">
                     <div>
-                        <div class="div_label">
+                        <div class="divLabel">
                             <label for="userId">고객 번호</label>
                         </div>
                         <input class="inputs" type="number" id="userId"
@@ -61,7 +61,7 @@
 
                     </div>
                     <div>
-                        <div class="div_label">
+                        <div class="divLabel">
                             <label for="userName">아이디</label>
                         </div>
                         <input class="inputs" type="text" id="userName"
@@ -69,35 +69,35 @@
                             th:value="${ user.userName }" readonly>
                     </div>
                     <div>
-                        <div class="div_label">
+                        <div class="divLabel">
                             <label for="age">나이</label>
                         </div>
                         <input class="inputs" type="number" id="age" name="age"
                             th:value="${ user.age }" readonly>
                     </div>
                     <div>
-                        <div class="div_label">
+                        <div class="divLabel">
                             <label for="address">주소</label>
                         </div>
                         <input class="inputs" type="text" id="address" name="address"
                             th:value="${ user.address }" readonly>
                     </div>
                     <div>
-                        <div class="div_label">
+                        <div class="divLabel">
                             <label for="email">이메일</label>
                         </div>
                         <input class="inputs" type="email" id="email" name="email"
                             th:value="${ user.email }" readonly />
                     </div>
                     <div>
-                        <div class="div_label">
+                        <div class="divLabel">
                             <label for="phone">휴대폰</label>
                         </div>
                         <input class="inputs" type="text" id="phone" name="phone"
                             th:value="${ user.phone }" readonly />
                     </div>
                     <div>
-                        <div class="div_label">
+                        <div class="divLabel">
                             <label for="gender" id="gender">성별</label>
                         </div>
                         <input class="inputs" type="text" id="gender" name="gender"

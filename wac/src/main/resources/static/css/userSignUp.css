@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-.signUp_head {
+.signUpHead {
     vertical-align: top;
     background-repeat: no-repeat;
     text-align: center;
     font-size: 25px;
 }
 
-.signUp_panel {
+.signUpPanel {
     border: 1px solid gray;
     margin: 16px;
     padding: 20px 20px;
@@ -30,14 +30,12 @@
     align-content: center;
 }
 
-.div_label {
+.divLabel {
     
     padding: 10px 10px;  
     width: 20%;
 }
 
-.label {
-}
 
 .inputs#address {
     border: solid 1px green;
@@ -97,7 +95,7 @@
     font: inherit;
 }
 
-.select_options {
+.selectOptions {
     font-size: 15px;
 }
 

@@ -46,7 +46,7 @@ public class HomeController {
 	@GetMapping("/story")
 	public String story() {
 		log.info("story()");
-		return "/story";	
+		return "/";	
 	}
 	
 	/**

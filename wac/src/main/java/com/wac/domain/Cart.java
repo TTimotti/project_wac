@@ -27,19 +27,22 @@ public class Cart extends BaseTimeEntity {
     @Column(name = "cart_id")
     private Integer cartId; // 고유번호, 장바구니 번호, 시퀀스생성
     
-    @Column(name = "cart_num")
+    @Column(name = "cart_num") // 이건 필요없는데 일단 두겠습니다. 
     private Integer cartNum; // 장바구니 한 장바구니에 여러 제품 담을 수 있음.
     
-    @Column(name = "user_id")
+    @Column(name = "user_id") // userId를 cartNum 로 똑같이 쓰자 그러고 카트 지워버리기 
     private Integer userId; // 장바구니를 이용하는 회원
     
     @Column(name = "menuId")
     private Integer menuId; // 상품 번호 
     
-    @Column
+    @Column // default: 1
     private Integer quantity; // 수량
     
-    @Column(name = "shipping")
+    @Column // 매장선택하고 상세주소 가져오기
+    private String address; // 주소
+    
+    @Column(name = "shipping") // default: 1
     private Integer shipping; // 배송 전: 1, 배송 후: 2
     
 //    @Column(name = "cart_indate")
