@@ -93,38 +93,39 @@ public class CartController {
         return ResponseEntity.ok(menu);
     }
 	
-	@SuppressWarnings("null")
+    @SuppressWarnings("null")
     @GetMapping("/create")
-	@ResponseBody
-	public ResponseEntity<Cart> create(Integer menuId) {
-		log.info("create menuId = {}, userName = {}", menuId);
+    @ResponseBody
+    public ResponseEntity<Cart> create(Integer data_menuId) {
+        log.info("create menuId = {}, userName = {}", data_menuId);
 
-//		Integer userId = userService.getUserIdByUserName(loginUser);
-//		log.info("유저 아이디 = {}", userId);
+//        Integer userId = userService.getUserIdByUserName(loginUser);
+//        log.info("유저 아이디 = {}", userId);
 
-		MenuReadDto menu = menuService.readMenu(menuId);
-		log.info("메뉴 정보 = {}", menu);
-		
-		CartCreateDto cartDto = null;
-	
-		log.info("메뉴 점검 전 카트 = {}", cartDto);
-		if (menu.getKind() == 2) {
-		    cartDto.setMenuId2(menuId);
-//		    cartDto.setUserId(userId);
-		    cartDto.setQuantity(1);
-	        cartDto.setMenuId1(1);
-	        cartDto.setMenuId3(1);
-	        cartDto.setMenuId4(1);
-		} else {
-    		cartDto.setMenuId1(menuId);
-//    		cartDto.setUserId(userId);
-    		cartDto.setQuantity(1);
-		}
-		log.info("메뉴 점검 후 카트 = {}", cartDto);
-		Cart cart = cartService.create(cartDto);
-		
+        Menu menu = menuService.readMenu(data_menuId);
+        log.info("메뉴 정보 = {}", menu);
 
-		return ResponseEntity.ok(cart);
-	}
+        Cart cart = cartService.create(null);
+
+        log.info("메뉴 점검 전 카트 = {}", cart);
+        if (menu.getKind() == 2) {
+            cart.setMenuId2(data_menuId);
+//            cartDto.setUserId(userId);
+            cart.setQuantity(1);
+            cart.setMenuId1(1);
+            cart.setMenuId3(1);
+            cart.setMenuId4(1);
+        } else {
+            cart.setMenuId1(data_menuId);
+//            cartDto.setUserId(userId);
+            cart.setQuantity(1);
+        }
+        log.info("메뉴 점검 후 카트 = {}", cart);
+//        CartCreateDto dto = cartService.addDto(cart);
+//        Cart cartAfter = cartService.create(cart);
+
+
+        return ResponseEntity.ok(cart);
+    }
 
 }

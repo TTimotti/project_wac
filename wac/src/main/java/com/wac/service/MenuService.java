@@ -42,9 +42,9 @@ public class MenuService {
      * @return
      * @author 추지훈
      */
-    public MenuReadDto readMenu(Integer menuId) {
+    public Menu readMenu(Integer menuId) {
         log.info("readMenu menuId = {}", menuId);
-        MenuReadDto menu = menuRepository.findByMenuId(menuId).get();
+        Menu menu = menuRepository.findByMenuId(menuId).get();
         
         return menu;
     }

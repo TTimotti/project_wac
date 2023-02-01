@@ -99,10 +99,10 @@ function tossCartModal(event) {
             menuId: data_menuId,
             userName: loginUser
         }
-    btnTossCart.href = "/order/cart";
+    
      axios
     .get('/cart/create/', {params: {data_menuId}})
-    .then(btnTossCart.href = "/order/cart")
+    .then(response => { response.data })
     .catch(err => { console.log(err)});
     
 /**

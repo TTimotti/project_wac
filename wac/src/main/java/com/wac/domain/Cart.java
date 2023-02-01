@@ -9,6 +9,7 @@ import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -17,6 +18,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @Getter
+@Data
 @ToString
 @Entity(name = "CARTS")
 @SequenceGenerator(name = "CARTS_SEQ_GEN", sequenceName = "CARTS_SEQ", initialValue = 1, allocationSize = 1)
