@@ -8,41 +8,56 @@
 <div layout:fragment="content">
 
     <div>
+    
+        <!-- Role = ADMIN 상태 -->
+        <th:block sec:authorize="hasRole('ADMIN')">
+        
+        <h1>admin만 보이는게 정상</h1>
+        
+        </th:block>
+
+
         <div class="postCreate_head">
             <h1>새 글 작성 (관리자 전용)</h1>
         </div>
 
-        <form id="formCreatePost" method="post" enctype="multipart/form-data">
+        <form id="formCreatePost" method="post"
+            enctype="multipart/form-data">
             <div class="postCreate_panel">
                 <div>
                     <div class="div_label">
                         <label for="title">글 제목</label>
                     </div>
-                    <input class="inputs" id="title" type="text" name="title" autofocus />
+                    <input class="inputs" id="title" type="text"
+                        name="title" autofocus />
                 </div>
                 <div>
                     <div class="div_label">
                         <label for="kind">분류</label>
                     </div>
-                    <input class="inputs" id="kind" type="text" name="kind" />
+                    <input class="inputs" id="kind" type="text"
+                        name="kind" />
                 </div>
                 <div>
                     <div class="div_label">
                         <label for="author">작성자</label>
                     </div>
-                    <input class="inputs" id="author" type="text" name="author" />
+                    <input class="inputs" id="author" type="text"
+                        name="author" />
                 </div>
                 <div>
                     <div class="div_label">
                         <label for="content">내용</label>
                     </div>
-                    <textarea class="inputs" id="summernote" name="content"></textarea>
+                    <textarea class="inputs" id="summernote"
+                        name="content"></textarea>
                 </div>
                 <div>
                     <div class="div_label">
                         <label for="image">포스터 이미지</label>
                     </div>
-                    <input class="inputs" type="file" id="image" name="image" />
+                    <input class="inputs" type="file" id="image"
+                        name="image" />
                 </div>
                 <div class="div_btn">
                     <button type="button" id="btnSubmit">생성하기</button>
@@ -59,19 +74,25 @@
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/post.css}">
     <!-- include libraries(bootstrap) -->
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-	
-	<!-- include summernote css/js -->
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link
+        href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- include summernote css/js -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+        rel="stylesheet">
 </th:block>
 <th:block layout:fragment="script">
-	<!-- include libraries(jQuery, bootstrap) -->	
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	
-	<!-- include summernote js -->
-	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-	
+    <!-- include libraries(jQuery, bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- include summernote js -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
     <script th:src="@{ /script/postCreate.js }"></script>
 </th:block>
 </html>

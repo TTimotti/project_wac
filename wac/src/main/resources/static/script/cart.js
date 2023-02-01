@@ -51,6 +51,7 @@ window.addEventListener('DOMContentLoaded', function() {
             orderIsNotNull.style.display = "none";
             orderIsNull.style.display = "block";
         } else {
+                        
             orderIsNotNull.style.display = "block";
             orderIsNull.style.display = "none";
         }
@@ -62,14 +63,22 @@ window.addEventListener('DOMContentLoaded', function() {
     function cartDivOn() {
         orderDiv.style.display = "none";
         cartDiv.style.display = "block";
-        
+
         const cartIsNotNull = document.querySelector('#cartIsNotNull');
         const cartIsNull = document.querySelector('#cartIsNull');
 
         if (myCart == null) {
             cartIsNotNull.style.display = "none";
             cartIsNull.style.display = "block";
-        } else {       
+        } else {
+             // cart가 null이 아닌 경우 Cart 객체의 정보들로 값을 채움
+
+            const cartId = document.querySelector('#cartId');
+            const menuId = document.querySelector('#menuId');
+
+            cartId.setAttribute('value', myCart.cartId);
+            menuId.setAttribute('value', myCart.menuId);
+            
             cartIsNotNull.style.display = "block";
             cartIsNull.style.display = "none";
         }
