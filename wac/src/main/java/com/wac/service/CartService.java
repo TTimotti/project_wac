@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wac.domain.Cart;
+import com.wac.dto.CartCreateDto;
 import com.wac.repository.CartRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -35,5 +36,23 @@ public class CartService {
     	
     	return cartRepository.findByUserId(userId).orElse(null);
     }
+
+    public Cart create(CartCreateDto cartDto) {
+        log.info("create(cartDto) ={}", cartDto);
+        
+        Cart cart = Cart.builder()
+                .userId(cartDto.getUserId())
+                .menuId1(cartDto.getMenuId1())
+                .menuId2(cartDto.getMenuId2())
+                .menuId3(cartDto.getMenuId3())
+                .menuId4(cartDto.getMenuId4())
+                .quantity(cartDto.getQuantity())
+                .build();
+        
+        Cart entity = cartRepository.save(cart);
+        
+        return entity;
+    }
+
     
 }

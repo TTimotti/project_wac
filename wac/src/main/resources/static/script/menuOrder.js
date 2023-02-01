@@ -89,28 +89,21 @@ function updateMenuList(data) {
     })
 }    
     
-function tossCart(data) {
+function tossCart(event) {
     
-    const menuId = data.target.getAttribute('data-menuId');
-    console.log("카트로 넘어가는 메뉴", menuId);
+    const menu_id = event.target.getAttribute('data-menuId');
+    console.log("카트로 넘어가는 메뉴", menu_id);
     console.log("유저이름", loginUser);
-    const cartMenuId = menuId.value;
-    
-    const userName = loginUser.value;
-    
-    btnTossCart.action = '/cart/create';
-    btnTossCart.method = 'post';
-    btnTossCart.submit();
-    
-    alert("장바구니 추가.");
-    
-    
-    /**
+
+    const data = {
+            menuId: menu_id,
+            userName: loginUser
+        }
     axios
-    .get('/cart/create', {params : {menuId, loginUser}})
+    .get('/cart/create', {params : {data}})
     .then(response => { response.data })
     .catch(err => { console.log(err)});
-     */
+
 };
 
 

@@ -54,7 +54,7 @@ public class MenuController {
     }
     
     /**
-     * 메뉴 생성메서드 이미지는 보류
+     * 메뉴 생성메서드
      * @param dto, image
      * @return
      * @author 추지훈

@@ -25,38 +25,80 @@
                 </p>
                 <ul class="navPath">
                     <li><a href="#" onclick="goHome()">Home</a></li>
-                    <li><a href="javascript:gotoMenu(1);">Menu</a></li>
-                    <li><a href="javascript:gotoMenu(1);">버거</a></li>
-                </ul>
-            </div>
-        </div>
+            <li><a href="javascript:gotoMenu(1);">Menu</a></li>
+            <li><a href="javascript:gotoMenu(1);">버거</a></li>
+        </ul>
+    </div>
+</div>
 
-        <div class="contArea">
-            <div class="inner">
-                <ul class="tabType01">
+<div class="contArea">
+    <div class="inner">
+        <ul class="tabType01">
 
-                    <li class="button buger"><a class="btn form-control" id="buger">버거</a></li>
-                    <li class="button meal"><a id="meal">세트메뉴</a></li>
-                    <li class="button side"><a id="side">사이드 & 디저트</a></li>
-                    <li class="button drink"><a id="drink">음료 & 카페</a></li>
-                    <li class="button morning"><a id="morning">맥모닝</a></li>
-                    <li class="button morningMeal"><a id="morningMeal">맥모닝 세트</a></li>
+            <li class="button buger"><a class="btn form-control" id="buger">버거</a></li>
+            <li class="button meal"><a id="meal">세트메뉴</a></li>
+            <li class="button side"><a id="side">사이드 & 디저트</a></li>
+            <li class="button drink"><a id="drink">음료 & 카페</a></li>
+            <li class="button morning"><a id="morning">맥모닝</a></li>
+            <li class="button morningMeal"><a id="morningMeal">맥모닝 세트</a></li>
 
-                </ul>
-                <div class="mcMenu">
-                    <p class="count" id="count"></p>
-                    <ul class="menuList" id="menuList">
-                    
-                    </ul>
-                    <div class="btnMore" id="btnMore">
-                        <button type="button" class="more"
-                            onclick="more()">더보기</button>
-                    </div>
+        </ul>
+        <div class="mcMenu">
+            <p class="count" id="count"></p>
+            <ul class="menuList" id="menuList">
+            
+            </ul>
+            <div class="btnMore" id="btnMore">
+                <button type="button" class="more"
+                    onclick="more()">더보기</button>
                 </div>
             </div>
         </div>
-
     </div>
+
+</div>
+
+<hr/>            
+            <div id="joinners"></div>    
+    <!--         !!!!!!!가입하기 모달!!!!!!! -->
+<div class="modal fade" id="teamJoinModal" tabIndex="-1" aria-labelledby="teamJoinModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="teamJoinModalLabel">모임 비밀번호를 입력하세요.</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- 팀 아이디 삽입 위치  -->
+                <input type="hidden" id="modalTeamId" readonly />
+                <!-- 팀 비밀번호 삽입 위치  -->
+                <input type="hidden" id="modalTeamPassword" class="form-control" />
+                <!-- 팀 응답 삽입 위치 -->
+                <input type="text" id="modalTeamPasswordInput" class="form-control" />
+
+                <div class="my-2 d-none" id="ok">
+                    <p class="text-success">비밀번호 확인!</p>
+                </div>
+
+                <div class="my-2 d-none" id="nok">
+                    <p class="text-danger">비밀번호를 확인하세요.</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">취소</button>
+                    <th:block sec:authorize="isAnonymous()">
+                        <a class="btn btn-success" th:href="@{ /user/signIn }">들어가기</a>
+                        <!-- ㄴ 로그아웃 상태일 시, 들어가기를 누르면 로그인 페이지로 넘어감. -->
+                    </th:block>
+                    <th:block sec:authorize="isAuthenticated()">
+                        <a id="modalBtnJoin" class="btn btn-outline-success">들어가기</a>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end Modal -->
 
 
 
