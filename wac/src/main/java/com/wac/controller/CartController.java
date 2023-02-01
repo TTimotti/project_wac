@@ -1,13 +1,13 @@
 package com.wac.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wac.domain.Cart;
 import com.wac.domain.Order;
@@ -48,6 +48,7 @@ public class CartController {
 	 * @return userId가 포함된 Cart, Order 객체. 없으면 null을 html에 보냄
 	 * @author 이존규
 	 */
+	@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 	@GetMapping("cart")
 	public void cartPage(Model model, String userName, Integer userId) {
 		log.info("cart page = userId{}, userName{]", userId, userName);
