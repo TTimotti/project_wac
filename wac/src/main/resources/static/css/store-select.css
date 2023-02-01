@@ -133,9 +133,6 @@ tbody tr.active-row {
 	text-align: center;
 	border-bottom: 3px solid black;
 }
-.storeInfo { 
-	
-}
 .customoverlay {
 	position: relative;
 	bottom: 85px;
@@ -186,7 +183,21 @@ tbody tr.active-row {
 	background:
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
 }
-
+.nextPage {
+	padding:20px;
+	font-size:30px;
+	font-weight:bolder;
+	background-color: #FFD126;
+	border: none;
+	border-radius: 5px 5px 5px 5px;
+	font-family: 'Do Hyeon', sans-serif;
+	cursor: pointer;
+	float: right;
+	margin-right: 110px;	
+}
+.nextPage:hover {
+	opacity: 0.5;
+}
 @media ( max-width : 792px) {
 	#map, table {
 		width: 450px;
