@@ -2,31 +2,55 @@
  * 
  */
 window.addEventListener('DOMContentLoaded', function() {
-    var kind = 3;
+    let kinds = [3, 4];
+    let prices = {3: 2600, 4: 2200};
+    let divListNames = {3: '#sideMenuList', 4: '#drinkMenuList'};
     
-    showMenuList(kind);
-    
-    function showMenuList(kind) {
+    for (let kind of kinds) {
+        console.log('for문:' + kind);
+        showMenuList(kind);
+        
+        function showMenuList(kind) {
+        console.log('showMenuList: ' + kind);
         axios
         .get('/menu/all', {params: {kind}})
         .then(response => {updateMenuList(response.data)})
         .catch(err => {console.log(err)});
-    }
-    
-    function updateMenuList(data) {
-        const divSideMenuList = document.querySelector('#sideMenuList');
+        } // showMenuList 끝.
+        
+        function updateMenuList(data) {
+        console.log('updateMenuList: '+ kind);
+        let divListName = divListNames[kind];
+        let price = prices[kind];
+        let divMenuList = document.querySelector(divListName);
         
         let str = '';
         for (let m of data) {
-            str += '<li class="card my-5 col-3">'
+            let surcharge = Number(m.price) - Number(price);
+            str += '<li style="display:inline-block;">'
+                + '</div>'
+                + '<label>'
+                + '<input type="radio" name="test"/>'
                 + '<img src="/image/display?fid='
                 + m.image
                 + '" alt="사이드 이미지" style="width:350px; height: 200px;" />'
-                + '<div>'
+                + '</label>'
+                + '<div style="text-align: center; margin: 10px 0;">'
                 + m.menuName
                 + '</div>'
+                + '<div style="text-align: center; margin: 10px 0;">'
+                + '+'
+                + surcharge
+                + '원'
                 + '</li>';
         }
-        divSideMenuList.innerHTML = str;
+        console.log(str);
+        divMenuList.innerHTML = str;
+        } // updateMenuList 끝.   
     }
+        
+
+
+
+
 });
