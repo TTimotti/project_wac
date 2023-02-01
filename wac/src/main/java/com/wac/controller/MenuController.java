@@ -39,10 +39,11 @@ public class MenuController {
      * @author 추지훈
      */
     @GetMapping("/menu/all")
+    @ResponseBody
     public ResponseEntity<List<MenuReadDto>> readAllMenus(Integer kind) {
         log.info("readAllMenus()");
         List<MenuReadDto> list = menuService.readMenus(kind);
-        log.info("FoodReadDto list()", list);
+        log.info("FoodReadDto list(list={})", list);
         
         return ResponseEntity.ok(list);
     }

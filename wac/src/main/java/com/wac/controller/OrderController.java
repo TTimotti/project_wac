@@ -1,13 +1,9 @@
 package com.wac.controller;
 
-import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.wac.domain.Menu;
-import com.wac.dto.OrderCreateDto;
 import com.wac.service.ImagesService;
 import com.wac.service.MenuService;
 import com.wac.service.OrderService;
@@ -35,9 +31,9 @@ public class OrderController {
     
     private final UserService userService;
     
-    @GetMapping("/order/menuOrder")
-    public void menuOrder() {
-        log.info("menuOrder() 호출");
+    @GetMapping("/order/cart")
+    public void cart() {
+        log.info("cart() 호출");
         
     }
     
