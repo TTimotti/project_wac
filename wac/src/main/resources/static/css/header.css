@@ -66,6 +66,10 @@ a {
 }
 
 /* header.html|css */
+.headArea {
+	width: 100vw;
+	height: 140px;
+}
 
 /* nav */
 .nav * {
@@ -78,9 +82,11 @@ a {
 
 .nav {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	margin-left: auto;
 	margin-right: auto;
+	width: 1168px;
+	height: 140px;
 }
 
 /* logo */

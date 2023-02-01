@@ -40,7 +40,6 @@ function updatePostList(data) {
         + '<img src="/image/display?fid=' + p.image 
         + '" alt="포스트 이미지" style="width:350px; height:200px;"/>'
         + '<div class="card col-3 my-5">' + p.title
-        + '<p>' + p.content + '</p>'
         + '</div></a>'
         + '</li>';
     }
