@@ -57,7 +57,7 @@ public class CartService {
         return entity;
     }
     
-    public Cart create(CartCreateDto cartDto) {
+    public Cart create(Cart cartDto) {
         log.info("create(cartDto) ={}", cartDto);
         
         Cart cart = Cart.builder()

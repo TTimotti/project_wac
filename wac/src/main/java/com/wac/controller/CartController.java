@@ -129,10 +129,10 @@ public class CartController {
         } 
         log.info("메뉴 점검 후 카트 = {}", cart);
 //        CartCreateDto dto = cartService.addDto(cart);
-//        Cart cartAfter = cartService.create(cart);
+        Cart cartAfter = cartService.create(cart);
 
 
-        return ResponseEntity.ok(cart);
+        return ResponseEntity.ok(cartAfter);
     }
 
 }
