@@ -56,6 +56,7 @@ public class CartService {
                 .quantity(1) // 무조건 수량 1개
                 .build();
         
+//        CartCreateDto cart = null;
         Cart entity = cartRepository.save(cart);
         
         return entity;
@@ -84,6 +85,11 @@ public class CartService {
         Cart entity = cartRepository.save(cart);
         
         return entity;
+    }
+
+    public Integer delete(Integer cartId) {
+        cartRepository.deleteById(cartId);
+        return cartId;
     }
 
 

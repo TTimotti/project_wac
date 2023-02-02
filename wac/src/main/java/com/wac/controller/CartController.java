@@ -15,6 +15,7 @@ import com.wac.domain.Cart;
 import com.wac.domain.Menu;
 import com.wac.domain.Order;
 import com.wac.domain.Users;
+import com.wac.dto.CartCreateDto;
 import com.wac.dto.CartTossDto;
 import com.wac.service.CartService;
 import com.wac.service.MenuService;
@@ -111,7 +112,7 @@ public class CartController {
         
         // 초기 카트 생성 
         Cart cart = cartService.create(data_menuId, userName);
-
+//        CartCreateDto cart = null;
         log.info("메뉴 점검 전 카트 = {}", cart);
         if (menu.getKind() == 2) {
             cart.setMenuId2(data_menuId);
@@ -139,7 +140,8 @@ public class CartController {
         
         log.info("메뉴 점검 후 카트 = {}", cart);
         Cart cartAfter = cartService.create(cart);
-
+        cartService.delete(cart.getCartId());
+        
 
         return ResponseEntity.ok(cartAfter);
     }
