@@ -15,9 +15,7 @@ import com.wac.domain.Cart;
 import com.wac.domain.Menu;
 import com.wac.domain.Order;
 import com.wac.domain.Users;
-import com.wac.dto.CartCreateDto;
 import com.wac.dto.CartTossDto;
-import com.wac.dto.MenuReadDto;
 import com.wac.service.CartService;
 import com.wac.service.MenuService;
 import com.wac.service.OrderService;
@@ -93,33 +91,42 @@ public class CartController {
         return ResponseEntity.ok(menu);
     }
 	
-    @SuppressWarnings("null")
+    /**
+     * 장바구니 추가시 해당 메뉴를 카트에 저장하고 
+     * @param menuId
+     * @param userName
+     * @return
+     */
     @GetMapping("/create")
     @ResponseBody
     public ResponseEntity<Cart> create(Integer data_menuId) {
         log.info("create menuId = {}, userName = {}", data_menuId);
-
+//        log.info("loginUser = {}", userName);
 //        Integer userId = userService.getUserIdByUserName(loginUser);
 //        log.info("유저 아이디 = {}", userId);
+//        Integer data_menuId = 1;
+        
 
         Menu menu = menuService.readMenu(data_menuId);
         log.info("메뉴 정보 = {}", menu);
-
-        Cart cart = cartService.create(null);
+        
+        
+        Cart cart = cartService.create(data_menuId, "admin");
 
         log.info("메뉴 점검 전 카트 = {}", cart);
         if (menu.getKind() == 2) {
             cart.setMenuId2(data_menuId);
-//            cartDto.setUserId(userId);
-            cart.setQuantity(1);
-            cart.setMenuId1(1);
-            cart.setMenuId3(1);
-            cart.setMenuId4(1);
-        } else {
+//            Integer bugerByMealId = menuService.readBugerByMeal(menuId); // 세트에 해당하는 버거를 가져온다
+//            cart.setMenuId1(bugerByMealId);
+            cart.setMenuId3(1); // 무조건 감튀 저장. 감튀 아이디를 나중에 넣어주면됨.
+            cart.setMenuId4(1); // 무조건 콜라 저장. 동일.. 
+        } else if (menu.getKind() == 1) { // 버거 단품일 경우
             cart.setMenuId1(data_menuId);
-//            cartDto.setUserId(userId);
-            cart.setQuantity(1);
-        }
+        } else if (menu.getKind() == 3) { // 감튀 단품일 경우.
+            cart.setMenuId3(data_menuId);
+        } else if (menu.getKind() == 4) { // 음료 단품일 경우. 
+            cart.setMenuId4(data_menuId);
+        } 
         log.info("메뉴 점검 후 카트 = {}", cart);
 //        CartCreateDto dto = cartService.addDto(cart);
 //        Cart cartAfter = cartService.create(cart);
