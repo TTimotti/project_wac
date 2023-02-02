@@ -113,6 +113,7 @@ public class CartController {
         // 초기 카트 생성 
         Cart cart = cartService.create(data_menuId, userName);
 //        CartCreateDto cart = null;
+        cart.setUserName(data.getUserName());
         log.info("메뉴 점검 전 카트 = {}", cart);
         if (menu.getKind() == 2) {
             cart.setMenuId2(data_menuId);
