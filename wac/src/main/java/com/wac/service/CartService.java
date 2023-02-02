@@ -38,6 +38,13 @@ public class CartService {
     	return cartRepository.findByUserId(userId).orElse(null);
     }
 
+    /** 
+     * 카트 생성 및 초기데이터
+     * @param menuId
+     * @param userName
+     * @return
+     * @author 추지훈
+     */
     public Cart create(Integer menuId, String userName) {
         log.info("create(menu Id = {}, userName = {})", menuId, userName);
         Integer userId = userRepository.findUserIdByUserName(userName);
@@ -45,10 +52,7 @@ public class CartService {
         
         Cart cart = Cart.builder()
                 .userId(userId)
-                .menuId1(null) // 여기가 버거
-                .menuId2(null) // 여기가 세트
-                .menuId3(null) // 무조건 감튀저장
-                .menuId4(null) // 무조건 콜라저장.
+                
                 .quantity(1) // 무조건 수량 1개
                 .build();
         
@@ -57,6 +61,12 @@ public class CartService {
         return entity;
     }
     
+    /**
+     * 카트에 메뉴 담기
+     * @param cartDto
+     * @return
+     * @author 추지훈
+     */
     public Cart create(Cart cartDto) {
         log.info("create(cartDto) ={}", cartDto);
         
@@ -66,6 +76,8 @@ public class CartService {
                 .menuId2(cartDto.getMenuId2())
                 .menuId3(cartDto.getMenuId3())
                 .menuId4(cartDto.getMenuId4())
+                .menuId5(cartDto.getMenuId5())
+                .menuId6(cartDto.getMenuId6())
                 .quantity(cartDto.getQuantity())
                 .build();
         
@@ -74,10 +86,6 @@ public class CartService {
         return entity;
     }
 
-//    public CartCreateDto addDto(Cart cart) {
-//        CartCreateDto cartDto =
-//        return null;
-//    }
 
     
 }

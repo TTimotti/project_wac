@@ -47,6 +47,12 @@ public class Cart extends BaseTimeEntity {
     @Column(name = "menu4_id") // 음료
     private Integer menuId4; // 상품 번호
     
+    @Column(name = "menu5_id") // 맥모닝
+    private Integer menuId5; // 상품 번호
+    
+    @Column(name = "menu6_id") // 맥모닝 세트
+    private Integer menuId6; // 상품 번호
+    
     @Column // default: 1
     private Integer quantity; // 수량
     

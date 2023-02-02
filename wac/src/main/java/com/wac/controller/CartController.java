@@ -92,32 +92,33 @@ public class CartController {
     }
 	
     /**
-     * 장바구니 추가시 해당 메뉴를 카트에 저장하고 
+     * 장바구니 추가시 유저정보, 주소와 해당 메뉴를 메뉴 종류에 맞게 카트에 저장하고 페이지를 카트로 넘겨줌.  
      * @param menuId
      * @param userName
      * @return
+     * @author 추지훈
      */
-    @GetMapping("/create")
+    @PostMapping("/create")
     @ResponseBody
-    public ResponseEntity<Cart> create(Integer data_menuId) {
-        log.info("create menuId = {}, userName = {}", data_menuId);
-//        log.info("loginUser = {}", userName);
-//        Integer userId = userService.getUserIdByUserName(loginUser);
-//        log.info("유저 아이디 = {}", userId);
-//        Integer data_menuId = 1;
+    public ResponseEntity<Cart> create(@RequestBody CartTossDto data) {
+        log.info("create menuId = {}, userName = {}", data);
+        String userName = data.getUserName(); // 주문자명
+        Integer data_menuId = data.getMenuId(); // 주문한 메뉴아이디
         
-
+        // 메뉴 정보불러오기
         Menu menu = menuService.readMenu(data_menuId);
         log.info("메뉴 정보 = {}", menu);
         
-        
-        Cart cart = cartService.create(data_menuId, "admin");
+        // 초기 카트 생성 
+        Cart cart = cartService.create(data_menuId, userName);
 
         log.info("메뉴 점검 전 카트 = {}", cart);
         if (menu.getKind() == 2) {
             cart.setMenuId2(data_menuId);
-//            Integer bugerByMealId = menuService.readBugerByMeal(menuId); // 세트에 해당하는 버거를 가져온다
-//            cart.setMenuId1(bugerByMealId);
+            log.info("중간점검 전 세트 카트 = {}", cart);
+            Integer bugerByMealId = menuService.readBugerByMeal(data_menuId); // 세트에 해당하는 버거를 가져온다
+            cart.setMenuId1(bugerByMealId); // 버거 아이디 저장.
+            log.info("중간점검 후 세트 카트 = {}", cart);
             cart.setMenuId3(1); // 무조건 감튀 저장. 감튀 아이디를 나중에 넣어주면됨.
             cart.setMenuId4(1); // 무조건 콜라 저장. 동일.. 
         } else if (menu.getKind() == 1) { // 버거 단품일 경우
@@ -126,9 +127,17 @@ public class CartController {
             cart.setMenuId3(data_menuId);
         } else if (menu.getKind() == 4) { // 음료 단품일 경우. 
             cart.setMenuId4(data_menuId);
-        } 
+        } else if (menu.getKind() == 5) { // 맥모닝 단품일 경우. 
+            cart.setMenuId5(data_menuId);
+        } else if (menu.getKind() == 6) { // 맥모닝 세트일 경우. 
+            cart.setMenuId6(data_menuId);
+            Integer bugerByMealId = menuService.readBugerByMeal(data_menuId); // 세트에 해당하는 버거를 가져온다
+            cart.setMenuId1(bugerByMealId);
+            cart.setMenuId3(1); // 해쉬브라운 디폴트
+            cart.setMenuId4(1); // 콜라 디폴트
+        }  
+        
         log.info("메뉴 점검 후 카트 = {}", cart);
-//        CartCreateDto dto = cartService.addDto(cart);
         Cart cartAfter = cartService.create(cart);
 
 
