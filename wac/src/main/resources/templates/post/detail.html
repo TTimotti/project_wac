@@ -8,21 +8,40 @@
 
 <div layout:fragment="content" id="mContent">
 
-    <div id="main">    	
+    <div id="main">   
+    <form id="formDelete"> 	
         <div id="head">                                   
             <input readonly th:value="${ post.title }" class="h-label" id="title" />                                 
             <input readonly th:value="${ post.author }" class="h-label" />                                     
             <input readonly th:value="${ post.kind }" class="h-label" />
-        </div>        
+        </div>
+            
         <div id="c-label">
             <p class="b-label"></p>
         </div>
+    </form>
         <div class="btn">
-	        <button id="delete">삭제하기</button>
+	        <button id="btnDelete">삭제하기</button>
         </div>
     </div>
 
 </div>
+<script layout:fragment="script">
+
+const formDelete = document.querySelector('#formDelete');
+
+// 삭제 이벤트 리스너.
+const btnDelete = document.querySelector('#btnDelete');
+btnDelete.addEventListener('click', function () {
+    const result = confirm('정말 삭제하시겠습니까?');
+    if (result) {
+        formDelete.action = '/post/delete';
+        formDelete.method = 'post';
+        formDelete.submit();
+    }
+});
+
+</script>
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/postDetail.css}">
 </th:block>

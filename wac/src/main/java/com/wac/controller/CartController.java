@@ -94,8 +94,7 @@ public class CartController {
 	
     /**
      * 장바구니 추가시 유저정보, 주소와 해당 메뉴를 메뉴 종류에 맞게 카트에 저장하고 페이지를 카트로 넘겨줌.  
-     * @param menuId
-     * @param userName
+     * @param data = menuId, userName
      * @return
      * @author 추지훈
      */
@@ -123,26 +122,34 @@ public class CartController {
             log.info("중간점검 후 세트 카트 = {}", cart);
             cart.setMenuId3(1); // 무조건 감튀 저장. 감튀 아이디를 나중에 넣어주면됨.
             cart.setMenuId4(1); // 무조건 콜라 저장. 동일.. 
+            cart.setImage(menu.getImage());
         } else if (menu.getKind() == 1) { // 버거 단품일 경우
             cart.setMenuId1(data_menuId);
+            cart.setImage(menu.getImage());
         } else if (menu.getKind() == 3) { // 감튀 단품일 경우.
             cart.setMenuId3(data_menuId);
+            cart.setImage(menu.getImage());
         } else if (menu.getKind() == 4) { // 음료 단품일 경우. 
             cart.setMenuId4(data_menuId);
+            cart.setImage(menu.getImage());
         } else if (menu.getKind() == 5) { // 맥모닝 단품일 경우. 
             cart.setMenuId5(data_menuId);
+            cart.setImage(menu.getImage());
         } else if (menu.getKind() == 6) { // 맥모닝 세트일 경우. 
             cart.setMenuId6(data_menuId);
+            cart.setImage(menu.getImage());
             Integer bugerByMealId = menuService.readBugerByMeal(data_menuId); // 세트에 해당하는 버거를 가져온다
             cart.setMenuId1(bugerByMealId);
             cart.setMenuId3(1); // 해쉬브라운 디폴트
             cart.setMenuId4(1); // 콜라 디폴트
+            cart.setImage(menu.getImage());
         }  
         
         log.info("메뉴 점검 후 카트 = {}", cart);
         Cart cartAfter = cartService.create(cart);
+        log.info("새카트에 정보넣고 빈카트 삭제하기 전 cartAfter = {}", cartAfter);
         cartService.delete(cart.getCartId());
-        
+        log.info("초기 빈카트 삭제 = {}", cart);
 
         return ResponseEntity.ok(cartAfter);
     }

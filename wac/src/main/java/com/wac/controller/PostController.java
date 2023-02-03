@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wac.dto.PostCreateDto;
 import com.wac.dto.PostReadDto;
@@ -81,6 +82,26 @@ public class PostController {
         PostReadDto postDto = postService.readPost(postId);
         model.addAttribute("post", postDto);        
     }
+    
+//    /**
+//     * 종속관계인 댓글이달린 포스트 삭제
+//     * 
+//     * @param id
+//     * @param attrs
+//     * @return 추
+//     */
+//    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+//    @PostMapping("/post/delete")
+//    public String delete(Integer id, RedirectAttributes attrs) {
+//        
+//        log.info("PostController delete(id={})", id);
+//        
+//        Integer postId = postService.delete(id);
+//        attrs.addFlashAttribute("deletedPostId", postId);
+//        log.info("postController delete postId = {}", postId);
+//        
+//        return "redirect:/post";
+//    }
     
     
     
