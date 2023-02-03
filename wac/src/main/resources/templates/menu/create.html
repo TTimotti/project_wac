@@ -2,34 +2,60 @@
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     layout:decorate="~{ /layout/basic-layout }">
+
+
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/storeCreate.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+        rel="stylesheet">
+</th:block>
+
 <title>Wacdonaldo</title>
 
-
 <div layout:fragment="content">
-
-<div class="card-body">
-    <form id="formCreateMenu" method="post" enctype="multipart/form-data">
-        <div class="my-4">
-            <label for="menuName" class="form-label">메뉴이름</label> 
-            <input id="menuName" class="form-control" type="text" name="menuName" autofocus/>
-        </div>
-        <div class="my-4">
-            <label for="menuEnName" class="form-label">메뉴영어이름</label> 
-            <input id="menuEnName" class="form-control" type="text" name="menuEnName" autofocus/>
-        </div>
-        
-        <!-- // 버거: 1, 사이드: 2, 음료: 3, 세트: 4, 맥모닝: 5, 맥모닝 세트: 6, 맥런치 세트: 7 -->
-        <div class="my-4">
-            <label for="kind" class="form-label">분류</label>
-            <select id="kind" class="form-control" name = "kind">
-                <option value = "1">버거</option>
-                <option value = "2">세트</option>
-                <option value = "3">사이드</option>
-                <option value = "4">음료</option>
-                <option value = "5">맥모닝</option>
-                <option value = "6">맥모닝 세트</option>
-            </select>
-        </div>
+    <div class="frontFont">
+        <h1> 메뉴 등록 페이지 </h1>
+    </div>
+    
+    <div class="Container">
+        <form id="formCreateMenu" method="post" enctype="multipart/form-data">
+            <div>
+                <div class="div_label">
+                    <label for="menuName">메뉴 이름</label> 
+                </div>
+                <br/>
+                <input id="menuName" type="text" name="menuName" autofocus/>
+            </div>
+            
+            <br/>
+            
+            <div>
+                <div class="div_label">
+                    <label for="menuEnName" class="form-label">메뉴 이름(영어)</label> 
+                </div>
+                <br/>
+                <input id="menuEnName" class="form-control" type="text" name="menuEnName" autofocus/>
+            </div>
+            
+            <br/>
+            
+            <div>
+                <div class="div_label">
+                    <label for="kind" class="form-label">분류</label>
+                </div>
+                <select id="kind" class="form-control" name = "kind">
+                    <option value = "1">버거</option>
+                    <option value = "2">세트</option>
+                    <option value = "3">사이드</option>
+                    <option value = "4">음료</option>
+                    <option value = "5">맥모닝</option>
+                    <option value = "6">맥모닝 세트</option>
+                </select>
+            </div>
         <div class="my-4">
             <label for="price" class="form-label">가격</label>
             <input id="price" class="form-control" type="text" name="price"/>
@@ -47,16 +73,14 @@
             <a class="btn btn-outline-primary btn-sm form-control" id="btnSubmit">생성하기!</a>
         </div>
     </form>
-</div>
+    </div> <!-- Container -->
 
 
 
 </div>
 
 
-<th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/menu.css}">
-</th:block>
+
 <th:block layout:fragment="script">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

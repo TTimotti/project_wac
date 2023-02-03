@@ -5,12 +5,47 @@
 
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/menuDetail.css}">
-</th:block>
+    
+    <style>
+        .name {
+            justify-content: center;
+        }
+        .name > input {
+            text-align: center;
+            display: block;
+            margin: auto;
+        }
+        
+        .name .en {
+            width: auto;
+        }
+        
+        .name .en:checked {
+            border:3px solid #ffbc0d;
+            border-radius: 10px;
+            
+        }
+        
+        input {
+            border:3px solid #ffbc0d;
+            border-radius: 10px;
+            outline: none;
+        }
+        
+        textArea {
+            border: 3px solid #ffbc0d;
+            border-radius: 10px;
+            resize: none;
+            outline: none;
+        }
+    </style>
 
+</th:block>
 <div layout:fragment="content">
     <div class="wrapper">
         <div id="container">
             <div class="contents">
+            
                     <!-- 상단 배너 -->
                     <div class="bannerArea bgImage">
                         <div class="inner">
@@ -28,46 +63,27 @@
                     <div class="contArea">
                         <div class="inner">
                             <div class="menuView">
+                                <!-- 메뉴 제목(한글, 영어) -->
                                 <div class="viewTop">
                                     <div class="name">
-                                        <!-- thymeleaf로 가져오기. -->
-                                        <h2 class="ko" th:text="${menu.menuName}"></h2>
-                                        <em class="en" th:text="${menu.menuEnName}"></em>
+                                        <input type="text" class="ko" th:value="${menu.menuName}"/>
+                                        <input type="text" class="en" th:value="${menu.menuEnName}"/>
                                     </div>
-                                    
-                                    
-                                      <div class="info" data-title="행운버거 골드 스페셜(버거)" data-desc="버거 메뉴">
+                                    <!-- 이미지, 글 설명, 가격 등을 보여줌. -->
+                                    <div class="info">
                                         <!-- 이미지 -->
                                         <div class="visual">
                                             <img th:src="@{/image/display?fid={fid} (fid = ${menu.image})}" th:alt= "${menu.menuName}" />
                                         </div>
-                                        
                                         <!-- 메뉴 설명 -->
-                                        <div class="desc" style="white-space:pre-wrap" th:text="${menu.content}"></div>
-                                        <div class="desc" th:text="'가격: ￦ ' + ${menu.price}"></div>
-                                        
-                                        
-                                        <!-- 화살 -->
-                                        <div class="other">
-                                            <a th:if= "${prevMenu != null}" th:href="@{/menu/menuDetail?kind={kind}&menuId={menuId} (kind = ${menu.kind}, menuId = ${prevMenu.menuId})}" class="arrow prev">
-                                                <span>《 </span>
-                                                
-                                                    <img th:src="@{/image/display?fid={fid} (fid = ${prevMenu.image})}" th:alt="${prevMenu.menuName}" />
-                                                
-                                            </a>
-                                            
-                                            <a th:if= "${nextMenu != null}" th:href="@{/menu/menuDetail?kind={kind}&menuId={menuId} (kind = ${menu.kind}, menuId = ${nextMenu.menuId})}" class="arrow next">
-                                                <span> 》</span>
-
-                                                    <img th:src="@{/image/display?fid={fid} (fid = ${nextMenu.image})}" th:alt="${nextMenu.menuName}" />
-
-                                                
-                                            </a>
+                                        <textArea class="desc" rows="10" cols="50" th:text="${menu.content}">
+                                        </textArea>
+                                        <div>
+                                            <span class="desc" >가격: ￦ </span>
+                                            <input type="text" class="desc" th:value="${menu.price}" />
                                         </div>
-                                      </div> <!-- info -->
-                                       
-                                    
-                            </div> <!-- viewTop -->
+                                    </div> <!-- info -->
+                                </div> <!-- viewTop -->
                             
                             <div class="viewCon">
                                 <div class="toggle">
@@ -155,7 +171,7 @@
                                 <div class="btnConfigDiv" style="text-align: right;">
                                     <a id="btnUpdatePost" th:href="@{/menu/menuUpdate?menuId={menuId} (menuId = ${menu.menuId})}">
                                         <button type="button" class="btnConfig">
-                                            <span>수정하기</span>
+                                            <span>수정완료</span>
                                         </button>
                                     </a>
                                 </div>

@@ -2,6 +2,7 @@
  * 
  */
  
+window.addEventListener('DOMContentLoaded', function() {
  /**
     메뉴 하단에 있는 탭들을 펼치고 닫는 기능.
   */
@@ -25,3 +26,5 @@ for (let i = 0 ; i < toggle.length; i++) {
             }
     });
 }
+
+});
