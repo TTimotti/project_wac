@@ -3,6 +3,16 @@
  * 서범수
  */
 window.addEventListener('DOMContentLoaded', function() {
+    // 변수들 저장하기
+    const menuNameInfo = document.querySelectorAll('.menuNameInfo');
+    const menuPriceInfo = document.querySelectorAll('.menuPriceInfo');
+    const menuImageInfo = document.querySelectorAll('.menuImageInfo');
+    const eachMenuPriceTotalInfo = document.querySelectorAll('.eachMenuPriceTotalInfo');
+    const isSetMenuInfo = document.querySelectorAll('.isSetMenuInfo');
+    const btnMinus = document.querySelectorAll('.btn_minus');
+    const btnPlus = document.querySelectorAll('.btn_plus');
+    const menuQuantityInfo = document.querySelectorAll('.menuQuantityInfo');
+    
     // cartList의 메뉴아이디 가져오기. (menuId1 ~ menuId4)
     let menuIdList = [];
     
@@ -20,8 +30,6 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    console.log(menuIdList);
-    
     // menuIdList의 있는 menuId를 통해 메뉴 정보 가져오기.
     for (let i = 0 ; i < menuIdList.length ; i++) {
         menuId = menuIdList[i];
@@ -33,43 +41,33 @@ window.addEventListener('DOMContentLoaded', function() {
         .catch(err => {console.log(err)});     
         
         function writeMenuName(data) {
-            const menuNameInfo = document.querySelectorAll('.menuNameInfo');
-            const menuPriceInfo = document.querySelectorAll('.menuPriceInfo');
-            const menuImageInfo = document.querySelectorAll('.menuImageInfo');
-            const eachMenuPriceTotalInfo = document.querySelectorAll('.eachMenuPriceTotalInfo');
-            // 세트 메뉴가 아니라면, 사이드 변경 칸 사라짐.
-            const isSetMenuInfo = document.querySelectorAll('.isSetMenuInfo');
-            
             let eachMenuPriceTotalVariable= data.price;
           
             menuNameInfo[i].innerHTML = data.menuName;
             menuPriceInfo[i].innerHTML = data.price;
             menuImageInfo[i].src = "/image/display?fid=" + data.image;
             eachMenuPriceTotalInfo[i].innerHTML = eachMenuPriceTotalVariable;
+            
+            // 세트 메뉴가 아니라면, 사이드 변경 칸 사라짐.
             if (data.kind != 2) {
             isSetMenuInfo[i].style.display = 'none';
-            
-            
             }
-    }   
+            
+            btnMinus[i].dataset.menuId = data.menuId;
+            btnPlus[i].dataset.menuId = data.menuId;
+        }   
     }
     
     
     // 수량 버튼
     // 수량 현황
-    for (let i = 0 ; i < cartList.length ; i++) {
-        
-        const menuQuantityInfo = document.querySelectorAll('.menuQuantityInfo');
-        console.log("cartList[i]" + i +'번 째:' + cartList[i].cartId);
-        console.log(cartList[i].quantity);
+    for (let i = 0 ; i < cartList.length ; i++) {   
         menuQuantityInfo[i].setAttribute('value', cartList[i].quantity);
-    
     }
     
-    const btnMinus = document.querySelectorAll('.btn_minus');
-
-    btnMinus.forEach(btn => btn.addEventListener('click', console.log('dd')));
-    
+    for (let i = 0 ; i < cartList.length ; i++) {
+        console.log(i+'번째: ' + btnMinus[i].dataset.menuId);
+    }
     
     // 사이드 메뉴 추가하기.
     let kinds = [3, 4];
