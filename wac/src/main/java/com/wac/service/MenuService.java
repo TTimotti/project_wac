@@ -1,10 +1,12 @@
 package com.wac.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.wac.domain.Cart;
 import com.wac.domain.Menu;
 import com.wac.dto.MenuCreateDto;
 import com.wac.dto.MenuReadDto;
@@ -133,6 +135,7 @@ public class MenuService {
         return menuId;
     }
 
+
     @Transactional
     public Integer update(MenuUpdateDto dto) {
         log.info("postService update(dto={})", dto);
@@ -143,6 +146,20 @@ public class MenuService {
         log.info("entity = {}",entity);
         
         return entity.getMenuId();
+    }
+    
+    
+    public List<Menu> readAllByMenuId(List<Cart> cartList) {
+        ArrayList<Integer> cartListBymenuId = new ArrayList<>();
+        
+        for (Cart c : cartList) {
+            log.info("x={}", cartList.get(1));
+        }
+        
+        log.info("readAllByMenuId={}", cartList);
+        
+        return null;
+
     }
 
     

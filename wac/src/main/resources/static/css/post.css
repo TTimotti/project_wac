@@ -108,6 +108,11 @@ button, input[type='button'], input[type='submit'], input[type='reset']
     background: #f8f8f8;
 }
 
+.posts li a img:hover{
+	border: 5px solid orange;
+	border-radius: 5px;
+}
+
 ul, ol, li {
     list-style: none outside;
 }
@@ -169,4 +174,8 @@ ul, ol, li {
     color: green;
     box-sizing: border-box;
     font-size: 20px;
+}
+
+.post_img {
+	margin-bottom:25px;
 }

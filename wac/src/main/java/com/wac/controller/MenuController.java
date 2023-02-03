@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,7 +49,7 @@ public class MenuController {
         return ResponseEntity.ok(list);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @GetMapping("/menu/create")
     public void create(Integer id, Model model) {
         log.info("create");
@@ -109,6 +108,7 @@ public class MenuController {
         model.addAttribute("nextMenu", nextMenu);
     }
     
+
     /**
      * 메뉴 수정 
      * @return
@@ -123,6 +123,20 @@ public class MenuController {
         
         return "redirect:/menu/menuDetail?id=" + dto.getMenuId();
     }
+    
+//    /**
+//     * 메뉴 수정 페이지
+//     * @param menuId: 수정할 메뉴 아이디
+//     * @author 서범수
+//     */
+//    @GetMapping("/menu/menuUpdate")
+//    public void menuUpdate(Integer menuId, Model model) {
+//        log.info("menuUpdate(menuId={})", menuId);
+//        Menu menu = menuService.readById(menuId);
+//        
+//        model.addAttribute("menu", menu);
+//
+//    }
 
     
 }
