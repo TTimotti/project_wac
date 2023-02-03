@@ -36,7 +36,7 @@ function updatePostList(data) {
     let str = '';
     for (let p of data) {
         str += '<li class="card my-5 col-3">'
-        + '<a href="/post/detail?postId='+ p.postId +'">'
+        + '<a class="post_img" href="/post/detail?postId='+ p.postId +'">'
         + '<img style="width:1168px; height:271px" src="/image/display?fid=' + p.image 
         + '" alt="포스트 이미지" style="width:350px; height:200px;"/>'
         + '</a>'
