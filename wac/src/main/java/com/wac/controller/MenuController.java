@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.wac.domain.Menu;
 import com.wac.dto.MenuCreateDto;
 import com.wac.dto.MenuReadDto;
+import com.wac.dto.MenuUpdateDto;
 import com.wac.service.ImagesService;
 import com.wac.service.MenuService;
 
@@ -91,10 +92,10 @@ public class MenuController {
     
     /**
      * 메뉴 상세 페이지로 넘어갑니다.
-     * 포스트매핑으로 넘길까 생각 중...(맥도날드처럼)
+     * 포스트매핑으로 넘길까 생각 중...(맥도날드처럼) 이렇게 정보넘기고 수정을 포스트로 넘기는거 어떻습니까 - 추씨
      * @author: 서범수
      */
-    @GetMapping("/menu/menuDetail")
+    @GetMapping({"/menu/menuDetail", "/menu/modify"})
     public void MenuDetail(Integer kind, Integer menuId, Model model) {
         log.info("MenuDetail(kind={}, menuId={})", kind, menuId);
 
@@ -106,6 +107,21 @@ public class MenuController {
         
         Menu nextMenu = menuService.readNextMenuById(menuId, kind);
         model.addAttribute("nextMenu", nextMenu);
+    }
+    
+    /**
+     * 메뉴 수정 
+     * @return
+     */
+    @PostMapping("/menu/update")
+    public String update(MenuUpdateDto dto) {
+    log.info("PostController update(dto = {})",dto);
+        
+        Integer menuId = menuService.update(dto);
+        
+        log.info("PostController postId={}", menuId);
+        
+        return "redirect:/menu/menuDetail?id=" + dto.getMenuId();
     }
 
     

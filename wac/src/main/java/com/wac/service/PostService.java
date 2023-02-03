@@ -29,6 +29,13 @@ public class PostService {
         return list.stream().map(PostReadDto::fromEntity).toList();
     }
     
+    /**
+     * 게시글 생성 카테고리에따라 분류해줘야함 .
+     * @param dto
+     * @param fid
+     * @return
+     * @author 추지훈
+     */
     public Post create(PostCreateDto dto, Integer fid) {
         log.info("create(dto={})", dto);
         
@@ -45,6 +52,11 @@ public class PostService {
         return entity;
     }
 
+    /**
+     * 포스트 읽어오는 메서드
+     * @param postId
+     * @return
+     */
 	public PostReadDto readPost(Integer postId) {
 		log.info("readPost(postId = {})", postId);
 		Post post = postRepository.findByPostId(postId);
@@ -52,5 +64,18 @@ public class PostService {
 		
 		return postDto;
 	}
+    /**
+     * 게시글 삭제 수정은 필요없음 수정 = 재공지
+     * @param id
+     * @return
+     * @author 추지훈
+     */
+	public Integer delete(Integer id) {
+        log.info("postService delete(id={})", id);
+        
+        postRepository.deleteById(id);
+        
+        return id;
+    }
 
 }
