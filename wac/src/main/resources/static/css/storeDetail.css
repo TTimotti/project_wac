@@ -38,10 +38,25 @@ input {
 	border-radius: 5px 5px 5px 5px;
 	font-family: 'Do Hyeon', sans-serif;
 	cursor: pointer;
-	margin-right: 110px;
 	margin-left:280px;
-	width: 50px;
+	width: 560px;
+	text-align: center;
 	}
+.dbuttons {
+	padding: 10px;
+	font-size: 30px;
+	background-color: #EE3930;
+	border: none;
+	border-radius: 5px 5px 5px 5px;
+	font-family: 'Do Hyeon', sans-serif;
+	cursor: pointer;
+	width: 540px;
+	text-align: center;
+}
 .buttons:hover {
 	opacity: 0.5;
 }
+.dbuttons:hover {
+	opacity: 0.5
+}
+	

@@ -41,6 +41,16 @@ public class Store extends BaseTimeEntity {
     
     @Column(name = "store_time")
     private String storeTime;
+
+	public Store update(String storeName, String storeAddress, String storePhone, String storeTime, String drinkExplain) {
+		this.storeName = storeName;
+		this.storeAddress = storeAddress;
+		this.storePhone = storePhone;
+		this.storeTime = storeTime;
+		this.drinkExplain = drinkExplain;
+		
+		return this;
+	}
     
     
 }

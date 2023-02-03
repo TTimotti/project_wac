@@ -30,7 +30,7 @@ input {
 	font-size: 30px;
 	margin-left:280px;
 }
-.buttons  {
+.buttons .storeCreate{
 	padding: 10px;
 	font-size: 30px;
 	background-color: #FFD126;
@@ -42,6 +42,7 @@ input {
 	margin-left:280px;
 	width: 560px;
 	}
+
 .buttons:hover {
 	opacity: 0.5;
 }

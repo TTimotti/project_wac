@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ /layout/basic-layout }">
+<th:block layout:fragment="css">
+	<link rel="stylesheet" th:href="@{/css/storeCreate.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+		rel="stylesheet">
+</th:block>
+<title>Wacdonald</title>
+<div layout:fragment="content">
+	<div class="frontFont">
+		<h1>등록된 매장 정보 수정 페이지</h1>
+	</div>
+		<form id="formCreateStore" method="post">
+			<div class="Container">
+				<div>
+					<div class="div_label">
+						<label for="storeName">매장 이름</label>
+					</div>
+					<br/>
+					<input class="inputs" id="storeName" type="text" name="storeName" 
+						autofocus required/>
+				</div>
+				<br/>
+				<div>
+					<div class="div_label">
+						<label for="storeAddress">주소</label>
+					</div>
+					<br/>
+					<input class="inputs" id="storeAddress" type="text"
+						name="storeAddress" placeholder="주소 찾기 버튼을 클릭하세요" readonly required />
+						<br/>
+						<br/>
+					<button class="buttons" type="button" id="btnAddress">주소 찾기</button>
+				</div>
+				<br/>
+				<div>
+					<div class="div_label">
+						<label class="label" for="storeAddress2">상세 주소</label>
+					</div>
+					<br/>
+					<input class="inputs" type="text" id="storeAddress2"
+						name="storeAddress2" required>
+				</div>
+				<br/>
+				<div>
+					<div class="div_label">
+						<label for="storePhone">매장 전화번호</label>
+					</div>
+					<br/>
+					<input class="inputs" id="storePhone" type="tel" name="storePhone" placeholder="전화번호를 입력하세요" 
+					oninput="oninputPhone(this)" maxlength="14" required/>
+				</div>
+				<br/>
+				<div>
+					<div class="div_label">
+						<label for="content">영업시간</label>
+					</div>
+					<br/>
+					<input class="inputs" id="storeTime" type="text" name="storeTime" placeholder="ex) 08:00 ~ 22:00" required/>
+				</div>
+				<br/>
+				<div>
+					<div class="div_label">
+						<label for="image">이용가능 서비스</label>
+					</div>
+					<br/>
+					<input class="inputs" id="drinkExplain" type="text"
+						name="drinkExplain" placeholder="ex) 맥모닝/맥딜리버리/디카페인커피" required/>
+				</div>
+				<br/>
+			<div>
+				<input class="buttons" type="submit" id="btnCreate" value="등록"/>
+			</div>
+		</div>
+		</form>
+	</div>
+<th:block layout:fragment="script">
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script th:src="@{ /script/storeCreate.js }"></script>
+</th:block>
+</html>

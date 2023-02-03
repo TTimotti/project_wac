@@ -2,11 +2,14 @@ package com.wac.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.wac.domain.Store;
 import com.wac.dto.StoreCreateDto;
 import com.wac.dto.StoreReadDto;
+import com.wac.dto.StoreUpdateDto;
 import com.wac.repository.StoreRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -49,6 +52,27 @@ public class StoreService {
 		Store store = storeRepository.findBystoreId(storeId);
 		StoreReadDto storeDto = StoreReadDto.fromEntity(store);
 		return storeDto;
+	}
+	
+	@Transactional
+	public Integer update(StoreUpdateDto dto) {
+		log.info("update(dto={})",dto);
+		
+		Store entity = storeRepository.findById(dto.getStoreId()).get();
+		entity.update(dto.getStoreName(),dto.getStoreAddress(),
+				dto.getStorePhone(),dto.getStoreTime(),dto.getDrinkExplain());
+		return entity.getStoreId();
+	}
+	/**
+	 * 매장 등록 삭제 기능
+	 * @param storeId
+	 * @return
+	 * @author 장민석
+	 */
+	public Integer delete(Integer storeId) {
+		log.info("delete(id={})",storeId);
+		storeRepository.deleteById(storeId);
+		return storeId;
 	}
 	
 }

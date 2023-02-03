@@ -19,6 +19,7 @@ public class StoreReadDto {
 	public static StoreReadDto fromEntity(Store entity) {
 		
 		return StoreReadDto.builder()
+				.storeId(entity.getStoreId())
 				.storeName(entity.getStoreName())
 				.storeAddress(entity.getStoreAddress())
 				.storePhone(entity.getStorePhone())

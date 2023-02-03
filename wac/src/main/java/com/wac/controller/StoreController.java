@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.wac.domain.Store;
 import com.wac.dto.StoreCreateDto;
 import com.wac.dto.StoreReadDto;
+import com.wac.dto.StoreUpdateDto;
 import com.wac.service.StoreService;
 
 import lombok.RequiredArgsConstructor;
@@ -76,10 +77,38 @@ public class StoreController {
 		return "redirect:/store";
 	}
 	
+	/**
+	 * @param storeId
+	 * @param model
+	 * @author 장민석
+	 */
 	@GetMapping("store/storeDetail")
 	public void storeDetail (@RequestParam("storeId") Integer storeId, Model model) {
 		log.info("storeDetail()",storeId);
 		StoreReadDto storeDto = storeService.readStore(storeId);
 		model.addAttribute("store", storeDto);
+	}
+	
+	/**
+	 * @param dto
+	 * @return 수정한 매장정보 페이지
+	 * @author 장민석
+	 */
+	@PostMapping("store/storeDetail")
+	public String storeUpdate(StoreUpdateDto dto) {
+		log.info("storeUpdate(dto = {})",dto);
+		Integer storeId = storeService.update(dto);
+		log.info("storeId= {}",storeId);
+		
+		return"redirect:/store";
+	}
+	/**
+	 * 
+	 */
+	@PostMapping("/store/storeDelete")
+	public String storeDelete(@RequestParam("storeId") Integer storeId) {
+		log.info("storeDelete(storeId={})",storeId);
+		storeService.delete(storeId);
+		return"redirect:/store";
 	}
 }

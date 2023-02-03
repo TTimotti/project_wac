@@ -37,6 +37,7 @@
 					<th>주소</th>
 					<th>영업시간</th>
 					<th>이용가능 서비스</th>
+					<th>관리자 메뉴</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,12 +47,13 @@
 					<td th:text="${ store.storeAddress }"></td>
 					<td th:text="${ store.storeTime }"></td>
 					<td th:text="${ store.drinkExplain }"></td>
+					<td><button class="storeUpdate" th:onclick="|location.href='@{store/storeDetail?(storeId=${store.storeId})}'|">수정</button></td>
 				<tr>
 			</tbody>
 		</table>
 		</div>
 		<br/><br/><br/>
-		<button class="storeCreate" onclick="location.href='/storeCreate'">관리자 매장 생성</button>
+		<button class="storeCreate" onclick="location.href='/storeCreate'">관리자 매장 등록</button>
 	</div>
 </div>
 <th:block layout:fragment="script">

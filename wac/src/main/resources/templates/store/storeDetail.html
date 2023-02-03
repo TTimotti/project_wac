@@ -13,16 +13,17 @@
 <title>Wacdonald</title>
 <div layout:fragment="content">
 	<div class="frontFont">
-		<h1>매장 정보 상세 페이지</h1>
+		<h1>매장 정보 상세/수정 페이지</h1>
 	</div>
-		<div id="formDetailStore">
+		<form id="formDetailStore" method="post" onsubmit="return confirm('정말 수정 하시겠습니까?')">
 			<div class="Container">
 				<div>
 					<div class="div_label">
 						<label for="storeName">매장 이름</label>
 					</div>
 					<br/>
-					<input class="inputs" id="storeName" type="text" th:value="${ store.storeName }" readonly/>
+					<input class="inputs" id="storeName" type="hidden" th:value="${ store.storeId }" name="storeId"/>
+					<input class="inputs" id="storeName" type="text" th:value="${ store.storeName }" name="storeName"/>
 				</div>
 				<br/>
 				<div>
@@ -30,7 +31,7 @@
 						<label for="storeAddress">주소</label>
 					</div>
 					<br/>
-					<input class="inputs" id="storeAddress" type="text" th:value="${ store.storeAddress }" readonly/>
+					<input class="inputs" id="storeAddress" type="text" th:value="${ store.storeAddress }" name="storeAddress"/>
 				</div>
 				<br/>
 				<div>
@@ -38,7 +39,7 @@
 						<label for="storePhone">매장 전화번호</label>
 					</div>
 					<br/>
-					<input class="inputs" id="storePhone" type="text" th:value="${ store.storePhone }" readonly/>
+					<input class="inputs" id="storePhone" type="text" th:value="${ store.storePhone }" name="storePhone"/>
 				</div>
 				<br/>
 				<div>
@@ -46,7 +47,7 @@
 						<label for="content">영업시간</label>
 					</div>
 					<br/>
-					<input class="inputs" id="storeTime" type="text" th:value="${ store.storeTime }"readonly/>
+					<input class="inputs" id="storeTime" type="text" th:value="${ store.storeTime }" name="storeTime"/>
 				</div>
 				<br/>
 				<div>
@@ -54,17 +55,21 @@
 						<label for="image">이용가능 서비스</label>
 					</div>
 					<br/>
-					<input class="inputs" id="drinkExplain" type="text" th:value="${ store.drinkExplain}" readonly/>
+					<input class="inputs" id="drinkExplain" type="text" th:value="${ store.drinkExplain}" name="drinkExplain"/>
 				</div>
 				<br/>
 			<div>
-				<input class="buttons" id="btnCreate" value="수정"/>
+				<input type="submit" class="buttons" id="btnModify" value="수정" readonly/>
+				<br/>
+				<br/>
+				<input class="dbuttons" value="삭제" readonly/>
 			</div>
 		</div>
 		<div>
 	</div>
-	</div>
+	</form>
 </div>
 <th:block layout:fragment="script">
+<script th:src="@{/script/storeDetail.js}"></script>
 </th:block>
 </html>
