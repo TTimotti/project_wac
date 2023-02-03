@@ -34,9 +34,9 @@ public class CartService {
      */
     @Transactional(readOnly = true)
     public Cart read(Integer userId) {
-    	log.info("read(userId) ={}", userId);
-    	
-    	return cartRepository.findByUserId(userId).orElse(null);
+        log.info("read(userId) ={}", userId);
+        
+        return cartRepository.findByUserId(userId).orElse(null);
     }
 
     /** 
