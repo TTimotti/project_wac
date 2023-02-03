@@ -25,7 +25,9 @@
 		<h1>주문 매장 선택</h1>
 	</div>
 	<div class="storeContainer">
+		<div class="mapArea">
 		<div id="map"></div>
+		</div>
 		<div class="storePlace">
 			<table>
 				<thead>
@@ -38,28 +40,49 @@
 				<tbody>
 					<tr class="storeInfo" th:each="store : ${ storeInfo }">
 						<td class ="storeName" th:text="${ store.storeName }"
-							th:data-storeName="${ store.storeName }"></td>
+							th:data-storeName="${ store.storeName }" 
+							th:data-storeAddress="${ store.storeAddress }"></td>
 						<td th:text="${ store.storePhone }"></td>
 						<td th:text="${ store.storeTime }"></td>
 					<tr>
 				</tbody>
 			</table>
+			<br/>
+			<h1 class="textStore">주문 하실 매장</h1>
+			<div class="dInfoText">
+				<input type="text" class="dInfo" placeholder="매장을 선택 해주세요." readonly disabled/>
+							   <input type="hidden" class="dInfo2" readonly disabled/>
+			</div>
+			<br/>
+			<div>
+				<h1 class="textAddress" >배달 받으실 장소</h1>
+				<input class="buttonAddress" type="submit" id="btnCreate" value="주소 찾기"/>
+			</div>
+			<br/>
+			<div class="dInfoAddress">
+				<input class="inputs" id="userAddress" type="text"
+					name="userAddress" placeholder="주소 찾기 버튼을 클릭하세요" readonly disabled />
+			</div>
+			<br/>
+			<h1 class="textAddress2" >상세 주소</h1>
+			<div class="dInfoAddress2">
+				<input class="inputs" id="userAddress2" type="text"
+					name="userAddress" placeholder="상세주소를 입력해주세요." required />
+			</div>
+			<br/>
+			<button class="nextPage">다음</button>
 		</div>
-		<div>
-		<h1>선택 매장 :<input type="text" class="dInfo"></h1>
-		<br/>
-		<button class="nextPage">다음</button>
 		</div>
 	</div>
 	<div>
 	</div>
-</div>
 <th:block layout:fragment="script">
 	<!-- Jquery JS-->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<!-- Axios -->
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<!-- kakao -->
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript"
 	     	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=abaecbd1f25256beda80cb6e2837cf2b&libraries=services"></script>
 	<script th:src="@{/script/store-select.js}"></script>

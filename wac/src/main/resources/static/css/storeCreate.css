@@ -19,6 +19,7 @@
 	background-color: #f8f8f8;
 	border-radius: 5px 5px 5px 5px;
 	font-family: 'Do Hyeon', sans-serif;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .div_label {
 	font-size: 30px;
@@ -41,6 +42,7 @@ input {
 	margin-right: 110px;
 	margin-left:280px;
 	width: 560px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	}
 
 .buttons:hover {
