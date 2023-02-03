@@ -19,6 +19,7 @@
 	background-color: #f8f8f8;
 	border-radius: 5px 5px 5px 5px;
 	font-family: 'Do Hyeon', sans-serif;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .div_label {
 	font-size: 30px;
@@ -29,6 +30,7 @@ input {
 	height: 50px;
 	font-size: 30px;
 	margin-left:280px;
+	
 }
 .buttons  {
 	padding: 10px;
@@ -41,6 +43,7 @@ input {
 	margin-left:280px;
 	width: 560px;
 	text-align: center;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	}
 .dbuttons {
 	padding: 10px;
@@ -52,6 +55,7 @@ input {
 	cursor: pointer;
 	width: 540px;
 	text-align: center;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .buttons:hover {
 	opacity: 0.5;

@@ -5,7 +5,6 @@
 **/
 .storeContainer {
 	width: 80%;
-	height: 650px;
 	text-align: center;
 	padding: 50px;
 	margin-bottom: 20px;
@@ -18,7 +17,7 @@
 	background-color: lightgray;
 	padding: 5px;
 	background-image: url('../img/storeselect.png');
-	background-size: 100% 250px;
+	background-size: 100% 290px;
 }
 
 .inner {
@@ -67,13 +66,16 @@ a {
 
 #map {
 	margin: 5px;
-	height: 600px;
+	height: 700px;
 	width: 700px;
 	border-radius: 5px 5px 5px 5px;
+}
+.mapArea {
 	float: left;
 }
-
 .storePlace {
+	height: 600px;
+	min-width: 400px;
 	margin: 5px;
 	border-radius: 5px 5px 5px 5px;
 	display: inline-block
@@ -124,9 +126,9 @@ tbody tr.active-row {
     color: #009879;
 }
 .frontFont {
-	margin : 20px;
-	padding : 20px;
-	font-size: 50px;
+	margin : 10px;
+	padding : 10px;
+	font-size: 30px;
 	font-family: 'Do Hyeon', sans-serif;
 	font-weight: bold;
 	text-align: center;
@@ -138,7 +140,6 @@ tbody tr.active-row {
 	border-radius: 6px;
 	border: 1px solid #ccc;
 	border-bottom: 2px solid #ddd;
-	float: left;
 }
 
 .customoverlay:nth-of-type(n) {
@@ -193,9 +194,72 @@ tbody tr.active-row {
 	cursor: pointer;
 	float: right;
 	margin-right: 110px;	
+	
 }
 .nextPage:hover {
 	opacity: 0.5;
+}
+.info-marker {
+    display: block;
+    background: #50627F;
+    color: #fff;
+    text-align: center;
+    height: 24px;
+    line-height:22px;
+    padding:0px 10px;
+}
+.dInfoText{
+	background-color: #f8f8f8;
+	height: 50px;
+	width: 545px;
+	font-family: 'Do Hyeon', sans-serif;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	margin-left:auto;
+	margin-right:auto;
+	}
+.dInfoAddress, .dInfoAddress2{
+	background-color: #f8f8f8;
+	height: 50px;
+	width: 545px;
+	font-family: 'Do Hyeon', sans-serif;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	margin-left:auto;
+	margin-right:auto;
+	}
+#userAddress, #userAddress2 {
+	border:none;
+	background-color: transparent;
+	font-size: 30px;
+	text-align: center;
+	font-family: 'Do Hyeon', sans-serif;
+	padding-top:6px;
+	width: 545px;
+}
+.textAddress2 {
+	font-family: 'Do Hyeon', sans-serif;
+	padding-top:4px;
+	padding-right:330px;
+	margin-right: 80px;
+}
+.dInfo {
+	border:none;
+	background-color: transparent;
+	font-size: 30px;
+	text-align: center;
+	font-family: 'Do Hyeon', sans-serif;
+	padding-top:6px;
+}
+.textStore, .textAddress {
+	font-family: 'Do Hyeon', sans-serif;
+	text-align:center;
+	padding-top:4px;
+	padding-right:330px;
+	}
+.buttonAddress {
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	margin-right:450px;
+	
 }
 @media ( max-width : 792px) {
 	#map, table {
