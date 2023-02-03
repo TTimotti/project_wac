@@ -3,14 +3,13 @@
  *  생성자 - 장민석
  */
 
-
 /**
  *  카카오 맵 구현.
  */
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 	mapOption = {
 		center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-		level: 4 // 지도의 확대 레벨
+		level: 8 // 지도의 확대 레벨
 	};
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -29,7 +28,7 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	mapOption = {
 		center: new kakao.maps.LatLng(37.54699, 127.09598), // 지도의 중심좌표
-		level: 4 // 지도의 확대 레벨
+		level: 9 // 지도의 확대 레벨
 	};
 
 
@@ -40,108 +39,42 @@ var imageSrc = 'https://cdn.discordapp.com/attachments/685937478435471438/106552
     imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
 
-
-// 주소로 좌표를 검색합니다
-geocoder.addressSearch('서울 강남구 테헤란로 124 삼원타워', function(result, status) {
-
-    // 정상적으로 검색이 완료됐으면 
-     if (status === kakao.maps.services.Status.OK) {
-
-        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-        // 결과값으로 받은 위치를 마커로 표시합니다
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: coords,
-            image: markerImage 
-        });
-
-        // 인포윈도우로 장소에 대한 설명을 표시합니다
-        var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:190px;text-align:center;padding:6px 0;">왁도날드 강남 삼원타워점</div>'
-        });
-        infowindow.open(map, marker);
-
-        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-        map.setCenter(coords);
-    } 
-});   
-
-geocoder.addressSearch('서울 강남구 강남대로 지하 396', function(result, status) {
-
-    // 정상적으로 검색이 완료됐으면 
-     if (status === kakao.maps.services.Status.OK) {
-
-        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-        // 결과값으로 받은 위치를 마커로 표시합니다
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: coords,
-            image: markerImage 
-        });
-
-        // 인포윈도우로 장소에 대한 설명을 표시합니다
-        var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:190px;text-align:center;padding:6px 0;">왁도날드 강남역점</div>'
-        });
-        infowindow.open(map, marker);
-
-        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-        map.setCenter(coords);
-    } 
-});
-
-geocoder.addressSearch('서울 강남구 강남대로 438 스타플렉스', function(result, status) {
-
-    // 정상적으로 검색이 완료됐으면 
-     if (status === kakao.maps.services.Status.OK) {
-
-        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-        // 결과값으로 받은 위치를 마커로 표시합니다
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: coords,
-            image: markerImage 
-        });
-
-        // 인포윈도우로 장소에 대한 설명을 표시합니다
-        var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:190px;text-align:center;padding:6px 0;">왁도날드 강남 CGV점</div>'
-        });
-        infowindow.open(map, marker);
-
-        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-        map.setCenter(coords);
-    } 
-});      
+	axios
+	.get("/storeList")
+	.then(response => {
+		for (let data of response.data ){
+			mapViewMarker(data)}
+		})
+	.catch(err => { console.log(err) });
 
 
-geocoder.addressSearch('서울특별시 강남구 테헤란로7길 32 국기원', function(result, status) {
+function mapViewMarker(data) {
+		
+	geocoder.addressSearch(data.storeAddress, function(result, status) {
 
-    // 정상적으로 검색이 완료됐으면 
-     if (status === kakao.maps.services.Status.OK) {
+		// 정상적으로 검색이 완료됐으면 
+		if (status === kakao.maps.services.Status.OK) {
 
-        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+			var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-        // 결과값으로 받은 위치를 마커로 표시합니다
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: coords,
-            image: markerImage 
-        });
+			// 결과값으로 받은 위치를 마커로 표시합니다
+			var marker = new kakao.maps.Marker({
+				map: map,
+				position: coords,
+				image: markerImage
+			});
 
-        // 인포윈도우로 장소에 대한 설명을 표시합니다
-        var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:190px;text-align:center;padding:6px 0;">왁도날드 국기원 DT점</div>'
-        });
-        infowindow.open(map, marker);
+			// 인포윈도우로 장소에 대한 설명을 표시합니다
+			var infowindow = new kakao.maps.InfoWindow({
+				content: '<div style="width:190px;text-align:center;padding:6px 0;">' + data.storeName + '</div>'
+			});
+			infowindow.open(map, marker);
 
-        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-        map.setCenter(coords);
-    } 
-});      
+			// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			map.setCenter(coords);
+		}
+	});
+}
 
 // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
 function makeOverListener(map, marker, infowindow) {

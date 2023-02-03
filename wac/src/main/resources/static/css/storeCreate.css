@@ -30,7 +30,7 @@ input {
 	font-size: 30px;
 	margin-left:280px;
 }
-.buttons .storeCreate{
+.buttons {
 	padding: 10px;
 	font-size: 30px;
 	background-color: #FFD126;

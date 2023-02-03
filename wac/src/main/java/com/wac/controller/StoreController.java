@@ -2,6 +2,8 @@ package com.wac.controller;
 
 import java.util.List;
 
+import org.apache.catalina.connector.Response;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,13 +38,19 @@ public class StoreController {
 	 */
 	@GetMapping("/store")
 	public String store(Model model) {
-		
 		log.info("store()");
 		List<Store> storeInfo = storeService.readStoreInfo();
 		model.addAttribute("storeInfo",storeInfo);
-		
+		log.info("storeInfo={}",storeInfo);
 		return "/store/store";
 	}
+	
+	@GetMapping("/storeList")
+	public ResponseEntity<List<Store>> readStore (){
+		List<Store> storeInfo = storeService.readStoreInfo();
+		return ResponseEntity.ok(storeInfo);
+	}
+	
 	/**
 	 * Store-Select 페이지
 	 * @author 장민석
@@ -103,7 +111,9 @@ public class StoreController {
 		return"redirect:/store";
 	}
 	/**
-	 * 
+	 * 등록한 매장 삭제기능
+	 * @param storeId
+	 * @author 장민석
 	 */
 	@PostMapping("/store/storeDelete")
 	public String storeDelete(@RequestParam("storeId") Integer storeId) {

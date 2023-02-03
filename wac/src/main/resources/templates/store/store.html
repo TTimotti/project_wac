@@ -57,9 +57,11 @@
 	</div>
 </div>
 <th:block layout:fragment="script">
+	<!-- Ajax axios JS-->
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<!-- kakao -->
 	<script type="text/javascript"
-	     	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=abaecbd1f25256beda80cb6e2837cf2b&libraries=services"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=abaecbd1f25256beda80cb6e2837cf2b&libraries=services"></script>
 	<script th:src="@{/script/store.js}"></script>
 </th:block>
 </html>

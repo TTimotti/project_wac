@@ -155,9 +155,9 @@ th {
 	background:
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
 }
-.storeCreate {
+.storeCreate, .storeUpdate {
 	padding: 20px;
-	font-size: 30px;
+	font-size: 20px;
 	font-weight: bolder;
 	background-color: #FFD126;
 	border: none;
@@ -165,7 +165,7 @@ th {
 	font-family: 'Do Hyeon', sans-serif;
 	cursor: pointer;
 }
-.storeCreate:hover {
+.storeCreate:hover,.storeUpdate:hover {
 	opacity: 0.5;
 }
 
