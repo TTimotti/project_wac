@@ -82,6 +82,7 @@ public class CartService {
                 .menuId5(cartDto.getMenuId5())
                 .menuId6(cartDto.getMenuId6())
                 .image(cartDto.getImage())
+                .quantity(cartDto.getQuantity())
                 .build();
         log.info("create(err1) cart = {}", cart);
         Cart entity = cartRepository.save(cart);
