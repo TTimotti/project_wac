@@ -141,7 +141,7 @@ th {
 	margin-right: 35px;
 	padding: 10px 15px;
 	font-size: 14px;
-	font-weight: bold;
+	font-weight: bolder;
 }
 
 .customoverlay:after {
@@ -168,7 +168,14 @@ th {
 .storeCreate:hover,.storeUpdate:hover {
 	opacity: 0.5;
 }
-
+.info-marker {
+    display: block;
+    background: #50627F;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    font-family: 'Do Hyeon', sans-serif;
+}
 @media ( max-width : 792px) {
 	#map, table {
 		width: 450px;
