@@ -73,21 +73,23 @@ public class CartService {
         
         Cart cart = Cart.builder()
                 .userId(cartDto.getUserId())
+                .userName(cartDto.getUserName())
                 .menuId1(cartDto.getMenuId1())
                 .menuId2(cartDto.getMenuId2())
                 .menuId3(cartDto.getMenuId3())
                 .menuId4(cartDto.getMenuId4())
                 .menuId5(cartDto.getMenuId5())
                 .menuId6(cartDto.getMenuId6())
-                .quantity(cartDto.getQuantity())
+                .image(cartDto.getImage())
                 .build();
-        
+        log.info("create(err1) cart = {}", cart);
         Cart entity = cartRepository.save(cart);
-        
+        log.info("create(err2)");
         return entity;
     }
 
     public Integer delete(Integer cartId) {
+        log.info("delete 서비스 호출 cartId = {}", cartId);
         cartRepository.deleteById(cartId);
         return cartId;
     }

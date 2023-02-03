@@ -65,6 +65,9 @@ public class Cart extends BaseTimeEntity {
     @Column // 매장선택하고 상세주소 가져오기
     private String address; // 주소
     
+    @Column
+    private Integer image; // 메뉴 이미지
+    
     @Column(name = "shipping") // default: 1
     private Integer shipping; // 배송 전: 1, 배송 후: 2
     
