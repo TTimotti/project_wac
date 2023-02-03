@@ -15,7 +15,6 @@ import com.wac.domain.Cart;
 import com.wac.domain.Menu;
 import com.wac.domain.Order;
 import com.wac.domain.Users;
-import com.wac.dto.CartCreateDto;
 import com.wac.dto.CartTossDto;
 import com.wac.service.CartService;
 import com.wac.service.MenuService;
@@ -87,7 +86,7 @@ public class CartController {
 //        CartTossDto cartToss = null;
 //        cartToss.setMenuId(menuId);
 //        cartToss.setUserName(userName);
-        
+        log.info("create1={}", menuId);
         Menu menu = menuService.readById(menuId);
         return ResponseEntity.ok(menu);
     }

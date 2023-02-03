@@ -101,7 +101,7 @@ public List<Cart> readAllByUserName(String userName) {
         
         Integer userId = userRepository.findUserIdByUserName(userName);
         
-        List<Cart> list = cartRepository.findByUserId(userId);
+        List<Cart> list = cartRepository.findByUserIdOrderByCartId(userId);
         
         return list;
 

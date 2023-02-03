@@ -34,26 +34,29 @@
                                         <label class="menu_name">
                                             <span class="tit">
                                                 <strong>
-                                                    <!-- 메뉴 제목 -->
-                                                    <span>cartList.menu[i].id를 통한 이름</span>
+                                                    <!-- 메뉴 이름 -->
+                                                    <span id="menuNameInfo" class="menuNameInfo">메뉴 이름</span>
                                                 </strong>
                                             </span>
                                             <span class="set_info"></span>
                                             <span class="price">
                                                 <!-- 가격 -->
                                                 <strong>
-                                                    <span>12,200</span>
+                                                    <span id="menuPriceInfo" class="menuPriceInfo">메뉴 가격</span>
                                                     <span class="unit">원</span>
                                                 </strong>
                                             </span>
                                         </label> <!-- menuName -->
+                                        <!-- 메뉴 사진 -->
                                         <div class="prd_img">
                                             <span>
-                                                <img th:src="@{/image/display?fid=5}" alt="공사중..." style="display: inline; opacity: 1"/>
+                                                <img id="menuImageInfo" class="menuImageInfo" src="/image/display?fid=5" alt="메뉴 사진" style="display: inline; opacity: 1"/>
                                             </span>
                                         </div> <!-- prd_img -->
                                     </div> <!-- menu_titWrap -->
-                                    <div class="setmenu_detail">
+                                    
+                                    <!-- 세트 메뉴 선택 시, 사이드 변경 칸 -->
+                                    <div id="isSetMenuInfo" class="setmenu_detail isSetMenuInfo">
                                         <dl>
                                             <dt>사이드</dt>
                                             <dd>
@@ -92,13 +95,16 @@
                                         <div class="drinkMenuList" id="drinkMenuList" style="background-color: white; border-radius: 10px; padding-bottom: 20px;">
                                         </div>                                   
                                     </div> <!-- setmenu_detail -->
+                                    
+                                    
+                                    <!-- 수량 세기 -->
                                     <div class="quantity">
                                         <strong class="tit">수량</strong>
                                         <div class="num_set">
                                             <button type="button" class="btn_minus">
                                                 <span style="color: white;">-</span>
                                             </button>
-                                            <input type="number" readonly="readonly" />
+                                            <input type="number" readonly="readonly" id="menuQuantityInfo" class="menuQuantityInfo"/>
                                             <button type="button" class="btn_plus">
                                                 <span style="color: white;">+</span>
                                             </button>
@@ -111,7 +117,7 @@
                                         <dd>
                                             <strong>
                                                 <em>
-                                                    <span>10,200</span>
+                                                    <span id="eachMenuPriceTotalInfo" class="eachMenuPriceTotalInfo">개별 메뉴 총 가격</span>
                                                     <span class="unit">원</span>
                                                 </em>
                                             </strong>
@@ -172,7 +178,7 @@
 <th:block layout:fragment="script" th:inline="javaScript">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-    const cartList = 
+    const cartList = [[${ cartList }]];
     </script>
     <script th:src="@{/script/cartDetail.js}"></script>
 </th:block>
