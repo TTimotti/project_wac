@@ -171,10 +171,11 @@ th {
 .info-marker {
     display: block;
     background: #50627F;
-    color: white;
+    color: #fff;
     text-align: center;
-    font-size: 10px;
-    font-family: 'Do Hyeon', sans-serif;
+    height: 24px;
+    line-height:22px;
+    padding:0px 10px;
 }
 @media ( max-width : 792px) {
 	#map, table {
