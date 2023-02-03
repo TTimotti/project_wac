@@ -11,162 +11,162 @@
     <div class="wrapper">
         <div id="container">
             <div class="contents">
-            
                     <!-- 상단 배너 -->
-                    <div class="bannerArea bgImage">
-                        <div class="inner">
-                            <h1 class="title" data-title="프로모션" data-desc="프로모션">왁도날드 프로모션</h1>
-                            <ul class="navPath">
-                                <li><a href="/kor/main.do">Home</a></li>
-                                <li><a href="/kor/main.do">What's New</a></li>
-                                <li><a href="/kor/main.do">맥도날드 프로모션</a></li>
-                            </ul>
-                        </div> <!-- inner -->
-                    </div> <!-- bannerArea -->
-                    
-                    
-                    <!-- 메뉴 소개 -->
-                    <div class="contArea">
-                        <div class="inner">
-                            <div class="menuView">
-                                <div class="viewTop">
-                                    <div class="name">
-                                        <!-- thymeleaf로 가져오기. -->
-                                        <h2 class="ko" th:text="${menu.menuName}"></h2>
-                                        <em class="en" th:text="${menu.menuEnName}"></em>
-                                    </div>
-                                    
-                                    
-                                      <div class="info" data-title="행운버거 골드 스페셜(버거)" data-desc="버거 메뉴">
-                                        <!-- 이미지 -->
-                                        <div class="visual">
-                                            <img th:src="@{/image/display?fid={fid} (fid = ${menu.image})}" th:alt= "${menu.menuName}" />
-                                        </div>
-                                        
-                                        <!-- 메뉴 설명 -->
-                                        <div class="desc" style="white-space:pre-wrap" th:text="${menu.content}"></div>
-                                        <div class="desc" th:text="'가격: ￦ ' + ${menu.price}"></div>
-                                        
-                                        
-                                        <!-- 화살 -->
-                                        <div class="other">
-                                            <a th:if= "${prevMenu != null}" th:href="@{/menu/menuDetail?kind={kind}&menuId={menuId} (kind = ${menu.kind}, menuId = ${prevMenu.menuId})}" class="arrow prev">
-                                                <span>《 </span>
-                                                
-                                                    <img th:src="@{/image/display?fid={fid} (fid = ${prevMenu.image})}" th:alt="${prevMenu.menuName}" />
-                                                
-                                            </a>
-                                            
-                                            <a th:if= "${nextMenu != null}" th:href="@{/menu/menuDetail?kind={kind}&menuId={menuId} (kind = ${menu.kind}, menuId = ${nextMenu.menuId})}" class="arrow next">
-                                                <span> 》</span>
+<div class="bannerArea bgImage">
+    <div class="inner">
+        <h1 class="title" data-title="프로모션" data-desc="프로모션">왁도날드 프로모션</h1>
+        <ul class="navPath">
+            <li><a href="/kor/main.do">Home</a></li>
+            <li><a href="/kor/main.do">What's New</a></li>
+            <li><a href="/kor/main.do">맥도날드 프로모션</a></li>
+        </ul>
+    </div> <!-- inner -->
+</div> <!-- bannerArea -->
 
-                                                    <img th:src="@{/image/display?fid={fid} (fid = ${nextMenu.image})}" th:alt="${nextMenu.menuName}" />
 
-                                                
-                                            </a>
-                                        </div>
-                                      </div> <!-- info -->
-                                       
-                                    
-                            </div> <!-- viewTop -->
-                            
-                            <div class="viewCon">
-                                <div class="toggle">
-                                    <h4 class="tit">영양정보</h4>
-                                    <button type="button" aria-selected="false" aria-controls="toggle02" aria-expanded="false" value="+">
-                                    
-                                    </button>
-                                    <!-- toggle 버튼 선택 시 aria-selected 값 true로 변경 / aria-expanded 값 true로 변경 -->
-                                    <div id="toggle02" class="toggleCon" style="display: none;">
-                                    <!-- element.style= {display.none}으로 바뀌어야 함. -->
-                                        <table class="tableType01 nutrDesc">
-                                            <caption>영양정보 - 영양소별 함량, 영양소기준치 정보표</caption>
-                                            <colgroup>
-                                                <col style="width:15%">
-                                                <col>
-                                            </colgroup>
-                                        
-                                            <thead>
-                                                <tr>
-                                                    <th scope="row">영양소</th>
-                                                    <th scope="col">중량(g)</th>
-                                                    <th scope="col">중량(ml)</th>
-                                                    <th scope="col">열량</th>
-                                                    <th scope="col">당</th>
-                                                    <th scope="col">단백질</th>
-                                                    <th scope="col">포화지방</th>
-                                                    <th scope="col">나트륨</th>
-                                                    <th scope="col">카페인</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">함량</th>
-                                                    <th>-</th>
-                                                    <th>-</th>
-                                                    <th>684kcal</th>
-                                                    <th>13g</th>
-                                                    <th>26g</th>
-                                                    <th>8g</th>
-                                                    <th>1426mg</th>
-                                                    <th>-</th>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">영양소기준치</th>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>13%</td>
-                                                    <td>48%</td>
-                                                    <td>56%</td>
-                                                    <td>71%</td>
-                                                    <td>-</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="toggle">
-                                    <h4 class="tit">알레르기 정보</h4>
-                                    <button type="button" aria-selected="false" aria-controls="toggle03" aria-expanded="false" value="+">
-                                    
-                                    </button>
-                                    <div id="toggle03" class="toggleCon" style="display: none;">
-                                        <div class="allerDesc">
-                                            <p>
-                                                <b>알레르기 유발 가능 식재료</b>
-                                                " (난류,대두,밀,돼지고기,토마토,굴)"
-                                                <br>
-                                                <b>* 일부 튀김류 제품은 새우 패티와 같은 조리기구를 사용하고 있습니다.</b>
-                                            </p>
-                                        </div>
-                                    </div>                                    
-                                </div>
-                                <div class="toggle">
-                                    <h4 class="tit">원산지 정보</h4>
-                                    <button type="button" aria-selected="false" aria-controls="toggle04" aria-expanded="false" value="+">
-                                    
-                                    </button>
-                                    <div id="toggle04" class="toggleCon" style="display: none;">
-                                        <ul class="origin_info"> <li> 돼지고기: 미국산 </li></ul>
-                                    </div>
-                                </div>
-                            </div> <!-- viewCon -->
-                            <div class="editArea">
-                                <div class="btnConfigDiv" style="text-align: right;">
-                                    <a href="/">
-                                    <button type="button" class="btnConfig">
-                                            <span>수정하기</span>
-                                    </button>
-                                    </a>
-                                </div>
-                            </div> <!-- editArea -->
-                        </div> <!-- menuView -->
-                    </div> <!-- inner -->
-                </div> <!-- contArea -->
-            </div> <!-- contents -->
-        </div> <!-- container -->
-    </div> <!-- div wrapper -->
+
+<!-- 메뉴 소개 -->
+<div class="contArea">
+    <div class="inner">
+        <div class="menuView">
+            <div class="viewTop">
+                <div class="name">
+                    <!-- thymeleaf로 가져오기. -->
+                <h2 class="ko" th:text="${menu.menuName}"></h2>
+                <em class="en" th:text="${menu.menuEnName}"></em>
+            </div>
+            
+            
+              <div class="info" data-title="행운버거 골드 스페셜(버거)" data-desc="버거 메뉴">
+                <!-- 이미지 -->
+                <div class="visual">
+                    <img th:src="@{/image/display?fid={fid} (fid = ${menu.image})}" th:alt= "${menu.menuName}" />
+                </div>
+                
+                <!-- 메뉴 설명 -->
+                <div class="desc" style="white-space:pre-wrap" th:text="${menu.content}"></div>
+                <div class="desc" th:text="'가격: ￦ ' + ${menu.price}"></div>
+                
+                
+                <!-- 화살 -->
+                <div class="other">
+                    <a th:if= "${prevMenu != null}" th:href="@{/menu/menuDetail?kind={kind}&menuId={menuId} (kind = ${menu.kind}, menuId = ${prevMenu.menuId})}" class="arrow prev">
+                        <span>《 </span>
+                        
+                            <img th:src="@{/image/display?fid={fid} (fid = ${prevMenu.image})}" th:alt="${prevMenu.menuName}" />
+                        
+                    </a>
+                    
+                    <a th:if= "${nextMenu != null}" th:href="@{/menu/menuDetail?kind={kind}&menuId={menuId} (kind = ${menu.kind}, menuId = ${nextMenu.menuId})}" class="arrow next">
+                        <span> 》</span>
+
+                            <img th:src="@{/image/display?fid={fid} (fid = ${nextMenu.image})}" th:alt="${nextMenu.menuName}" />
+
+                        
+                    </a>
+                </div>
+              </div> <!-- info -->
+               
+            
+    </div> <!-- viewTop -->
+    
+    <div class="viewCon">
+        <div class="toggle">
+            <h4 class="tit">영양정보</h4>
+            <button type="button" aria-selected="false" aria-controls="toggle02" aria-expanded="false" value="+">
+            
+            </button>
+            <!-- toggle 버튼 선택 시 aria-selected 값 true로 변경 / aria-expanded 값 true로 변경 -->
+            <div id="toggle02" class="toggleCon" style="display: none;">
+            <!-- element.style= {display.none}으로 바뀌어야 함. -->
+                <table class="tableType01 nutrDesc">
+                    <caption>영양정보 - 영양소별 함량, 영양소기준치 정보표</caption>
+                    <colgroup>
+                        <col style="width:15%">
+                        <col>
+                    </colgroup>
+                
+                    <thead>
+                        <tr>
+                            <th scope="row">영양소</th>
+                            <th scope="col">중량(g)</th>
+                            <th scope="col">중량(ml)</th>
+                            <th scope="col">열량</th>
+                            <th scope="col">당</th>
+                            <th scope="col">단백질</th>
+                            <th scope="col">포화지방</th>
+                            <th scope="col">나트륨</th>
+                            <th scope="col">카페인</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">함량</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>684kcal</th>
+                            <th>13g</th>
+                            <th>26g</th>
+                            <th>8g</th>
+                            <th>1426mg</th>
+                            <th>-</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">영양소기준치</th>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>13%</td>
+                            <td>48%</td>
+                            <td>56%</td>
+                            <td>71%</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="toggle">
+            <h4 class="tit">알레르기 정보</h4>
+            <button type="button" aria-selected="false" aria-controls="toggle03" aria-expanded="false" value="+">
+            
+            </button>
+            <div id="toggle03" class="toggleCon" style="display: none;">
+                <div class="allerDesc">
+                    <p>
+                        <b>알레르기 유발 가능 식재료</b>
+                        " (난류,대두,밀,돼지고기,토마토,굴)"
+                        <br>
+                        <b>* 일부 튀김류 제품은 새우 패티와 같은 조리기구를 사용하고 있습니다.</b>
+                    </p>
+                </div>
+            </div>                                    
+        </div>
+        <div class="toggle">
+            <h4 class="tit">원산지 정보</h4>
+            <button type="button" aria-selected="false" aria-controls="toggle04" aria-expanded="false" value="+">
+            
+            </button>
+            <div id="toggle04" class="toggleCon" style="display: none;">
+                <ul class="origin_info"> <li> 돼지고기: 미국산 </li></ul>
+            </div>
+        </div>
+    </div> <!-- viewCon -->
+    <div class="editArea">
+        <div class="btnConfigDiv" style="text-align: right;">
+            <a th:href="@{ /menu/modify?kind={ki}&id={id} (ki = ${ menu.kind }, id = ${ menu.menuId }) }">
+            <button type="button" class="btnConfig" id="btnUpdate">
+                    <span>수정하기</span>
+            </button>
+            </a>
+        </div>
+    </div> <!-- editArea -->
+</div> <!-- menuView -->
+</div> <!-- inner -->
+</div> <!-- contArea -->
+</div> <!-- contents -->
+</div> <!-- container -->
+</div> <!-- div wrapper -->
 </div>  <!-- layout:fragment -->
 
 
@@ -174,9 +174,10 @@
 
 <th:block layout:fragment="script" th:inline="javaScript">
     <script>
-    /* const besideMenus = [[${ besideMenu }]]; */
-    </script>
+/* const besideMenus = [[${ besideMenu }]]; */
+</script>
     <script th:src="@{/script/menuDetail.js}"></script>
+
 </th:block>
 
 </html>

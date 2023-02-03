@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ /layout/basic-layout }">
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/menuDetail.css}">
+</th:block>
+
+<div layout:fragment="content">
+    <div class="wrapper">
+        <div id="container">
+            <div class="contents">
+            
+                    <!-- 상단 배너 -->
+<div class="bannerArea bgImage">
+    <div class="inner">
+        <h1 class="title" data-title="프로모션" data-desc="프로모션">왁도날드 프로모션</h1>
+        <ul class="navPath">
+            <li><a href="/kor/main.do">Home</a></li>
+            <li><a href="/kor/main.do">What's New</a></li>
+            <li><a href="/kor/main.do">맥도날드 프로모션</a></li>
+        </ul>
+    </div> <!-- inner -->
+</div> <!-- bannerArea -->
+
+
+<!-- 메뉴 소개 -->
+<div class="contArea">
+    <div class="inner">
+        <div class="menuView">
+          <form id="formModify">
+                <div class="my-4">
+                    <label for="menuId" class="form-label">메뉴 번호</label>
+                    <input id="menuId" name="menuId" class="form-control" th:value="${ menu.menuId }" readonly />
+                </div>
+                <div class="my-4">
+                    <label for="menuName" class="form-label">메뉴 이름</label>
+                    <input id="menuName" name="menuName" class="form-control" th:value="${ menu.menuName }" autofocus />
+                    
+                </div>
+                <div class="my-4">
+                    <label for="menuEnName" class="form-label">메뉴 영어이름</label>
+                    <input id="menuEnName" name="menuEnName" class="form-control" th:value="${ menu.menuEnName }" />
+                </div>
+                <div class="my-4">
+                    <label for="content" class="form-label">내용</label>
+                    <textarea id="content" name="content" class="form-control" th:text="${ menu.content }"></textarea>
+                </div>
+                <div class="my-4">
+                    <label for="kind" class="form-label">분류 번호</label>
+                    <input id="kind" name="author" class="form-control" th:value="${ menu.kind }" readonly />
+                </div>
+                <div class="my-4">
+                    <label for="price" class="form-label">가격</label>
+                    <input id="price" name="price" class="form-control" th:value="${ menu.price }" readonly />
+                </div>
+            </form>
+
+<div class="editArea">
+    <div class="btnConfigDiv" style="text-align: right;">
+        <a href="/">
+        <button type="button" class="btnConfig" id="btnUpdate">
+                <span>수정하기</span>
+        </button>
+        </a>
+    </div>
+</div> <!-- editArea -->
+</div> <!-- menuView -->
+</div> <!-- inner -->
+</div> <!-- contArea -->
+</div> <!-- contents -->
+</div> <!-- container -->
+</div> <!-- div wrapper -->
+</div>  <!-- layout:fragment -->
+
+
+
+
+<th:block layout:fragment="script" th:inline="javaScript">
+<script>
+
+const formModify = document.querySelector('#formModify');
+//수정 이벤트 리스너.
+const btnUpdate = document.querySelector('#btnUpdate');
+btnUpdate.addEventListener('click', function () {
+    const menuName = document.querySelector('#menuName').value;
+    const price = document.querySelector('#price').value;
+    if (menuName == '' || price == '') {
+        alert('제목과 내용은 반드시 입력.');
+        return;
+    }
+    
+    const result = confirm('정말 수정하시겠습니까?');
+    if (result) {
+        formModify.action = '/menu/update';
+        formModify.method = 'post';
+        formModify.submit();
+    }
+});
+</script>
+
+    <script>
+/* const besideMenus = [[${ besideMenu }]]; */
+</script>
+    
+</th:block>
+
+</html>

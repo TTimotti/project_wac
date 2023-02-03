@@ -1,5 +1,6 @@
 /**
- * 
+ * 카트창 페이지...
+ * 서범수
  */
 window.addEventListener('DOMContentLoaded', function() {
     let kinds = [3, 4];

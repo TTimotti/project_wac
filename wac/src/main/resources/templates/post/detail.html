@@ -10,11 +10,21 @@
 
     <div id="main">   
     <form id="formDelete"> 	
-        <div id="head">                                   
-            <input readonly th:value="${ post.title }" class="h-label" id="title" />                                 
-            <input readonly th:value="${ post.author }" class="h-label" />                                     
+    <div id="head">         
+        <div class="my-4">
+            <label for="postId" class="form-label">글 번호</label>
+            <input id="postId" name="id" class="form-control" th:value="${ post.postId }" readonly />
+        </div>  
+        <div class="my-4">           
+            <input readonly th:value="${ post.title }" class="h-label" id="title" />
+        </div>
+        <div class="my-4">                    
+            <input readonly th:value="${ post.author }" class="h-label" />
+        </div>
+        <div class="my-4">                        
             <input readonly th:value="${ post.kind }" class="h-label" />
         </div>
+    </div>  
             
         <div id="c-label">
             <p class="b-label"></p>
@@ -26,8 +36,12 @@
     </div>
 
 </div>
-<script layout:fragment="script">
 
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/postDetail.css}">
+</th:block>
+<th:block layout:fragment="script">
+<script>
 const formDelete = document.querySelector('#formDelete');
 
 // 삭제 이벤트 리스너.
@@ -40,12 +54,7 @@ btnDelete.addEventListener('click', function () {
         formDelete.submit();
     }
 });
-
 </script>
-<th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/postDetail.css}">
-</th:block>
-<th:block layout:fragment="script">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

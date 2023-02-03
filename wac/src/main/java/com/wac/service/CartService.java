@@ -1,10 +1,11 @@
 package com.wac.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wac.domain.Cart;
-import com.wac.dto.CartCreateDto;
 import com.wac.repository.CartRepository;
 import com.wac.repository.UserRepository;
 
@@ -33,9 +34,9 @@ public class CartService {
      */
     @Transactional(readOnly = true)
     public Cart read(Integer userId) {
-    	log.info("read(userId) ={}", userId);
-    	
-    	return cartRepository.findByUserId(userId).orElse(null);
+        log.info("read(userId) ={}", userId);
+        
+        return cartRepository.findByUserId(userId).orElse(null);
     }
 
     /** 
@@ -94,6 +95,16 @@ public class CartService {
         return cartId;
     }
 
+public List<Cart> readAllByUserName(String userName) {
+        
+        log.info("readAllByUserName(userName={})", userName);
+        
+        Integer userId = userRepository.findUserIdByUserName(userName);
+        
+        List<Cart> list = cartRepository.findByUserId(userId);
+        
+        return list;
 
+    }
     
 }

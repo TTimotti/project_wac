@@ -83,25 +83,25 @@ public class PostController {
         model.addAttribute("post", postDto);        
     }
     
-//    /**
-//     * 종속관계인 댓글이달린 포스트 삭제
-//     * 
-//     * @param id
-//     * @param attrs
-//     * @return 추
-//     */
+    /**
+     * 종속관계인 댓글이달린 포스트 삭제
+     * 
+     * @param id
+     * @param attrs
+     * @return 추
+     */
 //    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
-//    @PostMapping("/post/delete")
-//    public String delete(Integer id, RedirectAttributes attrs) {
-//        
-//        log.info("PostController delete(id={})", id);
-//        
-//        Integer postId = postService.delete(id);
-//        attrs.addFlashAttribute("deletedPostId", postId);
-//        log.info("postController delete postId = {}", postId);
-//        
-//        return "redirect:/post";
-//    }
+    @PostMapping("/post/delete")
+    public String delete(Integer id, RedirectAttributes attrs) {
+        
+        log.info("PostController delete(id={})", id);
+        
+        Integer postId = postService.delete(id);
+        attrs.addFlashAttribute("deletedPostId", postId);
+        log.info(" delete postId = {}", postId);
+        
+        return "redirect:/";
+    }
     
     
     

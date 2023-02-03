@@ -106,7 +106,7 @@ a {
     
     /* 메뉴 이름 (영어) */
     .menuView .viewTop .name .en {
-        display: block;
+
         margin-top: 10px;
         font-size: 20px;
     }

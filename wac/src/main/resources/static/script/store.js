@@ -66,7 +66,8 @@ function mapViewMarker(data) {
 
 			// 인포윈도우로 장소에 대한 설명을 표시합니다
 			var infowindow = new kakao.maps.InfoWindow({
-				content: '<div style="width:190px;text-align:center;padding:6px 0;">' + data.storeName + '</div>'
+				content: '<span class="info-marker">' + data.storeName + '</span>'
+				
 			});
 			infowindow.open(map, marker);
 
@@ -75,17 +76,22 @@ function mapViewMarker(data) {
 		}
 	});
 }
+test();
 
-// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-function makeOverListener(map, marker, infowindow) {
-	return function() {
-		infowindow.open(map, marker);
-	};
-}
+function test() {
 
-// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-function makeOutListener(infowindow) {
-	return function() {
-		infowindow.close();
-	};
+var infoTitle = document.querySelectorAll('.info-marker');
+
+infoTitle.forEach(function(e) {
+	
+    var w = e.offsetWidth + 10;
+    var ml = w/2;
+    e.parentElement.style.top = "82px";
+    e.parentElement.style.left = "50%";
+    e.parentElement.style.marginLeft = -ml+"px";
+    e.parentElement.style.width = w+"px";
+    e.parentElement.previousSibling.style.display = "none";
+    e.parentElement.parentElement.style.border = "0px";
+    e.parentElement.parentElement.style.background = "unset";
+});
 }
