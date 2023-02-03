@@ -27,14 +27,15 @@
                 <div class="contArea">
                     <div class="inner">
                         <ul class="cart_list">
-                            <li style="border-radius: 10px;">
+                            <!-- 반복문 시작 -->
+                            <li th:each="cl : ${ cartList } " style="border-radius: 10px;">
                                 <div class="cont">
                                     <div class="menu_titWrap">
                                         <label class="menu_name">
                                             <span class="tit">
                                                 <strong>
                                                     <!-- 메뉴 제목 -->
-                                                    <span>빅맥</span>
+                                                    <span>cartList.menu[i].id를 통한 이름</span>
                                                 </strong>
                                             </span>
                                             <span class="set_info"></span>
@@ -120,7 +121,7 @@
                                 <button type="button" class="btn_del02">
                                     <span>X</span>
                                 </button>
-                            </li>
+                            </li> <!-- 반복문 끝 -->
                         </ul>
                         <div class="sumWrap" style="border-radius: 10px;">
                             <dl>
@@ -170,7 +171,9 @@
 
 <th:block layout:fragment="script" th:inline="javaScript">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <script>
+    const cartList = 
+    </script>
     <script th:src="@{/script/cartDetail.js}"></script>
 </th:block>
 

@@ -1,13 +1,16 @@
 package com.wac.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.wac.domain.Cart;
 import com.wac.domain.Menu;
 import com.wac.dto.MenuCreateDto;
 import com.wac.dto.MenuReadDto;
+import com.wac.dto.MenuUpdateDto;
 import com.wac.repository.MenuRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -130,6 +133,33 @@ public class MenuService {
         Integer menuId = menuRepository.readBugerIdByMealName(bugerName);
         log.info("menuId ={}", menuId);
         return menuId;
+    }
+
+
+    @Transactional
+    public Integer update(MenuUpdateDto dto) {
+        log.info("postService update(dto={})", dto);
+        
+        Menu entity = menuRepository.findById(dto.getMenuId()).get(); // (1)
+        entity.update(dto.getMenuName(), dto.getMenuEnName(), dto.getKind() , dto.getPrice(), dto.getContent()); // (2)
+        
+        log.info("entity = {}",entity);
+        
+        return entity.getMenuId();
+    }
+    
+    
+    public List<Menu> readAllByMenuId(List<Cart> cartList) {
+        ArrayList<Integer> cartListBymenuId = new ArrayList<>();
+        
+        for (Cart c : cartList) {
+            log.info("x={}", cartList.get(1));
+        }
+        
+        log.info("readAllByMenuId={}", cartList);
+        
+        return null;
+
     }
 
     
