@@ -68,7 +68,7 @@ function updateMenuList(data) {
 
     let str = '';
     for (let m of data) {
-        str += '<li class="card my-5 col-3">'
+        str += '<li class="card my-5 col-3 float-left">'
         + '<a href="/order/cart'
         + '">'
         + '<img src="/image/display?fid=' + m.image 

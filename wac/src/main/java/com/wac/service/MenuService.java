@@ -45,6 +45,7 @@ public class MenuService {
      * @return
      * @author 추지훈
      */
+    @Transactional(readOnly = true)
     public Menu readMenu(Integer menuId) {
         log.info("readMenu menuId = {}", menuId);
         Menu menu = menuRepository.findByMenuId(menuId).get();

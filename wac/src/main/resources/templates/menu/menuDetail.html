@@ -35,7 +35,10 @@
                 <h2 class="ko" th:text="${menu.menuName}"></h2>
                 <em class="en" th:text="${menu.menuEnName}"></em>
             </div>
-            
+            <div class="my-4">
+            <label for="menuId" class="form-label">메뉴 번호</label>
+            <input id="menuId" name="menuId" class="form-control" th:value="${ menu.menuId }" readonly />
+        </div> 
             
               <div class="info" data-title="행운버거 골드 스페셜(버거)" data-desc="버거 메뉴">
                 <!-- 이미지 -->
@@ -65,6 +68,7 @@
                         
                     </a>
                 </div>
+                
               </div> <!-- info -->
                
             
@@ -153,15 +157,16 @@
         </div>
     </div> <!-- viewCon -->
     <div class="editArea">
-        <div class="btnConfigDiv" style="text-align: right;">
-            <a th:href="@{ /menu/modify?kind={ki}&id={id} (ki = ${ menu.kind }, id = ${ menu.menuId }) }">
+        
+    </div> <!-- editArea -->
+</div> <!-- menuView -->
+<div class="btnConfigDiv" style="text-align: right;">
+            <a class="btn btn-success" href="/menu/modify?id=menu.menuId">
             <button type="button" class="btnConfig" id="btnUpdate">
                     <span>수정하기</span>
             </button>
             </a>
         </div>
-    </div> <!-- editArea -->
-</div> <!-- menuView -->
 </div> <!-- inner -->
 </div> <!-- contArea -->
 </div> <!-- contents -->

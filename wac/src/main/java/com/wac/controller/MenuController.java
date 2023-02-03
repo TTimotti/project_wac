@@ -94,7 +94,7 @@ public class MenuController {
      * 포스트매핑으로 넘길까 생각 중...(맥도날드처럼) 이렇게 정보넘기고 수정을 포스트로 넘기는거 어떻습니까 - 추씨
      * @author: 서범수
      */
-    @GetMapping({"/menu/menuDetail", "/menu/modify"})
+    @GetMapping("/menu/menuDetail")
     public void MenuDetail(Integer kind, Integer menuId, Model model) {
         log.info("MenuDetail(kind={}, menuId={})", kind, menuId);
 
@@ -124,19 +124,19 @@ public class MenuController {
         return "redirect:/menu/menuDetail?id=" + dto.getMenuId();
     }
     
-//    /**
-//     * 메뉴 수정 페이지
-//     * @param menuId: 수정할 메뉴 아이디
-//     * @author 서범수
-//     */
-//    @GetMapping("/menu/menuUpdate")
-//    public void menuUpdate(Integer menuId, Model model) {
-//        log.info("menuUpdate(menuId={})", menuId);
-//        Menu menu = menuService.readById(menuId);
-//        
-//        model.addAttribute("menu", menu);
-//
-//    }
+    /**
+     * 메뉴 수정 페이지
+     * @param menuId: 수정할 메뉴 아이디
+     * @author 서범수
+     */
+    @GetMapping("/menu/modify")
+    public void menuUpdate(Integer menuId, Model model) {
+        log.info("menuUpdate(menuId={})", menuId);
+        Menu menu = menuService.readMenu(menuId);
+        
+        model.addAttribute("menu", menu);
+
+    }
 
     
 }
