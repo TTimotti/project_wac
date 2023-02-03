@@ -1,13 +1,12 @@
 package com.wac.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wac.domain.Cart;
 import com.wac.dto.CartCreateDto;
 import com.wac.repository.CartRepository;
+import com.wac.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +23,8 @@ public class CartService {
 
     
     private final CartRepository cartRepository;
+    
+    private final UserRepository userRepository;
 
     /**
      * userId로 Cart 찾기
@@ -37,7 +38,37 @@ public class CartService {
     	return cartRepository.findByUserId(userId).orElse(null);
     }
 
-    public Cart create(CartCreateDto cartDto) {
+    /** 
+     * 카트 생성 및 초기데이터
+     * @param menuId
+     * @param userName
+     * @return
+     * @author 추지훈
+     */
+    public Cart create(Integer menuId, String userName) {
+        log.info("create(menu Id = {}, userName = {})", menuId, userName);
+        Integer userId = userRepository.findUserIdByUserName(userName);
+        
+        
+        Cart cart = Cart.builder()
+                .userId(userId)
+                
+                .quantity(1) // 무조건 수량 1개
+                .build();
+        
+//        CartCreateDto cart = null;
+        Cart entity = cartRepository.save(cart);
+        
+        return entity;
+    }
+    
+    /**
+     * 카트에 메뉴 담기
+     * @param cartDto
+     * @return
+     * @author 추지훈
+     */
+    public Cart create(Cart cartDto) {
         log.info("create(cartDto) ={}", cartDto);
         
         Cart cart = Cart.builder()
@@ -46,6 +77,8 @@ public class CartService {
                 .menuId2(cartDto.getMenuId2())
                 .menuId3(cartDto.getMenuId3())
                 .menuId4(cartDto.getMenuId4())
+                .menuId5(cartDto.getMenuId5())
+                .menuId6(cartDto.getMenuId6())
                 .quantity(cartDto.getQuantity())
                 .build();
         
@@ -53,6 +86,12 @@ public class CartService {
         
         return entity;
     }
+
+    public Integer delete(Integer cartId) {
+        cartRepository.deleteById(cartId);
+        return cartId;
+    }
+
 
     
 }

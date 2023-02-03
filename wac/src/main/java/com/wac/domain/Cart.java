@@ -9,6 +9,7 @@ import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -17,6 +18,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @Getter
+@Data
 @ToString
 @Entity(name = "CARTS")
 @SequenceGenerator(name = "CARTS_SEQ_GEN", sequenceName = "CARTS_SEQ", initialValue = 1, allocationSize = 1)
@@ -33,6 +35,9 @@ public class Cart extends BaseTimeEntity {
     @Column(name = "user_id") // userId를 cartNum 로 똑같이 쓰자 그러고 카트 지워버리기 
     private Integer userId; // 장바구니를 이용하는 회원
     
+    @Column(name = "user_name") // userId를 cartNum 로 똑같이 쓰자 그러고 카트 지워버리기 
+    private String userName; // 장바구니를 이용하는 회원
+    
     @Column(name = "menu1_id") // 단품 
     private Integer menuId1; // 상품 번호 
     
@@ -44,6 +49,12 @@ public class Cart extends BaseTimeEntity {
     
     @Column(name = "menu4_id") // 음료
     private Integer menuId4; // 상품 번호
+    
+    @Column(name = "menu5_id") // 맥모닝
+    private Integer menuId5; // 상품 번호
+    
+    @Column(name = "menu6_id") // 맥모닝 세트
+    private Integer menuId6; // 상품 번호
     
     @Column // default: 1
     private Integer quantity; // 수량

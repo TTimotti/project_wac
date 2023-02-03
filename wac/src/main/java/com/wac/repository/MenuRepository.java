@@ -32,11 +32,12 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
      * 분류별 베뉴 개수 확인
      * @param kind
      * @return
+     * @author 추지훈
      */
     @Query("select count(m.kind) from MENUS m where m.kind = :kind")
     Integer countByKind(Integer kind);
 
-    Optional<MenuReadDto> findByMenuId(Integer menuId);
+    Optional<Menu> findByMenuId(Integer menuId);
     
     /**
      * 
@@ -57,4 +58,26 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
     // select * from menus where menu_id = (select max(menu_id) from menus where menu_id < 2) or menu_id = (select min(menu_id) from menus where menu_id > 2);..
     @Query("select m from MENUS m where m.menuId = (select min(m.menuId) from MENUS m where m.menuId > :menuId and m.kind = :kind)")
     Menu readNextMenuById(@Param("menuId") Integer menuId, @Param("kind") Integer kind);
+    
+
+    /**
+     * 세트 아이디 넣으면 세트끊어내고 버거 이름만 추출.
+     * @param data_menuId
+     * @return
+     * @author 추지훈 
+     */
+//    select RTRIM(menu_name, '세트') from menus where menu_id = 11;
+    @Query("select RTRIM(m.menuName, '세트') from MENUS m where m.menuId = :data_menuId")
+    String readBugerNameByMealId(@Param("data_menuId") Integer data_menuId);
+    
+    /**
+     * 문자열비교해 햄버거 단품 찾기
+     * @param bugerName
+     * @return
+     * @author 추지훈
+     */
+    @Query("select m.menuId from MENUS m where m.menuName = :bugerName")  
+    Integer readBugerIdByMealName(@Param("bugerName") String bugerName);
+
+    
 }

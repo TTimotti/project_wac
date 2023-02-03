@@ -17,6 +17,8 @@ public class CartCreateDto {
     private Integer menuId2;
     private Integer menuId3;
     private Integer menuId4;
+    private Integer menuId5;
+    private Integer menuId6;
     private Integer userId;
     private Integer quantity;
 //    private String address;
@@ -27,6 +29,8 @@ public class CartCreateDto {
                 .menuId2(menuId2)
                 .menuId3(menuId3)
                 .menuId4(menuId4)
+                .menuId4(menuId5)
+                .menuId4(menuId6)
                 .userId(userId)
 //                .address(address)
                 .quantity(quantity)

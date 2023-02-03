@@ -42,9 +42,9 @@ public class MenuService {
      * @return
      * @author 추지훈
      */
-    public MenuReadDto readMenu(Integer menuId) {
+    public Menu readMenu(Integer menuId) {
         log.info("readMenu menuId = {}", menuId);
-        MenuReadDto menu = menuRepository.findByMenuId(menuId).get();
+        Menu menu = menuRepository.findByMenuId(menuId).get();
         
         return menu;
     }
@@ -73,6 +73,12 @@ public class MenuService {
         return entity;
     }
 
+    /**
+     * 메뉴 개수 세는 메서드
+     * @param kind
+     * @return
+     * @author 추지훈
+     */
     public Integer countMenus(Integer kind) {
         Integer menus = menuRepository.countByKind(kind);
         return menus;
@@ -109,6 +115,21 @@ public class MenuService {
     public Menu readNextMenuById(Integer kind, Integer menuId) {
         log.info("readNextMenuById(kind={}, menuId={})", kind, menuId);
         return menuRepository.readNextMenuById(kind, menuId);
+    }
+
+    /**
+     * 세트메뉴에서 버거 가져오는 메서드
+     * @param data_menuId
+     * @return
+     * @author 추지훈
+     */
+    public Integer readBugerByMeal(Integer data_menuId) {
+        log.info("세트메뉴에서 버거 가져오는 메서드 호출()", data_menuId);
+        String bugerName = menuRepository.readBugerNameByMealId(data_menuId);
+        log.info("bugerName ={}", bugerName);
+        Integer menuId = menuRepository.readBugerIdByMealName(bugerName);
+        log.info("menuId ={}", menuId);
+        return menuId;
     }
 
     

@@ -17,7 +17,6 @@ import com.wac.domain.Order;
 import com.wac.domain.Users;
 import com.wac.dto.CartCreateDto;
 import com.wac.dto.CartTossDto;
-import com.wac.dto.MenuReadDto;
 import com.wac.service.CartService;
 import com.wac.service.MenuService;
 import com.wac.service.OrderService;
@@ -93,38 +92,59 @@ public class CartController {
         return ResponseEntity.ok(menu);
     }
 	
-	@SuppressWarnings("null")
-    @GetMapping("/create")
-	@ResponseBody
-	public ResponseEntity<Cart> create(Integer menuId) {
-		log.info("create menuId = {}, userName = {}", menuId);
+    /**
+     * 장바구니 추가시 유저정보, 주소와 해당 메뉴를 메뉴 종류에 맞게 카트에 저장하고 페이지를 카트로 넘겨줌.  
+     * @param menuId
+     * @param userName
+     * @return
+     * @author 추지훈
+     */
+    @PostMapping("/create")
+    @ResponseBody
+    public ResponseEntity<Cart> create(@RequestBody CartTossDto data) {
+        log.info("create menuId = {}, userName = {}", data);
+        String userName = data.getUserName(); // 주문자명
+        Integer data_menuId = data.getMenuId(); // 주문한 메뉴아이디
+        
+        // 메뉴 정보불러오기
+        Menu menu = menuService.readMenu(data_menuId);
+        log.info("메뉴 정보 = {}", menu);
+        
+        // 초기 카트 생성 
+        Cart cart = cartService.create(data_menuId, userName);
+//        CartCreateDto cart = null;
+        cart.setUserName(data.getUserName());
+        log.info("메뉴 점검 전 카트 = {}", cart);
+        if (menu.getKind() == 2) {
+            cart.setMenuId2(data_menuId);
+            log.info("중간점검 전 세트 카트 = {}", cart);
+            Integer bugerByMealId = menuService.readBugerByMeal(data_menuId); // 세트에 해당하는 버거를 가져온다
+            cart.setMenuId1(bugerByMealId); // 버거 아이디 저장.
+            log.info("중간점검 후 세트 카트 = {}", cart);
+            cart.setMenuId3(1); // 무조건 감튀 저장. 감튀 아이디를 나중에 넣어주면됨.
+            cart.setMenuId4(1); // 무조건 콜라 저장. 동일.. 
+        } else if (menu.getKind() == 1) { // 버거 단품일 경우
+            cart.setMenuId1(data_menuId);
+        } else if (menu.getKind() == 3) { // 감튀 단품일 경우.
+            cart.setMenuId3(data_menuId);
+        } else if (menu.getKind() == 4) { // 음료 단품일 경우. 
+            cart.setMenuId4(data_menuId);
+        } else if (menu.getKind() == 5) { // 맥모닝 단품일 경우. 
+            cart.setMenuId5(data_menuId);
+        } else if (menu.getKind() == 6) { // 맥모닝 세트일 경우. 
+            cart.setMenuId6(data_menuId);
+            Integer bugerByMealId = menuService.readBugerByMeal(data_menuId); // 세트에 해당하는 버거를 가져온다
+            cart.setMenuId1(bugerByMealId);
+            cart.setMenuId3(1); // 해쉬브라운 디폴트
+            cart.setMenuId4(1); // 콜라 디폴트
+        }  
+        
+        log.info("메뉴 점검 후 카트 = {}", cart);
+        Cart cartAfter = cartService.create(cart);
+        cartService.delete(cart.getCartId());
+        
 
-//		Integer userId = userService.getUserIdByUserName(loginUser);
-//		log.info("유저 아이디 = {}", userId);
-
-		MenuReadDto menu = menuService.readMenu(menuId);
-		log.info("메뉴 정보 = {}", menu);
-		
-		CartCreateDto cartDto = null;
-	
-		log.info("메뉴 점검 전 카트 = {}", cartDto);
-		if (menu.getKind() == 2) {
-		    cartDto.setMenuId2(menuId);
-//		    cartDto.setUserId(userId);
-		    cartDto.setQuantity(1);
-	        cartDto.setMenuId1(1);
-	        cartDto.setMenuId3(1);
-	        cartDto.setMenuId4(1);
-		} else {
-    		cartDto.setMenuId1(menuId);
-//    		cartDto.setUserId(userId);
-    		cartDto.setQuantity(1);
-		}
-		log.info("메뉴 점검 후 카트 = {}", cartDto);
-		Cart cart = cartService.create(cartDto);
-		
-
-		return ResponseEntity.ok(cart);
-	}
+        return ResponseEntity.ok(cartAfter);
+    }
 
 }

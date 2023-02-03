@@ -3,7 +3,7 @@
  * 추지훈
  */
 window.addEventListener('DOMContentLoaded', function() {
-    var kind = 1;
+    var kind = 1; // 오더들어가면 기본으로 버거메뉴가 뿌려짐 ,  버거: 1
     showMenuList(kind); 
     const btnBuger = document.querySelector('#buger');
     const btnMeal = document.querySelector('#meal');
@@ -54,6 +54,7 @@ window.addEventListener('DOMContentLoaded', function() {
         showMenuList(kind);       
     });
 
+// 메뉴뿌려주는 함수
 function showMenuList(kind) {
     axios
     .get('/menu/all', {params: {kind}})
@@ -61,6 +62,7 @@ function showMenuList(kind) {
     .catch(err => { console.log(err) });
 }
 
+// 메뉴 그려주는 함수
 function updateMenuList(data) {
     const divMenuList = document.querySelector('#menuList');  
 
@@ -87,10 +89,12 @@ function updateMenuList(data) {
     btnTossCart.forEach(btn => {
         btn.addEventListener('click', tossCartModal);
     })
+
 }    
-    
+  
+// 장바구니 추가 함수  
 function tossCartModal(event) {
-    
+    btnTossCart.href = "/order/cart";
     const data_menuId = event.target.getAttribute('data-menuId');
     console.log("카트로 넘어가는 메뉴", data_menuId);
     console.log("유저이름", loginUser);
@@ -99,10 +103,13 @@ function tossCartModal(event) {
             menuId: data_menuId,
             userName: loginUser
         }
-    btnTossCart.href = "/order/cart";
+    
      axios
-    .get('/cart/create/', {params: {data_menuId}})
-    .then(btnTossCart.href = "/order/cart")
+    .post('/cart/create/', data )
+    .then(response => { 
+        response.data; 
+        
+        })
     .catch(err => { console.log(err)});
     
 /**
