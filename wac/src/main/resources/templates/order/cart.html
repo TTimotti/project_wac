@@ -28,7 +28,7 @@
                     <div class="inner">
                         <ul class="cart_list">
                             <!-- 반복문 시작 -->
-                            <li th:each="cl : ${ cartList } " style="border-radius: 10px;">
+                            <li th:each="cl : ${ cartList } " style="border-radius: 10px;" > <!--  th:data-index="${cl.cartId}"-->
                                 <div class="cont">
                                     <div class="menu_titWrap">
                                         <label class="menu_name">

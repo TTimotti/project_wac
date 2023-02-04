@@ -53,14 +53,13 @@ window.addEventListener('DOMContentLoaded', function() {
             isSetMenuInfo[i].style.display = 'none';
             }
             
-            btnMinus[i].dataset.menuId = data.menuId;
-            btnPlus[i].dataset.menuId = data.menuId;
+
         }   
     }
     
     
-    // 수량 버튼
-    // 수량 현황
+    // 수량 버튼 만들기.
+    // 수량 현황 보여주기
     for (let i = 0 ; i < cartList.length ; i++) {   
         menuQuantityInfo[i].setAttribute('value', cartList[i].quantity);
     }
@@ -68,6 +67,25 @@ window.addEventListener('DOMContentLoaded', function() {
     for (let i = 0 ; i < cartList.length ; i++) {
         console.log(i+'번째: ' + btnMinus[i].dataset.menuId);
     }
+    
+    // 해당 메뉴의 cart_id 찾기.
+    btnMinus.forEach((btn,index) => btn.addEventListener('click', function() {
+        //let cartListId = btn.closest('li').dataset.index;
+        
+        let cartListId = cartList[index].cartId;
+        
+        axios
+        .post('/cart/lessQ/', cartListId)
+        .then(response => {reduceQ(response.data)})
+        .catch(err => {console.log(err)});
+        
+        function reduceQ(data) {
+            // 다른 것을 작성하지 않아도 자동으로 값이 바뀜.
+            menuQuantityInfo[index].value -= 1;
+            console.log(menuQuantityInfo[index].value);
+        }
+        
+    }));
     
     // 사이드 메뉴 추가하기.
     let kinds = [3, 4];

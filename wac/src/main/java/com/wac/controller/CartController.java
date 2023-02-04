@@ -152,5 +152,19 @@ public class CartController {
 
         return ResponseEntity.ok(cartAfter);
     }
-
+    
+    
+    /**
+     * 카트에서 수량을 하나씩 줄이는 메서드.
+     * @param cartListId
+     * @return 줄인 값(=1)
+     * @author 서범수
+     */
+    @PostMapping("/lessQ")
+    @ResponseBody
+    public ResponseEntity<Integer> lessQ(@RequestBody String cartListId) {
+        Integer lessQ = cartService.lessQ(cartListId);
+        return ResponseEntity.ok(lessQ);
+    }
+    
 }
