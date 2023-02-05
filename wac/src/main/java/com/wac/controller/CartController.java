@@ -163,8 +163,23 @@ public class CartController {
     @PostMapping("/lessQ")
     @ResponseBody
     public ResponseEntity<Integer> lessQ(@RequestBody String cartListId) {
+        log.info("lessQ(cartListId={})", cartListId);
         Integer lessQ = cartService.lessQ(cartListId);
         return ResponseEntity.ok(lessQ);
+    }
+    
+    /**
+     * 카트에서 수량을 하나씩 늘리는 메서드.
+     * @param cartListId
+     * @return 늘린 값(=1) 사실 return 값 없어도 됨.
+     * @author 서범수
+     */
+    @PostMapping("/moreQ")
+    @ResponseBody
+    public ResponseEntity<Integer> moreQ(@RequestBody String cartListId) {
+        log.info("moreQ(cartListId={})", cartListId);
+        Integer moreQ = cartService.moreQ(cartListId);
+        return ResponseEntity.ok(moreQ);
     }
     
 }

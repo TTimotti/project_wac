@@ -118,8 +118,22 @@ public List<Cart> readAllByUserName(String userName) {
 public Integer lessQ(String cartListId) {
     log.info("lessQ(cart={})", cartListId);
     Integer cartId = Integer.parseInt(cartListId.substring(0, cartListId.length() - 1));
-    Integer lessQ = cartRepository.updateBycartId(cartId);
+    Integer lessQ = cartRepository.lessQBycartId(cartId);
     return lessQ;
+}
+
+/**
+ * 카트에서 수량을 하나씩 줄이는 메서드.
+ * @param cartListId
+ * @return 줄인 값(=1)
+ * @author 서범수
+ */
+@Transactional
+public Integer moreQ(String cartListId) {
+    log.info("moreQ(cart={})", cartListId);
+    Integer cartId = Integer.parseInt(cartListId.substring(0, cartListId.length() - 1));
+    Integer moreQ = cartRepository.moreQBycartId(cartId);
+    return moreQ;
 }
     
 }

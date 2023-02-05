@@ -12,6 +12,8 @@ window.addEventListener('DOMContentLoaded', function() {
     const btnMinus = document.querySelectorAll('.btn_minus');
     const btnPlus = document.querySelectorAll('.btn_plus');
     const menuQuantityInfo = document.querySelectorAll('.menuQuantityInfo');
+    const totalPriceInfo = document.querySelector('#totalPriceInfo');
+    let totalPrice = 0;
     
     // cartList의 메뉴아이디 가져오기. (menuId1 ~ menuId4)
     let menuIdList = [];
@@ -46,7 +48,7 @@ window.addEventListener('DOMContentLoaded', function() {
             menuNameInfo[i].innerHTML = data.menuName;
             menuPriceInfo[i].innerHTML = data.price;
             menuImageInfo[i].src = "/image/display?fid=" + data.image;
-            eachMenuPriceTotalInfo[i].innerHTML = eachMenuPriceTotalVariable;
+            eachMenuPriceTotalInfo[i].innerHTML = eachMenuPriceTotalVariable * cartList[i].quantity;
             
             // 세트 메뉴가 아니라면, 사이드 변경 칸 사라짐.
             if (data.kind != 2) {
@@ -57,8 +59,8 @@ window.addEventListener('DOMContentLoaded', function() {
         }   
     }
     
-    
-    // 수량 버튼 만들기.
+
+// 수량 관련.
     // 수량 현황 보여주기
     for (let i = 0 ; i < cartList.length ; i++) {   
         menuQuantityInfo[i].setAttribute('value', cartList[i].quantity);
@@ -67,11 +69,13 @@ window.addEventListener('DOMContentLoaded', function() {
     for (let i = 0 ; i < cartList.length ; i++) {
         console.log(i+'번째: ' + btnMinus[i].dataset.menuId);
     }
-    
+
+    // 수량 버튼 만들기. (-)
     // 해당 메뉴의 cart_id 찾기.
     btnMinus.forEach((btn,index) => btn.addEventListener('click', function() {
         //let cartListId = btn.closest('li').dataset.index;
         
+        if  (menuQuantityInfo[index].value > 1) {
         let cartListId = cartList[index].cartId;
         
         axios
@@ -80,11 +84,40 @@ window.addEventListener('DOMContentLoaded', function() {
         .catch(err => {console.log(err)});
         
         function reduceQ(data) {
+            
+            //let onePrice = Number(eachMenuPriceTotalInfo[index].innerHTML) / menuQuantityInfo[index].value ; 
+            //console.log('여기:' + onePrice);
             // 다른 것을 작성하지 않아도 자동으로 값이 바뀜.
             menuQuantityInfo[index].value -= 1;
-            console.log(menuQuantityInfo[index].value);
+            console.log( eachMenuPriceTotalInfo[index].innerHTML);
+
+            let lessPrice = Number(eachMenuPriceTotalInfo[index].innerHTML) - Number(menuPriceInfo[index].innerHTML);
+            console.log(lessPrice);
+            eachMenuPriceTotalInfo[index].innerHTML = lessPrice;
+        }
         }
         
+    }));
+    
+    // 수량 버튼 만들기. (+)
+    btnPlus.forEach((btn, index) => btn.addEventListener('click', function() {
+        if  (menuQuantityInfo[index].value <= 10) {
+            let cartListId = cartList[index].cartId;
+            
+            axios
+            .post('/cart/moreQ/', cartListId)
+            .then(response => {increaseQ(response.data)})
+            .catch(err => {console.log(err)})
+            
+            function increaseQ(data) {
+                menuQuantityInfo[index].value = Number(menuQuantityInfo[index].value) + 1;
+                console.log(menuQuantityInfo[index].value);
+                
+            let morePrice = Number(eachMenuPriceTotalInfo[index].innerHTML) + Number(menuPriceInfo[index].innerHTML);
+            console.log(morePrice);
+            eachMenuPriceTotalInfo[index].innerHTML = morePrice;
+            }
+        }
     }));
     
     // 사이드 메뉴 추가하기.
@@ -136,6 +169,14 @@ window.addEventListener('DOMContentLoaded', function() {
         } 
         } // updateMenuList 끝.
     }
+    
+// 총액 반영하기
+// 처음..
+
+for (price of eachMenuPriceTotalInfo) {
+    console.log(price.innerHTML);
+}
+console.log(totalPrice);
         
     
 
