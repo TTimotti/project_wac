@@ -115,13 +115,14 @@ public class MenuController {
      */
     @PostMapping("/menu/update")
     public String update(MenuUpdateDto dto) {
-    log.info("PostController update(dto = {})",dto);
+    log.info("menu update(dto = {})",dto);
         
         Integer menuId = menuService.update(dto);
         
         log.info("PostController postId={}", menuId);
         
-        return "redirect:/menu/menuDetail?id=" + dto.getMenuId();
+        // return "redirect:/menu/menuDetail?id=" + dto.getMenuId();
+        return "redirect:/menu";
     }
     
     /**
@@ -130,9 +131,9 @@ public class MenuController {
      * @author 서범수
      */
     @GetMapping("/menu/modify")
-    public void menuUpdate(Integer menuId, Model model) {
-        log.info("menuUpdate(menuId={})", menuId);
-        Menu menu = menuService.readMenu(menuId);
+    public void menuUpdate(Integer id, Model model) {
+        log.info("menuUpdate(menuId={})", id);
+        Menu menu = menuService.readMenu(id);
         
         model.addAttribute("menu", menu);
 

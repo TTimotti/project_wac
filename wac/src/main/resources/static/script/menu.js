@@ -74,9 +74,9 @@ function updateMenuList(data) {
         + m.menuId /* 여기 링크에 상세페이지 달기 */
         + '">'
         + '<img src="/image/display?fid=' + m.image 
-        + '" alt="메뉴 이미지" style="width:350px; height:200px;"/>'
+        + '" alt="메뉴 이미지" style="width:280px; height:200px;"/>'
         + '<div><strong class="ko">' + m.menuName
-        + '</strong><p class="en">' + m.content + '</p>'
+        + '</strong><p class="en">' + m.menuEnName + '</p>'
         + '</div></a>'
         + '</li>';
     }

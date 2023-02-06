@@ -49,7 +49,7 @@
                 </div>
                 <div class="my-4">
                     <label for="kind" class="form-label">분류 번호</label>
-                    <input id="kind" name="author" class="form-control" th:value="${ menu.kind }" readonly />
+                    <input id="kind" name="kind" class="form-control" th:value="${ menu.kind }" readonly />
                 </div>
                 <div class="my-4">
                     <label for="price" class="form-label">가격</label>
@@ -60,11 +60,10 @@
 
 <div class="editArea">
     <div class="btnConfigDiv" style="text-align: right;">
-        <a href="/">
-        <button type="button" class="btnConfig" id="btnUpdate">
-                <span>수정하기</span>
-        </button>
-        </a>
+        <div class="my-4">
+            <button class="btn btn-danger" id="btnDelete">삭제</button>
+            <button class="btn btn-success" id="btnUpdate">수정 완료</button>
+        </div>
     </div>
 </div> <!-- editArea -->
 </div> <!-- menuView -->
