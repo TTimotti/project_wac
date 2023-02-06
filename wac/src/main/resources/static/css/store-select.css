@@ -66,8 +66,8 @@ a {
 
 #map {
 	margin: 5px;
-	height: 700px;
-	width: 700px;
+	height: 870px;
+	width: 850px;
 	border-radius: 5px 5px 5px 5px;
 }
 .mapArea {
@@ -185,25 +185,24 @@ tbody tr.active-row {
 }
 .nextPage {
 	padding:20px;
+	text-align:center;
 	font-size:30px;
 	font-weight:bolder;
 	background-color: #FFD126;
 	border: none;
 	border-radius: 5px 5px 5px 5px;
 	font-family: 'Do Hyeon', sans-serif;
-	cursor: pointer;
-	float: right;
-	margin-right: 110px;	
-	
+	cursor: pointer;	
 }
 .nextPage:hover {
 	opacity: 0.5;
 }
 .info-marker {
     display: block;
-    background: #50627F;
-    color: #fff;
+    background: #FFF;
+    color: #50627F;
     text-align: center;
+    font-weight: bold;
     height: 24px;
     line-height:22px;
     padding:0px 10px;
@@ -237,6 +236,7 @@ tbody tr.active-row {
 }
 .textAddress2 {
 	font-family: 'Do Hyeon', sans-serif;
+	font-size : 20px;
 	padding-top:4px;
 	padding-right:330px;
 	margin-right: 80px;

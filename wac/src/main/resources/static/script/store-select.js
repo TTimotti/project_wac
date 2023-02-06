@@ -148,5 +148,23 @@ btnAddress.addEventListener('click', function() {
 	}).open();
 });
 
+$(document).on("click", ".nextPage", function() {
 
+	const storeName = document.querySelector(".dInfo").value;
+	const userAddressf = document.getElementById("userAddress").value
+		+ document.getElementById("userAddress2").value;
+			
+	if (storeName == "" || userAddressf == "") {
+
+		alert("정확히 입력 부탁드립니다.");
+
+	} else {
+		$('.storeName').val(storeName);
+		$('.userAddressf').val(userAddressf);
+
+		document.value.action = "/order"
+		
+		document.value.submit()
+	}
+});
 

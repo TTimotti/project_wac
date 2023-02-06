@@ -170,9 +170,10 @@ th {
 }
 .info-marker {
     display: block;
-    background: #50627F;
-    color: #fff;
+    background: #FFF;
+    color: #50627F;
     text-align: center;
+    font-weight: bold;
     height: 24px;
     line-height:22px;
     padding:0px 10px;

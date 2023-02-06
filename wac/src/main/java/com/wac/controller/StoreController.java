@@ -90,7 +90,7 @@ public class StoreController {
 	 * @param model
 	 * @author 장민석
 	 */
-	@GetMapping("store/storeDetail")
+	@GetMapping("/store/storeDetail")
 	public void storeDetail (@RequestParam("storeId") Integer storeId, Model model) {
 		log.info("storeDetail()",storeId);
 		StoreReadDto storeDto = storeService.readStore(storeId);
@@ -102,7 +102,7 @@ public class StoreController {
 	 * @return 수정한 매장정보 페이지
 	 * @author 장민석
 	 */
-	@PostMapping("store/storeDetail")
+	@PostMapping("/store/storeDetail")
 	public String storeUpdate(StoreUpdateDto dto) {
 		log.info("storeUpdate(dto = {})",dto);
 		Integer storeId = storeService.update(dto);
@@ -121,4 +121,12 @@ public class StoreController {
 		storeService.delete(storeId);
 		return"redirect:/store";
 	}
+	
+	@GetMapping("/storeInfo")
+	public String storeInfo(String storeName, String userAddress) {
+		log.info("storeName={}",storeName);
+		log.info("userAddress={}",userAddress);
+		return "redirect:/order";
+	}
+	
 }
