@@ -152,7 +152,7 @@ $(document).on("click", ".nextPage", function() {
 
 	const storeName = document.querySelector(".dInfo").value;
 	const userAddressf = document.getElementById("userAddress").value
-		+ document.getElementById("userAddress2").value;
+		+ " " + document.getElementById("userAddress2").value;
 			
 	if (storeName == "" || userAddressf == "") {
 
