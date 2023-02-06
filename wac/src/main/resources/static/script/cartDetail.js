@@ -3,6 +3,8 @@
  * 서범수
  */
 window.addEventListener('DOMContentLoaded', function() {
+
+    
     // 변수들 저장하기
     const menuNameInfo = document.querySelectorAll('.menuNameInfo');
     const menuPriceInfo = document.querySelectorAll('.menuPriceInfo');
@@ -13,13 +15,21 @@ window.addEventListener('DOMContentLoaded', function() {
     const btnPlus = document.querySelectorAll('.btn_plus');
     const menuQuantityInfo = document.querySelectorAll('.menuQuantityInfo');
     const totalPriceInfo = document.querySelector('#totalPriceInfo');
-    let totalPrice = 0;
+    const sideMenuInfo = document.querySelectorAll('.sideMenuInfo');
+    const extraChargeInfo = document.querySelectorAll('.extraChargeInfo');
+    const drinkMenuInfo = document.querySelectorAll('.drinkMenuInfo');
+    const extraChargeInfo2 = document.querySelectorAll('.extraChargeInfo2');
+    const sideMenuChange = document.getElementsByName('sideMenuChange');
+    const drinkMenuChange = document.getElementsByName('drinkMenuChange');
+    const cocaCola = 2200;
+    const frenchFries = 2600;
+    var totalPrice = 0;
     
-    // cartList의 메뉴아이디 가져오기. (menuId1 ~ menuId4)
+// READ
+    // cartList에 있는 메뉴아이디 가져오기. (menuId1 ~ menuId4)
     let menuIdList = [];
     
     for (let i = 0 ; i < cartList.length ; i++) {
-        console.log(cartList[i].menuId1);
         
         if (cartList[i].menuId1 != null) {
             menuIdList.push(cartList[i].menuId1);
@@ -32,33 +42,75 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+
+    
     // menuIdList의 있는 menuId를 통해 메뉴 정보 가져오기.
     for (let i = 0 ; i < menuIdList.length ; i++) {
         menuId = menuIdList[i];
-        console.log(menuId);
 
         axios
         .get('/cart/toss/' + menuId)
         .then(response => {writeMenuName(response.data)})
         .catch(err => {console.log(err)});     
         
+    // 가져온 menuId를 통해 장바구니에 보여줄 각각의 정보 작성하기.
         function writeMenuName(data) {
             let eachMenuPriceTotalVariable= data.price;
-          
-            menuNameInfo[i].innerHTML = data.menuName;
-            menuPriceInfo[i].innerHTML = data.price;
-            menuImageInfo[i].src = "/image/display?fid=" + data.image;
-            eachMenuPriceTotalInfo[i].innerHTML = eachMenuPriceTotalVariable * cartList[i].quantity;
+            let sideExtraFee = 0;
+            let drinkExtraFee = 0;
             
-            // 세트 메뉴가 아니라면, 사이드 변경 칸 사라짐.
+            
+            // 메뉴 이름.
+            menuNameInfo[i].innerHTML = data.menuName;
+            
+            // 메뉴 가격.
+            menuPriceInfo[i].innerHTML = data.price;
+            
+            // 메뉴 사진.
+            menuImageInfo[i].src = "/image/display?fid=" + data.image;
+            
+            // 세트 메뉴 시, 사이드 메뉴 이름과 추가 요금.
+            for (side of sideList) {
+                if (side.menuId == cartList[i].menuId3) {
+                    sideExtraFee = side.price - frenchFries;
+                    sideMenuInfo[i].innerHTML = side.menuName;
+                    extraChargeInfo[i].innerHTML = side.price - frenchFries;
+                }
+            }
+            
+            // 세트 메뉴 시, 음료 메뉴 이름과 추가 요금.
+            for (drink of drinkList) {
+                if (drink.menuId == cartList[i].menuId4) {
+                    drinkExtraFee = drink.price - cocaCola;
+                    drinkMenuInfo[i].innerHTML = drink.menuName;
+                    extraChargeInfo2[i].innerHTML = drinkExtraFee;
+                }
+            }
+            
+            // 메뉴 + 사이드 변경 + 음료 변경 가격.
+            let eachMenuPriceTotal = 0;
+            eachMenuPriceTotal += (eachMenuPriceTotalVariable + sideExtraFee + drinkExtraFee) * cartList[i].quantity;
+            eachMenuPriceTotalInfo[i].innerHTML = eachMenuPriceTotal;
+            
+            totalPrice += eachMenuPriceTotal;
+            console.log('??');
+            console.log(typeof(totalPrice));
+            // 세트 메뉴가 아니라면, 사이드 변경 칸 사라짐. (타임리프에서 없앨 수도...)
             if (data.kind != 2) {
             isSetMenuInfo[i].style.display = 'none';
             }
             
+            if (i == (menuIdList.length - 1)) {
+                total(totalPrice);
+            }
+        } // writeMenuName() 끝.
+    } // for문 끝.
 
-        }   
+    function total(totalPrice) {
+        totalPriceInfo.innerHTML = totalPrice;
     }
-    
+
+
 
 // 수량 관련.
     // 수량 현황 보여주기
@@ -66,10 +118,8 @@ window.addEventListener('DOMContentLoaded', function() {
         menuQuantityInfo[i].setAttribute('value', cartList[i].quantity);
     }
     
-    for (let i = 0 ; i < cartList.length ; i++) {
-        console.log(i+'번째: ' + btnMinus[i].dataset.menuId);
-    }
-
+    
+// UPDATE
     // 수량 버튼 만들기. (-)
     // 해당 메뉴의 cart_id 찾기.
     btnMinus.forEach((btn,index) => btn.addEventListener('click', function() {
@@ -89,11 +139,14 @@ window.addEventListener('DOMContentLoaded', function() {
             //console.log('여기:' + onePrice);
             // 다른 것을 작성하지 않아도 자동으로 값이 바뀜.
             menuQuantityInfo[index].value -= 1;
-            console.log( eachMenuPriceTotalInfo[index].innerHTML);
-
-            let lessPrice = Number(eachMenuPriceTotalInfo[index].innerHTML) - Number(menuPriceInfo[index].innerHTML);
-            console.log(lessPrice);
-            eachMenuPriceTotalInfo[index].innerHTML = lessPrice;
+            
+            // 가격 변동
+            let parentLi = btn.closest('li');
+            console.log(parentLi);
+            newEachPriceTotal(parentLi);
+            //eachMenuPriceTotalInfo[i].innerHTML = (eachMenuPriceTotalVariable + sideExtraFee + drinkExtraFee) * cartList[i].quantity;
+            //let lessPrice = Number(eachMenuPriceTotalInfo[index].innerHTML) - Number(menuPriceInfo[index].innerHTML);
+            //eachMenuPriceTotalInfo[index].innerHTML = lessPrice;
         }
         }
         
@@ -101,7 +154,7 @@ window.addEventListener('DOMContentLoaded', function() {
     
     // 수량 버튼 만들기. (+)
     btnPlus.forEach((btn, index) => btn.addEventListener('click', function() {
-        if  (menuQuantityInfo[index].value <= 10) {
+        if  (menuQuantityInfo[index].value <= 9) {
             let cartListId = cartList[index].cartId;
             
             axios
@@ -111,73 +164,163 @@ window.addEventListener('DOMContentLoaded', function() {
             
             function increaseQ(data) {
                 menuQuantityInfo[index].value = Number(menuQuantityInfo[index].value) + 1;
-                console.log(menuQuantityInfo[index].value);
-                
-            let morePrice = Number(eachMenuPriceTotalInfo[index].innerHTML) + Number(menuPriceInfo[index].innerHTML);
-            console.log(morePrice);
-            eachMenuPriceTotalInfo[index].innerHTML = morePrice;
+            
+            // 가격 변동
+            let parentLi = btn.closest('li');
+            console.log(parentLi);
+            newEachPriceTotal(parentLi);
+            //let morePrice = Number(eachMenuPriceTotalInfo[index].innerHTML) + Number(menuPriceInfo[index].innerHTML);
+            //eachMenuPriceTotalInfo[index].innerHTML = morePrice;
             }
         }
     }));
     
-    // 사이드 메뉴 추가하기.
-    let kinds = [3, 4];
-    let prices = {3: 2600, 4: 2200};
-    let divListNames = {3: '.sideMenuList', 4: '.drinkMenuList'};
-    
-    for (let kind of kinds) {
-        console.log('for문:' + kind);
-        showMenuList(kind);
+    // side 메뉴 변경
+    sideMenuChange.forEach((radio) => radio.addEventListener('click', function() {
+        let menuId = Number(radio.dataset.menuid);
+        console.log(menuId);
+        let closetLi = radio.closest('.cartListInfo'); // 가까운 리스트 태그.
+        let cartId = Number(closetLi.dataset.index);
         
-        function showMenuList(kind) {
-        console.log('showMenuList: ' + kind);
+        console.log(cartId);
+        
         axios
-        .get('/menu/all', {params: {kind}})
-        .then(response => {updateMenuList(response.data)})
-        .catch(err => {console.log(err)});
-        } // showMenuList 끝.
+        .post('/cart/changeSideMenu/',null ,{params: {cartId: cartId, menuId: menuId}})
+        .then(response => {changeSideMenu(response.data)})
+        .catch(err => console.log(err));
         
-        function updateMenuList(data) {
-        console.log('updateMenuList: '+ kind);
-        let divListName = divListNames[kind];
-        let price = prices[kind];
-        let divMenuList = document.querySelectorAll(divListName);
+        function changeSideMenu() {
+            console.log(radio);
+            let sideMenu = radio.closest('.isSetMenuInfo');
+            let childSideMenuInfo = sideMenu.querySelector('#sideMenuInfo');
+            childSideMenuInfo.innerHTML = radio.dataset.menuname;
+            let childExtraChargeInfo = sideMenu.querySelector('#extraChargeInfo');
+
+            childExtraChargeInfo.innerHTML = radio.value;
+            
+            // 가격 변동
+            let parentLi = radio.closest('.cartListInfo');
+            console.log(parentLi);
+            newEachPriceTotal(parentLi);
+            
+        }
+    }));
+    
+    // drink 메뉴 변경
+    drinkMenuChange.forEach((radio) => radio.addEventListener('click', function() {
+        let menuId = Number(radio.dataset.menuid);
+        console.log(menuId);
+        let closetLi = radio.closest('.cartListInfo'); // 가까운 리스트 태그.
+        let cartId = Number(closetLi.dataset.index);
         
-        for (let i = 0; i < divMenuList.length; i++) {
-            let str = '';
-            for (let m of data) {
-                let surcharge = Number(m.price) - Number(price);
-                str += '<li style="display:inline-block;">'
-                    + '</div>'
-                    + '<label>'
-                    + '<input type="radio" name="test"/>'
-                    + '<img src="/image/display?fid='
-                    + m.image
-                    + '" alt="사이드 이미지" style="width:350px; height: 200px;" />'
-                    + '</label>'
-                    + '<div style="text-align: center; margin: 10px 0;">'
-                    + m.menuName
-                    + '</div>'
-                    + '<div style="text-align: center; margin: 10px 0;">'
-                    + '+'
-                    + surcharge
-                    + '원'
-                    + '</li>';
-            }
-            console.log(str);
-            divMenuList[i].innerHTML = str;
-        } 
-        } // updateMenuList 끝.
+        console.log(cartId);
+        
+        axios
+        .post('/cart/changeDrinkMenu/',null ,{params: {cartId: cartId, menuId: menuId}})
+        .then(response => {changeDrinkMenu(response.data)})
+        .catch(err => console.log(err));
+        
+        function changeDrinkMenu() {
+            console.log(radio);
+            let drinkMenu = radio.closest('.isSetMenuInfo');
+            let childDrinkMenuInfo = drinkMenu.querySelector('#drinkMenuInfo');
+            childDrinkMenuInfo.innerHTML = radio.dataset.menuname;
+            let childExtraChargeInfo2 = drinkMenu.querySelector('#extraChargeInfo2');
+
+            childExtraChargeInfo2.innerHTML = radio.value;
+            
+            // 가격 변동
+            let parentLi = radio.closest('.cartListInfo');
+            console.log(parentLi);
+            newEachPriceTotal(parentLi);
+        }
+    }));
+    
+
+    // 개별 메뉴의 가격 합산하기
+    // closest로?
+    // text에 있는 값 가져와서 합치기.
+    function newEachPriceTotal(parentLi) {
+        let eachPrice = Number(parentLi.querySelector('#menuPriceInfo').innerHTML);
+        let eachSide = Number(parentLi.querySelector('#extraChargeInfo').innerHTML);
+        let eachDrink = Number(parentLi.querySelector('#extraChargeInfo2').innerHTML);
+        let eachQuantity = parentLi.querySelector('#menuQuantityInfo').value;
+        /*
+        console.log('...');
+        console.log(eachPrice);
+        console.log(eachSide);
+        console.log(eachDrink);
+        console.log(eachQuantity);
+        console.log(totalPrice);
+        */
+        parentLi.querySelector('#eachMenuPriceTotalInfo').innerHTML = (eachPrice + eachSide + eachDrink) * eachQuantity;
+        
+        newTotal();
     }
     
-// 총액 반영하기
-// 처음..
+    function newTotal() {
+        let newSum = 0;
+        for (eachTotal of eachMenuPriceTotalInfo) {
+            console.log('새값:');
+            console.log(eachTotal.innerHTML);
+            newSum += Number(eachTotal.innerHTML);
+        }
+        totalPriceInfo.innerHTML = newSum;
+    }
+    
 
-for (price of eachMenuPriceTotalInfo) {
-    console.log(price.innerHTML);
-}
-console.log(totalPrice);
+            // 사이드 변경 칸 불러오기.
+            /*
+            let kinds = [3, 4];
+            let prices = {3: 2600, 4: 2200};
+            let divListNames = {3: '.sideMenuList', 4: '.drinkMenuList'};
+            
+            for (let kind of kinds) {
+                showMenuList(kind);
         
+                function showMenuList(kind) {
+                axios
+                .get('/menu/all', {params: {kind}})
+                .then(response => {updateMenuList(response.data)})
+                .catch(err => {console.log(err)});
+                } // showMenuList 끝.
+        
+        
+                function updateMenuList(data) {
+                    let divListName = divListNames[kind];
+                    let price = prices[kind];
+                    // 사이드메뉴
+                    let divMenuList = document.querySelectorAll(divListName);
+                
+                    for (let i = 0; i < divMenuList.length; i++) {
+                        let str = '';
+                        for (let m of data) {
+                            let surcharge = Number(m.price) - Number(price);
+                            str += '<li style="display:inline-block;" id="sideChangeInfo" class="sideChangeInfo" data-menuId='
+                                + m.menuId
+                                + '>'
+                                + '<label>'
+                                + '<input type="radio" name="test"'
+                                + '/>'
+                                + '<img id="sideChangeInfo" class="sideChangeInfo" src="/image/display?fid='
+                                + m.image
+                                + '" alt="사이드 이미지" style="width:350px; height: 200px;" />'
+                                + '</label>'
+                                + '<div style="text-align: center; margin: 10px 0;">'
+                                + m.menuName
+                                + '</div>'
+                                + '<div style="text-align: center; margin: 10px 0;">'
+                                + '+'
+                                + surcharge
+                                + '원'
+                                + '</li>';
+                        }
+                        
+                        divMenuList[i].innerHTML = str;
+                    } 
+                } // updateMenuList 끝.
+                
+            } // for문 끝.*/        
     
 
 

@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wac.domain.Cart;
+import com.wac.domain.Menu;
 import com.wac.repository.CartRepository;
+import com.wac.repository.MenuRepository;
 import com.wac.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,8 @@ public class CartService {
     private final CartRepository cartRepository;
     
     private final UserRepository userRepository;
+    
+    private final MenuRepository menuRepository;
 
     /**
      * userId로 Cart 찾기
@@ -132,7 +136,7 @@ public Integer lessQ(String cartListId) {
 }
 
 /**
- * 카트에서 수량을 하나씩 줄이는 메서드.
+ * 카트에서 수량을 하나씩 늘리는 메서드.
  * @param cartListId
  * @return 줄인 값(=1)
  * @author 서범수
@@ -143,6 +147,56 @@ public Integer moreQ(String cartListId) {
     Integer cartId = Integer.parseInt(cartListId.substring(0, cartListId.length() - 1));
     Integer moreQ = cartRepository.moreQBycartId(cartId);
     return moreQ;
+}
+
+/**
+ * 사이드메뉴 정보 가져오는 메서드
+ * @return List<Menu> 사이드메뉴 리스트
+ * @author 서범수
+ */
+public List<Menu> readAllSideMenuByKind() {
+        log.info("readAllSideMenuByKind() 호출");
+        List<Menu> sideList = menuRepository.findAllSideMenuByKindOrderBymenuId();
+    return sideList;
+}
+
+/**
+ * 음료메뉴 정보 가져오는 메서드
+ * @return List<Menu> 음료메뉴 리스트
+ * @author 서범수
+ */
+public List<Menu> readAllDrinkMenuByKind() {
+        log.info("readAllDrinkMenuByKind() 호출");
+        List<Menu> sideList = menuRepository.findAllDrinkMenuByKindOrderBymenuId();
+    return sideList;
+}
+
+/**
+ * 카트에서 사이드 메뉴를 변경한느 메서드.
+ * @param cartId
+ * @param menuId
+ * @author 서범수
+ */
+@Transactional
+public void changeSideMenu(Integer cartId, Integer menuId) {
+    log.info("chageSideMenu(cartId={}, menuId={})", cartId, menuId);
+    
+    cartRepository.changeSideMenu(cartId, menuId);
+    
+}
+
+/**
+ * 카트에서 음료수 메뉴를 변경한느 메서드.
+ * @param cartId
+ * @param menuId
+ * @author 서범수
+ */
+@Transactional
+public void changeDrinkMenu(Integer cartId, Integer menuId) {
+    log.info("chageDrinkMenu(cartId={}, menuId={})", cartId, menuId);
+    
+    cartRepository.changeDrinkMenu(cartId, menuId);
+    
 }
     
 }

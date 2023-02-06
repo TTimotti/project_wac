@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.wac.domain.Menu;
-import com.wac.dto.MenuReadDto;
 
 /**
  * @author 추지훈
@@ -81,6 +80,24 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
 
     @Query("select m.kind from MENUS m where m.menuId = :menuId")
     Integer findByKind(@Param("menuId") Integer menuId);
+
+    /**
+     * 사이드메뉴 정보 가져오는 메서드
+     * @return List<Menu> 사이드메뉴 리스트
+     * @author 서범수
+     */
+    @Query("select m from MENUS m where m.kind = 3 order by m.menuId")
+    List<Menu> findAllSideMenuByKindOrderBymenuId();
+    
+    /**
+     * 음료메뉴 정보 가져오는 메서드
+     * @return List<Menu> 음료 메뉴 리스트
+     * @author 서범수
+     */
+    @Query("select m from MENUS m where m.kind = 4 order by m.menuId")
+    List<Menu> findAllDrinkMenuByKindOrderBymenuId();
+
+    
 
     
 }

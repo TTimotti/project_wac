@@ -1,6 +1,5 @@
 package com.wac.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wac.domain.Cart;
+import com.wac.domain.Menu;
 import com.wac.service.CartService;
 import com.wac.service.ImagesService;
 import com.wac.service.MenuService;
@@ -45,9 +45,12 @@ public class OrderController {
         log.info("gotoCart(userName={})", userName);
         
         List<Cart> cartList = cartService.readAllByUserName(userName);
-        
+        List<Menu> sideList = cartService.readAllSideMenuByKind();
+        List<Menu> drinkList = cartService.readAllDrinkMenuByKind();
         
         model.addAttribute("cartList", cartList);
+        model.addAttribute("sideList", sideList);
+        model.addAttribute("drinkList", drinkList);
         
     }
     
@@ -68,6 +71,8 @@ public class OrderController {
 		model.addAttribute("userAddress",userAddress);
     	return "/order/order";
     }
+    
+    
     
 }
 

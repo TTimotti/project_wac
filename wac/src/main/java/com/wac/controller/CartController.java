@@ -184,4 +184,32 @@ public class CartController {
         return ResponseEntity.ok(moreQ);
     }
     
+    /**
+     * 카트에서 사이드 메뉴를 변경하는 메서드.
+     * @param menuId, cartId
+     * @author 서범수.
+     */
+    @PostMapping("/changeSideMenu")
+    @ResponseBody
+    public void changeSideMenu(Integer cartId, Integer menuId) {
+        log.info("changeSideMenu(cartId={}, menuId={})", cartId, menuId);
+
+        cartService.changeSideMenu(cartId, menuId);
+
+    }
+    
+    /**
+     * 카트에서 음료수 메뉴를 변경하는 메서드.
+     * @param menuId, cartId
+     * @author 서범수.
+     */
+    @PostMapping("/changeDrinkMenu")
+    @ResponseBody
+    public void changeDrinkMenu(Integer cartId, Integer menuId) {
+        log.info("changeSideMenu(cartId={}, menuId={})", cartId, menuId);
+
+        cartService.changeDrinkMenu(cartId, menuId);
+
+    }
+    
 }
