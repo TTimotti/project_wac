@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+.frontFont {
+	margin : 20px;
+	padding : 20px;
+	font-size: 30px;
+	font-family: 'Do Hyeon', sans-serif;
+	text-align: center;
+	border-bottom: 3px solid black;
+}
+
+.Container {
+	width: 1100px;
+	text-align: left;
+	padding: 50px;
+	margin-bottom: 20px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color: #f8f8f8;
+	border-radius: 5px 5px 5px 5px;
+	font-family: 'Do Hyeon', sans-serif;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.div_label {
+	font-size: 30px;
+	margin-left:280px;
+}
+input {
+	width: 550px;
+	height: 50px;
+	font-size: 30px;
+	margin-left:280px;
+}
+.buttons {
+	padding: 10px;
+	font-size: 30px;
+	background-color: #FFD126;
+	border: none;
+	border-radius: 5px 5px 5px 5px;
+	font-family: 'Do Hyeon', sans-serif;
+	cursor: pointer;
+	margin-right: 110px;
+	margin-left:280px;
+	width: 560px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	}
+
+.buttons:hover {
+	opacity: 0.5;
+}
+
+#price {
+    margin-right: auto;    
+    margin-left: auto;
+}
+
+#image {
+    margin-right: auto;    
+    margin-left: auto;
+}
+
+#btnSubmit {
+    margin-right: auto;    
+    margin-left: auto;
+}
+
+ textarea {
+    width: 67.3%;
+    height: 14.25em;
+    resize: none;
+  }
+  #image {
+  width: 220px;
+  height: 26px;
+  font-size: 18px;
+  }
+  .form-label {
+  margin-top:100px;
+  }
