@@ -90,8 +90,14 @@ table {
 th, td {
 	border-bottom: 1px solid #444444;
 	padding: 30px;
-	font-family: SpeedeeK, Malgun Gothic, '맑은 고딕', Dotum, '돋움', Arial,
-		sans-serif;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.storeName:hover {
+	opacity: 0.5;
 }
 th {
 	font-weight: 900;

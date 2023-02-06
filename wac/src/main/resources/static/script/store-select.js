@@ -148,6 +148,9 @@ btnAddress.addEventListener('click', function() {
 	}).open();
 });
 
+/**
+ * 메뉴 선택 버튼 클릭시 선택한 매장의 매장명, 주문자의 주소를 메뉴페이지로 넘기는 기능. 
+ */
 $(document).on("click", ".nextPage", function() {
 
 	const storeName = document.querySelector(".dInfo").value;
@@ -156,7 +159,7 @@ $(document).on("click", ".nextPage", function() {
 			
 	if (storeName == "" || userAddressf == "") {
 
-		alert("정확히 입력 부탁드립니다.");
+		alert("입력 하지 않은 내용이 존재 합니다.");
 
 	} else {
 		$('.storeName').val(storeName);

@@ -108,7 +108,7 @@ th, td {
     cursor: pointer;
 }
 
-td:hover {
+.storeName:hover {
 	opacity: 0.5;
 }
 
@@ -184,7 +184,8 @@ tbody tr.active-row {
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
 }
 .nextPage {
-	padding:20px;
+	padding:5px;
+	width: 300px;
 	text-align:center;
 	font-size:30px;
 	font-weight:bolder;

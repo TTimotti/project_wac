@@ -76,3 +76,57 @@ function mapViewMarker(data) {
 		}
 	});
 }
+
+/** 
+ * 주문 매장 선택시 맵에서 주문매장 마커로 위치이동해주는 기능.
+ */
+function mapViewMarker2(data) {
+	
+	geocoder.addressSearch(data[1], function(result, status) {
+		
+		// 정상적으로 검색이 완료됐으면 
+		if (status === kakao.maps.services.Status.OK) {
+
+			var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+			// 결과값으로 받은 위치를 마커로 표시합니다
+			var marker = new kakao.maps.Marker({
+				map: map,
+				position: coords,
+				image: markerImage
+			});
+
+			// 인포윈도우로 장소에 대한 설명을 표시합니다
+			var infowindow = new kakao.maps.InfoWindow({
+				content: '<span class="info-marker">' + data[0]+ '</span>'
+
+			});
+			infowindow.open(map, marker);
+
+			// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			map.setCenter(coords);
+		}
+		else {
+			console.log('error')
+		}
+	});
+}
+/**
+ * 지점명 선택해서 선택한 지점 데이터 표시.
+ */
+
+$(document).on("click",".storeInfo .storeName", function(event){
+	let storeInfo = [];
+	const storeName = event.target.getAttribute('data-storeName');
+	const storeAddress = event.target.getAttribute('data-storeAddress');
+	
+	storeInfo.push(storeName);
+	storeInfo.push(storeAddress);
+	
+	$('.dInfo').val(storeName);
+	$('.dInfo2').val(storeAddress);
+	
+	document.querySelector('.storeInfo').value;
+
+	mapViewMarker2(storeInfo);
+});
