@@ -93,6 +93,12 @@ public class CartService {
         return entity;
     }
 
+    /**
+     * 카트 삭제
+     * @param cartId
+     * @return
+     * @author 추지훈 
+     */
     public Integer delete(Integer cartId) {
         log.info("delete 서비스 호출 cartId = {}", cartId);
         cartRepository.deleteById(cartId);
