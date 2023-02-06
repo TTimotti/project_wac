@@ -68,13 +68,13 @@ function updateMenuList(data) {
 
     let str = '';
     for (let m of data) {
-        str += '<li class="card my-5 col-3 float-left">'
+        str += '<li class="card my-5 col-3 float-left" style="margin: 0px 0px 55px 35px">'
         + '<a href="/order/cart'
         + '">'
         + '<img src="/image/display?fid=' + m.image 
-        + '" alt="메뉴 이미지" style="width:350px; height:200px;"/>'
+        + '" alt="메뉴 이미지" style="width:250px; height:200px;"/>'
         + '<div>' + m.menuName
-        + '<p>' + m.content + '</p>'
+        + '<p>' + m.menuEnName + '</p>'
         + '</div></a>'
         + '<div><form>'
         + `<a class="btnTossCart btn btn-success" id="btnTossCart" data-menuId="${ m.menuId }">`

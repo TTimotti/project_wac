@@ -48,3 +48,24 @@ input {
 .buttons:hover {
 	opacity: 0.5;
 }
+
+#price {
+    margin-right: auto;    
+    margin-left: auto;
+}
+
+#image {
+    margin-right: auto;    
+    margin-left: auto;
+}
+
+#btnSubmit {
+    margin-right: auto;    
+    margin-left: auto;
+}
+
+ textarea {
+    width: 67.3%;
+    height: 14.25em;
+    resize: none;
+  }

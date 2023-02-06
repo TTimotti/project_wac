@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wac.domain.Menu;
 import com.wac.dto.MenuCreateDto;
@@ -112,16 +113,17 @@ public class MenuController {
     /**
      * 메뉴 수정 
      * @return
+     * @author 추지훈 
      */
     @PostMapping("/menu/update")
     public String update(MenuUpdateDto dto) {
-    log.info("PostController update(dto = {})",dto);
+    log.info("menu update(dto = {})",dto);
         
         Integer menuId = menuService.update(dto);
+        Integer kind = menuService.readMenuByKind(menuId);
+        log.info("menu update menuId = {} kind = {}", menuId, kind);
         
-        log.info("PostController postId={}", menuId);
-        
-        return "redirect:/menu/menuDetail?id=" + dto.getMenuId();
+        return "redirect:/menu/menuDetail?kind=" + kind + "&menuId=" + menuId;
     }
     
     /**
@@ -130,12 +132,24 @@ public class MenuController {
      * @author 서범수
      */
     @GetMapping("/menu/modify")
-    public void menuUpdate(Integer menuId, Model model) {
-        log.info("menuUpdate(menuId={})", menuId);
-        Menu menu = menuService.readMenu(menuId);
+    public void menuUpdate(Integer id, Model model) {
+        log.info("menuUpdate(menuId={})", id);
+        Menu menu = menuService.readMenu(id);
         
         model.addAttribute("menu", menu);
 
+    }
+    
+    @PostMapping("/menu/delete")
+    public String delete(Integer id, RedirectAttributes attrs) {
+        
+        log.info("menu delete(id={})", id);
+        
+        Integer menuId = menuService.delete(id);
+        attrs.addFlashAttribute("delete menuId", menuId);
+        log.info(" delete menuId = {}", menuId);
+        
+        return "redirect:/menu";
     }
 
     

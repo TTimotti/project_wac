@@ -57,43 +57,6 @@
 
 </div>
 
-<hr/>            
-                <div id="joinners"></div>    
-        <!--         !!!!!!!가입하기 모달!!!!!!! -->
-<div class="modal fade" id="tossModal" tabIndex="-1" aria-labelledby="tossModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="tossModalLabel">장바구니 추가 모달.</h1>
-            </div>
-            <div class="modal-body">
-                <!-- 메뉴 아이디 삽입 위치  -->
-                <input type="hidden" id="modalMenuId" readonly />
-
-                <div class="my-2 d-none" id="ok">
-                    <p class="text-success">비밀번호 확인!</p>
-                </div>
-
-                <div class="my-2 d-none" id="nok">
-                    <p class="text-danger">비밀번호를 확인하세요.</p>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">취소</button>
-                    <!-- <th:block sec:authorize="isAnonymous()">  
-                        <a class="btn btn-success" th:href="@{ /user/signIn }">들어가기</a>
-                        <!-- ㄴ 로그아웃 상태일 시, 들어가기를 누르면 로그인 페이지로 넘어감. -->
-                    </th:block> -->
-                    <!-- <th:block sec:authorize="isAuthenticated()">  -->
-                        <a id="modalBtnToss" class="btn btn-outline-success">담기</a>
-                    <!-- </th:block>  -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end Modal -->
-
 
 </div>
 <script>
