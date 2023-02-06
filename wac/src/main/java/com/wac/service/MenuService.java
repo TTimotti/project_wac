@@ -137,6 +137,12 @@ public class MenuService {
     }
 
 
+    /**
+     * 메뉴 업데이트
+     * @param dto
+     * @return
+     * @author 추지훈
+     */
     @Transactional
     public Integer update(MenuUpdateDto dto) {
         log.info("postService update(dto={})", dto);
@@ -161,6 +167,19 @@ public class MenuService {
         
         return null;
 
+    }
+
+    /**
+     * 메뉴아이디로 분류번호 반환해주는 메서드
+     * @param menuId
+     * @return
+     */
+    @Transactional(readOnly = true)
+    public Integer readMenuByKind(Integer menuId) {
+        log.info("readMenu menuId = {}", menuId);
+        Integer kind = menuRepository.findByKind(menuId);
+        
+        return kind;
     }
 
     
