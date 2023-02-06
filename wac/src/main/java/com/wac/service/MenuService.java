@@ -182,5 +182,13 @@ public class MenuService {
         return kind;
     }
 
+    public Integer delete(Integer id) {
+        log.info("menu delete(id={})", id);
+        
+        menuRepository.deleteById(id);
+        
+        return id;
+    }
+
     
 }

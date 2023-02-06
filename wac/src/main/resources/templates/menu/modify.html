@@ -32,7 +32,7 @@
           <form id="formModify">
                 <div class="my-4">
                     <label for="menuId" class="form-label">메뉴 번호</label>
-                    <input id="menuId" name="menuId" class="form-control" th:value="${ menu.menuId }" readonly />
+                    <input id="menuId" name="id" class="form-control" th:value="${ menu.menuId }" readonly />
                 </div>
                 <div class="my-4">
                     <label for="menuName" class="form-label">메뉴 이름</label>
@@ -81,6 +81,18 @@
 <script>
 
 const formModify = document.querySelector('#formModify');
+
+//삭제 이벤트 리스너.
+const btnDelete = document.querySelector('#btnDelete');
+btnDelete.addEventListener('click', function () {
+ const result = confirm('정말 삭제하시겠습니까?');
+ if (result) {
+     formModify.action = '/menu/delete';
+     formModify.method = 'post';
+     formModify.submit();
+ }
+});
+
 //수정 이벤트 리스너.
 const btnUpdate = document.querySelector('#btnUpdate');
 btnUpdate.addEventListener('click', function () {

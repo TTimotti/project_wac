@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wac.domain.Menu;
 import com.wac.dto.MenuCreateDto;
@@ -122,9 +123,7 @@ public class MenuController {
         Integer kind = menuService.readMenuByKind(menuId);
         log.info("menu update menuId = {} kind = {}", menuId, kind);
         
-//         return "redirect:/menu/menuDetail?id=" + menuId;
-         return "redirect:/menu/menuDetail?kind=" + kind + "&menuId=" + menuId;
-//        return "redirect:/menu";
+        return "redirect:/menu/menuDetail?kind=" + kind + "&menuId=" + menuId;
     }
     
     /**
@@ -139,6 +138,18 @@ public class MenuController {
         
         model.addAttribute("menu", menu);
 
+    }
+    
+    @PostMapping("/menu/delete")
+    public String delete(Integer id, RedirectAttributes attrs) {
+        
+        log.info("menu delete(id={})", id);
+        
+        Integer menuId = menuService.delete(id);
+        attrs.addFlashAttribute("delete menuId", menuId);
+        log.info(" delete menuId = {}", menuId);
+        
+        return "redirect:/menu";
     }
 
     

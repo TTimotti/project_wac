@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const btnMorning = document.querySelector('#morning');
     const btnMorningMeal = document.querySelector('#morningMeal');
     
+    // 비동기 메뉴카테고리 선택
     console.log(btnBuger);
     btnBuger.addEventListener("click", () => {
         kind = 1;
@@ -54,7 +55,7 @@ window.addEventListener('DOMContentLoaded', function() {
         showMenuList(kind);       
     });
     
-
+// 카테고리별 메뉴 불러오기
 function showMenuList(kind) {
     axios
     .get('/menu/all', {params: {kind}})
@@ -62,6 +63,7 @@ function showMenuList(kind) {
     .catch(err => { console.log(err) });
 }
 
+// 메뉴 그려주기
 function updateMenuList(data) {
     const divMenuList = document.querySelector('#menuList');
 
