@@ -113,6 +113,8 @@ public class CartController {
 //        CartCreateDto cart = null;
         cart.setUserName(data.getUserName());
         log.info("메뉴 점검 전 카트 = {}", cart);
+        cart.setStoreName(data.getStoreName());
+        cart.setAddress(data.getUserAddress());
         if (menu.getKind() == 2) {
             cart.setMenuId2(data_menuId);
             log.info("중간점검 전 세트 카트 = {}", cart);

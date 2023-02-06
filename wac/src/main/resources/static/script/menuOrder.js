@@ -12,6 +12,8 @@ window.addEventListener('DOMContentLoaded', function() {
     const btnMorning = document.querySelector('#morning');
     const btnMorningMeal = document.querySelector('#morningMeal');
     
+    console.log(storeName);
+    console.log(userAddress);
     console.log(btnBuger);
     btnBuger.addEventListener("click", () => {
         kind = 1;
@@ -77,7 +79,7 @@ function updateMenuList(data) {
         + '<p>' + m.menuEnName + '</p>'
         + '</div></a>'
         + '<div><form>'
-        + `<a class="btnTossCart btn btn-success" id="btnTossCart" data-menuId="${ m.menuId }">`
+        + `<a class="btnTossCart btn btn-success" id="btnTossCart" data-menuId="${ m.menuId }" data-storeName="${ storeName }" data-userAddress="${ userAddress }">`
         + '장바구니 추가'
         + '</button></form></div>'
         + '</li>';
@@ -96,12 +98,17 @@ function updateMenuList(data) {
 function tossCartModal(event) {
     btnTossCart.href = "/order/cart";
     const data_menuId = event.target.getAttribute('data-menuId');
+    const data_storeName = event.target.getAttribute('data-storeName');
+    const data_userAddress = event.target.getAttribute('data-userAddress');
+    console.log(storeName);
     console.log("카트로 넘어가는 메뉴", data_menuId);
     console.log("유저이름", loginUser);
     
     const data = {
             menuId: data_menuId,
-            userName: loginUser
+            userName: loginUser,
+            storeName: data_storeName,
+            userAddress: data_userAddress
         }
     
      axios
@@ -110,60 +117,10 @@ function tossCartModal(event) {
         response.data; 
         
         })
-    .catch(err => { console.log(err)});
-    
-/**
-    axios
-    .get('/cart/toss/' + menuId)
-    .then(response => { showModal(response.data) })
-    .catch(err => { console.log(err)});
- */
+    .catch(err => { console.log(err)});   
 };
 
-// 모달
-const tossDivModal = document.querySelector('#tossModal');
-const tossModal = new bootstrap.Modal(tossDivModal);
-// 메뉴 아이디 칸
-const modalMenuId = document.querySelector('#modalMenuId');
-// 들어가기 버튼
-const modalBtnToss = document.querySelector('#modalBtnToss');
-
-function showModal(menu) {
-    // 칸(input)에 값 집어넣기.
-    modalMenuId.value = menu.menuId;
-    tossModal.show();
-
-}
-
-modalBtnToss.addEventListener('click', tossMenu);
-
-function tossMenu() {
-    const tossMenuId = modalMenuId.value;
-    const okDiv = document.querySelector('#ok');
-    const nokDiv = document.querySelector('#nok');
-    console.log("여긴 모달 장바구니 추가 버튼까지 누른상태");
-    modalBtnToss.href = "/order/cart";
-    const dto = {
-            menuId: tossMenuId,
-            userName: loginUser
-        }
-       
-    axios
-    .get('/cart/create' + dto)
-    .then( response => { 
-        tossModal.hide();
-        response.data
-        .alert("장바구니 추가됨.")        
-        })
-    .catch(err => { console.log(err)});
-                   
-}
-    
-
-
-
 });
-
 
 
 
