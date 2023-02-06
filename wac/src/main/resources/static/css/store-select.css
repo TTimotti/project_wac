@@ -83,6 +83,7 @@ a {
 
 table {
 	border-collapse: collapse;
+	width:600px;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
