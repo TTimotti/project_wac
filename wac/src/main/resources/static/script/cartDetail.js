@@ -58,7 +58,7 @@ window.addEventListener('DOMContentLoaded', function() {
             let eachMenuPriceTotalVariable= data.price;
             let sideExtraFee = 0;
             let drinkExtraFee = 0;
-            
+            let eachMenuPriceTotal = 0;
             
             // 메뉴 이름.
             menuNameInfo[i].innerHTML = data.menuName;
@@ -88,25 +88,25 @@ window.addEventListener('DOMContentLoaded', function() {
             }
             
             // 메뉴 + 사이드 변경 + 음료 변경 가격.
-            let eachMenuPriceTotal = 0;
+            
             eachMenuPriceTotal += (eachMenuPriceTotalVariable + sideExtraFee + drinkExtraFee) * cartList[i].quantity;
             eachMenuPriceTotalInfo[i].innerHTML = eachMenuPriceTotal;
             
             totalPrice += eachMenuPriceTotal;
             console.log('??');
-            console.log(typeof(totalPrice));
+            console.log(totalPrice);
             // 세트 메뉴가 아니라면, 사이드 변경 칸 사라짐. (타임리프에서 없앨 수도...)
             if (data.kind != 2) {
             isSetMenuInfo[i].style.display = 'none';
             }
             
-            if (i == (menuIdList.length - 1)) {
-                total(totalPrice);
+            if (i + 1 == menuIdList.length) {
+                setTimeout(total, 100);
             }
         } // writeMenuName() 끝.
     } // for문 끝.
 
-    function total(totalPrice) {
+    function total() {
         totalPriceInfo.innerHTML = totalPrice;
     }
 
