@@ -81,15 +81,24 @@ public class CartService {
                 .menuId4(cartDto.getMenuId4())
                 .menuId5(cartDto.getMenuId5())
                 .menuId6(cartDto.getMenuId6())
+                .address(cartDto.getAddress())
+                .storeName(cartDto.getStoreName())
                 .image(cartDto.getImage())
                 .quantity(cartDto.getQuantity())
                 .build();
         log.info("create(err1) cart = {}", cart);
         Cart entity = cartRepository.save(cart);
-        log.info("create(err2)");
+        log.info("create(err2) entity = {}", entity);
+        
         return entity;
     }
 
+    /**
+     * 카트 삭제
+     * @param cartId
+     * @return
+     * @author 추지훈 
+     */
     public Integer delete(Integer cartId) {
         log.info("delete 서비스 호출 cartId = {}", cartId);
         cartRepository.deleteById(cartId);

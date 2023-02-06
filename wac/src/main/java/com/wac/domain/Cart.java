@@ -62,6 +62,9 @@ public class Cart extends BaseTimeEntity {
     @Column(name = "store_id")
     private Integer storeId; // 매장 아이디
     
+    @Column(name = "store_name")
+    private String storeName; // 매장 이름
+    
     @Column // 매장선택하고 상세주소 가져오기
     private String address; // 주소
     
