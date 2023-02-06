@@ -36,10 +36,17 @@ function updatePostList(data) {
     let str = '';
     for (let p of data) {
         str += '<li class="card my-5 col-3">'
-        + '<a class="post_img" href="/post/detail?postId='+ p.postId +'">'
+        if (p.kind == 1) {
+        str += '<a class="post_img" href="/post/detail?postId='+ p.postId +'">'
         + '<img style="width:1168px; height:271px" src="/image/display?fid=' + p.image 
         + '" alt="포스트 이미지" style="width:350px; height:200px;"/>'
         + '</a>'
+            
+        } else if (p.kind == 2) {
+        str += '<a class="post_img" href="/post/detail?postId='+ p.postId +'">'
+        + p.title
+        + '</a>'    
+        }
         + '</li>';
     }
     divPostList.innerHTML = str;
