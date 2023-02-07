@@ -31,19 +31,21 @@ public class OrderLog extends BaseTimeEntity {
     
     // 세가지 모두 2번(그렇지 않은 경우) == 매장식사
     @Column
-    private String driveThru; // DT로 가져가는 경우: 1, 그렇지 않은 경우 2
+    private Integer driveThru; // DT로 가져가는 경우: 1, 그렇지 않은 경우 2
     
     @Column
-    private String delivery; // 배달: 1, 그렇지않은 경우: 2 
+    private Integer delivery; // 배달: 1, 그렇지않은 경우: 2 
     
     @Column
-    private String isTakeOut; // 테이크아웃: 1, 그렇지않은 경우: 2
+    private Integer isTakeOut; // 테이크아웃: 1, 그렇지않은 경우: 2
     
     @Column(name = "delivery_time")
     private LocalDateTime deliveryTime;
     
     @Column(name = "cart_id")
     private Integer cartId;
+    
+   
     
     @Column(name = "order_id")
     private Integer orderId;

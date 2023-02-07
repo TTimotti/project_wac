@@ -151,8 +151,15 @@ public class CartController {
             cart.setMenuId6(data_menuId);
             Integer bugerByMealId = menuService.readBugerByMeal(data_menuId); // 세트에 해당하는 버거를 가져온다
             cart.setMenuId1(bugerByMealId);
-            cart.setMenuId3(1); // 해쉬브라운 디폴트
-            cart.setMenuId4(1); // 콜라 디폴트
+            // MENU_NAME이 "해쉬브라운"인 행을 찾고, 그 행의 menuId를 가져온다.
+            String hashBrown = "해쉬브라운";
+            Integer hashBrownMenuId = menuService.readDefaultOptionByName(hashBrown);
+            // MENU_NAME이 "우유"인 행을 찾고, 그 행의 menuId를 가져온다.
+            String milk = "우유";
+            Integer milkMenuId = menuService.readDefaultOptionByName(milk);
+            
+            cart.setMenuId3(hashBrownMenuId); // 해쉬브라운 디폴트
+            cart.setMenuId4(milkMenuId); // 우유 디폴트
             
         }  
         
