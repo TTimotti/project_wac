@@ -261,9 +261,11 @@ window.addEventListener('DOMContentLoaded', function() {
     
     function newTotal() {
         let newSum = 0;
-        for (eachTotal of eachMenuPriceTotalInfo) {
-            // console.log('새값:');
-            // console.log(eachTotal.innerHTML);
+        let eachMenuPriceTotalInfo2 = document.querySelectorAll('.eachMenuPriceTotalInfo');
+        for (eachTotal of eachMenuPriceTotalInfo2) {
+            
+             console.log('새값:');
+             console.log(eachTotal.innerHTML);
             newSum += Number(eachTotal.innerHTML);
         }
         totalPriceInfo.innerHTML = newSum;
@@ -280,9 +282,12 @@ window.addEventListener('DOMContentLoaded', function() {
         .catch(err => console.log(err));
         
             function deleteItem() {
-        let deleteList = btn.closest('.cartListInfo');
+            let deleteList = btn.closest('.cartListInfo');
         
-        deleteList.remove();
+        
+            deleteList.remove();
+            newTotal();
+        
     }
     }));
     
