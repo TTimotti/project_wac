@@ -56,6 +56,7 @@ public class PostService {
      * 포스트 읽어오는 메서드
      * @param postId
      * @return
+     * @author 추지훈
      */
 	public PostReadDto readPost(Integer postId) {
 		log.info("readPost(postId = {})", postId);

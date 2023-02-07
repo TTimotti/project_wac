@@ -108,6 +108,7 @@ function tossCartModal(event) {
     console.log("유저이름", loginUser);
     
     btnTossCart.href = "/order/cart?userName=" + loginUser;
+    console.log("페이지넘어가기", loginUser);
     
     const data = {
             menuId: data_menuId,
@@ -115,14 +116,17 @@ function tossCartModal(event) {
             storeName: data_storeName,
             userAddress: data_userAddress
         }
+    console.log("데이터 확인", data);
     
      axios
     .post('/cart/create/', data )
     .then(response => { 
         response.data; 
-        
+        console.log("컨트롤러 넘어가는지 확인", data);    
         })
-    .catch(err => { console.log(err)});   
+    .catch(err => { console.log(err)});
+    
+    console.log("성공");
 };
 
 });
