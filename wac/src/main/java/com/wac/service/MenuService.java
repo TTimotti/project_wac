@@ -189,6 +189,22 @@ public class MenuService {
         
         return id;
     }
+    
+    
+    /**
+     * "코카-콜라", "후렌치 후라이" 라는 이름의 메뉴를 찾아서 해당하는 menuId를 가져옴.
+     * @param name "코카-콜라" 또는 "후렌치 후라이"
+     * @return menuId
+     * @author 서범수
+     */
+    public Integer readDefaultOptionByName(String name) {
+        log.info("readDefaultOptionByName(cokeName={})", name);
+        
+        Integer menuId = menuRepository.readDefaultOptionByName(name);
+        return menuId;
+    }
+    
+
 
     
 }

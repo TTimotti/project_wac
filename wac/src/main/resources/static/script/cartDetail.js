@@ -22,6 +22,8 @@ window.addEventListener('DOMContentLoaded', function() {
     const sideMenuChange = document.getElementsByName('sideMenuChange');
     const drinkMenuChange = document.getElementsByName('drinkMenuChange');
     const btnDelete = document.querySelectorAll('.btnDelete');
+    const btnSideChange = document.querySelectorAll('.btnSideChange');
+    const btnDrinkChange = document.querySelectorAll('.btnDrinkChange');
     const cocaCola = 2200;
     const frenchFries = 2600;
     var totalPrice = 0;
@@ -72,6 +74,12 @@ window.addEventListener('DOMContentLoaded', function() {
             
             // 세트 메뉴 시, 사이드 메뉴 이름과 추가 요금.
             for (side of sideList) {
+                console.log(i +'번 째리스트');
+                console.log('사이드메뉴');
+                console.log(side.menuId);
+                console.log('카트리스트사이드메뉴');
+                console.log(cartList[i].menuId3);
+                
                 if (side.menuId == cartList[i].menuId3) {
                     sideExtraFee = side.price - frenchFries;
                     sideMenuInfo[i].innerHTML = side.menuName;
@@ -96,7 +104,7 @@ window.addEventListener('DOMContentLoaded', function() {
             totalPrice += eachMenuPriceTotal;
             // console.log('??');
             // console.log(totalPrice);
-            // 세트 메뉴가 아니라면, 사이드 변경 칸 사라짐. (타임리프에서 없앨 수도...)
+            // 세트 메뉴가 아니라면, 사이드 변경 칸 사라짐.
             if (data.kind != 2) {
             isSetMenuInfo[i].style.display = 'none';
             }
@@ -291,6 +299,30 @@ window.addEventListener('DOMContentLoaded', function() {
     }
     }));
     
+    // 사이드, 음료 변경 칸 숨김/해제 처리
+    btnSideChange.forEach((btn) => btn.addEventListener('click', function() {
+        let closeSideMenuList = btn.closest('#isSetMenuInfo').querySelector('#sideMenuList');
+        let csmDisplay = closeSideMenuList.style.display;
+                    if (csmDisplay =='none' || csmDisplay =='') {
+                closeSideMenuList.style.display = 'block';
+
+            } else {
+                closeSideMenuList.style.display ='none';
+
+            }
+    }));
+    
+    btnDrinkChange.forEach((btn) => btn.addEventListener('click', function() {
+    let closeDrinkMenuList = btn.closest('#isSetMenuInfo').querySelector('#drinkMenuList');
+    let cdmDisplay = closeDrinkMenuList.style.display;
+                if (cdmDisplay =='none' || cdmDisplay =='') {
+            closeDrinkMenuList.style.display = 'block';
+
+        } else {
+            closeDrinkMenuList.style.display ='none';
+
+        }
+}));
 
     
 
