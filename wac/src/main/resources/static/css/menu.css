@@ -132,5 +132,5 @@ ul, ol, li {
 
 
 .float-left a:hover {
-	border: 2px orange solid;
+	outline: 2px orange solid;
 }
