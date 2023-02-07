@@ -26,7 +26,7 @@
 	           	<a class="navBtn" th:href="@{/menu}">Menu</a>
                 <a class="navBtn" th:href="@{/post}">News</a>
                 <a class="navBtn" th:href="@{/}">Story</a>
-	           	<a class="navBtn d-none" id="adminBtn" href="">Admin</a>
+	           	<a class="navBtn d-none" id="adminBtn" th:href="@{/admin/admin}">Admin</a>
            	</div>         	
           	<div class="signList" >
           		<th:block sec:authorize="isAnonymous()">
@@ -63,6 +63,9 @@
     <th:block layout:fragment="script"></th:block>
     <script th:inline="javascript">
 		const loginUser = [[ ${ #authentication.name } ]];
+		if(loginUser == 'admin') {
+			document.querySelector('#adminBtn').className = "navBtn";
+		}
 	</script>
     <script th:src="@{/script/header.js}"></script>
 </body>
