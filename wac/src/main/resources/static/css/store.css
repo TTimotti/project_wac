@@ -162,7 +162,7 @@ th {
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
 }
 .storeCreate, .storeUpdate {
-	padding: 20px;
+	padding: 10px;
 	font-size: 20px;
 	font-weight: bolder;
 	background-color: #FFD126;
@@ -221,6 +221,8 @@ th {
     font-size: 25px;
 }
 
+/** 내 위치 버튼 **/
+
 #getMyPositionBtn {
 	font-size: 20px;
 	font-weight: bolder;
@@ -230,12 +232,15 @@ th {
 	font-family: 'Do Hyeon', sans-serif;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
-	width: 150px;
+	width: 200px;
 	height: 50px;
+	margin-right: 1100px;
 }
 #getMyPositionBtn:hover {
 	opacity: 0.5;
 }
+
+/** 반응형 웹 관련 기능**/
 @media ( max-width : 792px) {
 	#map, table {
 		width: 450px;
