@@ -96,13 +96,15 @@ function updateMenuList(data) {
   
 // 장바구니 추가 함수  
 function tossCartModal(event) {
-    btnTossCart.href = "/order/cart";
+    
     const data_menuId = event.target.getAttribute('data-menuId');
     const data_storeName = event.target.getAttribute('data-storeName');
     const data_userAddress = event.target.getAttribute('data-userAddress');
     console.log(storeName);
     console.log("카트로 넘어가는 메뉴", data_menuId);
     console.log("유저이름", loginUser);
+    
+    btnTossCart.href = "/order/cart?userName=" + loginUser;
     
     const data = {
             menuId: data_menuId,
