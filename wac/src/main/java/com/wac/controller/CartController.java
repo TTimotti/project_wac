@@ -138,7 +138,7 @@ public class CartController {
         } else if (menu.getKind() == 1) { // 버거 단품일 경우
             cart.setMenuId1(data_menuId);
             
-        } else if (menu.getKind() == 3) { // 감튀 단품일 경우.
+        } else if (menu.getKind() == 3) { // 사이드 단품일 경우.
             cart.setMenuId3(data_menuId);
             
         } else if (menu.getKind() == 4) { // 음료 단품일 경우. 
