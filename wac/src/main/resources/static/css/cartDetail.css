@@ -400,6 +400,8 @@ input {
     }
     
     input[readonly=readonly] {
+        margin-left: 8px;
+        text-align: center;
         color: #434343;
     }
     
