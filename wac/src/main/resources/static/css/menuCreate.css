@@ -78,3 +78,34 @@ input {
   .form-label {
   margin-top:100px;
   }
+  
+  /*
+    아래의 내용은
+    이미지 저장하는 DIV 태그를 꾸밀 때 쓰는 CSS입니다.
+    작성자: 서범수
+  */
+  .imgDiv {
+    width:560px;
+    background-color: #FFD126;
+    padding-top:20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .imageArea {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .imageArea img {
+    border-radius: 10px;
+  }
+  
+  .imgDiv #image {
+    margin:0 0 5px 10px;
+    width: 540px;
+    height: 35px;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }

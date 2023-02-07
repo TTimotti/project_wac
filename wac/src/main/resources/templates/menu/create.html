@@ -73,12 +73,18 @@
             <textarea id="content" class="inputs" name="content" ></textarea>
         </div>
         <br/><br/>
+        
         <div class="div_label">
             <label for="image" class="form-label">메뉴 이미지</label>
             <br/><br/>
-            <div id="image2">
-            <input type="file" id="image" class="buttons inputs form-form form-create form-image" name="image"/>
+            
+            <div class="imgDiv">
+                <div class="imageArea">
+                    <img id="menuImage" th:src="@{ /img/logo/wac.jpg }" style="width:240px; height: 240px; background-color: white;"/>
+                </div>
+                <input type="file" id="image" class="buttons inputs form-form form-create form-image" name="image" />
             </div>
+            <br/><br/>
         </div>
         <br/>
         <br/>
