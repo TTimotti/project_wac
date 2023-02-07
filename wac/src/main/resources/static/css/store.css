@@ -169,6 +169,7 @@ th {
 	border: none;
 	border-radius: 5px 5px 5px 5px;
 	font-family: 'Do Hyeon', sans-serif;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
 }
 .storeCreate:hover,.storeUpdate:hover {
@@ -183,6 +184,7 @@ th {
     height: 24px;
     line-height:22px;
     padding:0px 10px;
+    text-align: center;
 }
 
 
@@ -191,6 +193,7 @@ th {
     display: inline-block;
     border-right: 0;
     padding-left: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 #storeTableNav li {
     text-align: center;
@@ -199,14 +202,15 @@ th {
 
 #storeTableNav li a {
     display: block;
-    font-size: 30px;
+    font-size: 25px;
     padding: 9px 12px;
     box-sizing: border-box;
     border: 1px;
     background-color: #FFD126;
-    
 }
-
+#storeTableNav li a:hover {
+	opacity: 0.5;
+}
 #storeTableNav li.on {
     background: #FFD126;
     border-radius : 5px 5px 5px 5px;
@@ -214,10 +218,24 @@ th {
 
 #storeTableNav li.on a {
     background-color: black;
-    font-size: 30px;
+    font-size: 25px;
 }
 
-
+#getMyPositionBtn {
+	font-size: 20px;
+	font-weight: bolder;
+	background-color: #FFD126;
+	border: none;
+	border-radius: 5px 5px 5px 5px;
+	font-family: 'Do Hyeon', sans-serif;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	width: 150px;
+	height: 50px;
+}
+#getMyPositionBtn:hover {
+	opacity: 0.5;
+}
 @media ( max-width : 792px) {
 	#map, table {
 		width: 450px;

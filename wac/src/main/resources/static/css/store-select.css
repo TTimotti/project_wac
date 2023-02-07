@@ -208,6 +208,7 @@ tbody tr.active-row {
     height: 24px;
     line-height:22px;
     padding:0px 10px;
+    text-align: center;
 }
 .dInfoText{
 	background-color: #f8f8f8;
@@ -277,6 +278,7 @@ tbody tr.active-row {
     display: inline-block;
     border-right: 0;
     padding-left: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 #storeTableNav li {
     text-align: center;
@@ -290,7 +292,10 @@ tbody tr.active-row {
     box-sizing: border-box;
     border: 1px;
     background-color: #FFD126;
-    
+}
+
+#storeTableNav li a:hover {
+	opacity: 0.5;
 }
 
 #storeTableNav li.on {

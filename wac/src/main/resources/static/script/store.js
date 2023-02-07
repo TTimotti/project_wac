@@ -138,7 +138,7 @@ $(document).on("click",".storeInfo .storeName", function(event){
 
 let totalData; // 총 데이터의 수
 let dataPerPage; // 한 페이지에 나타낼 글 목록의 수
-let pageCount = 5; // 페이징 목록에 나타낼 페이지의 수
+let pageCount = 3; // 페이징 목록에 나타낼 페이지의 수
 let globalCurrentPage = 1; // 처음 나타낼 현재 페이지
 
 let globalData;
@@ -227,7 +227,7 @@ function pasing(totalData, dataPerPage, pageCount, currentPage) {
 	let storeTableNavHtml = "";
 	
 	if (prev > 0) {
-		storeTableNavHtml += "<li><a href='#' id='prev'> 이전 </a></li>";
+		storeTableNavHtml += "<li class='prev'><a href='#' id='prev'>이전</a></li>";
 	}
 	
 	// 페이징 목록 번호 표시
@@ -241,7 +241,7 @@ function pasing(totalData, dataPerPage, pageCount, currentPage) {
     }
 
     if (last < totalPage) {
-        storeTableNavHtml += "<li><a href='#' id='next'> 다음 </a></li>";
+        storeTableNavHtml += "<li class='next'><a href='#' id='next'>다음</a></li>";
     }
 
 	
