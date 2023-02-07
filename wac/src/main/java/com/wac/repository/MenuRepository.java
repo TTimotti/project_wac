@@ -96,6 +96,17 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
      */
     @Query("select m from MENUS m where m.kind = 4 order by m.menuId")
     List<Menu> findAllDrinkMenuByKindOrderBymenuId();
+    
+    /**
+     * "코카-콜라", "후렌치 후라이" 라는 이름의 메뉴를 찾아서 해당하는 menuId를 가져옴.
+     * @param name "코카-콜라" 또는 "후렌치 후라이"
+     * @return menuId
+     * @author 서범수
+     */
+    @Query("select m.menuId from MENUS m where m.menuName = :menuName")
+    Integer readDefaultOptionByName(@Param("menuName") String menuName);
+
+    
 
     
 
