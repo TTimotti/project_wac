@@ -39,4 +39,9 @@ public class OrderService {
     	
     	return orderRepository.findByUserId(userId).orElse(null);
     }
+
+    public Order create(Integer userId) {
+        // TODO:
+        return null;
+    }
 }

@@ -1,7 +1,5 @@
 package com.wac.domain;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +37,7 @@ public class Order extends BaseTimeEntity {
     private Integer userName; // 주문한 회원 아이디
     
     @Column(name = "cart_id")
-    private Integer cartId; // 주문한 회원 아이디
+    private Integer cartId; // 주문한 회원 장바구니 아이디
     
     @Column(name = "menu1_id") // 단품 
     private Integer menuId1; // 상품 번호 

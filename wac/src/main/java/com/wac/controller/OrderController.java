@@ -2,14 +2,19 @@ package com.wac.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wac.domain.Cart;
 import com.wac.domain.Menu;
+import com.wac.domain.Order;
+import com.wac.dto.CartTossDto;
 import com.wac.service.CartService;
 import com.wac.service.ImagesService;
 import com.wac.service.MenuService;
@@ -72,6 +77,35 @@ public class OrderController {
     	return "/order/order";
     }
     
+    /**
+     * 결제 페이지로 넘겨줘서 결제 상세정보, 결제할때 주소랑 결제수단 선택하는 페이지에 넘겨주기 위한 메서드 
+     * @param model
+     * @author 추지훈
+     */
+    @GetMapping()
+    public void create(Model model) {
+        // TODO:: 
+    }
+    
+    /**
+     * 그러고 난 뒤 여기서 order 에 해당 유저의 cart 상세내역을 옮겨담고 order_log에 필요한 정보만 남긴뒤 
+     * 해당 카트 전체를 삭제한다.  
+     * @param data
+     * @return
+     * @author 추지훈
+     */
+    @PostMapping("/create")
+    @ResponseBody
+    public ResponseEntity<Order> create(@RequestBody CartTossDto data) {
+        log.info("create menuId = {}, userName = {}", data);
+        String userName = data.getUserName(); // 주문자명
+        Integer userId = 1;
+        // TODO::
+        
+        Order order = orderService.create(userId); 
+        
+        return ResponseEntity.ok(order);
+    }
     
     
 }

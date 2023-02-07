@@ -4,68 +4,73 @@
     layout:decorate="~{ /layout/basic-layout }">
 
 <th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/menuDetail.css}">
+    <link rel="stylesheet" th:href="@{/css/menuModify.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+        rel="stylesheet">
+    
 </th:block>
 
 <div layout:fragment="content">
+<div class="frontFont">
+        <h1> 메뉴 수정 페이지 </h1>
+    </div>
     <div class="wrapper">
         <div id="container">
             <div class="contents">
-            
-                    <!-- 상단 배너 -->
-<div class="bannerArea bgImage">
-    <div class="inner">
-        <h1 class="title" data-title="프로모션" data-desc="프로모션">왁도날드 프로모션</h1>
-        <ul class="navPath">
-            <li><a href="/kor/main.do">Home</a></li>
-            <li><a href="/kor/main.do">What's New</a></li>
-            <li><a href="/kor/main.do">맥도날드 프로모션</a></li>
-        </ul>
-    </div> <!-- inner -->
-</div> <!-- bannerArea -->
-
 
 <!-- 메뉴 소개 -->
 <div class="contArea">
     <div class="inner">
         <div class="menuView">
+        
+          <div class="Container">
           <form id="formModify">
-                <div class="my-4">
+                <div class="div_label">
                     <label for="menuId" class="form-label">메뉴 번호</label>
-                    <input id="menuId" name="id" class="form-control" th:value="${ menu.menuId }" readonly />
+                    <input id="menuId" name="id" class="inputs" th:value="${ menu.menuId }" readonly />
                 </div>
-                <div class="my-4">
+                <div class="div_label">
                     <label for="menuName" class="form-label">메뉴 이름</label>
-                    <input id="menuName" name="menuName" class="form-control" th:value="${ menu.menuName }" autofocus />
+                    <input id="menuName" name="menuName" class="inputs" th:value="${ menu.menuName }" autofocus />
                     
                 </div>
-                <div class="my-4">
+                <div class="div_label">
                     <label for="menuEnName" class="form-label">메뉴 영어이름</label>
-                    <input id="menuEnName" name="menuEnName" class="form-control" th:value="${ menu.menuEnName }" />
+                    <input id="menuEnName" name="menuEnName" class="inputs" th:value="${ menu.menuEnName }" />
                 </div>
-                <div class="my-4">
+                <div class="div_label">
                     <label for="content" class="form-label">내용</label>
-                    <textarea id="content" name="content" class="form-control" th:text="${ menu.content }"></textarea>
+                    <br/>
+                    <textarea id="content" name="content" class="inputs" th:text="${ menu.content }"></textarea>
                 </div>
-                <div class="my-4">
+                <div class="div_label">
                     <label for="kind" class="form-label">분류 번호</label>
-                    <input id="kind" name="kind" class="form-control" th:value="${ menu.kind }" readonly />
+                    <input id="kind" name="kind" class="inputs" th:value="${ menu.kind }" readonly />
                 </div>
-                <div class="my-4">
+                <br/>
+                <div class="div_label">
                     <label for="price" class="form-label">가격</label>
-                    <input id="price" name="price" class="form-control" th:value="${ menu.price }" readonly />
+                    <br/>
+                    <input id="price" name="price" class="inputs" th:value="${ menu.price }" readonly />
                 </div>
-            </form>
+                <br/>
             
+            </form>
+            <br/>
 
 <div class="editArea">
     <div class="btnConfigDiv" style="text-align: right;">
-        <div class="my-4">
-            <button class="btn btn-danger" id="btnDelete">삭제</button>
-            <button class="btn btn-success" id="btnUpdate">수정 완료</button>
+        <div class="div_label">
+            <button class="buttons btn btn-danger" id="btnDelete">삭제</button>
+            <br/><br/>
+            <button class="buttons btn btn-success" id="btnUpdate">수정 완료</button>
         </div>
     </div>
 </div> <!-- editArea -->
+</div>
 </div> <!-- menuView -->
 </div> <!-- inner -->
 </div> <!-- contArea -->
