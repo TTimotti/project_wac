@@ -95,7 +95,7 @@ public class CartController {
      * 장바구니 추가시 유저정보, 주소와 해당 메뉴를 메뉴 종류에 맞게 카트에 저장하고 페이지를 카트로 넘겨줌.  
      * @param data = menuId, userName
      * @return
-     * @author 추지훈
+     * @author 추지훈, 서범수
      */
     @PostMapping("/create")
     @ResponseBody
@@ -122,13 +122,23 @@ public class CartController {
             Integer bugerByMealId = menuService.readBugerByMeal(data_menuId); // 세트에 해당하는 버거를 가져온다
             cart.setMenuId1(bugerByMealId); // 버거 아이디 저장.
             log.info("중간점검 후 세트 카트 = {}", cart);
-            cart.setMenuId3(1); // 무조건 감튀 저장. 감튀 아이디를 나중에 넣어주면됨.
-            cart.setMenuId4(1); // 무조건 콜라 저장. 동일.. 
+            
+            // 코카-콜라와 감자튀김 찾기.
+            // MENU_NAME이 "후렌치 후라이"인 행을 찾고, 그 행의 menuId를 가져온다.
+            String friesName = "후렌치 후라이";
+            Integer friesMenuId = menuService.readDefaultOptionByName(friesName);
+            
+            // MENU_NAME이 "코카-콜라"인 행을 찾고, 그 행의 menuId를 가져온다.
+            String cokeName = "코카-콜라";
+            Integer cokeMenuId = menuService.readDefaultOptionByName(cokeName);
+            
+            cart.setMenuId3(friesMenuId);
+            cart.setMenuId4(cokeMenuId);
             
         } else if (menu.getKind() == 1) { // 버거 단품일 경우
             cart.setMenuId1(data_menuId);
             
-        } else if (menu.getKind() == 3) { // 감튀 단품일 경우.
+        } else if (menu.getKind() == 3) { // 사이드 단품일 경우.
             cart.setMenuId3(data_menuId);
             
         } else if (menu.getKind() == 4) { // 음료 단품일 경우. 
@@ -141,8 +151,15 @@ public class CartController {
             cart.setMenuId6(data_menuId);
             Integer bugerByMealId = menuService.readBugerByMeal(data_menuId); // 세트에 해당하는 버거를 가져온다
             cart.setMenuId1(bugerByMealId);
-            cart.setMenuId3(1); // 해쉬브라운 디폴트
-            cart.setMenuId4(1); // 콜라 디폴트
+            // MENU_NAME이 "해쉬브라운"인 행을 찾고, 그 행의 menuId를 가져온다.
+            String hashBrown = "해쉬브라운";
+            Integer hashBrownMenuId = menuService.readDefaultOptionByName(hashBrown);
+            // MENU_NAME이 "우유"인 행을 찾고, 그 행의 menuId를 가져온다.
+            String milk = "우유";
+            Integer milkMenuId = menuService.readDefaultOptionByName(milk);
+            
+            cart.setMenuId3(hashBrownMenuId); // 해쉬브라운 디폴트
+            cart.setMenuId4(milkMenuId); // 우유 디폴트
             
         }  
         

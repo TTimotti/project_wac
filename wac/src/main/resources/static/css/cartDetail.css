@@ -273,7 +273,7 @@ input {
         padding: 5px 10px;
         font-size: 1rem;
         color: #fff;
-        background: #2e2e2e;
+        background: #f5bd43;
         border-radius: 5px;
     }
     
@@ -400,6 +400,8 @@ input {
     }
     
     input[readonly=readonly] {
+        margin-left: 8px;
+        text-align: center;
         color: #434343;
     }
     
@@ -532,6 +534,9 @@ input {
     
     /* CHECK STYLES */
     [type=radio]:checked + img {
-        outline: 2px solid #f00;
+        width: 100px;
+        content: '';
+        border-radius: 100%;
+        background: #f5f5f5;
     }
     

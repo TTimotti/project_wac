@@ -20,9 +20,11 @@
                             <li><a href="/kor/main.do">Order</a></li>
                             <li><a href="/kor/main.do">왁도날드 딜리버리</a></li>
                         </ul>
+                        
+                        
                     </div> <!-- inner -->
                 </div> <!-- bannerArea -->
-                
+                      
                 <!-- 주문 내역 -->
                 <div class="contArea">
                     <div class="inner">
@@ -42,7 +44,7 @@
                                             <span class="price">
                                                 <!-- 가격 -->
                                                 <strong>
-                                                    <span id="menuPriceInfo" class="menuPriceInfo">메뉴 가격</span>
+                                                    <span id="menuPriceInfo" class="menuPriceInfo" style="margin-left: 5px;">메뉴 가격</span>
                                                     <span class="unit">원</span>
                                                 </strong>
                                             </span>
@@ -69,13 +71,13 @@
                                                         <span class="unit">원</span>
                                                     </strong>
                                                 </div>
-                                                <button type="button" class="btn04 h02 btn_edit" id="sideChange">
-                                                    <span>변경</span>
+                                                <button type="button" class="btn04 h02 btn_edit btnSideChange" id="sideChange">
+                                                    <span>▼</span>
                                                 </button>
                                             </dd>
                                         </dl>
                                         
-                                        <div class="sideMenuList" id="sideMenuList" style="background-color: white; border-radius: 10px; padding-bottom: 20px;">
+                                        <div class="sideMenuList" id="sideMenuList" style="background-color: white; border-radius: 10px; padding-bottom: 20px; display:none;">
                                             <ul>
                                                 <li th:each="sl : ${ sideList } " style="display:inline-block;" id="sideChangeInfo" class="sideChangeInfo">
                                                     <label>
@@ -98,12 +100,12 @@
                                                         <span class="unit">원</span>
                                                     </strong>
                                                 </div>
-                                                <button type="button" class="btn04 h02 btn_edit">
-                                                    <span>변경</span>
+                                                <button type="button" class="btn04 h02 btn_edit btnDrinkChange" id="drinkChange">
+                                                    <span>▼</span>
                                                 </button>
                                             </dd>
                                         </dl>
-                                        <div class="drinkMenuList" id="drinkMenuList" style="background-color: white; border-radius: 10px; padding-bottom: 20px;">
+                                        <div class="drinkMenuList" id="drinkMenuList" style="background-color: white; border-radius: 10px; padding-bottom: 20px; display:none;">
                                             <ul>
                                                 <li th:each="dl : ${ drinkList } " style="display:inline-block;" id="drinkChangeInfo" class="drinkChangeInfo">
                                                     <label>
@@ -166,11 +168,17 @@
                         </div>
                         <div class="cartinfo">
                             <div class="c_btn item2">
+                                <a th:href="@{/order}">
+
                                 <button type="button" class="btn01 m ico add">
                                     <span>
                                         메뉴 추가
                                     </span>
                                 </button>
+
+                            </a>    
+
+
                                 <button type="button" class="btn01 m red">
                                     <span>
                                         주문하기
