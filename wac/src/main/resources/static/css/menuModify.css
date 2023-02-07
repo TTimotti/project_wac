@@ -54,10 +54,15 @@ input {
     margin-left: auto;
 }
 
+/*
+
+가격 input, id로 CSS 적용하면 칸이 혼자 안 맞아서 일단 주석처리했습니다.
+서범수
 #price {
     margin-right: auto;    
     margin-left: auto;
 }
+*/
 
 #image {
     margin-right: auto;    

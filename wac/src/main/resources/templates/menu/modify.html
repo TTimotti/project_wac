@@ -14,52 +14,87 @@
 </th:block>
 
 <div layout:fragment="content">
-<div class="frontFont">
+    <div class="frontFont">
         <h1> 메뉴 수정 페이지 </h1>
     </div>
-    <div class="wrapper">
-        <div id="container">
-            <div class="contents">
-
-<!-- 메뉴 소개 -->
-<div class="contArea">
-    <div class="inner">
-        <div class="menuView">
-        
-          <div class="Container">
-          <form id="formModify">
-                <div class="div_label">
-                    <label for="menuId" class="form-label">메뉴 번호</label>
-                    <input id="menuId" name="id" class="inputs" th:value="${ menu.menuId }" readonly />
-                </div>
-                <div class="div_label">
-                    <label for="menuName" class="form-label">메뉴 이름</label>
-                    <input id="menuName" name="menuName" class="inputs" th:value="${ menu.menuName }" autofocus />
-                    
-                </div>
-                <div class="div_label">
-                    <label for="menuEnName" class="form-label">메뉴 영어이름</label>
-                    <input id="menuEnName" name="menuEnName" class="inputs" th:value="${ menu.menuEnName }" />
-                </div>
-                <div class="div_label">
-                    <label for="content" class="form-label">내용</label>
-                    <br/>
-                    <textarea id="content" name="content" class="inputs" th:text="${ menu.content }"></textarea>
-                </div>
+    <form id="formModify">
+    <div class="Container">
+            <div>
                 <div class="div_label">
                     <label for="kind" class="form-label">분류 번호</label>
-                    <input id="kind" name="kind" class="inputs" th:value="${ menu.kind }" readonly />
                 </div>
                 <br/>
+                <input id="kind" name="kind" class="inputs" th:value="${ menu.kind }" readonly />
+            </div>
+            
+            <br/>
+            
+            <div>
+                <div class="div_label">
+                    <label for="menuId" class="form-label">메뉴 번호</label>
+                </div>
+                <br/>
+                <input id="menuId" name="id" class="inputs" th:value="${ menu.menuId }" readonly />
+            </div>
+            
+            <br/>
+            
+            <div>
+                <div class="div_label">
+                    <label for="menuName" class="form-label">메뉴 이름</label>
+                </div>                
+                <br/>
+                <input id="menuName" name="menuName" class="inputs" th:value="${ menu.menuName }" autofocus />
+            </div>
+            
+            <br/>
+            
+            <div>
+                <div class="div_label">
+                    <label for="menuEnName" class="form-label">메뉴 이름(영어)</label>
+                </div>
+                <br/>
+                <input id="menuEnName" name="menuEnName" class="inputs" th:value="${ menu.menuEnName }" />
+            </div>
+            
+            <br/>
+            
+            <div>
                 <div class="div_label">
                     <label for="price" class="form-label">가격</label>
-                    <br/>
-                    <input id="price" name="price" class="inputs" th:value="${ menu.price }" readonly />
                 </div>
                 <br/>
+                <input id="price" name="price" class="inputs" th:value="${ menu.price }"/>
+            </div>
             
-            </form>
             <br/>
+            
+            <div>
+                <div class="div_label">
+                    <label for="content" class="form-label inputs">내용</label>
+                    <br/><br/>
+                    <textarea id="content" name="content" class="inputs" th:text="${ menu.content }"></textarea>
+                </div>
+                <br/>
+                
+            </div>
+            
+            <br/>
+            
+
+            
+            <br/><br/>
+
+
+
+
+        
+
+
+
+
+
+
 
 <div class="editArea">
     <div class="btnConfigDiv" style="text-align: right;">
@@ -71,14 +106,14 @@
     </div>
 </div> <!-- editArea -->
 </div>
-</div> <!-- menuView -->
-</div> <!-- inner -->
-</div> <!-- contArea -->
-</div> <!-- contents -->
-</div> <!-- container -->
-</div> <!-- div wrapper -->
-</div>  <!-- layout:fragment -->
 
+
+
+
+
+
+</form>
+</div>  <!-- layout:fragment -->
 
 
 
