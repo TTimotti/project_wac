@@ -9,6 +9,10 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
 		rel="stylesheet">
+	 <!-- Bootstrap icons-->
+	<link 
+		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+        rel="stylesheet" type="text/css" />
 </th:block>
 <div layout:fragment="content">
 	<div class=storebanner>
@@ -29,30 +33,12 @@
 	</div>
 	<div class="storeContainer2">
 		<div class="storePlace">
-		<table>
-			<thead>
-				<tr>
-					<th>매장명</th>
-					<th>전화번호</th>
-					<th>주소</th>
-					<th>영업시간</th>
-					<th>이용가능 서비스</th>
-					<th>관리자 메뉴</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="storeInfo" th:each="store : ${ storeInfo }">
-					<td class ="storeName" th:text="${ store.storeName }"
-							th:data-storeName="${ store.storeName }" 
-							th:data-storeAddress="${ store.storeAddress }"></td>
-					<td th:text="${ store.storePhone }"></td>
-					<td th:text="${ store.storeAddress }"></td>
-					<td th:text="${ store.storeTime }"></td>
-					<td th:text="${ store.drinkExplain }"></td>
-					<td><button class="storeUpdate" th:onclick="|location.href='@{store/storeDetail?(storeId=${store.storeId})}'|">수정</button></td>
-				<tr>
-			</tbody>
+		<br/><br/><br/><br/><br/>
+		<table class="storeTable">
 		</table>
+		</div>
+		<div>
+			<ul id="storeTableNav"></ul>
 		</div>
 		<br/><br/><br/>
 		<button class="storeCreate" onclick="location.href='/storeCreate'">매장 등록</button>
@@ -63,6 +49,9 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<!-- Ajax axios JS-->
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<!-- Bootstrap core JS-->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- kakao -->
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=abaecbd1f25256beda80cb6e2837cf2b&libraries=services"></script>

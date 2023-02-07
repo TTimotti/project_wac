@@ -26,32 +26,18 @@
 	</div>
 	<div class="storeContainer">
 		<div class="mapArea">
-		<div id="map"></div>
+			<div id="map"></div>
 		</div>
 		<div class="storePlace">
-			<table>
-				<thead>
-					<tr>
-						<th>매장명</th>
-						<th>전화번호</th>
-						<th>영업시간</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="storeInfo" th:each="store : ${ storeInfo }">
-						<td class ="storeName" th:text="${ store.storeName }"
-							th:data-storeName="${ store.storeName }" 
-							th:data-storeAddress="${ store.storeAddress }"></td>
-						<td th:text="${ store.storePhone }"></td>
-						<td th:text="${ store.storeTime }"></td>
-					<tr>
-				</tbody>
-			</table>
+		<table class="storeTable"></table>
+		<div>
+			<ul id="storeTableNav"></ul>
+		</div>
 			<br/>
 			<h1 class="textStore">주문 하실 매장</h1>
 			<div class="dInfoText">
 				<input type="text" class="dInfo" placeholder="매장을 선택 해주세요." readonly disabled/>
-							   <input type="hidden" class="dInfo2" readonly disabled/>
+				<input type="hidden" class="dInfo2" readonly disabled/>
 			</div>
 			<br/>
 			<div>

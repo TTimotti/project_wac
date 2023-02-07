@@ -184,6 +184,40 @@ th {
     line-height:22px;
     padding:0px 10px;
 }
+
+
+/** 페이징 **/
+#storeTableNav {
+    display: inline-block;
+    border-right: 0;
+    padding-left: 0;
+}
+#storeTableNav li {
+    text-align: center;
+    float: left;
+}
+
+#storeTableNav li a {
+    display: block;
+    font-size: 30px;
+    padding: 9px 12px;
+    box-sizing: border-box;
+    border: 1px;
+    background-color: #FFD126;
+    
+}
+
+#storeTableNav li.on {
+    background: #FFD126;
+    border-radius : 5px 5px 5px 5px;
+}
+
+#storeTableNav li.on a {
+    background-color: black;
+    font-size: 30px;
+}
+
+
 @media ( max-width : 792px) {
 	#map, table {
 		width: 450px;
@@ -192,3 +226,4 @@ th {
 		font-size: 5px;
 	}
 }
+

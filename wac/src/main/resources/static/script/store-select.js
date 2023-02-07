@@ -84,7 +84,7 @@ function mapViewMarker(data) {
 /** 
  * 주문 매장 선택시 맵에서 주문매장 마커로 위치이동해주는 기능.
  */
-function mapViewMarker2(data) {
+function mapViewMarker2(data){ 
 	
 	geocoder.addressSearch(data[1], function(result, status) {
 		
@@ -170,4 +170,138 @@ $(document).on("click", ".nextPage", function() {
 		document.value.submit()
 	}
 });
+
+/**
+ * 매장 목록 테이블 비동기 페이징 기능
+ */
+
+let totalData; // 총 데이터의 수
+let dataPerPage; // 한 페이지에 나타낼 글 목록의 수
+let pageCount = 5; // 페이징 목록에 나타낼 페이지의 수
+let globalCurrentPage = 1; // 처음 나타낼 현재 페이지
+
+let globalData;
+
+storeViewList();
+
+function storeViewList(){
+	
+	$(document).ready(function(){
+		
+		dataPerPage = 3;
+		
+		axios
+		.get("/storeList")
+		.then(response => {
+			totalData = response.data.length - 1;
+			globalData = response.data;
+			displayData(1, dataPerPage, response.data)
+			pasing(totalData, dataPerPage, pageCount, 1)			
+		})
+		.catch(err => { console.log(err) });
+	});
+}
+
+function displayData(currentPage, dataPerPage, data) {
+
+	let tableHtml = "";
+	let i;
+
+	// 스트링이 결합되는걸 방지하기위해 Number로 변환
+	currentPage = Number(currentPage);
+	dataPerPage = Number(dataPerPage);
+
+	tableHtml += '<thead>'
+		+ '<tr>'
+		+ '<th>매장명</th>'
+		+ '<th>전화번호</th>'
+		+ '<th>영업시간</th>'
+		+ '</tr>'
+		+ '</thead>'
+		+ '<tbody>'
+
+	for (i = (currentPage - 1) * dataPerPage; i < (currentPage - 1) * dataPerPage + dataPerPage; i++) {
+		if (data[i] == undefined) {
+			break;
+		}
+
+		tableHtml += '<tr class="storeInfo">'
+			+ `<td class="storeName" 
+			  	data-storeName="${data[i].storeName}" 
+			  	data-storeAddress="${data[i].storeAddress}">` + data[i].storeName + '</td>'
+			+ '<td>' + data[i].storePhone + '</td>'
+			+ '<td>' + data[i].storeTime + '</td>'
+			+ '</tr>'
+			+ '</tbody>';
+		$('.storeTable').empty();
+		$('.storeTable').append(tableHtml);
+	}
+
+}
+
+function pasing(totalData, dataPerPage, pageCount, currentPage) {
+	
+	totalPage = Math.ceil(totalData / dataPerPage); // 총 페이지수
+	
+	if (totalPage < pageCount) {
+		pageCount = totalPage;
+	}
+	let pageGroup = Math.ceil(currentPage / pageCount); // 페이지 그룹
+	let last = pageGroup * pageCount; // 화면에 보여질 마지막 페이지 번호
+	
+	if(last > totalPage) {
+		last = totalPage;
+	}
+	
+	let first = last - (pageCount - 1); // 화면에 보여질 첫번째 페이지 번호
+	let next = last + 1;
+	let prev = first - 1;
+	
+	let storeTableNavHtml = "";
+	
+	if (prev > 0) {
+		storeTableNavHtml += "<li><a href='#' id='prev'> 이전 </a></li>";
+	}
+	
+	// 페이징 목록 번호 표시
+    for (var i = first; i <= last; i++) {
+        if (currentPage == i) {
+            storeTableNavHtml +=
+                "<li class='on'><a href='#' id='" + i + "'>" + i + "</a></li>";
+        } else {
+            storeTableNavHtml += "<li><a href='#' id='" + i + "'>" + i + "</a></li>";
+        }
+    }
+
+    if (last < totalPage) {
+        storeTableNavHtml += "<li><a href='#' id='next'> 다음 </a></li>";
+    }
+
+	
+	$("#storeTableNav").html(storeTableNavHtml);
+	
+	$("#storeTableNav li a").off().on('click',(function (event) {
+		
+		globalData;
+		
+		let $id = $(this).attr("id");
+		let selectedPage = $(this).text();
+		
+		if ($id == "next") selectedPage = next;
+		if ($id == "prev") selectedPage = prev;
+		
+		// 전역 변수에 선택한 페이지 번호를 넣음.
+		currentPage = selectedPage;
+		// 페이징 표시 기능 재호출
+		pasing(totalData, dataPerPage, pageCount, selectedPage);
+		// 매장 목록 테이블 표시 재호출
+		displayData(selectedPage, dataPerPage, globalData);
+		
+		// 마우스 스크롤 동작 제한 기능
+		event.preventDefault();
+		event.stopPropagation();
+		return false;
+	}));
+} 
+
 

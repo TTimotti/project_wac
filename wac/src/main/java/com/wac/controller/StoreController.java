@@ -44,7 +44,11 @@ public class StoreController {
 		log.info("storeInfo={}",storeInfo);
 		return "/store/store";
 	}
-	
+	/**
+	 *  Axios 비동기 기능을 
+	 *  사용하기 위한 컨트롤러
+	 * @author 장민석
+	 */
 	@GetMapping("/storeList")
 	public ResponseEntity<List<Store>> readStore (){
 		List<Store> storeInfo = storeService.readStoreInfo();
@@ -122,6 +126,16 @@ public class StoreController {
 		return"redirect:/store";
 	}
 	
+	/**
+	 * 메뉴 주문페이지로
+	 * 상점 선택페이지에서
+	 * 선택한 매장이름,주문자 주소를
+	 * 넘겨주는 기능.
+	 * @param storeName 매장이름
+	 * @param userAddress 배달 주소(주문자)
+	 * @return 메뉴 오더 페이지로 이동
+	 * @author 장민석
+	 */
 	@GetMapping("/storeInfo")
 	public String storeInfo(String storeName, String userAddress) {
 		log.info("storeName={}",storeName);
