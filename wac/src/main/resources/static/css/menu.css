@@ -2,6 +2,9 @@
 
 .visualArea.bgMenu01 {
     background: url(https://www.mcdonalds.co.kr/uploadFolder/images/menu/2020/bg_visual_menu01.jpg) 50% 50% no-repeat;
+    background-color: lightgray;
+    padding: 5px;
+    background-size: 100% 290px;
 }
 
 .visualArea {
@@ -134,3 +137,4 @@ ul, ol, li {
 .float-left a:hover {
 	border: 2px orange solid;
 }
+
