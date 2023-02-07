@@ -1,5 +1,7 @@
 package com.wac.service;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.wac.domain.Users;
 import com.wac.dto.PasswordChangeDto;
 import com.wac.dto.UserCreateDto;
+import com.wac.dto.UserReadDto;
 import com.wac.dto.UserUpdateDto;
 import com.wac.repository.UserRepository;
 
@@ -41,6 +44,21 @@ public class UserService {
         log.info("read all");
         
         return userRepository.findByOrderByUserIdDesc();
+    }
+    /**
+     * User의 정보를  UserReadDto로 만들어 return
+     * @return UserReadDto
+     * @author 김지훈
+     */
+    @Transactional(readOnly = true)
+    public List<UserReadDto> readUserList() {
+    	List<Users> users = userRepository.findByOrderByUserIdDesc();
+    	List<UserReadDto> userList = new ArrayList<UserReadDto>();
+    	for (Users u : users) {
+    		userList.add(UserReadDto.fromEntity(u));
+    	}
+        
+        return userList;
     }
     
     /**
