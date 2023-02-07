@@ -21,6 +21,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const extraChargeInfo2 = document.querySelectorAll('.extraChargeInfo2');
     const sideMenuChange = document.getElementsByName('sideMenuChange');
     const drinkMenuChange = document.getElementsByName('drinkMenuChange');
+    const btnDelete = document.querySelectorAll('.btnDelete');
     const cocaCola = 2200;
     const frenchFries = 2600;
     var totalPrice = 0;
@@ -93,8 +94,8 @@ window.addEventListener('DOMContentLoaded', function() {
             eachMenuPriceTotalInfo[i].innerHTML = eachMenuPriceTotal;
             
             totalPrice += eachMenuPriceTotal;
-            console.log('??');
-            console.log(totalPrice);
+            // console.log('??');
+            // console.log(totalPrice);
             // 세트 메뉴가 아니라면, 사이드 변경 칸 사라짐. (타임리프에서 없앨 수도...)
             if (data.kind != 2) {
             isSetMenuInfo[i].style.display = 'none';
@@ -142,7 +143,7 @@ window.addEventListener('DOMContentLoaded', function() {
             
             // 가격 변동
             let parentLi = btn.closest('li');
-            console.log(parentLi);
+            // console.log(parentLi);
             newEachPriceTotal(parentLi);
             //eachMenuPriceTotalInfo[i].innerHTML = (eachMenuPriceTotalVariable + sideExtraFee + drinkExtraFee) * cartList[i].quantity;
             //let lessPrice = Number(eachMenuPriceTotalInfo[index].innerHTML) - Number(menuPriceInfo[index].innerHTML);
@@ -167,7 +168,7 @@ window.addEventListener('DOMContentLoaded', function() {
             
             // 가격 변동
             let parentLi = btn.closest('li');
-            console.log(parentLi);
+            // console.log(parentLi);
             newEachPriceTotal(parentLi);
             //let morePrice = Number(eachMenuPriceTotalInfo[index].innerHTML) + Number(menuPriceInfo[index].innerHTML);
             //eachMenuPriceTotalInfo[index].innerHTML = morePrice;
@@ -178,11 +179,11 @@ window.addEventListener('DOMContentLoaded', function() {
     // side 메뉴 변경
     sideMenuChange.forEach((radio) => radio.addEventListener('click', function() {
         let menuId = Number(radio.dataset.menuid);
-        console.log(menuId);
+        // console.log(menuId);
         let closetLi = radio.closest('.cartListInfo'); // 가까운 리스트 태그.
         let cartId = Number(closetLi.dataset.index);
         
-        console.log(cartId);
+        // console.log(cartId);
         
         axios
         .post('/cart/changeSideMenu/',null ,{params: {cartId: cartId, menuId: menuId}})
@@ -190,7 +191,7 @@ window.addEventListener('DOMContentLoaded', function() {
         .catch(err => console.log(err));
         
         function changeSideMenu() {
-            console.log(radio);
+            // console.log(radio);
             let sideMenu = radio.closest('.isSetMenuInfo');
             let childSideMenuInfo = sideMenu.querySelector('#sideMenuInfo');
             childSideMenuInfo.innerHTML = radio.dataset.menuname;
@@ -200,7 +201,7 @@ window.addEventListener('DOMContentLoaded', function() {
             
             // 가격 변동
             let parentLi = radio.closest('.cartListInfo');
-            console.log(parentLi);
+            // console.log(parentLi);
             newEachPriceTotal(parentLi);
             
         }
@@ -209,11 +210,11 @@ window.addEventListener('DOMContentLoaded', function() {
     // drink 메뉴 변경
     drinkMenuChange.forEach((radio) => radio.addEventListener('click', function() {
         let menuId = Number(radio.dataset.menuid);
-        console.log(menuId);
+        // console.log(menuId);
         let closetLi = radio.closest('.cartListInfo'); // 가까운 리스트 태그.
         let cartId = Number(closetLi.dataset.index);
         
-        console.log(cartId);
+        // console.log(cartId);
         
         axios
         .post('/cart/changeDrinkMenu/',null ,{params: {cartId: cartId, menuId: menuId}})
@@ -221,7 +222,7 @@ window.addEventListener('DOMContentLoaded', function() {
         .catch(err => console.log(err));
         
         function changeDrinkMenu() {
-            console.log(radio);
+            // console.log(radio);
             let drinkMenu = radio.closest('.isSetMenuInfo');
             let childDrinkMenuInfo = drinkMenu.querySelector('#drinkMenuInfo');
             childDrinkMenuInfo.innerHTML = radio.dataset.menuname;
@@ -231,7 +232,7 @@ window.addEventListener('DOMContentLoaded', function() {
             
             // 가격 변동
             let parentLi = radio.closest('.cartListInfo');
-            console.log(parentLi);
+            // console.log(parentLi);
             newEachPriceTotal(parentLi);
         }
     }));
@@ -261,12 +262,31 @@ window.addEventListener('DOMContentLoaded', function() {
     function newTotal() {
         let newSum = 0;
         for (eachTotal of eachMenuPriceTotalInfo) {
-            console.log('새값:');
-            console.log(eachTotal.innerHTML);
+            // console.log('새값:');
+            // console.log(eachTotal.innerHTML);
             newSum += Number(eachTotal.innerHTML);
         }
         totalPriceInfo.innerHTML = newSum;
     }
+    
+    // 삭제하기 버튼
+    btnDelete.forEach((btn, index) => btn.addEventListener('click', function() {
+        let cartId = cartList[index].cartId;
+        console.log(cartId);
+        
+        axios
+        .post('/cart/deleteCartItem/', null, {params: {cartId: cartId}})
+        .then(response => {deleteItem()})
+        .catch(err => console.log(err));
+        
+            function deleteItem() {
+        let deleteList = btn.closest('.cartListInfo');
+        
+        deleteList.remove();
+    }
+    }));
+    
+
     
 
             // 사이드 변경 칸 불러오기.

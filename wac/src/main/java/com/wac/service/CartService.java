@@ -198,5 +198,17 @@ public void changeDrinkMenu(Integer cartId, Integer menuId) {
     cartRepository.changeDrinkMenu(cartId, menuId);
     
 }
+
+/**
+ * 카트에서 메뉴 지우는 메서드
+ * @param menuId, cartId
+ * @author 서범수.
+ */
+public void deleteCartItem(Integer cartId) {
+    log.info("deleteCartItem(cartId={})", cartId);
+    
+    cartRepository.deleteBycartId(cartId);
+    
+}
     
 }

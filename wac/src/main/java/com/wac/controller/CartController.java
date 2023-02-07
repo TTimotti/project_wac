@@ -212,4 +212,16 @@ public class CartController {
 
     }
     
+    /**
+     * 카트에서 메뉴 지우는 메서드
+     * @param menuId, cartId
+     * @author 서범수.
+     */
+    @PostMapping("/deleteCartItem")
+    @ResponseBody
+    public void deleteCartItem(Integer cartId) {
+        log.info("deleteCartItem(cartId={})", cartId);
+        cartService.deleteCartItem(cartId);
+    }
+    
 }
