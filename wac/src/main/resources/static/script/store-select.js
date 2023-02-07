@@ -99,7 +99,7 @@ function mapViewMarker2(data){
 				position: coords,
 				image: markerImage
 			});
-
+  				
 			// 인포윈도우로 장소에 대한 설명을 표시합니다
 			var infowindow = new kakao.maps.InfoWindow({
 				content: '<span class="info-marker">' + data[0]+ '</span>'
@@ -134,6 +134,36 @@ $(document).on("click",".storeInfo .storeName", function(event){
 
 	mapViewMarker2(storeInfo);
 });
+
+/**
+ * 현재 위치 마커 표시 기능
+ */
+function locationLoadSuccess(pos){
+    // 현재 위치 받아오기
+    var currentPos = new kakao.maps.LatLng(pos.coords.latitude,pos.coords.longitude);
+
+    // 지도 이동(기존 위치와 가깝다면 부드럽게 이동)
+    map.panTo(currentPos);
+
+    // 마커 생성
+    var marker = new kakao.maps.Marker({
+        position: currentPos
+    });
+
+    // 기존에 마커가 있다면 제거
+    marker.setMap(null);
+    marker.setMap(map);
+};
+
+function locationLoadError(pos){
+    alert('위치 정보를 가져오는데 실패했습니다.');
+};
+
+// 위치 가져오기 버튼 클릭시
+function getCurrentPosBtn(){
+    navigator.geolocation.getCurrentPosition(locationLoadSuccess,locationLoadError);
+};
+
 
 // 주소 찾기 기능
 const btnAddress = document.querySelector('.buttonAddress');
@@ -231,6 +261,7 @@ function displayData(currentPage, dataPerPage, data) {
 			  	data-storeAddress="${data[i].storeAddress}">` + data[i].storeName + '</td>'
 			+ '<td>' + data[i].storePhone + '</td>'
 			+ '<td>' + data[i].storeTime + '</td>'
+
 			+ '</tr>'
 			+ '</tbody>';
 		$('.storeTable').empty();
