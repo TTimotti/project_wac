@@ -193,6 +193,8 @@ function storeViewList(){
 	});
 }
 
+const userId = document.querySelector(".loginUser").value;
+
 function displayData(currentPage, dataPerPage, data) {
 
 	let tableHtml = "";
@@ -208,9 +210,11 @@ function displayData(currentPage, dataPerPage, data) {
 		+ '<th>전화번호</th>'
 		+ '<th>주소</th>'
 		+ '<th>영업시간</th>'
-		+ '<th>이용가능 서비스</th>'
-		+ '<th>관리자 메뉴</th>'
-		+ '</tr>'
+		+ '<th>이용가능 서비스</th>';
+		if(userId == "admin") {
+		tableHtml += '<th>관리자 메뉴</th>'
+		}
+		tableHtml += '</tr>'
 		+ '</thead>'
 		+ '<tbody>'
 
@@ -226,9 +230,11 @@ function displayData(currentPage, dataPerPage, data) {
 			+ '<td>' + data[i].storePhone + '</td>'
 			+ '<td>' + data[i].storeAddress + '</td>'
 			+ '<td>' + data[i].storeTime + '</td>'
-			+ '<td>' + data[i].drinkExplain + '</td>'
-			+ '<td>' + `<button class="storeUpdate" onclick="location.href='store/storeDetail?storeId=${data[i].storeId}'">수정</button>` + '</td>'
-			+ '</tr>'
+			+ '<td>' + data[i].drinkExplain + '</td>';
+			if(userId == "admin") {
+			tableHtml += '<td>' + `<button class="storeUpdate" onclick="location.href='store/storeDetail?storeId=${data[i].storeId}'">수정</button>` + '</td>'
+			}
+			tableHtml += '</tr>'
 			+ '</tbody>';
 		$('.storeTable').empty();
 		$('.storeTable').append(tableHtml);
@@ -299,4 +305,5 @@ function pasing(totalData, dataPerPage, pageCount, currentPage) {
 		event.stopPropagation();
 		return false;
 	}));
-} 
+} 	
+	

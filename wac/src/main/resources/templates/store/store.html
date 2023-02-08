@@ -9,10 +9,6 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
 		rel="stylesheet">
-	 <!-- Bootstrap icons-->
-	<link 
-		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-        rel="stylesheet" type="text/css" />
 </th:block>
 <div layout:fragment="content">
 	<div class=storebanner>
@@ -38,13 +34,16 @@
 		<table class="storeTable">
 		</table>
 		</div>
+		<br/><br/><br/>
 		<div>
 			<ul id="storeTableNav"></ul>
 		</div>
 		<br/><br/><br/>
-		<button class="storeCreate" onclick="location.href='/storeCreate'">매장 등록</button>
+		<button class="storeCreate" onclick="location.href='/storeCreate'" th:if="${ #authentication.name } == admin">매장 등록</button>
+		<input class="loginUser" type="hidden" th:value="${ #authentication.name }">
 	</div>
-</div>s
+</div>
+
 <th:block layout:fragment="script">
 	<!-- Jquery JS-->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
