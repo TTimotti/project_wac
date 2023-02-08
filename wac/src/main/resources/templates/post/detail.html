@@ -27,6 +27,12 @@
     </div>  
             
         <div id="c-label">
+        
+        <div class="visual">
+            <img th:src="@{/image/display?fid={fid} (fid = ${post.image})}"/>
+        </div>
+                <br/>
+                
             <p class="b-label"></p>
         </div>
     </form>
@@ -63,6 +69,8 @@ btnDelete.addEventListener('click', function () {
     	document.querySelector('.b-label').innerHTML=contentP;
     </script>
 </th:block>
+
+
 </html>
 
 

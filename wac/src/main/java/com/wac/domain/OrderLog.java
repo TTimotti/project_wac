@@ -23,37 +23,49 @@ import lombok.ToString;
 public class OrderLog extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_LOG_SEQ_GEN")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDERS_SEQ_GEN")
     @Column(name = "order_log_id")
-    private Integer orderLogId; 
+    private Integer orderLogId; // 1
     
-    // 세가지 모두 2번(그렇지 않은 경우) == 매장식사  => 이건 이제 자료산출에 쓸 자료
-    @Column
-    private Integer driveThru; // DT로 가져가는 경우: 1, 그렇지 않은 경우 2
-    
-    @Column
-    private Integer delivery; // 배달: 1, 그렇지않은 경우: 2 
-    
-    @Column
-    private Integer isTakeOut; // 테이크아웃: 1, 그렇지않은 경우: 2
-    
-//    @Column(name = "delivery_time")     // 이게 원래 배달 도착 시간인데 이용도 말고
-//    private LocalDateTime deliveryTime; // 배송에 걸리는 시간으로써서 그냥 몇십분 Integer 로 해도 되긴하는데 
-                                          // 필요업을꺼같아서 주석처리 해놓겠습니다. 
-//    @Column(name = "cart_id")
-//    private Integer cartId; // 카트가 지워지고 주문내역이 남기때문에 오더아이디만 필요할 것 같습니다. 일단 주석처리 해놓겠습니다.
-    
+    @Column(name = "order_id")
+    private Integer orderId; // 1, 2, 3
+        
     @Column(name = "user_id")
-    private Integer userId; // 사용자    
+    private Integer userId; // 주문한 회원 아이디
     
-    @Column(name = "store_id")
-    private Integer storeId;
+    @Column(name = "user_name")
+    private Integer userName; // 주문한 회원 아이디
     
-    @Column(name = "store_name")
-    private String storeName;
+    @Column(name = "cart_id")
+    private Integer cartId; // 주문한 회원 장바구니 아이디
     
-    @Column(name = "address")
-    private String address;
+    @Column(name = "menu1_id") // 단품 
+    private Integer menuId1; // 상품 번호 
+    
+    @Column(name = "menu2_id") // 세트: 세트일 경우 나머지 메뉴아이디 자동채움. 
+    private Integer menuId2; // 상품 번호
+    
+    @Column(name = "menu3_id") // 사이드
+    private Integer menuId3; // 상품 번호
+    
+    @Column(name = "menu4_id") // 음료
+    private Integer menuId4; // 상품 번호
+    
+    @Column(name = "menu5_id") // 맥모닝
+    private Integer menuId5; // 상품 번호
+    
+    @Column(name = "menu6_id") // 맥모닝 세트
+    private Integer menuId6; // 상품 번호
+    
+    @Column
+    private Integer image; // 메뉴 이미지
+    
+    @Column(name = "total_price")
+    private Integer totalPrice;
+    
+//    @Column(name = "order_indate") // 크리에이트 모디파이 날짜로 해결될듯해서 주석처리 하겠습니다. 
+//    private Integer orderIndate; // 주문 날짜 
+    
     
     
 }
