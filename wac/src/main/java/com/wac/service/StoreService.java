@@ -1,5 +1,6 @@
 package com.wac.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -73,6 +74,30 @@ public class StoreService {
 		log.info("delete(id={})",storeId);
 		storeRepository.deleteById(storeId);
 		return storeId;
+	}
+	
+	/**
+	 * 검색어의 타입과 키워드를 받아 매장 검색기능을 구현.
+	 * @param type 검색어 분류
+	 * @param keyword 검색어 
+	 * @return 검색한 해당되는 리스트
+	 */
+	public List<Store> search(String type, String keyword) {
+		log.info("search(type={},keyword={})", type, keyword );
+		
+		List<Store> list = new ArrayList<>();
+		
+		switch (type) {
+		case "n": // 매장 이름 검색
+			list = storeRepository.findByStoreNameIgnoreCaseContainingOrderByStoreIdDesc(keyword);
+			break;
+		case "a": // 매장 주소로 검색
+			list = storeRepository.findByStoreAddressIgnoreCaseContainingOrderByStoreIdDesc(keyword);
+			break;
+		case "d": // 매장 서비스로 검색
+			list = storeRepository.findByDrinkExplainIgnoreCaseContainingOrderByStoreIdDesc(keyword);
+		}
+		return list;
 	}
 	
 }

@@ -14,5 +14,7 @@ public interface StoreRepository extends JpaRepository<Store, Integer> {
 	 */
 	List<Store> findByOrderByStoreId();
 	Store findBystoreId(Integer storeId);
-	
+	List<Store> findByStoreNameIgnoreCaseContainingOrderByStoreIdDesc(String keyword);
+	List<Store> findByStoreAddressIgnoreCaseContainingOrderByStoreIdDesc(String keyword);
+	List<Store> findByDrinkExplainIgnoreCaseContainingOrderByStoreIdDesc(String keyword);
 }

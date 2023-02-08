@@ -233,11 +233,28 @@ th {
 	cursor: pointer;
 	width: 200px;
 	height: 50px;
-	margin-right: 1100px;
+	margin-right: 900px;
 }
 #getMyPositionBtn:hover {
 	opacity: 0.5;
 }
+
+.toggle3 input[type=radio]{
+    display: none;
+    font-size: 3em;
+    font-family: 'Do Hyeon', sans-serif;
+}
+.toggle3 input[type=radio] + label {
+    color: #e0e0e0;
+    font-size: 3em;
+    font-family: 'Do Hyeon', sans-serif;  
+}
+.toggle3 input[type=radio]:checked + label {
+    color: #000;
+    font-size: 3em;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
 
 /** 반응형 웹 관련 기능**/
 @media ( max-width : 792px) {

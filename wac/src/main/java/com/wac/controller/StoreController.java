@@ -142,5 +142,12 @@ public class StoreController {
 		log.info("userAddress={}",userAddress);
 		return "redirect:/order";
 	}
-	
+	@GetMapping("/storeSearch")
+	public ResponseEntity<List<Store>> search(String type, String keyword){
+		
+		log.info("search=(type={})",type, keyword);
+		List<Store> list = storeService.search(type, keyword);
+		
+		return ResponseEntity.ok(list);
+	}
 }
