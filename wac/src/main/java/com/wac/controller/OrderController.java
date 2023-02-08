@@ -82,7 +82,7 @@ public class OrderController {
      * @param model
      * @author 추지훈
      */
-    @GetMapping()
+    @GetMapping("/order/create")
     public void create(Model model) {
         // TODO:: 
     }
@@ -94,7 +94,7 @@ public class OrderController {
      * @return
      * @author 추지훈
      */
-    @PostMapping("/create")
+    @PostMapping("/order/create")
     @ResponseBody
     public ResponseEntity<Order> create(@RequestBody CartTossDto data) {
         log.info("create menuId = {}, userName = {}", data);

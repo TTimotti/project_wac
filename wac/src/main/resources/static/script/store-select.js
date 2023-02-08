@@ -201,6 +201,28 @@ $(document).on("click", ".nextPage", function() {
 	}
 });
 
+// 구매하기 버튼 클릭시 결제 상세페이지로 이동하는 함수.
+$(document).on("click", ".buyPage", function() {
+
+    const storeName = document.querySelector(".dInfo").value;
+    const userAddressf = document.getElementById("userAddress").value
+        + " " + document.getElementById("userAddress2").value;
+            
+    if (storeName == "" || userAddressf == "") {
+
+        alert("입력 하지 않은 내용이 존재 합니다.");
+        
+    } else {
+        $('.storeName').val(storeName);
+        $('.userAddressf').val(userAddressf);
+
+        document.value.action = "/order/create"
+        
+        document.value.submit()
+    }
+});
+
+
 /**
  * 매장 목록 테이블 비동기 페이징 기능
  */

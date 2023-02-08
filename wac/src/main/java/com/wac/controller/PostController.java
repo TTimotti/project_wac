@@ -76,7 +76,7 @@ public class PostController {
      * @return
      * @author 추지훈
      */
-    @GetMapping("/post/postDetail")
+    @GetMapping("/post/detail")
     public void detail(@RequestParam("postId") Integer postId, Model model) {
         log.info("post/detail(postId = {})", postId);
         PostReadDto postDto = postService.readPost(postId);
