@@ -25,10 +25,10 @@ public class OrderLog extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDERS_SEQ_GEN")
     @Column(name = "order_log_id")
-    private Integer orderLogId; // 1
+    private Integer orderLogId; // 1, 2, 3
     
     @Column(name = "order_id")
-    private Integer orderId; // 1, 2, 3
+    private Integer orderId; // 1
         
     @Column(name = "user_id")
     private Integer userId; // 주문한 회원 아이디

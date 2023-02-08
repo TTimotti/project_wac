@@ -82,30 +82,35 @@ public class OrderController {
      * @param model
      * @author 추지훈
      */
-    @GetMapping("/order/create")
-    public void create(Model model) {
-        // TODO:: 
+    @PostMapping("/order/create")
+    public String create(String storeName, String userAddress, Model model) {
+        log.info("storeName={}",storeName);
+        log.info("userAddress={}",userAddress);
+
+        model.addAttribute("storeName",storeName);
+        model.addAttribute("userAddress",userAddress);
+        return "/order/create";
     }
     
-    /**
-     * 그러고 난 뒤 여기서 order 에 해당 유저의 cart 상세내역을 옮겨담고 order_log에 필요한 정보만 남긴뒤 
-     * 해당 카트 전체를 삭제한다.  
-     * @param data
-     * @return
-     * @author 추지훈
-     */
-    @PostMapping("/order/create")
-    @ResponseBody
-    public ResponseEntity<Order> create(@RequestBody CartTossDto data) {
-        log.info("create menuId = {}, userName = {}", data);
-        String userName = data.getUserName(); // 주문자명
-        Integer userId = 1;
-        // TODO::
-        
-        Order order = orderService.create(userId); 
-        
-        return ResponseEntity.ok(order);
-    }
+//    /**
+//     * 그러고 난 뒤 여기서 order 에 해당 유저의 cart 상세내역을 옮겨담고 order_log에 필요한 정보만 남긴뒤 
+//     * 해당 카트 전체를 삭제한다.  
+//     * @param data
+//     * @return
+//     * @author 추지훈
+//     */
+//    @PostMapping("/order/create")
+//    @ResponseBody
+//    public ResponseEntity<Order> create(@RequestBody CartTossDto data) {
+//        log.info("create menuId = {}, userName = {}", data);
+//        String userName = data.getUserName(); // 주문자명
+//        Integer userId = 1;
+//        // TODO::
+//        
+//        Order order = orderService.create(userId); 
+//        
+//        return ResponseEntity.ok(order);
+//    }
     
     
 }

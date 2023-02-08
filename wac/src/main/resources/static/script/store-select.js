@@ -217,7 +217,6 @@ $(document).on("click", ".buyPage", function() {
         $('.userAddressf').val(userAddressf);
 
         document.value.action = "/order/create"
-        
         document.value.submit()
     }
 });
