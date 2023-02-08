@@ -216,7 +216,7 @@ $(document).on("click", ".buyPage", function() {
         $('.storeName').val(storeName);
         $('.userAddressf').val(userAddressf);
 
-        document.value.action = "/order/create"
+        document.value.action = "/order/orderDetail"
         document.value.submit()
     }
 });

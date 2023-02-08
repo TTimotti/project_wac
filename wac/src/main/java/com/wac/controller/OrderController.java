@@ -82,14 +82,14 @@ public class OrderController {
      * @param model
      * @author 추지훈
      */
-    @PostMapping("/order/create")
+    @PostMapping("/order/orderDetail")
     public String create(String storeName, String userAddress, Model model) {
         log.info("storeName={}",storeName);
         log.info("userAddress={}",userAddress);
 
         model.addAttribute("storeName",storeName);
         model.addAttribute("userAddress",userAddress);
-        return "/order/create";
+        return "/order/orderDetail";
     }
     
 //    /**
