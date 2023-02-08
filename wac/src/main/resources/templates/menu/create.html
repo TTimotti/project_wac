@@ -89,8 +89,7 @@
         <br/>
         <br/>
         <br/>
-        <div class="div_label">
-            <!-- <input type="submit" class="form-control btn btn-primary" value="작성 완료" />  -->
+        <div class="div_label" th:if="${ #authentication.name } == admin">
             <a class="buttons" id="btnSubmit">생성하기!</a>
         </div>
     </div> <!-- Container -->

@@ -11,17 +11,17 @@
     <div id="main">   
     <form id="formDelete"> 	
     <div id="head">         
-        <div class="my-4">
+        <div class="div_label" th:if="${ #authentication.name } == admin">
             <label for="postId" class="form-label">글 번호</label>
             <input id="postId" name="id" class="form-control" th:value="${ post.postId }" readonly />
         </div>  
-        <div class="my-4">           
+        <div class="div_label">           
             <input readonly th:value="${ post.title }" class="h-label" id="title" />
         </div>
-        <div class="my-4">                    
+        <div class="div_label">                    
             <input readonly th:value="${ post.author }" class="h-label" />
         </div>
-        <div class="my-4">                        
+        <div class="div_label">                        
             <input readonly th:value="${ post.kind }" class="h-label" />
         </div>
     </div>  
@@ -30,8 +30,8 @@
             <p class="b-label"></p>
         </div>
     </form>
-        <div class="btn">
-	        <button id="btnDelete">삭제하기</button>
+        <div class="div_label" th:if="${ #authentication.name } == admin">
+	        <button class="buttons" id="btnDelete">삭제하기</button>
         </div>
     </div>
 
