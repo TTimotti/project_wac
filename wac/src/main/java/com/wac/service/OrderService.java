@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.wac.domain.Order;
 import com.wac.repository.OrderRepository;
+import com.wac.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +23,7 @@ public class OrderService {
 
 	private final OrderRepository orderRepository;
 	
+	private final UserRepository userRepository;
 	/**
 	 * 모든 order 출력
 	 * @return
@@ -40,8 +42,10 @@ public class OrderService {
     	return orderRepository.findByUserId(userId).orElse(null);
     }
 
-    public Order create(Integer userId) {
+    public Order create(String userName, String storeName, String address, Integer pickUp) {
         // TODO:
+        Integer userId = userRepository.findUserIdByUserName(userName);
+        
         return null;
     }
 }

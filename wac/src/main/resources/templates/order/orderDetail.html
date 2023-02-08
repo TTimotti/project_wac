@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ /layout/basic-layout }">
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/cartDetail.css}">
+</th:block>
+
+<div layout:fragment="content">
+    <div class="wrapper">
+        <div id="container">
+            <div class="contents">
+                <!-- 상단 배너 -->
+                <div class="bannerArea bgImage">
+                    <div class="inner">
+                        <h1 class="title" data-title="프로모션" data-desc="프로모션">주문 상세내역</h1>
+                        <
+                        
+                        
+                    </div> <!-- inner -->
+                </div> <!-- bannerArea -->
+                      
+                <!-- 주문 내역 -->
+                <div class="contArea">
+                    <div class="inner">
+                        <ul class="cart_list">
+                            <!-- 반복문 시작 -->
+                            <li th:each="cl : ${ cartList } " style="border-radius: 10px;" class="cartListInfo" th:data-index="${cl.cartId}">
+                                <div class="cont">
+                                    <div class="menu_titWrap">
+                                        <label class="menu_name">
+                                            <span class="tit">
+                                                <strong>
+                                                    <!-- 메뉴 이름 -->
+                                                    <span id="menuNameInfo" class="menuNameInfo">메뉴 이름</span>
+                                                </strong>
+                                            </span>
+                                            <span class="set_info"></span>
+                                            <span class="price">
+                                                <!-- 가격 -->
+                                                <strong>
+                                                    <span id="menuPriceInfo" class="menuPriceInfo" style="margin-left: 5px;">메뉴 가격</span>
+                                                    <span class="unit">원</span>
+                                                </strong>
+                                            </span>
+                                        </label> <!-- menuName -->
+                                        <!-- 메뉴 사진 -->
+                                        <div class="prd_img">
+                                            <span>
+                                                <img id="menuImageInfo" class="menuImageInfo" src="/image/display?fid=5" alt="메뉴 사진" style="display: inline; opacity: 1"/>
+                                            </span>
+                                        </div> <!-- prd_img -->
+                                    </div> <!-- menu_titWrap -->
+                                    
+                                    <!-- 세트 메뉴 선택 시, 사이드 변경 칸 -->
+                                    <!-- Controller에서 사이드에 관한 정보 가져오기. -->
+                                    <div id="isSetMenuInfo" class="setmenu_detail isSetMenuInfo">
+                                        <dl>
+                                            <dt>사이드</dt>
+                                            <dd>
+                                                <div class="list">
+                                                    <span id="sideMenuInfo" class="txt sideMenuInfo"></span>
+                                                    <strong class="amount">
+                                                        +
+                                                        <span id="extraChargeInfo" class="extraChargeInfo"></span>
+                                                        <span class="unit">원</span>
+                                                    </strong>
+                                                </div>
+                                                <button type="button" class="btn04 h02 btn_edit btnSideChange" id="sideChange">
+                                                    <span>▼</span>
+                                                </button>
+                                            </dd>
+                                        </dl>
+                                        
+                                        <div class="sideMenuList" id="sideMenuList" style="background-color: white; border-radius: 10px; padding-bottom: 20px; display:none;">
+                                            <ul>
+                                                <li th:each="sl : ${ sideList } " style="display:inline-block;" id="sideChangeInfo" class="sideChangeInfo">
+                                                    <label>
+                                                        <input type="radio" name="sideMenuChange" th:data-menuId="${sl.menuId}" th:data-menuName="${sl.menuName}" th:value="${sl.price - 2600}"/>
+                                                        <img th:src="@{/image/display?fid={fid} (fid = ${sl.image})}" th:alt="${sl.menuName}" style="width: 350px; height: 200px; "/>
+                                                    </label>
+                                                    <div style="text-align: center; margin: 10px 0;" th:text="${sl.menuName}"></div>
+                                                    <div style="text-align: center; margin: 10px 0;" th:text="'+ ' + ${sl.price - 2600} + 원"></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <dl>
+                                            <dt>음료</dt>
+                                            <dd>
+                                                <div class="list">
+                                                    <span id="drinkMenuInfo" class="txt drinkMenuInfo"></span>
+                                                    <strong class="amount">
+                                                        +
+                                                        <span id="extraChargeInfo2" class="extraChargeInfo2"></span>
+                                                        <span class="unit">원</span>
+                                                    </strong>
+                                                </div>
+                                                <button type="button" class="btn04 h02 btn_edit btnDrinkChange" id="drinkChange">
+                                                    <span>▼</span>
+                                                </button>
+                                            </dd>
+                                        </dl>
+                                        <div class="drinkMenuList" id="drinkMenuList" style="background-color: white; border-radius: 10px; padding-bottom: 20px; display:none;">
+                                            <ul>
+                                                <li th:each="dl : ${ drinkList } " style="display:inline-block;" id="drinkChangeInfo" class="drinkChangeInfo">
+                                                    <label>
+        
+                                                        <input type="radio" name="drinkMenuChange" th:data-menuId="${dl.menuId}" th:data-menuName="${dl.menuName}" th:value="${dl.price - 2200}"/>
+                                                        <img th:src="@{/image/display?fid={fid} (fid = ${dl.image})}" alt="음료메뉴" style="width: 350px; height: 200px; "/>
+                                                    </label>
+                                                    <div style="text-align: center; margin: 10px 0;" th:text="${dl.menuName}"></div>
+                                                    <div style="text-align: center; margin: 10px 0;" th:text="'+ ' +${dl.price - 2200} + 원"></div>
+                                                </li>
+                                            </ul>
+                                        </div>                                   
+                                    </div> <!-- setmenu_detail -->
+                                    
+                                    
+                                    <!-- 수량 세기 -->
+                                    <div class="quantity">
+                                        <strong class="tit">수량</strong>
+                                        <div class="num_set">
+                                            <button type="button" class="btn_minus">
+                                                <span style="color: white;">-</span>
+                                            </button>
+                                            <input type="number" readonly="readonly" id="menuQuantityInfo" class="menuQuantityInfo"/>
+                                            <button type="button" class="btn_plus">
+                                                <span style="color: white;">+</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div> <!-- cont -->
+                                <div class="sumWrap">
+                                    <dl>
+                                        <dt>합계금액</dt>
+                                        <dd>
+                                            <strong>
+                                                <em>
+                                                    <span id="eachMenuPriceTotalInfo" class="eachMenuPriceTotalInfo">개별 메뉴 총 가격</span>
+                                                    <span class="unit">원</span>
+                                                </em>
+                                            </strong>
+                                        </dd>
+                                    </dl>
+                                </div> <!-- sumWrap -->
+                                <button type="button" class="btn_del02 btnDelete">
+                                    <span style="font-size: 30px;">X</span>
+                                </button>
+                            </li> <!-- 반복문 끝 -->
+                        </ul>
+                        <div class="sumWrap" style="border-radius: 10px;">
+                            <dl>
+                                <dt>총 주문금액</dt>
+                                <dd>
+                                    <strong>
+                                        <em>
+                                            <span id="totalPriceInfo"></span>
+                                            <span class="unit">원</span>
+                                        </em>
+                                    </strong>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="cartinfo">
+                            <div class="c_btn item2">
+                                <a th:href="@{/order}">
+
+                                <button type="button" class="btn01 m ico add">
+                                    <span>
+                                        메뉴 추가
+                                    </span>
+                                </button>
+
+                            </a>    
+
+
+                                <button type="button" class="btn01 m red" id="btnPayment">
+                                    <span>
+                                        결제하기
+                                    </span>
+                                </button>
+                            </div>
+                            <ul class="txtlist01">
+                                <li>
+                                    주문하기 전에 꼭 상품명, 수량 및 가격을 확인해주세요.
+                                </li>
+                                <li>
+                                    배달 최소금액은 15,000원입니다.
+                                </li>
+                            </ul>
+                        </div> <!-- cartinfo -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        
+        </div>
+    </div>
+</div>  
+
+
+<th:block layout:fragment="script" th:inline="javaScript">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+    const cartList = [[${ cartList }]];
+    const sideList = [[${ sideList }]];
+    const drinkList = [[${ drinkList }]];
+    </script>
+    <script th:src="@{/script/cartDetail.js}"></script>
+</th:block>
+
+</html>

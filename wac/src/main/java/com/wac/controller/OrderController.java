@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.wac.domain.Cart;
 import com.wac.domain.Menu;
 import com.wac.domain.Order;
-import com.wac.dto.CartTossDto;
+import com.wac.dto.OrderTossDto;
 import com.wac.service.CartService;
 import com.wac.service.ImagesService;
 import com.wac.service.MenuService;
@@ -82,9 +82,14 @@ public class OrderController {
      * @param model
      * @author 추지훈
      */
-    @GetMapping()
-    public void create(Model model) {
-        // TODO:: 
+    @PostMapping("/order/orderDetail")
+    public String create(String storeName, String userAddress, Model model) {
+        log.info("storeName={}",storeName);
+        log.info("userAddress={}",userAddress);
+
+        model.addAttribute("storeName",storeName);
+        model.addAttribute("userAddress",userAddress);
+        return "/order/orderDetail";
     }
     
     /**
@@ -94,15 +99,21 @@ public class OrderController {
      * @return
      * @author 추지훈
      */
-    @PostMapping("/create")
+    @PostMapping("/order/create")
     @ResponseBody
-    public ResponseEntity<Order> create(@RequestBody CartTossDto data) {
+    public ResponseEntity<Order> create(@RequestBody OrderTossDto data) {
         log.info("create menuId = {}, userName = {}", data);
+        Integer pickUp = data.getPickupService();
+        String address = data.getUserAddress();
+        String storeName = data.getStoreName();
         String userName = data.getUserName(); // 주문자명
-        Integer userId = 1;
+        
         // TODO::
         
-        Order order = orderService.create(userId); 
+        Order order = orderService.create(userName, storeName, address, pickUp);
+        
+        
+        
         
         return ResponseEntity.ok(order);
     }

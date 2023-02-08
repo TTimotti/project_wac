@@ -10,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.wac.domain.Images;
+import com.wac.domain.Menu;
 import com.wac.repository.ImagesRepository;
+import com.wac.repository.MenuRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ImagesService {
 
     private final ImagesRepository imagesRepository;
+    private final MenuRepository menuRepository;
     
     @Transactional(readOnly = true) // 검색 속도가 빨라짐.
     public List<Images> read() {
@@ -93,6 +96,49 @@ public class ImagesService {
         Images savedFile = imagesRepository.save(image);
 
         return savedFile.getFid();
+        
+    }
+
+    
+    /**
+     * 메뉴 이미지 업데이트 메서드
+     * @param file
+     * @param menuId
+     * @author 서범수.
+     * @throws IOException 
+     * @throws IllegalStateException 
+     */
+    @Transactional
+    public Integer updateMenuImage(MultipartFile file, Integer menuId) throws IllegalStateException, IOException {
+        log.info("updateMenuImage(file={}, teamId={}) 호출", file, menuId);
+        if (file.isEmpty()) {
+            return null;
+        }
+
+        // 원래 파일 이름 추출
+        String origName = file.getOriginalFilename();
+
+        // 저장할 이름 생성
+        String fileName = "Menu" +origName.substring(0, origName.indexOf("."));
+
+        // 확장자 추출(ex : .png)
+        String extension = origName.substring(origName.lastIndexOf("."));
+
+        // 파일을 불러올 때 사용할 파일 경로
+        String savedPath = fileDir + fileName + extension;
+
+        // 실제로 로컬에 저장
+        file.transferTo(new File(savedPath));
+
+        // 데이터베이스에 파일 정보 저장 (레퍼지토리 호출)
+        Menu menu = menuRepository.findByMenuId(menuId).get();
+        Integer fid = menu.getImage();
+        
+        Images entity = imagesRepository.findByFid(fid);
+        log.info("updateMenuImage.entity = {} " , entity);
+        entity.update(fileName, origName, savedPath, extension);
+
+        return fid;
         
     }
 }

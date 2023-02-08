@@ -17,28 +17,18 @@
     <div class="frontFont">
         <h1> 메뉴 수정 페이지 </h1>
     </div>
-    <form id="formModify">
+    <form id="formModify" method="post" enctype="multipart/form-data">
     <div class="Container">
-            <div>
-                <div class="div_label">
-                    <label for="kind" class="form-label">분류 번호</label>
-                </div>
-                <br/>
-                <input id="kind" name="kind" class="inputs" th:value="${ menu.kind }" readonly />
-            </div>
-            
-            <br/>
-            
             <div>
                 <div class="div_label">
                     <label for="menuId" class="form-label">메뉴 번호</label>
                 </div>
                 <br/>
-                <input id="menuId" name="id" class="inputs" th:value="${ menu.menuId }" readonly />
+                <input id="menuId" name="menuId" class="inputs" th:value="${ menu.menuId }" readonly />
             </div>
             
             <br/>
-            
+
             <div>
                 <div class="div_label">
                     <label for="menuName" class="form-label">메뉴 이름</label>
@@ -61,6 +51,16 @@
             
             <div>
                 <div class="div_label">
+                    <label for="kind" class="form-label">분류</label>
+                </div>
+                <br/>
+                <input id="kind" name="kind" class="inputs" th:value="${ menu.kind }" readonly />
+            </div>
+            
+            <br/>            
+            
+            <div>
+                <div class="div_label">
                     <label for="price" class="form-label">가격</label>
                 </div>
                 <br/>
@@ -72,84 +72,103 @@
             <div>
                 <div class="div_label">
                     <label for="content" class="form-label inputs">내용</label>
-                    <br/><br/>
+                    <br/>
                     <textarea id="content" name="content" class="inputs" th:text="${ menu.content }"></textarea>
                 </div>
                 <br/>
-                
+            </div>
+            
+            <div>
+                <div class="div_label">
+                    <label for="image" class="form-label inputs">메뉴 이미지</label>
+                    <br/>
+                    <div class="imgDiv">
+                        <div class="imageArea">
+                            <img id="menuImage" th:src="@{ /image/display?fid={fid} (fid = ${menu.image})}" style="width:240px; height: 240px; background-color: white;"/>
+                    </div>
+                        <input type="file" id="image" class="buttons inputs form-form form-create form-image" name="image" />
+                    </div>                    
+                </div>
             </div>
             
             <br/>
-            
+            <br/>
+            <br/>
+            <div class="div_label">
+                <a class="buttons" id="btnDelete">삭제</a>
+                <br/><br/>
+                <a class="buttons" id="btnUpdate">수정 완료</a>
+            </div>
+    
 
-            
-            <br/><br/>
-
-
-
-
-        
-
-
-
-
-
-
-
-<div class="editArea">
-    <div class="btnConfigDiv" style="text-align: right;">
-        <div class="div_label">
-            <button class="buttons btn btn-danger" id="btnDelete">삭제</button>
-            <br/><br/>
-            <button class="buttons btn btn-success" id="btnUpdate">수정 완료</button>
-        </div>
-    </div>
-</div> <!-- editArea -->
-</div>
-
-
-
-
-
-
+</div> <!-- Container -->
 </form>
 </div>  <!-- layout:fragment -->
 
 
 
 <th:block layout:fragment="script" th:inline="javaScript">
+    <script th:src="@{ /script/menuModify.js }"></script>
 <script>
+
+
 
 const formModify = document.querySelector('#formModify');
 
 //삭제 이벤트 리스너.
 const btnDelete = document.querySelector('#btnDelete');
 btnDelete.addEventListener('click', function () {
- const result = confirm('정말 삭제하시겠습니까?');
- if (result) {
-     formModify.action = '/menu/delete';
-     formModify.method = 'post';
-     formModify.submit();
- }
+const result = confirm('정말 삭제하시겠습니까?');
+if (result) {
+    formModify.action = '/menu/delete';
+    formModify.method = 'post';
+    formModify.submit();
+}
 });
 
 //수정 이벤트 리스너.
 const btnUpdate = document.querySelector('#btnUpdate');
 btnUpdate.addEventListener('click', function () {
-    const menuName = document.querySelector('#menuName').value;
-    const price = document.querySelector('#price').value;
-    if (menuName == '' || price == '') {
-        alert('제목과 내용은 반드시 입력.');
-        return;
-    }
-    
-    const result = confirm('정말 수정하시겠습니까?');
-    if (result) {
-        formModify.action = '/menu/update';
-        formModify.method = 'post';
-        formModify.submit();
-    }
+   const menuName = document.querySelector('#menuName').value;
+   const price = document.querySelector('#price').value;
+   if (menuName == '' || price == '') {
+       alert('제목과 내용은 반드시 입력.');
+       return;
+   }
+   
+   const result = confirm('정말 수정하시겠습니까?');
+   if (result) {
+       formModify.action = '/menu/update';
+       formModify.method = 'post';
+       formModify.submit();
+   }
 });
+
+let img = document.querySelector('input#image'); 
+        console.log(img);
+        
+        function readImage(input) {
+               // 인풋 태그에 파일이 있는 경우
+               if(input.files && input.files[0]) {
+                   // 이미지 파일인지 검사 (생략)
+                   // FileReader 인스턴스 생성
+                   const reader = new FileReader();
+                   // 이미지가 로드가 된 경우
+                   reader.onload = e => {
+                       const previewImage = document.querySelector('img#menuImage');
+                       previewImage.setAttribute('src', e.target.result);
+                   }
+                   // reader가 이미지 읽도록 하기
+                   reader.readAsDataURL(input.files[0]);
+               }
+           }
+           // input file에 change 이벤트 부여
+
+           img.addEventListener("change", e => {
+               console.log('change');
+               readImage(e.target);
+           })
+
 </script>
 
     <script>

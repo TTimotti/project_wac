@@ -105,6 +105,7 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
      */
     @Query("select m.menuId from MENUS m where m.menuName = :menuName")
     Integer readDefaultOptionByName(@Param("menuName") String menuName);
+    
 
     
 
