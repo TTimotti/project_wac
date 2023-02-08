@@ -24,6 +24,9 @@ window.addEventListener('DOMContentLoaded', function() {
     const btnDelete = document.querySelectorAll('.btnDelete');
     const btnSideChange = document.querySelectorAll('.btnSideChange');
     const btnDrinkChange = document.querySelectorAll('.btnDrinkChange');
+    
+    const btnPayment = document.querySelectorAll('#btnPayment');
+    
     const cocaCola = 2200;
     const frenchFries = 2600;
     var totalPrice = 0;
@@ -378,9 +381,41 @@ window.addEventListener('DOMContentLoaded', function() {
                 } // updateMenuList 끝.
                 
             } // for문 끝.*/        
+    btnPayment.forEach(btn => {
+        btn.addEventListener('click', tossOrder);
+    })
+
+function tossOrder(event) {
     
+    const data_menuId = event.target.getAttribute('data-menuId');
+    const data_storeName = event.target.getAttribute('data-storeName');
+    const data_userAddress = event.target.getAttribute('data-userAddress');
+    console.log(storeName);
+    console.log("카트로 넘어가는 메뉴", data_menuId);
+    console.log("유저이름", loginUser);
 
+    btnTossCart.href = "/order/cart?userName=" + loginUser;
+    console.log("페이지넘어가기", loginUser);
 
+    const data = {
+            menuId: data_menuId,
+            userName: loginUser,
+            storeName: data_storeName,
+            userAddress: data_userAddress
+        }
+    console.log("데이터 확인", data);
+
+     axios
+    .post('/cart/create/', data )
+    .then(response => { 
+        response.data; 
+
+        console.log("컨트롤러 넘어가는지 확인", data);    
+        })
+    .catch(err => { console.log(err)});   
+
+    console.log("성공");
+};
 
 
 

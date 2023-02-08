@@ -33,6 +33,8 @@ public class Order extends BaseTimeEntity {
     @Column(name = "pickup_service")
     private Integer pickupService; // 매장식사: 1, 테이크아웃: 2, 배달: 3, DT: 4
 
+    @Column
+    private Integer payment; // 결제 수단  카드: 1, 현금 : 2
     
     @Column(name = "user_id")
     private Integer userId; // 사용자    

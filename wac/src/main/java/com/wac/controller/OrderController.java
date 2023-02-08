@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.wac.domain.Cart;
 import com.wac.domain.Menu;
 import com.wac.domain.Order;
-import com.wac.dto.CartTossDto;
+import com.wac.dto.OrderTossDto;
 import com.wac.service.CartService;
 import com.wac.service.ImagesService;
 import com.wac.service.MenuService;
@@ -92,25 +92,31 @@ public class OrderController {
         return "/order/orderDetail";
     }
     
-//    /**
-//     * 그러고 난 뒤 여기서 order 에 해당 유저의 cart 상세내역을 옮겨담고 order_log에 필요한 정보만 남긴뒤 
-//     * 해당 카트 전체를 삭제한다.  
-//     * @param data
-//     * @return
-//     * @author 추지훈
-//     */
-//    @PostMapping("/order/create")
-//    @ResponseBody
-//    public ResponseEntity<Order> create(@RequestBody CartTossDto data) {
-//        log.info("create menuId = {}, userName = {}", data);
-//        String userName = data.getUserName(); // 주문자명
-//        Integer userId = 1;
-//        // TODO::
-//        
-//        Order order = orderService.create(userId); 
-//        
-//        return ResponseEntity.ok(order);
-//    }
+    /**
+     * 그러고 난 뒤 여기서 order 에 해당 유저의 cart 상세내역을 옮겨담고 order_log에 필요한 정보만 남긴뒤 
+     * 해당 카트 전체를 삭제한다.  
+     * @param data
+     * @return
+     * @author 추지훈
+     */
+    @PostMapping("/order/create")
+    @ResponseBody
+    public ResponseEntity<Order> create(@RequestBody OrderTossDto data) {
+        log.info("create menuId = {}, userName = {}", data);
+        Integer pickUp = data.getPickupService();
+        String address = data.getUserAddress();
+        String storeName = data.getStoreName();
+        String userName = data.getUserName(); // 주문자명
+        
+        // TODO::
+        
+        Order order = orderService.create(userName, storeName, address, pickUp);
+        
+        
+        
+        
+        return ResponseEntity.ok(order);
+    }
     
     
 }
