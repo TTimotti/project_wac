@@ -5,7 +5,7 @@
 <th:block layout:fragment="css">
 	<link rel="stylesheet" th:href="@{/css/store.css}">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link
 		href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
 		rel="stylesheet">
@@ -24,21 +24,23 @@
 	<div class="frontFont">
 		<h1>Wacdonald 매장 안내</h1>
 	</div>
-	<form class ="storeContainer">
+	<div class ="storeContainer">
 		<div id="map"></div>
 		<br/><br/>
-		<button type="button" id="getMyPositionBtn" onclick="getCurrentPosBtn()">내 위치 중심으로 보기</button>
+	<div class ="storeSearch-panel">
 		<div class="toggle3">
-		    <input type="radio" id="toggle3-1" name="type" value="n">
-		  	  <label for="toggle3-1">매장명</label>
+		<button type="button" id="getMyPositionBtn" onclick="getCurrentPosBtn()">내 위치 중심으로 보기</button>
+		    <input type="radio" id="toggle3-1" name="type" value="n" readonly>
+		  	    <label for="toggle3-1">매장명</label>
 		    <input type="radio" id="toggle3-2" name="type" value="a">
 			    <label for="toggle3-2">주소</label>
 		    <input type="radio" id="toggle3-3" name="type" value="d">
 			    <label for="toggle3-3">서비스</label>
-		</div>    
+		</div>   
 		<input type="text" class="storeSearch" name="storeSearch" placeholder="매장명을 입력 해주세요.">
 		<input type="button" class="storeSearch-btn" value="검색"/>
-	</form>
+	</div>
+	</div>
 	<div class="storeContainer2">
 		<div class="storePlace">
 		<table class="storeTable">
@@ -51,7 +53,7 @@
 		<br/><br/><br/>
 		<button class="storeCreate" onclick="location.href='/storeCreate'" th:if="${ #authentication.name } == admin">매장 등록</button>
 		<input class="loginUser" type="hidden" th:value="${ #authentication.name }">
-		<input class="searchChoice" type="text"/>
+		<input class="searchChoice" type="hidden"/>
 	</div>
 </div>
 

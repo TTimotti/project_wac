@@ -6,6 +6,7 @@
 .storeContainer {
 	text-align: center;
 	margin-bottom: 20px;
+	flex-wrap: wrap;
 }
 
 .storeContainer2 {
@@ -221,7 +222,6 @@ th {
 }
 
 /** 내 위치 버튼 **/
-
 #getMyPositionBtn {
 	font-size: 20px;
 	font-weight: bolder;
@@ -232,8 +232,10 @@ th {
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
 	width: 200px;
-	height: 50px;
-	margin-right: 900px;
+	height: 43px;
+	float: left;
+	margin: 10px;
+	margin-left:100px;
 }
 #getMyPositionBtn:hover {
 	opacity: 0.5;
@@ -243,18 +245,60 @@ th {
     display: none;
     font-size: 3em;
     font-family: 'Do Hyeon', sans-serif;
+    float:left;
 }
 .toggle3 input[type=radio] + label {
     color: #e0e0e0;
     font-size: 3em;
-    font-family: 'Do Hyeon', sans-serif;  
+    font-family: 'Do Hyeon', sans-serif;
+    float:left;
 }
 .toggle3 input[type=radio]:checked + label {
     color: #000;
     font-size: 3em;
     font-family: 'Do Hyeon', sans-serif;
 }
-
+.storeSearch-panel {
+	width: 1200px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	padding-bottom: 0px;
+}
+label {
+  cursor: pointer;
+  margin: 10px;
+}
+.storeSearch {
+	float:left;
+	margin: 10px;
+	padding-top: 5px;
+	width: 300px;
+	height: 35px;
+	border: none;
+  	border-bottom: 3px solid black;
+  	font-family: 'Do Hyeon', sans-serif;
+  	font-size: 30px;
+  	text-align: center;
+}
+.storeSearch:focus {
+    outline: none;
+  }
+.storeSearch-btn {
+	float:left;
+	margin: 10px;
+	width: 100px;
+	height: 43px;
+	font-size: 30px;
+	font-family: 'Do Hyeon', sans-serif;
+	background-color: #FFD126;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	border: none;
+	border-radius: 5px 5px 5px 5px;
+	padding-top:5px;
+}
 
 /** 반응형 웹 관련 기능**/
 @media ( max-width : 792px) {
