@@ -4,7 +4,6 @@
 생성자 장민석.
 **/
 .storeContainer {
-	width: 100%;
 	text-align: center;
 	margin-bottom: 20px;
 }
@@ -77,7 +76,7 @@ a {
 .storePlace {
 	margin: 5px;
 	border-radius: 5px 5px 5px 5px;
-	display: inline-block
+	display: inline-block;
 }
 
 table {
