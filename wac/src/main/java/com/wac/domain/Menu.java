@@ -53,12 +53,13 @@ public class Menu extends BaseTimeEntity {
     private String sellyn; // 판매 중: y , 판매중단: n
     
     
-    public Menu update(String menuName, String menuEnName, Integer kind, Integer price, String content) {
+    public Menu update(String menuName, String menuEnName, Integer kind, Integer price, String content, Integer image) {
         this.menuName = menuName;
         this.menuEnName = menuEnName;
         this.kind = kind;
         this.price = price; 
         this.content = content;
+        this.image = image;
         
         return this;
     }

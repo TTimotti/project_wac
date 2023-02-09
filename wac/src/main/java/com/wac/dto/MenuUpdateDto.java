@@ -19,9 +19,10 @@ public class MenuUpdateDto {
     private Integer kind;
     private Integer price;
     private String content;
+    private Integer image;
     
     public Menu toEntity() {
-        return Menu.builder().menuId(menuId).menuName(menuName).menuEnName(menuEnName).kind(kind).price(price).content(content).build();
+        return Menu.builder().menuId(menuId).menuName(menuName).menuEnName(menuEnName).kind(kind).price(price).content(content).image(image).build();
     }
     
     public static MenuUpdateDto fromEntity(Menu entity) {
@@ -32,6 +33,7 @@ public class MenuUpdateDto {
                 .kind(entity.getKind())
                 .price(entity.getPrice())
                 .content(entity.getContent())
+                .image(entity.getImage())
                 .build();
     }
 }
