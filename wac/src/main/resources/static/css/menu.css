@@ -152,13 +152,13 @@ ul, ol, li {
     font-size: 20px;
     line-height: 39px;
     display: inline-block;
-    vertical-align: top;
 }
 
 #btnTossCart {
     background-color: #ffce47;
     color: #d21920!important;
     border-color: #d21920;
+    text-transform: uppercase;
 }
 
 

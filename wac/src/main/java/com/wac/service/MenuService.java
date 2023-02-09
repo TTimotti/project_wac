@@ -11,6 +11,7 @@ import com.wac.domain.Menu;
 import com.wac.dto.MenuCreateDto;
 import com.wac.dto.MenuReadDto;
 import com.wac.dto.MenuUpdateDto;
+import com.wac.dto.MyCartMenuDto;
 import com.wac.repository.MenuRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -202,6 +203,29 @@ public class MenuService {
         
         Integer menuId = menuRepository.readDefaultOptionByName(name);
         return menuId;
+    }
+    
+    /**
+     * 카트에 담겨있는 정보들 한 번에 가져오기.
+     * @param menuIdList
+     * @return
+     * @author 서범수.
+     */
+    public ArrayList<MyCartMenuDto> getMenuInfo(ArrayList<Integer> menuIdList) {
+        for (Integer menuId : menuIdList) {
+        log.info("getMenuInfo(menuIdList={})", menuId);
+        }
+
+        // menuIdList에 있는 '순서대로' 가져와야 함.
+        ArrayList<MyCartMenuDto> menus = new ArrayList<>();
+
+        for (Integer menuId : menuIdList) {
+//            MyCartMenuDto menu = menuRepository.getMenuInfo(menuId);
+//            menus.add(menu);
+        }
+
+        log.info("메뉴메뉴={}", menus);
+        return menus;
     }
     
 

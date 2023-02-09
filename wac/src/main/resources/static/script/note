@@ -1,10 +1,10 @@
 /**
- * 카트창 페이지...
+ * 오더 마지막 창 페이지
  * 서범수
  */
 window.addEventListener('DOMContentLoaded', function() {
 
-       
+    
     // 변수들 저장하기
     const menuNameInfo = document.querySelectorAll('.menuNameInfo');
     const menuPriceInfo = document.querySelectorAll('.menuPriceInfo');
@@ -139,7 +139,19 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     } // setMenuInfo 끝.
        
- 
+        
+
+
+
+
+
+
+// 수량 관련.
+    // 수량 현황 보여주기
+
+    
+
+
 const btnCreateOrder = document.querySelector('#btnSubmit');    
 const formCreateCart = document.querySelector('#formCreateCart'); 
 console.log("결제버튼 찾기", btnCreateOrder);

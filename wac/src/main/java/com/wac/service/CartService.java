@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.wac.domain.Cart;
 import com.wac.domain.Menu;
+import com.wac.dto.MenuSimpleDto;
 import com.wac.repository.CartRepository;
 import com.wac.repository.MenuRepository;
 import com.wac.repository.UserRepository;
@@ -221,6 +222,18 @@ public class CartService {
         List<Cart> list = cartRepository.findByUserIdOrderByCartId(userId);
         
         return list;
+    }
+    
+    /**
+     * 사이드메뉴 정보 간략하게 가져오는 메서드
+     * @return List<MenuSimpleDto>
+     * @author 서범수
+     */
+    public List<MenuSimpleDto> readSimpleMenuByKind(Integer kind) {
+        log.info("readSimpleSideMenuByKind() 호출");
+        List<MenuSimpleDto> sideList = menuRepository.findSimpleMenuByKindOrderByMenudId(kind);
+
+        return sideList;
     }
 
 

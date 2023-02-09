@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.wac.domain.Menu;
+import com.wac.dto.MenuSimpleDto;
+import com.wac.dto.MyCartMenuDto;
 
 /**
  * @author 추지훈
@@ -107,6 +109,17 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
     Integer readDefaultOptionByName(@Param("menuName") String menuName);
     
 
+    /**
+     * 카트에 담겨있는 정보들 한 번에 가져오기.
+     * @param menuIdList
+     * @return
+     * @author 서범수.
+     */
+//    @Query("select new com.wac.dto.MyCartMenuDto(m.menuId, m.image, m.kind, m.menuName, m.price) from MENUS m where m.menuId = :menuId")
+//    MyCartMenuDto getMenuInfo(@Param("menuId") Integer menuId);
+
+    @Query("select new com.wac.dto.MenuSimpleDto(m.menuId, m.menuName, m.price) from MENUS m where m.kind = :kind order by m.menuId")
+    List<MenuSimpleDto> findSimpleMenuByKindOrderByMenudId(@Param("kind") Integer kind);
     
 
     
