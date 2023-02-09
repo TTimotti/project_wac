@@ -140,17 +140,19 @@ ul, ol, li {
 	outline: 2px orange solid;
 }
 
-.tabType01 li a:hover {
+.tabType01 .q:hover {
     color: #db0007;
     font-weight: 600;
     border-bottom: 1px solid #db0007;
 }
 
-.tabType01 li a {
+.tabType01 .q {
     display: block;
     height: 40px;
     font-size: 20px;
     line-height: 39px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 

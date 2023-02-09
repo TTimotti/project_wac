@@ -36,13 +36,13 @@
             <div class="inner">
                 <ul class="tabType01">
 
-                    <li class="button buger"><a class="btn form-control" id="buger">버거</a></li>
-                    <li class="button meal"><a id="meal">세트메뉴</a></li>
-                    <li class="button side"><a id="side">사이드 & 디저트</a></li>
-                    <li class="button drink"><a id="drink">음료 & 카페</a></li>
-                    <li class="button morning"><a id="morning">맥모닝</a></li>
-                    <li class="button morningMeal"><a id="morningMeal">맥모닝 세트</a></li>
-                    <li class="div_label" th:if="${ #authentication.name } == admin"><a th:href="@{ /menu/create }">새 메뉴 등록</a></li>
+                    <li class="q button buger"><a class="q btn form-control" id="buger">버거</a></li>
+                    <li class="q button meal"><a class="q" id="meal">세트메뉴</a></li>
+                    <li class="q button side"><a class="q" id="side">사이드 & 디저트</a></li>
+                    <li class="q button drink"><a class="q" id="drink">음료 & 카페</a></li>
+                    <li class="q button morning"><a class="q" id="morning">맥모닝</a></li>
+                    <li class="q button morningMeal"><a class="q" id="morningMeal">맥모닝 세트</a></li>
+                    <li class="q div_label" th:if="${ #authentication.name } == admin"><a class="q" th:href="@{ /menu/create }">새 메뉴 등록</a></li>
                 </ul>
                 <div class="mcMenu">
                     <p class="count" id="count"></p>
