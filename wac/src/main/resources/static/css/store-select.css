@@ -137,7 +137,7 @@ tbody tr.active-row {
 	margin : 10px;
 	padding : 10px;
 	font-size: 30px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	text-align: center;
 	border-bottom: 3px solid black;
@@ -200,7 +200,7 @@ tbody tr.active-row {
 	background-color: #FFD126;
 	border: none;
 	border-radius: 5px 5px 5px 5px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	cursor: pointer;	
 	float:left;
 	margin-left:70px;
@@ -215,7 +215,7 @@ tbody tr.active-row {
 	background-color: #d95050;
 	border: none;
 	border-radius: 5px 5px 5px 5px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	cursor: pointer;	
 	float:right;
 	margin-right:70px;
@@ -243,16 +243,17 @@ tbody tr.active-row {
 	background-color: #f8f8f8;
 	height: 50px;
 	width: 545px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	margin-left:auto;
 	margin-right:auto;
+	padding-bottom:3px;
 	}
 .dInfoAddress, .dInfoAddress2{
 	background-color: #f8f8f8;
 	height: 50px;
 	width: 545px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	margin-left:auto;
 	margin-right:auto;
@@ -262,12 +263,11 @@ tbody tr.active-row {
 	background-color: transparent;
 	font-size: 30px;
 	text-align: center;
-	font-family: 'Do Hyeon', sans-serif;
-	padding-top:6px;
+	font-family: 'Noto Sans KR', sans-serif;
 	width: 545px;
 }
 .textAddress2 {
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	font-size : 30px;
 	padding-top:4px;
 	padding-right:330px;
@@ -279,18 +279,20 @@ tbody tr.active-row {
 	background-color: transparent;
 	font-size: 30px;
 	text-align: center;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	padding-top:6px;
 }
 .textStore {
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bolder;
 	text-align:center;
 	padding-top:10px;
 	float: left;
 	margin-left: 70px;
 	}
 .textAddress {
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bolder;
 	text-align:center;
 	padding-top:10px;
 	float:left;
@@ -301,7 +303,7 @@ tbody tr.active-row {
 	margin-bottom: 30px;
 }
 .buttonAddress {
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 20px;
 	float:right;
 	margin-right:50px;
@@ -359,7 +361,7 @@ tbody tr.active-row {
 	background-color: #FFD126;
 	border: none;
 	border-radius: 5px 5px 5px 5px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
 	width: 100px;
@@ -374,19 +376,22 @@ tbody tr.active-row {
 .toggle3 input[type=radio]{
     display: none;
     font-size: 3em;
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bolder;
     float:left;
 }
 .toggle3 input[type=radio] + label {
     color: #e0e0e0;
     font-size: 3em;
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bolder;
     float:left;
 }
 .toggle3 input[type=radio]:checked + label {
     color: #000;
     font-size: 3em;
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bolder;
 }
 .storeSearch-panel {
 	height: 100px;
@@ -407,7 +412,7 @@ label {
 	height: 35px;
 	border: none;
   	border-bottom: 3px solid black;
-  	font-family: 'Do Hyeon', sans-serif;
+  	font-family: 'Noto Sans KR', sans-serif;
   	font-size: 20px;
   	text-align: center;
 }
@@ -419,12 +424,13 @@ label {
 	margin: 10px;
 	width: 100px;
 	height: 43px;
-	font-size: 30px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bolder;
 	background-color: #FFD126;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
 	border: none;
 	border-radius: 5px 5px 5px 5px;
-	padding-top:5px;
+	padding-bottom:3px;
 }

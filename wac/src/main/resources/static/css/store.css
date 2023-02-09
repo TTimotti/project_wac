@@ -101,8 +101,8 @@ table {
 th, td {
 	border-bottom: 1px solid #444444;
 	padding: 30px;
-	font-family: 'Do Hyeon', sans-serif;
-	font-size: 20px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 18px;
 	font-weight: bold;
 	cursor: pointer;
 }
@@ -116,7 +116,7 @@ th {
 .frontFont {
 	padding : 20px;
 	font-size: 30px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	text-align: center;
 	border-bottom: 3px solid black;
@@ -178,7 +178,7 @@ th {
 	background-color: #FFD126;
 	border: none;
 	border-radius: 5px 5px 5px 5px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
 }
@@ -238,7 +238,7 @@ th {
 	background-color: #FFD126;
 	border: none;
 	border-radius: 5px 5px 5px 5px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
 	width: 200px;
@@ -246,6 +246,7 @@ th {
 	float: left;
 	margin: 10px;
 	margin-left:100px;
+	margin-top:15px;
 }
 #getMyPositionBtn:hover {
 	opacity: 0.5;
@@ -254,19 +255,22 @@ th {
 .toggle3 input[type=radio]{
     display: none;
     font-size: 3em;
-    font-family: 'Do Hyeon', sans-serif;
+    font-weight: bolder;
+    font-family: 'Noto Sans KR', sans-serif;
     float:left;
 }
 .toggle3 input[type=radio] + label {
     color: #e0e0e0;
     font-size: 3em;
-    font-family: 'Do Hyeon', sans-serif;
+    font-weight: bolder;
+    font-family: 'Noto Sans KR', sans-serif;
     float:left;
 }
 .toggle3 input[type=radio]:checked + label {
     color: #000;
     font-size: 3em;
-    font-family: 'Do Hyeon', sans-serif;
+    font-weight: bolder;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 .storeSearch-panel {
 	width: 1200px;
@@ -288,8 +292,8 @@ label {
 	height: 35px;
 	border: none;
   	border-bottom: 3px solid black;
-  	font-family: 'Do Hyeon', sans-serif;
-  	font-size: 30px;
+  	font-family: 'Noto Sans KR', sans-serif;
+  	font-size: 20px;
   	text-align: center;
 }
 .storeSearch:focus {
@@ -300,13 +304,13 @@ label {
 	margin: 10px;
 	width: 100px;
 	height: 43px;
-	font-size: 30px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	font-weight:bolder;
+	font-family: 'Noto Sans KR', sans-serif;
 	background-color: #FFD126;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
 	border: none;
 	border-radius: 5px 5px 5px 5px;
-	padding-top:5px;
 }
 

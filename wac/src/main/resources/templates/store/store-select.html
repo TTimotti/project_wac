@@ -4,11 +4,9 @@
 	layout:decorate="~{ /layout/basic-layout }">
 <th:block layout:fragment="css">
 	<link rel="stylesheet" th:href="@{/css/store-select.css}">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link
-		href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
-		rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 </th:block>
 <div layout:fragment="content">
 	<div class=storebanner>
@@ -23,6 +21,7 @@
 	</div>
 	<div class="frontFont">
 		<h1>주문 매장 선택</h1>
+		<br/>
 	</div>
 	<div class="storeContainer">
 		<div class="mapArea">
@@ -79,7 +78,7 @@
             <div>
             <input type="button" class="nextPage" value="메뉴 선택" readonly/>
             <a th:href="@{ /order/orderDetail }">
-            <input type="button" class="buyPage" value="구매하기" readonly/>
+            <input type="button" class="buyPage" value="주문하기" readonly/>
             </a>
             </div>
             <input class="searchChoice" type="hidden"/>
