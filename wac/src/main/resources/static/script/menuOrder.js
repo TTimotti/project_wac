@@ -75,8 +75,8 @@ function updateMenuList(data) {
         + '">'
         + '<img src="/image/display?fid=' + m.image 
         + '" alt="메뉴 이미지" style="width:250px; height:200px;"/>'
-        + '<div>' + m.menuName
-        + '<p>' + m.menuEnName + '</p>'
+        + '<div><strong class="ko">' + m.menuName
+        + '</strong><p class="en">' + m.menuEnName + '</p>'
         + '</div></a>'
         + '<div><form>'
         + `<a class="btnTossCart btn btn-success" id="btnTossCart" data-menuId="${ m.menuId }" data-storeName="${ storeName }" data-userAddress="${ userAddress }">`
