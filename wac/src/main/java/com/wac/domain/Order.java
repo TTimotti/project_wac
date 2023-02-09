@@ -48,4 +48,7 @@ public class Order extends BaseTimeEntity {
     @Column(name = "address")
     private String address;
     
+    @Column(name = "total_price")
+    private Integer totalPrice;
+    
 }

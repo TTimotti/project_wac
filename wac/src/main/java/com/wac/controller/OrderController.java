@@ -113,19 +113,23 @@ public class OrderController {
         storeName = "강남점";
         userName = "admin";
         
-        // TODO::
+        // 주문 영수증
         Order order = orderService.create(userName, storeName, address, pickUp, payment, userId);
         
         
         List<Cart> cartList = cartService.readCartList(userId);
+        // 주문 내역
         for (Cart c : cartList) {
             Integer cartId = c.getCartId();
-            OrderLog orderlog = orderService.create(order.getOrderId(), cartId);
+            OrderLog orderlog = orderService.create(order.getOrderId(), cartId, userId, userName);
+            log.info("{}", order.getOrderId(), " 번 영수증의 상세 내역 = {}", orderlog);
+            
+            log.info("저장한 장바구니내역은 바로 지워짐 지울 카트번호 cartId = {}", c.getCartId());
+            cartService.delete(c.getCartId());
         }
+        log.info("카트에서 정보빼내서 영수증만들고 장바구니 내역을 주문 상세내역에 저장후 그 장바구니 삭제 => 완료");
         
-        
-        
-        
+        // 주소는 이제 어디로 넘길지.. 결제 완료 페이지를 띄울껀지 다시 홈으로 갈껀지 일단 home 으로 두겠음 ㅇㅇ 
         return "redirect:/";
     }
     

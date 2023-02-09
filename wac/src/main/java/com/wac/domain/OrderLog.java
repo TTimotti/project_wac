@@ -34,7 +34,7 @@ public class OrderLog extends BaseTimeEntity {
     private Integer userId; // 주문한 회원 아이디
     
     @Column(name = "user_name")
-    private Integer userName; // 주문한 회원 아이디
+    private String userName; // 주문한 회원 아이디
     
     @Column(name = "cart_id")
     private Integer cartId; // 주문한 회원 장바구니 아이디
@@ -60,8 +60,6 @@ public class OrderLog extends BaseTimeEntity {
     @Column
     private Integer image; // 메뉴 이미지
     
-    @Column(name = "total_price")
-    private Integer totalPrice;
     
 //    @Column(name = "order_indate") // 크리에이트 모디파이 날짜로 해결될듯해서 주석처리 하겠습니다. 
 //    private Integer orderIndate; // 주문 날짜 
