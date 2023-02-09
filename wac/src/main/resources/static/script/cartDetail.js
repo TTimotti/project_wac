@@ -24,8 +24,10 @@ window.addEventListener('DOMContentLoaded', function() {
     const btnDelete = document.querySelectorAll('.btnDelete');
     const btnSideChange = document.querySelectorAll('.btnSideChange');
     const btnDrinkChange = document.querySelectorAll('.btnDrinkChange');
-    
+    console.log("삭제버튼 찾기", btnDelete);
     const btnPayment = document.querySelectorAll('#btnPayment');
+    const btnMenuAdd = document.querySelectorAll('.btn01 m ico add');
+    console.log("메뉴추가버튼 찾기", btnMenuAdd);
     
     const cocaCola = 2200;
     const frenchFries = 2600;

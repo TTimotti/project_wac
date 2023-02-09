@@ -172,14 +172,10 @@
                                     </span>
                                 </button>
 
-                            </a>    
-
-
-                                <button type="button" class="btn01 m red" id="btnPayment">
-                                    <span>
-                                        결제하기
-                                    </span>
-                                </button>
+                            </a>
+                                <div class="div_label">
+                                    <a class="buttons" id="btnSubmit">결제하기</a>
+                                </div>
                             </div>
                             <ul class="txtlist01">
                                 <li>
@@ -208,7 +204,7 @@
     const sideList = [[${ sideList }]];
     const drinkList = [[${ drinkList }]];
     </script>
-    <script th:src="@{/script/cartDetail.js}"></script>
+    <script th:src="@{/script/orderDetail.js}"></script>
 </th:block>
 
 </html>
