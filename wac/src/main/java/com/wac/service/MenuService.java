@@ -220,8 +220,8 @@ public class MenuService {
         ArrayList<MyCartMenuDto> menus = new ArrayList<>();
 
         for (Integer menuId : menuIdList) {
-//            MyCartMenuDto menu = menuRepository.getMenuInfo(menuId);
-//            menus.add(menu);
+            MyCartMenuDto menu = menuRepository.getMenuInfo(menuId);
+            menus.add(menu);
         }
 
         log.info("메뉴메뉴={}", menus);
