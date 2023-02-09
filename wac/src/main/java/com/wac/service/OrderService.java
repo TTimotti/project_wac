@@ -9,6 +9,7 @@ import com.wac.domain.Cart;
 import com.wac.domain.Order;
 import com.wac.domain.OrderLog;
 import com.wac.repository.CartRepository;
+import com.wac.repository.OrderLogRepository;
 import com.wac.repository.OrderRepository;
 import com.wac.repository.UserRepository;
 
@@ -25,6 +26,8 @@ import lombok.extern.slf4j.Slf4j;
 public class OrderService {
 
 	private final OrderRepository orderRepository;
+	
+	private final OrderLogRepository orderLogRepository;
 	
 	private final UserRepository userRepository;
 	
@@ -79,16 +82,26 @@ public class OrderService {
      * @return
      * @author 추지훈
      */
-    public OrderLog create(Integer orderId, Integer cartId) {
+    public OrderLog create(Integer orderId, Integer cartId, Integer userId, String userName) {
         // TODO:
         Cart cart = cartRepository.getCartByCartId(cartId); 
         
         OrderLog result = OrderLog.builder()
-                
+                .orderId(orderId)
+                .cartId(cartId)
+                .userId(userId)
+                .userName(userName)
+                .menuId1(cart.getMenuId1())
+                .menuId2(cart.getMenuId2())
+                .menuId3(cart.getMenuId3())
+                .menuId4(cart.getMenuId4())
+                .menuId5(cart.getMenuId5())
+                .menuId6(cart.getMenuId6())
+                .image(cart.getImage())
                 .build();
                 
+        OrderLog entity = orderLogRepository.save(result);
         
-        
-        return null;
+        return entity;
     }
 }
