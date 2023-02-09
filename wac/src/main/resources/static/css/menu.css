@@ -155,4 +155,10 @@ ul, ol, li {
     vertical-align: top;
 }
 
+#btnTossCart {
+    background-color: #ffce47;
+    color: #d21920!important;
+    border-color: #d21920;
+}
+
 
