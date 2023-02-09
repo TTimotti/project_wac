@@ -29,6 +29,19 @@
 			<div id="map"></div>
 		</div>
 		<div class="storePlace">
+		<div class ="storeSearch-panel">
+			<div class="toggle3">
+				    <input type="radio" id="toggle3-1" name="type" value="n" readonly>
+				  	    <label for="toggle3-1">매장명</label>
+				    <input type="radio" id="toggle3-2" name="type" value="a">
+					    <label for="toggle3-2">주소</label>
+				    <input type="radio" id="toggle3-3" name="type" value="d">
+					    <label for="toggle3-3">서비스</label>
+			</div>   
+			<input type="text" class="storeSearch" name="storeSearch" placeholder="검색어를 입력 해주세요.">
+			<input type="button" class="storeSearch-btn" value="검색"/>
+		</div>
+		<br/><br/><br/>
 		<table class="storeTable"></table>
 		<div>
 			<ul id="storeTableNav"></ul>
@@ -63,12 +76,13 @@
 			</form>
 			</div>
 			<br/><br/><br/><br/>
-			<input type="button" class="nextPage" value="메뉴 선택" readonly/>
             <div>
+            <input type="button" class="nextPage" value="메뉴 선택" readonly/>
             <a th:href="@{ /order/orderDetail }">
             <input type="button" class="buyPage" value="구매하기" readonly/>
             </a>
             </div>
+            <input class="searchChoice" type="hidden"/>
 		</div>
 		</div>
 	</div>

@@ -358,4 +358,33 @@ function pasing(totalData, dataPerPage, pageCount, currentPage) {
 	}));
 } 
 
+$(document).on("click", ".storeSearch-btn", function() {
+	const type = document.querySelector(".searchChoice").value;
+	const keyword = document.querySelector(".storeSearch").value;
+	dataPerPage = 3;
+	
+	axios
+		.get("/storeSearch", { params: { type, keyword } })
+		.then(response => {
+			totalData = response.data.length ;
+			globalData = response.data;
+			displayData(1, dataPerPage, response.data)
+			pasing(totalData, dataPerPage, pageCount, 1)
+		})
+		.catch(err => { console.log(err) });
+});
+
+$(document).on("click", "#toggle3-1", function() {
+	const type = document.querySelector("#toggle3-1").value;
+	$(".searchChoice").val(type);
+});
+
+$(document).on("click", "#toggle3-2", function() {
+	const type = document.querySelector("#toggle3-2").value;
+	$(".searchChoice").val(type);
+});
+$(document).on("click", "#toggle3-3", function() {
+	const type = document.querySelector("#toggle3-3").value;
+	$(".searchChoice").val(type);
+});
 

@@ -11,6 +11,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
 
 .storeContainer {
 	width: 80%;
+	height: 900px;
 	text-align: center;
 	padding: 50px;
 	margin-bottom: 20px;
@@ -72,7 +73,7 @@ a {
 
 #map {
 	margin: 5px;
-	height: 870px;
+	height: 950px;
 	width: 850px;
 	border-radius: 5px 5px 5px 5px;
 }
@@ -81,10 +82,9 @@ a {
 }
 .storePlace {
 	height: 600px;
-	min-width: 400px;
 	margin: 5px;
 	border-radius: 5px 5px 5px 5px;
-	display: inline-block
+	display: grid;
 }
 
 table {
@@ -95,7 +95,8 @@ table {
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     border-radius: 5px 5px 5px 5px;
-    
+    margin-left: 30px;
+    margin-bottom: 30px;
 }
 
 thead tr {
@@ -190,9 +191,9 @@ tbody tr.active-row {
 	background:
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
 }
-.nextPage {
+.nextPage{
 	padding:5px;
-	width: 300px;
+	width: 200px;
 	text-align:center;
 	font-size:30px;
 	font-weight:bolder;
@@ -201,10 +202,32 @@ tbody tr.active-row {
 	border-radius: 5px 5px 5px 5px;
 	font-family: 'Do Hyeon', sans-serif;
 	cursor: pointer;	
+	float:left;
+	margin-left:70px;
 }
+
+.buyPage {
+	padding:5px;
+	width: 200px;
+	text-align:center;
+	font-size:30px;
+	font-weight:bolder;
+	background-color: #d95050;
+	border: none;
+	border-radius: 5px 5px 5px 5px;
+	font-family: 'Do Hyeon', sans-serif;
+	cursor: pointer;	
+	float:right;
+	margin-right:70px;
+}
+
 .nextPage:hover {
 	opacity: 0.5;
 }
+.buyPage:hover {
+	opacity: 0.5;
+}
+
 .info-marker {
     display: block;
     background: #FFF;
@@ -249,6 +272,7 @@ tbody tr.active-row {
 	padding-top:4px;
 	padding-right:330px;
 	margin-right: 80px;
+	margin-bottom: 20px;
 }
 .dInfo {
 	border:none;
@@ -258,22 +282,33 @@ tbody tr.active-row {
 	font-family: 'Do Hyeon', sans-serif;
 	padding-top:6px;
 }
-.textStore, .textAddress {
+.textStore {
 	font-family: 'Do Hyeon', sans-serif;
 	text-align:center;
-	padding-top:4px;
-	padding-right:330px;
+	padding-top:10px;
+	float: left;
+	margin-left: 70px;
 	}
+.textAddress {
+	font-family: 'Do Hyeon', sans-serif;
+	text-align:center;
+	padding-top:10px;
+	float:left;
+	margin-left: 70px;
+	}	
+
 .storePlaceInfo {
+	margin-bottom: 30px;
 }
 .buttonAddress {
 	font-family: 'Do Hyeon', sans-serif;
 	font-size: 20px;
-	margin-right:450px;
-	
+	float:right;
+	margin-right:50px;
 }
+
 @media ( max-width : 792px) {
-	#map, table {
+	table {
 		width: 450px;
 		height: 350px;
 		text-align: center;
@@ -318,7 +353,7 @@ tbody tr.active-row {
 
 /** 내 위치 버튼 **/
 
-#getMyPositionBtn {
+#getMyPositionBtn, .buttonAddress {
 	font-size: 20px;
 	font-weight: bolder;
 	background-color: #FFD126;
@@ -330,8 +365,66 @@ tbody tr.active-row {
 	width: 100px;
 	height: 50px;
 	float: right;
-	margin-right:20px;
+	margin-right:70px;
 }
 #getMyPositionBtn:hover {
 	opacity: 0.5;
+}
+
+.toggle3 input[type=radio]{
+    display: none;
+    font-size: 3em;
+    font-family: 'Do Hyeon', sans-serif;
+    float:left;
+}
+.toggle3 input[type=radio] + label {
+    color: #e0e0e0;
+    font-size: 3em;
+    font-family: 'Do Hyeon', sans-serif;
+    float:left;
+}
+.toggle3 input[type=radio]:checked + label {
+    color: #000;
+    font-size: 3em;
+    font-family: 'Do Hyeon', sans-serif;
+}
+.storeSearch-panel {
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	padding-bottom: 0px;
+}
+label {
+  cursor: pointer;
+  margin: 10px;
+}
+.storeSearch {
+	float:left;
+	margin: 10px;
+	padding-top: 5px;
+	width: 200px;
+	height: 35px;
+	border: none;
+  	border-bottom: 3px solid black;
+  	font-family: 'Do Hyeon', sans-serif;
+  	font-size: 20px;
+  	text-align: center;
+}
+.storeSearch:focus {
+    outline: none;
+  }
+.storeSearch-btn {
+	float:left;
+	margin: 10px;
+	width: 100px;
+	height: 43px;
+	font-size: 30px;
+	font-family: 'Do Hyeon', sans-serif;
+	background-color: #FFD126;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	border: none;
+	border-radius: 5px 5px 5px 5px;
+	padding-top:5px;
 }
