@@ -57,6 +57,7 @@ window.addEventListener('DOMContentLoaded', function() {
     .catch(err => {console.log(err)})
     
     function setMenuInfo(data) {
+        console.log('ddsad');
         console.log(data);
         for (let i = 0 ; i < menuIdList.length ; i++) {
             let eachMenuPriceTotalVariable= data.price;

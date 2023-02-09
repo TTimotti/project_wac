@@ -1,23 +1,18 @@
 package com.wac.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wac.domain.Cart;
 import com.wac.domain.Menu;
 import com.wac.domain.Order;
 import com.wac.domain.OrderLog;
 import com.wac.dto.MenuSimpleDto;
-import com.wac.dto.MyCartMenuDto;
 import com.wac.dto.OrderTossDto;
 import com.wac.service.CartService;
 import com.wac.service.ImagesService;
@@ -149,23 +144,7 @@ public class OrderController {
     }
     
     
-    /**
-     * 카트에 담겨있는 정보들 한 번에 가져오기.
-     * @param menuIdList
-     * @return
-     * @author 서범수.
-     */
-    @PostMapping("/getMenuInfo")
-    @ResponseBody
-    public ResponseEntity<ArrayList<MyCartMenuDto>> getMenuInfo(@RequestBody ArrayList<Integer> menuIdList) {
-        for (Integer menuId : menuIdList) {
-        log.info("getMenuInfo(menuIdList={})", menuId);
-        }
 
-        ArrayList<MyCartMenuDto> menus = menuService.getMenuInfo(menuIdList);
-
-        return ResponseEntity.ok(menus);
-    }
     
 }
 

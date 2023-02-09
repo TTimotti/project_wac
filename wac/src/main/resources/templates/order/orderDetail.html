@@ -15,7 +15,7 @@
                 <div class="bannerArea bgImage">
                     <div class="inner">
                         <h1 class="title" data-title="프로모션" data-desc="프로모션">주문 상세내역</h1>
-                        <
+                        
                         
                         
                     </div> <!-- inner -->
@@ -66,25 +66,9 @@
                                                         <span id="extraChargeInfo" class="extraChargeInfo"></span>
                                                         <span class="unit">원</span>
                                                     </strong>
-                                                </div>
-                                                <button type="button" class="btn04 h02 btn_edit btnSideChange" id="sideChange">
-                                                    <span>▼</span>
-                                                </button>
                                             </dd>
                                         </dl>
                                         
-                                        <div class="sideMenuList" id="sideMenuList" style="background-color: white; border-radius: 10px; padding-bottom: 20px; display:none;">
-                                            <ul>
-                                                <li th:each="sl : ${ sideList } " style="display:inline-block;" id="sideChangeInfo" class="sideChangeInfo">
-                                                    <label>
-                                                        <input type="radio" name="sideMenuChange" th:data-menuId="${sl.menuId}" th:data-menuName="${sl.menuName}" th:value="${sl.price - 2600}"/>
-                                                        <img th:src="@{/image/display?fid={fid} (fid = ${sl.image})}" th:alt="${sl.menuName}" style="width: 350px; height: 200px; "/>
-                                                    </label>
-                                                    <div style="text-align: center; margin: 10px 0;" th:text="${sl.menuName}"></div>
-                                                    <div style="text-align: center; margin: 10px 0;" th:text="'+ ' + ${sl.price - 2600} + 원"></div>
-                                                </li>
-                                            </ul>
-                                        </div>
                                         <dl>
                                             <dt>음료</dt>
                                             <dd>
@@ -96,24 +80,8 @@
                                                         <span class="unit">원</span>
                                                     </strong>
                                                 </div>
-                                                <button type="button" class="btn04 h02 btn_edit btnDrinkChange" id="drinkChange">
-                                                    <span>▼</span>
-                                                </button>
                                             </dd>
-                                        </dl>
-                                        <div class="drinkMenuList" id="drinkMenuList" style="background-color: white; border-radius: 10px; padding-bottom: 20px; display:none;">
-                                            <ul>
-                                                <li th:each="dl : ${ drinkList } " style="display:inline-block;" id="drinkChangeInfo" class="drinkChangeInfo">
-                                                    <label>
-        
-                                                        <input type="radio" name="drinkMenuChange" th:data-menuId="${dl.menuId}" th:data-menuName="${dl.menuName}" th:value="${dl.price - 2200}"/>
-                                                        <img th:src="@{/image/display?fid={fid} (fid = ${dl.image})}" alt="음료메뉴" style="width: 350px; height: 200px; "/>
-                                                    </label>
-                                                    <div style="text-align: center; margin: 10px 0;" th:text="${dl.menuName}"></div>
-                                                    <div style="text-align: center; margin: 10px 0;" th:text="'+ ' +${dl.price - 2200} + 원"></div>
-                                                </li>
-                                            </ul>
-                                        </div>                                   
+                                        </dl>                            
                                     </div> <!-- setmenu_detail -->
                                     
                                     
@@ -121,13 +89,7 @@
                                     <div class="quantity">
                                         <strong class="tit">수량</strong>
                                         <div class="num_set">
-                                            <button type="button" class="btn_minus">
-                                                <span style="color: white;">-</span>
-                                            </button>
                                             <input type="number" readonly="readonly" id="menuQuantityInfo" class="menuQuantityInfo"/>
-                                            <button type="button" class="btn_plus">
-                                                <span style="color: white;">+</span>
-                                            </button>
                                         </div>
                                     </div>
                                 </div> <!-- cont -->

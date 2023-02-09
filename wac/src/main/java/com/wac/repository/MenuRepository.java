@@ -115,8 +115,8 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
      * @return
      * @author 서범수.
      */
-//    @Query("select new com.wac.dto.MyCartMenuDto(m.menuId, m.image, m.kind, m.menuName, m.price) from MENUS m where m.menuId = :menuId")
-//    MyCartMenuDto getMenuInfo(@Param("menuId") Integer menuId);
+    @Query("select new com.wac.dto.MyCartMenuDto(m.menuId, m.image, m.kind, m.menuName, m.price) from MENUS m where m.menuId = :menuId")
+    MyCartMenuDto getMenuInfo(@Param("menuId") Integer menuId);
 
     @Query("select new com.wac.dto.MenuSimpleDto(m.menuId, m.menuName, m.price) from MENUS m where m.kind = :kind order by m.menuId")
     List<MenuSimpleDto> findSimpleMenuByKindOrderByMenudId(@Param("kind") Integer kind);

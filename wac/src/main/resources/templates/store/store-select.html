@@ -77,7 +77,7 @@
 			<br/><br/><br/><br/>
             <div>
             <input type="button" class="nextPage" value="메뉴 선택" readonly/>
-            <a th:href="@{ /order/orderDetail }">
+            <a th:href="@{ /order/orderDetail?userName={userName} (userName = ${#authentication.name})}">
             <input type="button" class="buyPage" value="주문하기" readonly/>
             </a>
             </div>
