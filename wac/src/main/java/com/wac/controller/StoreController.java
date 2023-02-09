@@ -59,6 +59,7 @@ public class StoreController {
 	 * Store-Select 페이지
 	 * @author 장민석
 	 */
+	
 	@GetMapping("/store-select")
 	public String select(Model model) {
 		log.info("store-select()");
