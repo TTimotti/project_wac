@@ -13,6 +13,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * 메뉴 테이블 
+ * @author 추지훈
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

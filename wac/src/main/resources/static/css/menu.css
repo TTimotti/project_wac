@@ -140,5 +140,17 @@ ul, ol, li {
 	outline: 2px orange solid;
 }
 
+.tabType01 li a:hover {
+    color: #db0007;
+    font-weight: 600;
+    border-bottom: 1px solid #db0007;
+}
+
+.tabType01 li a {
+    display: block;
+    height: 40px;
+    font-size: 20px;
+    line-height: 39px;
+}
 
 

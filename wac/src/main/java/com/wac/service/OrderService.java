@@ -61,7 +61,6 @@ public class OrderService {
      * @author 추지훈
      */
     public Order create(String userName, String storeName, String address, Integer pickUp, Integer payment, Integer userId) {
-        // TODO:
         Order order = Order.builder()
                 .pickupService(pickUp)
                 .payment(payment)
@@ -85,7 +84,7 @@ public class OrderService {
     public OrderLog create(Integer orderId, Integer cartId, Integer userId, String userName) {
         // TODO:
         Cart cart = cartRepository.getCartByCartId(cartId); 
-        
+        // 해당 카트 내용 다 가져와서 및에 복붙처럼 저장.
         OrderLog result = OrderLog.builder()
                 .orderId(orderId)
                 .cartId(cartId)

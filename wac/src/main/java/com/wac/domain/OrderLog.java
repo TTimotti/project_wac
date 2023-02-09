@@ -13,6 +13,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * 영수증 상세내역 테이블
+ * @author 추지훈
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -56,6 +60,9 @@ public class OrderLog extends BaseTimeEntity {
     
     @Column(name = "menu6_id") // 맥모닝 세트
     private Integer menuId6; // 상품 번호
+    
+    @Column // default: 1
+    private Integer quantity; // 수량
     
     @Column
     private Integer image; // 메뉴 이미지

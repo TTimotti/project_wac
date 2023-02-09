@@ -99,13 +99,13 @@ public class OrderController {
     @PostMapping("/order/create")
     public String create(OrderTossDto data) {
         log.info("create menuId = {}, userName = {}", data);
-        Integer pickUp = data.getPickupService();
-        Integer payment = data.getPayment();
-        String address = data.getUserAddress();
-        String storeName = data.getStoreName();
+        Integer pickUp = data.getPickupService(); // 수력? 주문? 방법 order 테이블가보면 알 수 있음. 
+        Integer payment = data.getPayment(); // 결제 수단 
+        String address = data.getUserAddress(); // 상세주소
+        String storeName = data.getStoreName(); // 매장명
         String userName = data.getUserName(); // 주문자명
         
-        Integer userId = userService.getUserIdByUserName(userName);
+        Integer userId = userService.getUserIdByUserName(userName); 
         // 여기 나중에 데이터 들어오면 지우면 됩니다.
         pickUp = 1; // 매장 식사
         payment = 1; // 카드 결제

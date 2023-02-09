@@ -14,6 +14,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * 카트 장바구니 테이블
+ * @author 추지훈
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

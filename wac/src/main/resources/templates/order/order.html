@@ -20,8 +20,10 @@
                 <h1 class="titDep1">버거</h1>
                 <p class="subCopy">
                     <br/>
+                    <!-- 
                     <input type="text" id="storeName" name="storeName" th:value="${ storeName }">
                     <input type="text" id="userAddress" name="userAddress" th:value="${ userAddress }">
+                     -->
                 </p>
                 <!-- 
                 <ul class="navPath">
@@ -48,13 +50,46 @@
         </ul>
         <div class="mcMenu">
             <p class="count" id="count"></p>
-            <ul class="menuList" id="menuList">
+            <ul class="tabType01" id="menuList">
             
             </ul>
             
             </div>
         </div>
     </div>
+    
+    <div class="modal fade" id="mylistModal"
+                tabindex="-1" aria-labelledby="mylistModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5"
+                                id="mylistModalLabel">장바구니 추가</h1>
+                            <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- 팀아이디 -->
+                            <input type="hidden"
+                                id="modalMenuId" readonly />
+                            <!-- 사용자아이디 -->
+                            <input type="hidden"
+                                id="modalMenuName" readonly />    
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button"
+                                class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">더 담기</button>
+                            <button type="button"
+                                id="modalBtnSuccess"
+                                class="btn btn-outline-success">장바구니로 가기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 </div>
 
@@ -126,6 +161,8 @@ function goHome() {
     <link rel="stylesheet" th:href="@{/css/menu.css}">
 </th:block>
 <th:block layout:fragment="script">
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script th:src="@{ /script/menuOrder.js }"></script>
