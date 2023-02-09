@@ -4,8 +4,6 @@
 	layout:decorate="~{ /layout/basic-layout }">
 <th:block layout:fragment="css">
 	<link rel="stylesheet" th:href="@{/css/store.css}">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link
 		href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
 		rel="stylesheet">
@@ -24,6 +22,7 @@
 	<div class="frontFont">
 		<h1>Wacdonald 매장 안내</h1>
 	</div>
+	<br/><br/><br/>
 	<div class ="storeContainer">
 		<div id="map"></div>
 		<br/><br/>
@@ -56,7 +55,6 @@
 		<input class="searchChoice" type="hidden"/>
 	</div>
 </div>
-
 <th:block layout:fragment="script">
 	<!-- Jquery JS-->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>

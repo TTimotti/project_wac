@@ -3,10 +3,21 @@
 /** 
 생성자 장민석.
 **/
+
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, select, textarea, p, blockquote, th, td, button {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+	margin:0px;
+	padding:0px;
+}
 .storeContainer {
 	text-align: center;
 	margin-bottom: 20px;
-	flex-wrap: wrap;
+	width: 100%;
 }
 
 .storeContainer2 {
@@ -20,6 +31,7 @@
 	padding: 5px;
 	background-image: url('../img/storelogo.png');
 	background-size: 100% 290px;
+	margin-top: 0px;
 }
 
 .inner {
@@ -40,7 +52,6 @@
 .navPath{
 	list-style: none;
 	padding: 0px;
-	margin-top: 30px;
 }
 
 .navPath li+li:before {
@@ -103,7 +114,6 @@ th {
 	font-weight: 900;
 }
 .frontFont {
-	margin : 20px;
 	padding : 20px;
 	font-size: 30px;
 	font-family: 'Do Hyeon', sans-serif;
@@ -298,15 +308,5 @@ label {
 	border: none;
 	border-radius: 5px 5px 5px 5px;
 	padding-top:5px;
-}
-
-/** 반응형 웹 관련 기능**/
-@media ( max-width : 792px) {
-	#map, table {
-		width: 450px;
-		height: 350px;
-		text-align: center;
-		font-size: 5px;
-	}
 }
 
