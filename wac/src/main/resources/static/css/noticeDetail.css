@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+input {
+	display:block;
+}
+
+#mContent {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+#main {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	margin: 25px 100px;	
+	width: 1168px;	
+}
+
+#head {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	height: 50px;
+}
+
+.h-label {
+	border: none;
+	text-align:center;
+	font-family: SpeedeeK, Malgun Gothic,'맑은 고딕', Dotum,'돋움', Arial, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#title.h-label {
+	margin-right: auto;
+	text-align:left;
+}
+
+.post_detail {
+	display: flex;
+	flex-direction: column;
+}
+
+.img { 
+	align-self: center;
+}
+
+img {
+	width:350px;
+	border: 0px;
+	border-radius: 15px;
+	margin-bottom: 50px;
+}
+
+#c-label {
+	display: flex;
+	margin-bottom: 20px;
+	border-top: solid black 6px;
+	border-bottom: solid black 3px;
+}
+
+.b-label {
+	margin: 20px 5px;
+	border: none;
+	width: auto;
+}
+
+.btn {
+	align-self: flex-end;
+	padding-bottom: 20px;
+}
+
+button {
+	height: 35px;
+	width: 100px;
+}
+
+#update {
+	color: #f1f1f1;
+    border-color: orange;
+    background-color: orange;
+}
+
+#update:hover {
+
+    color:orange;
+    background-color: ghostwhite;
+}
+
+#delete {
+	color: #f1f1f1;
+    border-color: red;
+    background-color: red;
+}
+
+#delete:hover {
+
+    color:orange;
+    background-color: ghostwhite;
+}
+
+
+

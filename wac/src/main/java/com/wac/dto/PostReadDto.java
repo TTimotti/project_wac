@@ -1,5 +1,8 @@
 package com.wac.dto;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import com.wac.domain.Post;
 
 import lombok.Builder;
@@ -15,6 +18,7 @@ public class PostReadDto {
     private String author;
     private Integer kind;
     private Integer image;
+    private String createdTime;
     
     public static PostReadDto fromEntity(Post entity) {
         return PostReadDto.builder()
@@ -24,6 +28,7 @@ public class PostReadDto {
                 .author(entity.getAuthor())
                 .kind(entity.getKind())
                 .image(entity.getImage())
+                .createdTime(entity.getCreatedTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")))
                 .build();
     }
 }

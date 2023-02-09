@@ -1,4 +1,4 @@
-<!-- post/detail.html -->
+<!-- post/noticeDetail.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
@@ -22,10 +22,9 @@
             <input readonly th:value="${ post.author }" class="h-label" />
         </div>
         <div class="div_label">                        
-            <input readonly th:value="${ post.kind }" class="h-label" type="hidden"/>
-        </div>                    
+            <input readonly th:value="${ post.kind }" class="h-label" type="hidden" />
+        </div>
         <div class="h-label">[[ ${ post.createdTime } ]]</div>
-
     </div>  
             
         <div id="c-label">
@@ -43,10 +42,10 @@
 </div>
 
 <th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/postDetail.css}">
+    <link rel="stylesheet" th:href="@{/css/noticeDetail.css}">
 </th:block>
 <th:block layout:fragment="script">
-	<script th:src="@{/script/postDetail.js}"></script>
+	<script th:src="@{/script/noticeDetail.js}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

@@ -99,8 +99,8 @@ button, input[type='button'], input[type='submit'], input[type='reset']
 }
 
 .posts li a {
-    display: block;
     height: 100%;
+    font-size:20px;
     padding: 1px;
     text-align: center;
     border-radius: 10px;
@@ -108,9 +108,51 @@ button, input[type='button'], input[type='submit'], input[type='reset']
     background: #f8f8f8;
 }
 
+#postId, #postTitle, #createdTime {
+	padding-top: 10px;
+}
+
+#postId, #createdTime {
+	color: gray;
+}
+
+#postId{
+	margin-left: 20px;
+}
+
+#createdTime{
+	margin-right: 20px;
+}
+
+#postTitle {
+	color: black;
+}
+
+.notice {
+	display: flex;
+	justify-content:space-between;
+	flex-direction: row;
+	height: 65px;
+}
+
+.notice-2 {
+	height: 65px;
+}
+
+.notice:hover {
+	background-color: orange;
+}
+
 .posts li a img:hover{
 	border: 5px solid orange;
 	border-radius: 5px;
+}
+
+.posts {
+	border-top: 3px solid;
+    border-bottom: 3px solid;
+    padding-top: 20px;
+    padding-bottom: 15px;
 }
 
 ul, ol, li {

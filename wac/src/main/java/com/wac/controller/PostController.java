@@ -72,15 +72,21 @@ public class PostController {
     
     /**
      * Post 객체를 DB에서 받아와 Model에 담아 View로 전달.
-     * @param kind
-     * @return
-     * @author 추지훈
+     * @param postId, model
+     * @return PostDto 가 담긴 model(name=post)
+     * @author 김지훈
      */
     @GetMapping("/post/detail")
-    public void detail(@RequestParam("postId") Integer postId, Model model) {
+    public String detail(@RequestParam("postId") Integer postId, Model model) {
         log.info("post/detail(postId = {})", postId);
-        PostReadDto postDto = postService.readPost(postId);
-        model.addAttribute("post", postDto);        
+        PostReadDto postReadDto = postService.readPost(postId);
+        model.addAttribute("post", postReadDto);
+        if (postReadDto.getKind() == 1) {
+        	return "/post/detail";
+        } else {
+        	return "/post/noticeDetail";
+        }
+        
     }
     
     /**
