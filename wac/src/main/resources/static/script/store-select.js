@@ -202,6 +202,7 @@ $(document).on("click", ".nextPage", function() {
 });
 
 // 구매하기 버튼 클릭시 결제 상세페이지로 이동하는 함수.
+/*
 $(document).on("click", ".buyPage", function() {
 
     const storeName = document.querySelector(".dInfo").value;
@@ -217,10 +218,11 @@ $(document).on("click", ".buyPage", function() {
         $('.userAddressf').val(userAddressf);
 
         document.value.action = "/order/orderDetail"
+        
         document.value.submit()
     }
 });
-
+*/
 
 /**
  * 매장 목록 테이블 비동기 페이징 기능

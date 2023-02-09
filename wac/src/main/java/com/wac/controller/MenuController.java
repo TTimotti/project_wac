@@ -55,7 +55,7 @@ public class MenuController {
     public void create(Integer id, Model model) {
         log.info("create");
         model.addAttribute("id", id);
-    }
+    }                                                                                                   
     
     /**
      * 메뉴 생성메서드

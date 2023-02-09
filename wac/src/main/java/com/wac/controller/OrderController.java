@@ -2,18 +2,16 @@ package com.wac.controller;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wac.domain.Cart;
 import com.wac.domain.Menu;
 import com.wac.domain.Order;
+import com.wac.domain.OrderLog;
 import com.wac.dto.OrderTossDto;
 import com.wac.service.CartService;
 import com.wac.service.ImagesService;
@@ -82,14 +80,13 @@ public class OrderController {
      * @param model
      * @author 추지훈
      */
-    @PostMapping("/order/orderDetail")
-    public String create(String storeName, String userAddress, Model model) {
+    @GetMapping("/order/orderDetail")
+    public void create(String storeName, String userAddress, Model model) {
         log.info("storeName={}",storeName);
         log.info("userAddress={}",userAddress);
 
         model.addAttribute("storeName",storeName);
         model.addAttribute("userAddress",userAddress);
-        return "/order/orderDetail";
     }
     
     /**
@@ -100,22 +97,36 @@ public class OrderController {
      * @author 추지훈
      */
     @PostMapping("/order/create")
-    @ResponseBody
-    public ResponseEntity<Order> create(@RequestBody OrderTossDto data) {
+    public String create(OrderTossDto data) {
         log.info("create menuId = {}, userName = {}", data);
         Integer pickUp = data.getPickupService();
+        Integer payment = data.getPayment();
         String address = data.getUserAddress();
         String storeName = data.getStoreName();
         String userName = data.getUserName(); // 주문자명
         
+        Integer userId = userService.getUserIdByUserName(userName);
+        // 여기 나중에 데이터 들어오면 지우면 됩니다.
+        pickUp = 1; // 매장 식사
+        payment = 1; // 카드 결제
+        address = "우리집";
+        storeName = "강남점";
+        userName = "admin";
+        
         // TODO::
-        
-        Order order = orderService.create(userName, storeName, address, pickUp);
-        
+        Order order = orderService.create(userName, storeName, address, pickUp, payment, userId);
         
         
+        List<Cart> cartList = cartService.readCartList(userId);
+        for (Cart c : cartList) {
+            Integer cartId = c.getCartId();
+            OrderLog orderlog = orderService.create(order.getOrderId(), cartId);
+        }
         
-        return ResponseEntity.ok(order);
+        
+        
+        
+        return "redirect:/";
     }
     
     
