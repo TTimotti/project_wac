@@ -527,24 +527,28 @@ input {
         
     }
     
-    /* HIDE RADIO */
+      /* HIDE RADIO 
     [type=radio] {
         position: absolute;
         opacity: 0;
         width: 0;
         height: 0;
     }
-    
-    /* IMAGE STYLES */
+    */
+    /* IMAGE STYLES 
     [type=radio] + img {
         cursor: pointer;
     }
-    
-    /* CHECK STYLES */
+    */
+    /* CHECK STYLES 
     [type=radio]:checked + img {
         width: 100px;
         content: '';
         border-radius: 100%;
         background: #f5f5f5;
     }
+    */
     
+    .paymentArea .sumWrap .payment input {
+        display: inline-block;
+    }
