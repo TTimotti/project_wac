@@ -142,10 +142,17 @@ input {
         position: relative;
         margin-bottom: 21px;
         background-color: #f8f8f8;
+        border-radius: 10px;
     }
     
     .cart_list .cont {
         padding: 32px 64px 0;
+    }
+    
+    .addressArea .cart_list .list {
+        display: flex;
+        justify-content: right;
+        overflow: hidden;
     }
     
     .cart_list .menu_titWrap {
@@ -290,6 +297,7 @@ input {
         height: 96px;
         padding: 12px 55px 12px 44px;
         background: #f8f8f8;
+        border-radius: 10px;
     }
     
     .cart_list .sumWrap dl {

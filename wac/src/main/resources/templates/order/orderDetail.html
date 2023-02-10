@@ -5,6 +5,34 @@
 
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/orderDetail.css}">
+    
+    <style>        
+        .orderList > button {
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            font-size: 50px;
+        }
+        .orderList > button:before {
+            display: block;
+            content: "+";
+            position: absolute;
+            top: -20px;
+            right: 55px;
+            width: 0px;
+            height: 27px;
+            font-size: 90px;
+            font-weight: 500;
+        }
+        
+        .titleName {
+            font-size: 50px; 
+            margin-bottom: 30px;
+            border-bottom: 3px solid #ffbc0d;
+        }
+    </style>
 </th:block>
 
 <div layout:fragment="content">
@@ -20,13 +48,18 @@
                         
                     </div> <!-- inner -->
                 </div> <!-- bannerArea -->
-                      
+                    <br/>
                 <!-- 주문 내역 -->
                 <div class="contArea">
                     <div class="inner">
-                        <ul class="cart_list">
+
+                    <div class="orderList">
+                        <h1 class="titleName">주문내역</h1>
+                        <button type="button" value="▼">
+                        </button>
+                        <ul class="cart_list" style="border-bottom: 3px dashed #ffbc0d; margin-bottom: 21px; display:none;">
                             <!-- 반복문 시작 -->
-                            <li th:each="cl : ${ cartList } " style="border-radius: 10px;" class="cartListInfo" th:data-index="${cl.cartId}">
+                            <li th:each="cl : ${ cartList } " class="cartListInfo" th:data-index="${cl.cartId}">
                                 <div class="cont">
                                     <div class="menu_titWrap">
                                         <label class="menu_name">
@@ -53,7 +86,6 @@
                                         </div> <!-- prd_img -->
                                     </div> <!-- menu_titWrap -->
                                     
-                                    <!-- 세트 메뉴 선택 시, 사이드 변경 칸 -->
                                     <!-- Controller에서 사이드에 관한 정보 가져오기. -->
                                     <div id="isSetMenuInfo" class="setmenu_detail isSetMenuInfo">
                                         <dl>
@@ -66,6 +98,7 @@
                                                         <span id="extraChargeInfo" class="extraChargeInfo"></span>
                                                         <span class="unit">원</span>
                                                     </strong>
+                                                </div>
                                             </dd>
                                         </dl>
                                         
@@ -83,7 +116,6 @@
                                             </dd>
                                         </dl>                            
                                     </div> <!-- setmenu_detail -->
-                                    
                                     
                                     <!-- 수량 세기 -->
                                     <div class="quantity">
@@ -106,12 +138,49 @@
                                         </dd>
                                     </dl>
                                 </div> <!-- sumWrap -->
-                                <button type="button" class="btn_del02 btnDelete">
-                                    <span style="font-size: 30px;">X</span>
-                                </button>
                             </li> <!-- 반복문 끝 -->
                         </ul>
-                        <div class="sumWrap" style="border-radius: 10px;">
+                        </div> <!-- orderList -->
+                                  <h1 class="titleName">매장 주소</h1>                      
+                        <div class="addressArea">
+
+                            <ul class="cart_list" style="border-bottom: 3px dashed #ffbc0d; margin-bottom: 21px;">
+                                <li>
+                                    <div class="setmenu_detail" style="border: none; padding: 12px 55px 12px 44px;">
+                                        <dl>
+                                            <dt>매장명</dt>
+                                            <dd>
+                                                <div class="list">
+                                                    <strong class="amount">ㅇㅇ</strong>
+                                                </div>
+                                            </dd>
+                                            <dt>배달 주소</dt>
+                                            <dd>
+                                                <div class="list">
+                                                    <strong class="amount">ㅇㅇ</strong>
+                                                </div>
+                                            </dd>
+                                            <dt>상세 주소</dt>
+                                            <dd>
+                                                <div class="list">
+                                                    <strong class="amount">ㅇㅇ</strong>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <h1 class="titleName">결제 방법</h1>
+                        <div class="paymentArea">
+                            <div class="sumWrap">
+                            </div>
+                            
+                        </div>
+                        
+                        <br/>
+                        
+                        <div class="sumWrap">
                             <dl>
                                 <dt>총 주문금액</dt>
                                 <dd>

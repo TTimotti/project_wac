@@ -211,6 +211,25 @@ function tossOrder(event) {
 };
 
 
+ /**
+    메뉴 하단에 있는 탭들을 펼치고 닫는 기능.
+  */
+const btnDetail = document.querySelector('.orderList > button');
+// 배열이니까 toggle[i]도 가능함.
+console.log(btnDetail);
+    btnDetail.addEventListener("click", function() {
+        const orderDisplay = document.querySelector('.cart_list');
+
+        let orderDisplay2 = orderDisplay.style.display;
+        
+            if (orderDisplay2=='none' || orderDisplay2 =='') {
+                orderDisplay.style.display = 'block';
+            } else {
+                orderDisplay.style.display ='none';
+            }
+    });
+
+
 
 
 });

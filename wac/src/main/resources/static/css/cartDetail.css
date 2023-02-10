@@ -142,6 +142,7 @@ input {
         position: relative;
         margin-bottom: 21px;
         background-color: #f8f8f8;
+        border-radius: 10px;
     }
     
     .cart_list .cont {
@@ -284,6 +285,7 @@ input {
         padding: 12px 64px 12px 50%;
         background: none;
         overflow: hidden;
+        border-radius: 10px;
     }
     
     .sumWrap {
