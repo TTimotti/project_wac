@@ -9,6 +9,11 @@
 
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/userSignUp.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+        rel="stylesheet">
 </th:block>
 
 </head>
@@ -71,7 +76,7 @@
                 <input class="inputs" type="text" id="address"
                     name="address" placeholder="주소 찾기 버튼을 클릭하세요"
                     readonly>
-                <button class="button" type="button" id="btnAddress">주소
+                <button class="buttons" type="button" id="btnAddress">주소
                     찾기</button>
             </div>
             <div>
@@ -99,20 +104,22 @@
                 <div class="divLabel">
                     <label class="label" for="gender" id="gender">성별</label>
                 </div>
-                <select class="inputs" name="gender" id="selectGender"
-                    required>
+                <select class="inputs buttons" name="gender"
+                    id="selectGender" required>
                     <option class="selectOptions" value="Null" selected>선택</option>
                     <option class="selectOptions" value="남자">남자</option>
                     <option class="selectOptions" value="여자">여자</option>
                 </select>
             </div>
-        </div>
-        <div class="btnCreate">
-            <div class="buttons">
-                <input class="button" type="submit" id="btnCreate"
-                    value="회원가입" disabled="disabled" />
+            <div>
+            
             </div>
+            <div class="divLabel"></div>
+                <input class="buttons" type="submit" id="btnCreate"
+                    value="회원가입" disabled="disabled" />
+            
         </div>
+
     </form>
 </div>
 

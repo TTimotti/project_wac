@@ -7,11 +7,13 @@
     font-size: 25px;
 }
 
+
 .updatePanel {
     border: 1px solid gray;
     margin: 16px;
     padding: 20px 20px;
     text-align: inherit;
+    width: 600px;
 }
 
 .inputs#address {
