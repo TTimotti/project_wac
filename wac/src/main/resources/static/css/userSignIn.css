@@ -38,7 +38,6 @@
 }
 
 .button{
-    
     padding: 10px;
     font-size: 30px;
     background-color: #FFD126;
@@ -48,6 +47,7 @@
     cursor: pointer;
     margin-right: 110px;    
     margin-left:280px;
+    margin-top: 30px;
     width: 560px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
