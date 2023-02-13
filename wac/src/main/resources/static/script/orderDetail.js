@@ -23,6 +23,13 @@ window.addEventListener('DOMContentLoaded', function() {
     console.log("결제버튼 찾기", btnPayment);
     var totalPrice = 0;
     
+   // console.log("수령 방법", pickupService);
+   // console.log("결제 수단", payment);
+   // console.log("주소", address);
+   // console.log("매장명", storeName);
+   console.log("사용자 이름", loginUser);
+    
+    
     // READ
     // cartList에 있는 메뉴아이디 가져오기. (menuId1 ~ menuId4)
     let menuIdList = [];

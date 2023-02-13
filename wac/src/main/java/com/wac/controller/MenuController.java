@@ -118,14 +118,14 @@ public class MenuController {
      * @throws IllegalStateException 
      */
     @PostMapping("/menu/update")
-    public String update(MenuUpdateDto dto, @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException {
-    log.info("menu update(dto = {}, file={})",dto, file);
+    public String update(MenuUpdateDto dto, @RequestParam("image") MultipartFile image) throws IllegalStateException, IOException {
+    log.info("menu update(dto = {}, file={})",dto, image);
         
         Integer menuId = menuService.update(dto);
         Integer kind = menuService.readMenuByKind(menuId);
         log.info("menu update menuId = {} kind = {}", menuId, kind);
         
-        imagesService.updateMenuImage(file, dto.getMenuId());
+        imagesService.updateMenuImage(image, dto.getId());
         
         return "redirect:/menu/menuDetail?kind=" + kind + "&menuId=" + menuId;
     }

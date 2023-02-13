@@ -24,7 +24,7 @@
                     <label for="menuId" class="form-label">메뉴 번호</label>
                 </div>
                 <br/>
-                <input id="menuId" name="menuId" class="inputs" th:value="${ menu.menuId }" readonly />
+                <input id="menuId" name="id" class="inputs" th:value="${ menu.menuId }" readonly />
             </div>
             
             <br/>
@@ -132,7 +132,7 @@ btnUpdate.addEventListener('click', function () {
    const menuName = document.querySelector('#menuName').value;
    const price = document.querySelector('#price').value;
    if (menuName == '' || price == '') {
-       alert('제목과 내용은 반드시 입력.');
+       alert('이름과 가격을 입력해주세요.');
        return;
    }
    

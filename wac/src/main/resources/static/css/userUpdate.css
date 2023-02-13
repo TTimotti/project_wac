@@ -1,62 +1,68 @@
 @charset "UTF-8";
 
 .updateHead {
-    vertical-align: top;
-    background-repeat: no-repeat;
+    margin : 20px;
+    padding : 20px;
+    font-size: 30px;
+    font-family: 'Do Hyeon', sans-serif;
     text-align: center;
-    font-size: 25px;
+    border-bottom: 3px solid black;
 }
 
 
 .updatePanel {
-    border: 1px solid gray;
-    margin: 16px;
-    padding: 20px 20px;
-    text-align: inherit;
-    width: 600px;
+    width: 1100px;
+    text-align: left;
+    padding: 50px;
+    margin-bottom: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #f8f8f8;
+    border-radius: 5px 5px 5px 5px;
+    font-family: 'Do Hyeon', sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.inputs#address {
-    border: solid 1px green;
-    width: 80%;
-    padding: 14px 17px 13px;
-    box-sizing: border-box;
-    align-content: center;
+.btn {
+    width: 25%;
+    height: 70px;
+    float: left;
+    padding: 10px;
+    font-size: 30px;
+    background-color: #FFD126;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+    font-family: 'Do Hyeon', sans-serif;
+    cursor: pointer;    
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.button#btnAddress {
-    width: 19%;
-    padding: 13px 0 13px;
-    border-radius: 6px;
-    border: solid 1px white;
-    background-color: gray;
-    color: white;
-    box-sizing: border-box;
-    font: inherit;
-}
-
-.button#btnAddress:hover {
-    width: 19%;
-    padding: 13px 0 13px;
-    border-radius: 6px;
-    border: solid 1px gray;
-    background-color: white;
-    color: gray;
-    box-sizing: border-box;
-    font: inherit;
+#btnAddress{
+    
+    padding: 10px;
+    font-size: 30px;
+    background-color: #FFD126;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+    font-family: 'Do Hyeon', sans-serif;
+    cursor: pointer;
+    margin-right: 110px;    
+    margin-left:270px;
+    width: 560px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .inputs {
-    border: solid 1px green;
-    width: 100%;
-    padding: 14px 17px 13px;
-    box-sizing: border-box;
-    align-content: center;
+    width: 550px;
+    height: 50px;
+    font-size: 30px;
+    margin-left:280px;
 }
 
 .divLabel {
-    padding: 10px 10px;
-    width: 20%;
+    font-size: 30px;
+    margin-left:280px;
+    padding: 20px;
 }
 
 .btns {
@@ -66,11 +72,6 @@
     overflow: hidden;
 }
 
-.btn {
-    width: 25%;
-    height: 70px;
-    float: left;
-}
 
 #btnUpdate {
     padding: 13px 0 13px;
@@ -79,7 +80,6 @@
     background-color: orange;
     color: white;
     box-sizing: border-box;
-    font: inherit;
     display: inline-block;
 }
 
@@ -90,7 +90,6 @@
     background-color: white;
     color: orange;
     box-sizing: border-box;
-    font: inherit;
     display: inline-block;
 }
 
@@ -101,7 +100,6 @@
     background-color: gray;
     color: white;
     box-sizing: border-box;
-    font: inherit;
     display: inline-block;
 }
 
@@ -112,7 +110,6 @@
     background-color: white;
     color: gray;
     box-sizing: border-box;
-    font: inherit;
     display: inline-block;
 }
 
@@ -123,7 +120,6 @@
     background-color: green;
     color: white;
     box-sizing: border-box;
-    font: inherit;
     display: inline-block;
 }
 
@@ -134,7 +130,6 @@
     background-color: white;
     color: green;
     box-sizing: border-box;
-    font: inherit;
     display: inline-block;
 }
 
@@ -145,7 +140,6 @@
     background-color: tomato;
     color: white;
     box-sizing: border-box;
-    font: inherit;
     display: inline-block;
 }
 
@@ -156,7 +150,6 @@
     background-color: white;
     color: tomato;
     box-sizing: border-box;
-    font: inherit;
     display: inline-block;
 }
 
@@ -168,7 +161,6 @@
     background-color: gray;
     color: white;
     box-sizing: border-box;
-    font: inherit;
 }
 
 .btnMain:hover {
@@ -179,7 +171,6 @@
     background-color: white;
     color: gray;
     box-sizing: border-box;
-    font: inherit;
 }
 
 .btnMyPage {
@@ -191,7 +182,6 @@
     background-color: green;
     color: white;
     box-sizing: border-box;
-    font: inherit;
     align-content: center;
 }
 
@@ -203,7 +193,6 @@
     background-color: white;
     color: green;
     box-sizing: border-box;
-    font: inherit;
 }
 
 .btnCreate {
@@ -214,7 +203,6 @@
     background-color: orange;
     color: white;
     box-sizing: border-box;
-    font: inherit;
 }
 
 .btnCreate:hover {
@@ -225,7 +213,6 @@
     background-color: white;
     color: orange;
     box-sizing: border-box;
-    font: inherit;
 }
 
 .btnSignIn {
@@ -237,7 +224,6 @@
     background-color: green;
     color: white;
     box-sizing: border-box;
-    font: inherit;
     align-content: center;
 }
 
@@ -249,7 +235,6 @@
     background-color: white;
     color: green;
     box-sizing: border-box;
-    font: inherit;
 }
 
 .selectOptions {

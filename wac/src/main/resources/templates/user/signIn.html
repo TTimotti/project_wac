@@ -10,42 +10,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/userSignIn.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+        rel="stylesheet">
 </th:block>
 
 </head>
 
 <div layout:fragment="content">
 
-    <div class = "signInHead">
-        <h1>로그인 페이지</h1> 
+    <div class="signInHead">
+        <h1>로그인 페이지</h1>
     </div>
 
-    <div class = "signInPanel">
+    <div class="signInPanel">
         <section>
             <form method="post" id="formSignIn">
-                <div class = "inputs">
-                    <input class="inputText" type = "text" id = "userName" placeholder="아이디를 입력하세요" name="username">
+                <div class="inputs">
+                    <div class="divLabel">
+                        <label class="label" for="userName">아이디</label>
+                    </div>
+                    <input class="inputText" type="text" id="userName"
+                        placeholder="아이디를 입력하세요" name="username">
                 </div>
-                <div class = "inputs">
-                    <input class="inputText" type = "password" id = "userPassword" placeholder="비밀번호를 입력하세요" name="password">
+                <div class="inputs">
+                    <div class="divLabel">
+                        <label class="label" for="userPassword">비밀번호</label>
+                    </div>
+                    <input class="inputText" type="password"
+                        id="userPassword" placeholder="비밀번호를 입력하세요"
+                        name="password">
                 </div>
-                <div class = "buttons">
-                    <input class = "button" type="submit" value="로그인" id="btnSignIn">                
+                <div class="buttons">
+                    <input class="button" type="submit" value="로그인"
+                        id="btnSignIn">
                 </div>
             </form>
-                <div class = "buttons"> 
-                    <button class = "button" type="button" id="btnSignUp" th:onclick="'location.href=\'' + @{/user/signUp} + '\''">회원가입</button>        
-                </div>
-            <div class = "signIn" id="signInErr" style="display: none">
+            <div class="buttons">
+                <button class="button" type="button" id="btnSignUp"
+                    th:onclick="'location.href=\'' + @{/user/signUp} + '\''">회원가입</button>
+            </div>
+            <div class="signIn" id="signInErr" style="display: none">
                 <p>아이디 혹은 비밀번호가 틀렸습니다.</p>
             </div>
-            
+
         </section>
     </div>
-    
+
 </div>
 <th:block layout:fragment="script" th:inline="javaScript">
 
-<script th:src=" @{/script/userSignIn.js}"></script>
+    <script th:src=" @{/script/userSignIn.js}"></script>
 </th:block>
 </html>
