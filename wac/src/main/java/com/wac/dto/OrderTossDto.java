@@ -7,7 +7,6 @@ import lombok.Data;
 @Data
 public class OrderTossDto {
 
-    private Integer cartId;
     private String userName;
     private String storeName;
     private String userAddress;

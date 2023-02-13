@@ -36,6 +36,7 @@
 
 <div layout:fragment="content">
     <div class="wrapper">
+    <form id="formCreateCart" method="post" enctype="multipart/form-data">
         <div id="container">
             <div class="contents">
                 <!-- 상단 배너 -->
@@ -80,7 +81,7 @@
                                         <!-- 메뉴 사진 -->
                                         <div class="prd_img">
                                             <span>
-                                                <img id="menuImageInfo" class="menuImageInfo" src="/image/display?fid=5" alt="메뉴 사진" style="display: inline; opacity: 1"/>
+                                                <img id="menuImageInfo" class="menuImageInfo" src="/image/display?fid=17" alt="메뉴 사진" style="display: inline; opacity: 1"/>
                                             </span>
                                         </div> <!-- prd_img -->
                                     </div> <!-- menu_titWrap -->
@@ -179,7 +180,7 @@
                             <div class="sumWrap">
                                 <div class="payment" style="display: flex; justify-content: space-between; padding: 12px 64px 12px 64px;">
                                     
-                                    <input type="radio" name="payment" value="1"> 현금
+                                    <input type="radio" id="payment" name="payment" value="1"> 현금
                                     
                                     
                                     <input type="radio" name="payment" value="2"> 카드
@@ -236,6 +237,7 @@
                 </div>
             </div>
         </div>
+        </form>
         <div>
         
         </div>

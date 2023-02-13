@@ -221,7 +221,7 @@ $(document).on("click", ".buyPage", function() {
         $('.userAddressf').val(userAddressf);
 		$('.userName').val(userName);
 		
-        document.value.action = "/order"
+        document.value.action = "/order/orderDetail"
         
         document.value.submit();
     }

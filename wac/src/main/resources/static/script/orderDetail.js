@@ -23,12 +23,6 @@ window.addEventListener('DOMContentLoaded', function() {
     console.log("결제버튼 찾기", btnPayment);
     var totalPrice = 0;
     
-   // console.log("수령 방법", pickupService);
-   // console.log("결제 수단", payment);
-   // console.log("주소", address);
-   // console.log("매장명", storeName);
-   console.log("사용자 이름", loginUser);
-    
     
     // READ
     // cartList에 있는 메뉴아이디 가져오기. (menuId1 ~ menuId4)
@@ -148,19 +142,31 @@ window.addEventListener('DOMContentLoaded', function() {
     } // setMenuInfo 끝.
        
  
+// 결제 관련 
+const storeNameInput = document.querySelector('#storeName');
+const userAddressInput = document.querySelector('#userAddress');
+const paymentInput = document.querySelector('#payment');
+ 
 const btnCreateOrder = document.querySelector('#btnSubmit');    
 const formCreateCart = document.querySelector('#formCreateCart'); 
 console.log("결제버튼 찾기", btnCreateOrder);
       
 btnCreateOrder.addEventListener('click', function() {
-    const menuName = menuNameInput.value;
-    const kind = kindInput.value;
-    const price = priceInput.value;
-    const content = contentInput.value;
-    
-    if (menuName.length == 0 || kind.length == 0 || price.length == 0 || content.length == 0) {
+    const storeName = storeNameInput.value;
+    const userAddress = userAddressInput.value;
+    const userName = loginUser.value;
+    const payment = paymentInput.value;
+    // const pickupService = contentInput.value;
+
+console.log("사용자 이름", loginUser);
+console.log("매장명", storeName); 
+console.log("상세 주소", userAddress);
+console.log("결제 수단", payment);
+   /* 
+    if (storeName.length == 0 || userAddress.length == 0 || userName.length == 0 || payment.length == 0) {
         alert("결제내역을 체크해 주십시오");
     } else {
+        */
         const result = confirm('결제하시겠습니까');
         if (result) {
             formCreateCart.action = '/order/create';
@@ -169,7 +175,7 @@ btnCreateOrder.addEventListener('click', function() {
             
             alert("결제 완료")
         }
-    }
+    // }
       
 })
       

@@ -98,6 +98,7 @@ public class OrderController {
 
         model.addAttribute("storeName",storeName);
         model.addAttribute("userAddress",userAddress);
+        model.addAttribute("userAddress",userName);
     }
     
     /**
@@ -116,13 +117,14 @@ public class OrderController {
         String storeName = data.getStoreName(); // 매장명
         String userName = data.getUserName(); // 주문자명
         
-        Integer userId = userService.getUserIdByUserName(userName); 
         // 여기 나중에 데이터 들어오면 지우면 됩니다.
         pickUp = 1; // 매장 식사
         payment = 1; // 카드 결제
         address = "우리집";
         storeName = "강남점";
         userName = "admin";
+        
+        Integer userId = userService.getUserIdByUserName(userName); 
         
         // 주문 영수증
         Order order = orderService.create(userName, storeName, address, pickUp, payment, userId);

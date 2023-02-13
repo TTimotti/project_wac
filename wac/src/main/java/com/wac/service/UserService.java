@@ -218,6 +218,12 @@ public class UserService {
         }
     }
 
+    /**
+     * 결제 할때 아이디 찾아야함 
+     * @param userName
+     * @return
+     * @author 추지훈
+     */
     public Integer getUserIdByUserName(String userName) {
         log.info("유저이름으로 아이디불러오기 = {} ", userName);
         return userRepository.findUserIdByUserName(userName);
