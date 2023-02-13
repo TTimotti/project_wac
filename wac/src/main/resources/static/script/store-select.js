@@ -186,6 +186,7 @@ $(document).on("click", ".nextPage", function() {
 	const storeName = document.querySelector(".dInfo").value;
 	const userAddressf = document.getElementById("userAddress").value
 		+ " " + document.getElementById("userAddress2").value;
+	const userName = loginUser;
 			
 	if (storeName == "" || userAddressf == "") {
 
@@ -194,20 +195,22 @@ $(document).on("click", ".nextPage", function() {
 	} else {
 		$('.storeName').val(storeName);
 		$('.userAddressf').val(userAddressf);
+		$('.userName').val(userName);
 
 		document.value.action = "/order"
 		
-		document.value.submit()
+		document.value.submit();
 	}
 });
 
 // 구매하기 버튼 클릭시 결제 상세페이지로 이동하는 함수.
-/*
+
 $(document).on("click", ".buyPage", function() {
 
     const storeName = document.querySelector(".dInfo").value;
     const userAddressf = document.getElementById("userAddress").value
         + " " + document.getElementById("userAddress2").value;
+    const userName = loginUser;
             
     if (storeName == "" || userAddressf == "") {
 
@@ -216,13 +219,13 @@ $(document).on("click", ".buyPage", function() {
     } else {
         $('.storeName').val(storeName);
         $('.userAddressf').val(userAddressf);
-
-        document.value.action = "/order/orderDetail"
+		$('.userName').val(userName);
+		
+        document.value.action = "/order"
         
-        document.value.submit()
+        document.value.submit();
     }
 });
-*/
 
 /**
  * 매장 목록 테이블 비동기 페이징 기능

@@ -69,6 +69,7 @@ a {
 	color: white;
 	font-size: 15px;
 	background-color: transparent;
+	padding:5px;
 }
 
 #map {
@@ -141,6 +142,7 @@ tbody tr.active-row {
 	font-weight: bold;
 	text-align: center;
 	border-bottom: 3px solid black;
+	
 }
 .customoverlay {
 	position: relative;

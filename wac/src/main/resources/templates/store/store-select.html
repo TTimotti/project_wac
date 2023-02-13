@@ -72,14 +72,13 @@
 			<form name="value" method="post">
 				<input type="hidden" class="storeName" name="storeName" value="" />	
 				<input type="hidden" class="userAddressf" name="userAddress" value=""/>
+				<input type="hidden" class="userName" name="userName" value=""/>
 			</form>
 			</div>
 			<br/><br/><br/><br/>
             <div>
             <input type="button" class="nextPage" value="메뉴 선택" readonly/>
-            <a th:href="@{ /order/orderDetail?userName={userName} (userName = ${#authentication.name})}">
             <input type="button" class="buyPage" value="주문하기" readonly/>
-            </a>
             </div>
             <input class="searchChoice" type="hidden"/>
 		</div>
