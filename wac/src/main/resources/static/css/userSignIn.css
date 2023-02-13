@@ -1,65 +1,57 @@
 @charset "UTF-8";
 
 .signInHead {
-    border: 1px solid grean;
-    vertical-align: top;
+    margin : 20px;
+    padding : 20px;
+    font-size: 30px;
+    font-family: 'Do Hyeon', sans-serif;
     text-align: center;
-    font-size: 25px;
+    border-bottom: 3px solid black;
 }
 
 .signInPanel {
-    border: 1px solid gray;
-    margin: 16px;
-    padding: 20px 20px;
-    text-align: center;
+    width: 1100px;
+    text-align: left;
+    padding: 50px;
+    margin-bottom: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #f8f8f8;
+    border-radius: 5px 5px 5px 5px;
+    font-family: 'Do Hyeon', sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.inputs {
-    
-    border-radius: 6px 6px 0 0;
-    box-shadow: none;
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-    padding: 14px 17px 13px;
-    box-sizing: border-box;
-    
-}
 
 .inputText {
-    border: solid 1px green;
-    width: 50%;
-    padding: 14px 17px 13px;
-    box-sizing: border-box;
+    
+    width: 550px;
+    height: 50px;
+    font-size: 30px;
+    margin-left:280px;  
 }
 
-.buttons{
-    
-    padding: 5px;
-    
-    margin: 3px;
-    
+.divLabel {
+    font-size: 30px;
+    margin-left:280px;
+    padding: 20px;
 }
 
-.button {
-    width: 50%;
-    padding: 13px 0 13px;
-    border-radius: 6px;
-    border: solid 1px white;
-    background-color: green;
-    color: white;
-    box-sizing: border-box;
-    font: inherit;
+.button{
+    
+    padding: 10px;
+    font-size: 30px;
+    background-color: #FFD126;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+    font-family: 'Do Hyeon', sans-serif;
+    cursor: pointer;
+    margin-right: 110px;    
+    margin-left:280px;
+    width: 560px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.button:hover {
-    width: 50%;
-    padding: 13px 0 13px;
-    border-radius: 6px;
-    border: solid 1px green;
-    background-color: white;
-    box-sizing: border-box;
-    color: green;
-    font-size: 15px;
-    font-weight: bold;
+.buttons:hover {
+    opacity: 0.5;
 }

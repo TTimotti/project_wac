@@ -9,6 +9,11 @@
 
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/userMyPage.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+        rel="stylesheet">
 </th:block>
 
 <div layout:fragment="content">
@@ -72,41 +77,45 @@
                         <div class="divLabel">
                             <label for="age">나이</label>
                         </div>
-                        <input class="inputs" type="number" id="age" name="age"
-                            th:value="${ user.age }" readonly>
+                        <input class="inputs" type="number" id="age"
+                            name="age" th:value="${ user.age }" readonly>
                     </div>
                     <div>
                         <div class="divLabel">
                             <label for="address">주소</label>
                         </div>
-                        <input class="inputs" type="text" id="address" name="address"
-                            th:value="${ user.address }" readonly>
+                        <input class="inputs" type="text" id="address"
+                            name="address" th:value="${ user.address }"
+                            readonly>
                     </div>
                     <div>
                         <div class="divLabel">
                             <label for="email">이메일</label>
                         </div>
-                        <input class="inputs" type="email" id="email" name="email"
-                            th:value="${ user.email }" readonly />
+                        <input class="inputs" type="email" id="email"
+                            name="email" th:value="${ user.email }"
+                            readonly />
                     </div>
                     <div>
                         <div class="divLabel">
                             <label for="phone">휴대폰</label>
                         </div>
-                        <input class="inputs" type="text" id="phone" name="phone"
-                            th:value="${ user.phone }" readonly />
+                        <input class="inputs" type="text" id="phone"
+                            name="phone" th:value="${ user.phone }"
+                            readonly />
                     </div>
                     <div>
                         <div class="divLabel">
                             <label for="gender" id="gender">성별</label>
                         </div>
-                        <input class="inputs" type="text" id="gender" name="gender"
-                            th:value="${ user.gender }" readonly />
+                        <input class="inputs" type="text" id="gender"
+                            name="gender" th:value="${ user.gender }"
+                            readonly />
                     </div>
-                    <div class="btn">
-                        <button class="btnUpdate" type="button" id="btnUpadte"
-                            th:onclick="'location.href=\'' + @{/user/update?userId={userId} (userId = ${ user.userId })} + '\''">수정하기</button>
-                    </div>
+                    <div class="divLabel"></div>
+                    <button class="btn" type="button" id="btnUpadte"
+                        th:onclick="'location.href=\'' + @{/user/update?userId={userId} (userId = ${ user.userId })} + '\''">개인정보 변경</button>
+
                 </div>
             </form>
         </div>

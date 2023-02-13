@@ -9,6 +9,11 @@
 
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/userUpdate.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+        rel="stylesheet">
 </th:block>
 
 <div layout:fragment="content">
@@ -72,10 +77,12 @@
                             <input class="inputs" type="password"
                                 id="password" name="password" />
                         </div>
-                        <div class="check" id="pinput" style="display: block">
+                        <div class="check" id="pinput"
+                            style="display: block">
                             <p>비밀번호를 입력해주세요.</p>
                         </div>
-                        <div class="err" id="pcheck" style="display: none">
+                        <div class="err" id="pcheck"
+                            style="display: none">
                             <p>비밀번호가 올바르지 않습니다..</p>
                         </div>
                         <div>
@@ -86,7 +93,8 @@
                             <input class="inputs" type="password"
                                 id="passwordCheck" />
                         </div>
-                        <div class="check" id="pok" style="display: none">
+                        <div class="check" id="pok"
+                            style="display: none">
                             <p>비밀번호가 서로 일치합니다.</p>
                         </div>
                         <div class="err" id="pnok" style="display: none">
@@ -107,8 +115,10 @@
                                 id="address" name="address"
                                 th:value="${ user.address }"
                                 readonly="readonly">
-                            <button class="button" type="button"
-                                id="btnAddress">주소 찾기</button>
+                            <div class="btns">
+                                <button class="btn" type="button"
+                                    id="btnAddress">주소 찾기</button>
+                            </div>
                         </div>
                         <div>
                             <div class="divLabel">
@@ -138,7 +148,7 @@
                             </div>
                             <select class="inputs" name="gender"
                                 id="selectGender">
-                                <option  class="selectOptions" selected>성별</option>
+                                <option class="selectOptions" selected>성별</option>
                                 <option class="selectOptions" value="남자">남자</option>
                                 <option class="selectOptions" value="여자">여자</option>
                             </select>
