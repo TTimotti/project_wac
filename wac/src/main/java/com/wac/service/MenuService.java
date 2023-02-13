@@ -148,8 +148,8 @@ public class MenuService {
     public Integer update(MenuUpdateDto dto) {
         log.info("postService update(dto={})", dto);
         
-        Menu entity = menuRepository.findById(dto.getMenuId()).get(); // (1)
-        entity.update(dto.getMenuName(), dto.getMenuEnName(), dto.getKind() , dto.getPrice(), dto.getContent(), dto.getImage()); // (2)
+        Menu entity = menuRepository.findById(dto.getId()).get(); // (1)
+        entity.update(dto.getMenuName(), dto.getMenuEnName(), dto.getKind() , dto.getPrice(), dto.getContent()); // (2)
         
         log.info("entity = {}",entity);
         
