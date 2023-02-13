@@ -158,15 +158,16 @@ btnCreateOrder.addEventListener('click', function() {
     const payment = paymentInput.value;
     // const pickupService = contentInput.value;
 
-console.log("사용자 이름", loginUser);
+console.log("사용자 이름", userName);
 console.log("매장명", storeName); 
 console.log("상세 주소", userAddress);
 console.log("결제 수단", payment);
+
    /* 
     if (storeName.length == 0 || userAddress.length == 0 || userName.length == 0 || payment.length == 0) {
         alert("결제내역을 체크해 주십시오");
     } else {
-        */
+        */    
         const result = confirm('결제하시겠습니까');
         if (result) {
             formCreateCart.action = '/order/create';
@@ -176,12 +177,27 @@ console.log("결제 수단", payment);
             alert("결제 완료")
         }
     // }
+    
+    /*
+    console.log("데이터 확인", data);
+
+     axios
+    .post('/order/create/', data )
+    .then(response => { 
+        response.data; 
+
+        console.log("컨트롤러 넘어가는지 확인", data);    
+        })
+    .catch(err => { console.log(err)});   
+
+    console.log("성공");
+    */
       
 })
       
       
       
-      
+  /*    
     btnPayment.forEach(btn => {
         btnPayment.href = "/";
         btn.addEventListener('click', tossOrder);
@@ -222,7 +238,7 @@ function tossOrder(event) {
 
     console.log("성공");
 };
-
+*/
 
  /**
     메뉴 하단에 있는 탭들을 펼치고 닫는 기능.

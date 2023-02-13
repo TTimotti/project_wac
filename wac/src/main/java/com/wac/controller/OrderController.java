@@ -98,7 +98,7 @@ public class OrderController {
 
         model.addAttribute("storeName",storeName);
         model.addAttribute("userAddress",userAddress);
-        model.addAttribute("userAddress",userName);
+        model.addAttribute("userName",userName);
     }
     
     /**
@@ -118,11 +118,12 @@ public class OrderController {
         String userName = data.getUserName(); // 주문자명
         
         // 여기 나중에 데이터 들어오면 지우면 됩니다.
-        pickUp = 1; // 매장 식사
-        payment = 1; // 카드 결제
-        address = "우리집";
-        storeName = "강남점";
-        userName = "admin";
+//        pickUp = 1; // 매장 식사
+//        payment = 1; // 카드 결제
+//        address = "우리집";
+//        storeName = "강남점";
+//        userName = "admin";
+        // 해결에서 일단 주석처리 안되는사람은 주석 풀어서 해보고 저 호출해주세요 
         
         Integer userId = userService.getUserIdByUserName(userName); 
         
