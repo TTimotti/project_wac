@@ -235,3 +235,8 @@ ul, ol, li {
     line-height: 39px;
     display: inline-block;
 }
+
+#promotion, #news {
+	cursor: pointer;
+	font-weight: bolder;
+}
