@@ -161,4 +161,6 @@ ul, ol, li {
     text-transform: uppercase;
 }
 
-
+a{
+	cursor: pointer;
+}
