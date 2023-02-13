@@ -72,7 +72,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
 	background-color: transparent;
 }
 
-a {
+.atag {
 	color: white;
 	font-size: 15px;
 	background-color: transparent;
@@ -213,12 +213,12 @@ th {
 }
 
 #storeTableNav li a {
-    display: block;
     font-size: 25px;
     padding: 9px 12px;
     box-sizing: border-box;
     border: 1px;
     background-color: #FFD126;
+    color: white;
 }
 #storeTableNav li a:hover {
 	opacity: 0.5;
@@ -231,6 +231,7 @@ th {
 #storeTableNav li.on a {
     background-color: black;
     font-size: 25px;
+    color: white;
 }
 
 /** 내 위치 버튼 **/
