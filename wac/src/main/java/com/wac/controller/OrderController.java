@@ -67,13 +67,14 @@ public class OrderController {
      * @return
      */
     @PostMapping("/order")
-    public String jump(String storeName, String userAddress, Model model) {
+    public String jump(String storeName, String userAddress, String userName, Model model) {
 		log.info("storeName={}",storeName);
 		log.info("userAddress={}",userAddress);
-
+		
 		model.addAttribute("storeName",storeName);
+		model.addAttribute("userName",userName);
 		model.addAttribute("userAddress",userAddress);
-    	return "/order/order";
+    	return "/order/orderDetail";
     }
     
     /**
