@@ -31,6 +31,8 @@
             margin-bottom: 30px;
             border-bottom: 3px solid #ffbc0d;
         }
+        
+
     </style>
 </th:block>
 
@@ -42,7 +44,7 @@
                 <!-- 상단 배너 -->
                 <div class="bannerArea bgImage">
                     <div class="inner">
-                    <input id="userName" class="userName" name="userName" th:value="${ userName }" />
+                    <input type="hidden" id="userName" class="userName" name="userName" th:value="${ userName }" />
                         <h1 class="title" data-title="프로모션" data-desc="프로모션">주문 상세내역</h1>
                         
                         
@@ -147,28 +149,20 @@
 
                             <ul class="cart_list" style="border-bottom: 3px dashed #ffbc0d; margin-bottom: 21px;">
                                 <li>
-                                    <div class="setmenu_detail" style="border: none; padding: 12px 64px 12px 64px;">
+                                    <div class="setmenu_detail" style="border: none; padding: 12px 64px 25px 64px;">
                                         <dl>
                                             <dt>매장명</dt>
                                             <dd>
                                                 <div class="list">
-                                                <input type="text" id="storeName" name="storeName" th:value="${ storeName }">
+                                                <input type="text" id="storeName" name="storeName" th:value="${ storeName }" readonly style="background: none; width:500px; text-align: right;" disabled>
                                                 </div>
                                             </dd>
                                         </dl>
                                         <dl>
-                                            <dt>배달 주소</dt>
+                                            <dt>주문 주소</dt>
                                             <dd>
                                                 <div class="list">
-                                                   	 <input type="text" id="userAddress" name="userAddress" th:value="${ userAddress }">
-                                                </div>
-                                            </dd>
-                                        </dl>
-                                        <dl>
-                                            <dt>상세 주소</dt>
-                                            <dd>
-                                                <div class="list">
-                                                    <strong class="amount">ㅇㅇ</strong>
+                                                   	 <input type="text" id="userAddress" name="userAddress" th:value="${ userAddress }" style="background: none; width:500px; text-align: right;" disabled="disabled">
                                                 </div>
                                             </dd>
                                         </dl>
@@ -178,19 +172,24 @@
                         </div>
                         <h1 class="titleName">결제 방법</h1>
                         <div class="paymentArea">
-                            <div class="sumWrap">
-                                <div class="payment" style="display: flex; justify-content: space-between; padding: 12px 64px 12px 64px;">
-                                    
-                                    <input type="radio" id="payment" name="payment" value="1"> 현금
-                                    
-                                    
-                                    <input type="radio" name="payment" value="2"> 카드
-                                    
-                                    
-                                    <input type="radio" name="payment" value="3"> 네이버페이
-                                    <input type="radio" name="payment" value="4"> 카카오페이
-                                    <input type="radio" name="payment" value="5"> 핸드폰 결제
-                                
+                            <div class="payWrap">
+                                <div class="payment" style="display: flex; padding: 12px 64px 12px 64px; font-size: 25px;">
+                                    <div class="toggle3">
+                                        <input type="radio" id="payment toggle3-1" name="type" value="1" >
+                                            <label for="payment toggle3-1">현금</label>
+                                            
+                                        <input type="radio" id="payment toggle3-2" name="type" value="2" >
+                                            <label for="payment toggle3-2">카드</label>
+                                            
+                                        <input type="radio" id="payment toggle3-3" name="type" value="3" >
+                                            <label for="payment toggle3-3">네이버페이</label>
+                                            
+                                        <input type="radio" id="payment toggle3-4" name="type" value="4" >
+                                            <label for="payment toggle3-4">카카오페이</label>
+                                            
+                                        <input type="radio" id="payment toggle3-5" name="type" value="5" >
+                                            <label for="payment toggle3-5">핸드폰 결제</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -247,7 +246,9 @@
 
 
 <th:block layout:fragment="script" th:inline="javaScript">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
     <script>
     const cartList = [[${ cartList }]];
     const sideList = [[${ sideList }]];

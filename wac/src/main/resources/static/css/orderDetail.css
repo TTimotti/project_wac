@@ -230,7 +230,9 @@ input {
         color: #ffbc0d;
     }
     
-    .setmenu_detail dd {
+    .setmenu_detail dd input {
+        padding-right: 10px;
+        font-size: 25px;
         margin-left: 130px;
     }
     
@@ -295,6 +297,12 @@ input {
     
     .sumWrap {
         height: 96px;
+        padding: 12px 55px 12px 44px;
+        background: #f8f8f8;
+        border-radius: 10px;
+    }
+    
+    .payWrap {
         padding: 12px 55px 12px 44px;
         background: #f8f8f8;
         border-radius: 10px;
@@ -549,6 +557,29 @@ input {
     }
     */
     
-    .paymentArea .sumWrap .payment input {
-        display: inline-block;
-    }
+    
+.paymentArea .payWrap .payment .toggle3 input[type=radio]{
+    display: none;
+    font-size: 2em;
+    font-weight: bolder;
+
+    float:left;
+}
+.paymentArea .payWrap .payment .toggle3 input[type=radio] + label {
+    color: #e0e0e0;
+    font-size: 2em;
+    font-weight: bolder;
+
+    float:left;
+}
+.paymentArea .payWrap .payment .toggle3 input[type=radio]:checked + label {
+    color: #000;
+    font-size: 2em;
+    font-weight: bolder;
+
+}
+
+label {
+    cursor: pointer;
+    margin: 10px;
+}
