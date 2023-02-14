@@ -27,6 +27,12 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     Order getOrderByOrderId(@Param("orderId") Integer orderId);
 
     @Query("select o.userId from ORDERS o where o.orderId = :orderId")
-    Integer getUserIdByOrderId(Integer orderId);
+    Integer getUserIdByOrderId(@Param("orderId") Integer orderId);
+
+    @Query("select o.storeName from ORDERS o where o.orderId = :orderId")
+    String getStoreNameByOrderId(@Param("orderId") Integer orderId);
+
+    @Query("select o.address from ORDERS o where o.orderId = :orderId")
+    String getUserAddressByOrderId(@Param("orderId") Integer orderId);
 
 }

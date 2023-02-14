@@ -83,17 +83,20 @@ public class OrderController {
      * @author 추지훈
      */
     @GetMapping("/order/orderCompleteDetail")
-    public String detail(@RequestParam("orderId") Integer orderId, Model model) {
+    public void detail(@RequestParam("orderId") Integer orderId, Model model) {
         log.info("order/orderCompleteDetail(orderId = {})", orderId);
 //        Order order = orderService.readOrder(orderId);
         Integer userId = orderService.getUserIdByOrderId(orderId);
         log.info("order/orderCompleteDetail(orderId = {})", orderId);
+        String storeName = orderService.getStoreNameByOrderId(orderId);
+        String userAddress = orderService.getUserAddressByOrderId(orderId);
         
         List<OrderLog> orderLogList = orderService.getOrderLogListByOrderId(orderId);
         log.info("order/orderCompleteDetail(orderId = {})", orderLogList);
         model.addAttribute("cartList", orderLogList);
+        model.addAttribute("storeName",storeName);
+        model.addAttribute("userAddress",userAddress);
         
-        return "/order/orderCompleteDetail?orderId=" + userId;
         
     }
     

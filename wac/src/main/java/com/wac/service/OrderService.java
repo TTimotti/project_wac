@@ -130,5 +130,15 @@ public class OrderService {
         List<OrderLog> list = orderLogRepository.getListByOrderId(orderId);
         return list;
     }
+
+    public String getStoreNameByOrderId(Integer orderId) {
+        String result = orderRepository.getStoreNameByOrderId(orderId);
+        return result;
+    }
+
+    public String getUserAddressByOrderId(Integer orderId) {
+        String result = orderRepository.getUserAddressByOrderId(orderId);
+        return result;
+    }
     
 }
