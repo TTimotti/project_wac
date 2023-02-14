@@ -145,7 +145,7 @@ window.addEventListener('DOMContentLoaded', function() {
 // 결제 관련 
 const storeNameInput = document.querySelector('#storeName');
 const userAddressInput = document.querySelector('#userAddress');
-const paymentInput = document.querySelector('#payment');
+const paymentInput = document.getElementsByName('#payment');
  
 const btnCreateOrder = document.querySelector('#btnSubmit');    
 const formCreateCart = document.querySelector('#formCreateCart'); 

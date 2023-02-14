@@ -560,24 +560,28 @@ input {
     
 .paymentArea .payWrap .payment .toggle3 input[type=radio]{
     display: none;
-    font-size: 2em;
+    font-size: 1em;
     font-weight: bolder;
 
     float:left;
 }
 .paymentArea .payWrap .payment .toggle3 input[type=radio] + label {
     color: #e0e0e0;
-    font-size: 2em;
+    font-size: 1em;
     font-weight: bolder;
-
+    margin-left: 50px;
+    margin-right: 50px;
     float:left;
 }
 .paymentArea .payWrap .payment .toggle3 input[type=radio]:checked + label {
     color: #000;
-    font-size: 2em;
+    font-size: 1em;
+    margin-left: 50px;
+    margin-right: 50px;
     font-weight: bolder;
 
 }
+
 
 label {
     cursor: pointer;
