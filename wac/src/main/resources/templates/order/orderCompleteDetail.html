@@ -5,35 +5,6 @@
 
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/orderDetail.css}">
-    <style>        
-        .orderList > button {
-            position: absolute;
-            top: -15px;
-            left: 0;
-            width: 100%;
-            height: 90px;
-            font-size: 50px;
-        }
-        .orderList > button:before {
-            display: block;
-            content: "+";
-            position: absolute;
-            top: -20px;
-            right: 55px;
-            width: 0px;
-            height: 27px;
-            font-size: 90px;
-            font-weight: 500;
-        }
-        
-        .titleName {
-            font-size: 50px; 
-            margin-bottom: 30px;
-            border-bottom: 3px solid #ffbc0d;
-        }
-        
-
-    </style>
 </th:block>
 
 <div layout:fragment="content">
@@ -60,7 +31,7 @@
                         <h1 class="titleName">주문내역</h1>
                         <button type="button" value="▼">
                         </button>
-                        <ul class="cart_list" style="border-bottom: 3px dashed #ffbc0d; margin-bottom: 21px;">
+                        <ul class="cart_list" style="border-bottom: 3px dashed #ffbc0d; margin-bottom: 21px; display:none;">
                             <!-- 반복문 시작 -->
                             <li th:each="cl : ${ cartList } " class="cartListInfo" th:data-index="${cl.cartId}">
                                 <div class="cont">
@@ -144,7 +115,7 @@
                             </li> <!-- 반복문 끝 -->
                         </ul>
                         </div> <!-- orderList -->
-                                  <h1 class="titleName">결제 상세</h1>                      
+                                  <h1 class="titleName">매장 주소</h1>                      
                         <div class="addressArea">
 
                             <ul class="cart_list" style="border-bottom: 3px dashed #ffbc0d; margin-bottom: 21px;">
@@ -166,17 +137,32 @@
                                                 </div>
                                             </dd>
                                         </dl>
-                                        <dl>
-                                            <dt>결제 방법</dt>
-                                            <dd>
-                                                <div class="list">
-                                                     <input type="text" id="payment" name="payment" th:value="수정" style="background: none; width:500px; text-align: right;" disabled="disabled">
-                                                </div>
-                                            </dd>
-                                        </dl>
                                     </div>
                                 </li>
                             </ul>
+                        </div>
+                        <h1 class="titleName">결제 방법</h1>
+                        <div class="paymentArea">
+                            <div class="payWrap">
+                                <div class="payment" style="display: flex; padding: 12px 0 12px 0; font-size: 25px; justify-content: center;">
+                                    <div class="toggle3 ">
+                                        <input type="radio" id="payment toggle3-1" name="payment" value="1" >
+                                            <label for="payment toggle3-1">현금</label>
+                                            
+                                        <input type="radio" id="payment toggle3-2" name="payment" value="2" checked>
+                                            <label for="payment toggle3-2">카드</label>
+                                            
+                                        <input type="radio" id="payment toggle3-3" name="payment" value="3" >
+                                            <label for="payment toggle3-3">네이버페이</label>
+                                            
+                                        <input type="radio" id="payment toggle3-4" name="payment" value="4" >
+                                            <label for="payment toggle3-4">카카오페이</label>
+                                            
+                                        <input type="radio" id="payment toggle3-5" name="payment" value="5" >
+                                            <label for="payment toggle3-5">핸드폰 결제</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <br/>
@@ -194,6 +180,28 @@
                                 </dd>
                             </dl>
                         </div>
+                        <div class="cartinfo">
+                            <div class="c_btn item2">
+                                <a th:href="@{/order}">
+                                    <button type="button" class="btn01 m ico add">
+                                        <span>
+                                            메뉴 추가
+                                        </span>
+                                    </button>
+                                </a>
+                                
+                                <a class="buttons btn01 m red" id="btnSubmit" style="margin-left: 10px;">결제하기</a>
+                                </div>
+                            
+                            <ul class="txtlist01">
+                                <li>
+                                    주문하기 전에 꼭 상품명, 수량 및 가격을 확인해주세요.
+                                </li>
+                                <li>
+                                    배달 최소금액은 15,000원입니다.
+                                </li>
+                            </ul>
+                        </div> <!-- cartinfo -->
                     </div>
                 </div>
             </div>
