@@ -37,7 +37,8 @@
             <h1>비정상적인 접근입니다.</h1>
 
             <button class="btnMain" type="button" id="btnMain"
-                th:onclick="'location.href=\'' + @{/} + '\''">Main</button>
+                th:onclick="'location.href=
+                \'' + @{/} + '\''">Main</button>
             <button class="btnMyCart" type="button" id="btnMyCart"
                 th:onclick="'location.href=\'' + @{ /cart/cart?userName={userName} (userName = ${ #authentication.name }) } + '\''">My
                 Cart</button>

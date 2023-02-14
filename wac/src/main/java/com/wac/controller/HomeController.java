@@ -68,6 +68,26 @@ public class HomeController {
         log.info("newsAdmin()");
         return "/post/post";
     }
+	
+	/**
+     *  
+     * @author: 추지훈
+     */
+    @GetMapping("/order/orderComplete")
+    public String orderComplete() {
+        log.info("orderComplete()");
+        return "/order/orderComplete";
+    }
+    
+    /**
+     *  
+     * @author: 추지훈
+     */
+    @GetMapping("/cart")
+    public String cartOrder() {
+        log.info("cartOrder()");
+        return "/cart/cart";
+    }
 
 	/**
 	 * 로그인 페이지에서 아이디 혹은 비밀번호 오류 발생 시 안내 문구를 띄우기 위해서 이동시키는 페이지

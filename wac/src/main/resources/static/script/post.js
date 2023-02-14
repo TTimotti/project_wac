@@ -55,22 +55,6 @@ function updatePostList(data) {
     divPostList.innerHTML = str;
 }
 
-/**
-테스트할때마다 번거로워서 잠깐 주석처리 해놓을게요.
-
-    // admin check : admin 계정으로만 '새 글 작성' 기능 사용할 수 있게 적용
-    const adminOnly = document.querySelector('#adminOnly');
-
-    
-    console.log(loginUser);
-    
-        if(loginUser == "admin") {
-            adminOnly.style.display="block";
-            
-        } else{
-            adminOnly.style.display="none";
-        }
-*/
 
 });
 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ /layout/basic-layout }">
+
+<title>Wacdonaldo</title>
+<div layout:fragment="content">
+    <!-- 개발 공간. -->
+
+    <div id="jb-sidebar-left"></div>
+
+    <div id="jb-sidebar-left"></div>
+
+    <div id="jb-center">
+        <div class="visualArea bgMenu01">
+            <div class="inner">
+                <h1 class="titDep1">What's News</h1>
+                <p class="subCopy">
+                    <strong>왁도날드 프로모션</strong>
+                </p>
+                <!--                 <ul class="navPath"> -->
+                <!--                     <li><a href="javascript:goHome()">Home</a></li> -->
+                <!--                     <li><a href="javascript:gotoMenu(1);">What's new</a></li> -->
+                <!--                     <li><a href="javascript:gotoMenu(1);">프로모션</a></li> -->
+                <!--                 </ul> -->
+            </div>
+        </div>
+
+        <div id="adminOnly" style="display: block">
+        </div>
+
+        <div class="contArea">
+            <div class="inner">
+                <br />
+                <ul class="tabType01">
+                    <li class="q button post">
+                        <a class="q btn form-control" id="orderDetail">결제 내역</a>
+                    </li>
+                </ul>
+                <div class="orderList">
+                    <p class="count" id="count"></p>
+                    <ul class="orders" id="orders">
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script id="menu" type="text/templet">
+
+</script>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/post.css}">
+</th:block>
+<th:block layout:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{ /script/orderComplete.js }"></script>
+</th:block>
+</html>
+
+
+

@@ -2,6 +2,7 @@ package com.wac.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import com.wac.domain.Menu;
 import com.wac.domain.Order;
 import com.wac.domain.OrderLog;
 import com.wac.dto.MenuSimpleDto;
+import com.wac.dto.OrderReadDto;
 import com.wac.dto.OrderTossDto;
 import com.wac.service.CartService;
 import com.wac.service.ImagesService;
@@ -43,6 +45,24 @@ public class OrderController {
     private final UserService userService;
     
     private final CartService cartService;
+    
+    /**
+     * order 전체 리스트 사용자별로 불러오는 메서드.
+     * @param userName
+     * @return
+     * @author 추지훈
+     */
+    @GetMapping("/order/all")
+    public ResponseEntity<List<OrderReadDto>> readAllPosts(String userName) {
+        log.info("readAllPosts()");
+        Integer userId = userService.getUserIdByUserName(userName);
+        log.info("userId ={}", userId);
+        List<OrderReadDto> list = orderService.readOrders(userId);
+        log.info("OrderReadDto list() = {}", list);
+        
+        return ResponseEntity.ok(list);
+    }
+    
     
     @GetMapping("/order/cart")
     public void gotoCart(String userName, Model model) {

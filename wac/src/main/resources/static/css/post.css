@@ -120,11 +120,37 @@ button, input[type='button'], input[type='submit'], input[type='reset']
 	margin-left: 20px;
 }
 
+
+
+.orders li a {
+    height: 100%;
+    font-size:20px;
+    padding: 1px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #f8f8f8;
+    background: #f8f8f8;
+}
+
+#orderId, #createdTime {
+    padding-top: 10px;
+}
+
+#orderId, #createdTime {
+    color: gray;
+}
+
+#orderId{
+    margin-left: 20px;
+}
+
+
+
 #createdTime{
 	margin-right: 20px;
 }
 
-#postTitle {
+#userName {
 	color: black;
 }
 
@@ -150,6 +176,18 @@ button, input[type='button'], input[type='submit'], input[type='reset']
 
 .posts {
 	border-top: 3px solid;
+    border-bottom: 3px solid;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.orders li a img:hover{
+    border: 5px solid orange;
+    border-radius: 5px;
+}
+
+.orders {
+    border-top: 3px solid;
     border-bottom: 3px solid;
     padding-top: 20px;
     padding-bottom: 15px;

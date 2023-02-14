@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.wac.domain.Cart;
 import com.wac.domain.Order;
 import com.wac.domain.OrderLog;
+import com.wac.dto.OrderReadDto;
 import com.wac.repository.CartRepository;
 import com.wac.repository.OrderLogRepository;
 import com.wac.repository.OrderRepository;
@@ -102,5 +103,14 @@ public class OrderService {
         OrderLog entity = orderLogRepository.save(result);
         
         return entity;
+    }
+
+    @Transactional(readOnly = true)
+    public List<OrderReadDto> readOrders(Integer userId) {
+        log.info("readOrderDetails");
+        
+        List<Order> list = orderRepository.readAllList(userId);
+        
+        return list.stream().map(OrderReadDto::fromEntity).toList();
     }
 }
