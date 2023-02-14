@@ -587,3 +587,7 @@ label {
     cursor: pointer;
     margin: 10px;
 }
+
+#btnSubmit {
+    cursor: pointer;
+}
