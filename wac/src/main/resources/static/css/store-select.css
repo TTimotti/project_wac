@@ -412,6 +412,7 @@ label {
 .storeSearch {
 	float:left;
 	margin: 10px;
+	margin-left: 60px;
 	padding-top: 5px;
 	width: 200px;
 	height: 35px;
