@@ -29,9 +29,9 @@
 
                     <div class="orderList">
                         <h1 class="titleName">주문내역</h1>
-                        <button type="button" value="▼">
+                        <button value="▼" style="display: none;">
                         </button>
-                        <ul class="cart_list" style="border-bottom: 3px dashed #ffbc0d; margin-bottom: 21px; display:none;">
+                        <ul class="cart_list">
                             <!-- 반복문 시작 -->
                             <li th:each="cl : ${ cartList } " class="cartListInfo" th:data-index="${cl.cartId}">
                                 <div class="cont">
@@ -115,17 +115,17 @@
                             </li> <!-- 반복문 끝 -->
                         </ul>
                         </div> <!-- orderList -->
-                                  <h1 class="titleName">매장 주소</h1>                      
+                                  <h1 class="titleName">결제 상세</h1>                      
                         <div class="addressArea">
 
-                            <ul class="cart_list" style="border-bottom: 3px dashed #ffbc0d; margin-bottom: 21px;">
+                            <ul class="cart_list">
                                 <li>
-                                    <div class="setmenu_detail" style="border: none; padding: 12px 64px 25px 64px;">
+                                    <div class="setmenu_detail">
                                         <dl>
                                             <dt>매장명</dt>
                                             <dd>
                                                 <div class="list">
-                                                <input type="text" id="storeName" name="storeName" th:value="${ storeName }" readonly style="background: none; width:500px; text-align: right;" disabled>
+                                                <input type="text" id="storeName" name="storeName" th:value="${ storeName }" disabled>
                                                 </div>
                                             </dd>
                                         </dl>
@@ -133,36 +133,13 @@
                                             <dt>주문 주소</dt>
                                             <dd>
                                                 <div class="list">
-                                                   	 <input type="text" id="userAddress" name="userAddress" th:value="${ userAddress }" style="background: none; width:500px; text-align: right;" disabled="disabled">
+                                                   	 <input type="text" id="userAddress" name="userAddress" th:value="${ userAddress }"  disabled="disabled">
                                                 </div>
                                             </dd>
                                         </dl>
                                     </div>
                                 </li>
                             </ul>
-                        </div>
-                        <h1 class="titleName">결제 방법</h1>
-                        <div class="paymentArea">
-                            <div class="payWrap">
-                                <div class="payment" style="display: flex; padding: 12px 0 12px 0; font-size: 25px; justify-content: center;">
-                                    <div class="toggle3 ">
-                                        <input type="radio" id="payment toggle3-1" name="payment" value="1" >
-                                            <label for="payment toggle3-1">현금</label>
-                                            
-                                        <input type="radio" id="payment toggle3-2" name="payment" value="2" checked>
-                                            <label for="payment toggle3-2">카드</label>
-                                            
-                                        <input type="radio" id="payment toggle3-3" name="payment" value="3" >
-                                            <label for="payment toggle3-3">네이버페이</label>
-                                            
-                                        <input type="radio" id="payment toggle3-4" name="payment" value="4" >
-                                            <label for="payment toggle3-4">카카오페이</label>
-                                            
-                                        <input type="radio" id="payment toggle3-5" name="payment" value="5" >
-                                            <label for="payment toggle3-5">핸드폰 결제</label>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         
                         <br/>

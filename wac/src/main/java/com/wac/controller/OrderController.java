@@ -17,7 +17,6 @@ import com.wac.domain.OrderLog;
 import com.wac.dto.MenuSimpleDto;
 import com.wac.dto.OrderReadDto;
 import com.wac.dto.OrderTossDto;
-import com.wac.dto.PostReadDto;
 import com.wac.service.CartService;
 import com.wac.service.ImagesService;
 import com.wac.service.MenuService;
@@ -90,6 +89,14 @@ public class OrderController {
         log.info("order/orderCompleteDetail(orderId = {})", orderId);
         String storeName = orderService.getStoreNameByOrderId(orderId);
         String userAddress = orderService.getUserAddressByOrderId(orderId);
+        
+        List<Menu> sideList = cartService.readAllSideMenuByKind();
+        log.info("sideList 호출 완료");
+        List<Menu> drinkList = cartService.readAllDrinkMenuByKind();
+        log.info("drinkList 호출 완료");
+        
+        model.addAttribute("sideList", sideList);
+        model.addAttribute("drinkList", drinkList);
         
         List<OrderLog> orderLogList = orderService.getOrderLogListByOrderId(orderId);
         log.info("order/orderCompleteDetail(orderId = {})", orderLogList);
