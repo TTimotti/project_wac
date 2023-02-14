@@ -97,6 +97,7 @@ public class OrderService {
                 .menuId4(cart.getMenuId4())
                 .menuId5(cart.getMenuId5())
                 .menuId6(cart.getMenuId6())
+                .quantity(cart.getQuantity())
                 .image(cart.getImage())
                 .build();
                 
