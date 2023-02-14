@@ -43,7 +43,7 @@
                 <em class="en"
                     th:text="${menu.menuEnName}"></em>
             </div>
-            <div class="my-4">
+            <div class="my-4" style="display: none;">
                 <label for="menuId"
                     class="form-label">메뉴 번호</label>
                 <input id="menuId" name="id"
@@ -155,42 +155,6 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-            <div class="toggle">
-                <h4 class="tit">알레르기 정보</h4>
-                <button type="button"
-                    aria-selected="false"
-                    aria-controls="toggle03"
-                    aria-expanded="false" value="+">
-
-                </button>
-                <div id="toggle03" class="toggleCon"
-                    style="display: none;">
-                    <div class="allerDesc">
-                        <p>
-                            <b>알레르기 유발 가능 식재료</b> "
-                            (난류,대두,밀,돼지고기,토마토,굴)" <br>
-                            <b>* 일부 튀김류 제품은 새우
-                                패티와 같은 조리기구를 사용하고
-                                있습니다.</b>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="toggle">
-                <h4 class="tit">원산지 정보</h4>
-                <button type="button"
-                    aria-selected="false"
-                    aria-controls="toggle04"
-                    aria-expanded="false" value="+">
-
-                </button>
-                <div id="toggle04" class="toggleCon"
-                    style="display: none;">
-                    <ul class="origin_info">
-                        <li>돼지고기: 미국산</li>
-                    </ul>
                 </div>
             </div>
         </div>

@@ -64,7 +64,7 @@
                     <label for="price" class="form-label">가격</label>
                 </div>
                 <br/>
-                <input id="price" name="price" class="inputs" th:value="${ menu.price }"/>
+                <input id="price" name="price" class="inputs" th:value="${ menu.price }" readonly/>
             </div>
             
             <br/>
@@ -108,7 +108,7 @@
 
 
 <th:block layout:fragment="script" th:inline="javaScript">
-    <script th:src="@{ /script/menuModify.js }"></script>
+
 <script>
 
 

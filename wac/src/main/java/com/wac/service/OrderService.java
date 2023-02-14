@@ -141,5 +141,25 @@ public class OrderService {
         String result = orderRepository.getUserAddressByOrderId(orderId);
         return result;
     }
+
+    public String getPaymentName(Integer orderId) {
+        
+        Integer paymentId = orderRepository.getPaymentByOrderId(orderId);
+        String paymentName = "관리자 문의";
+        switch (paymentId) {
+            case 1: paymentName = "현금";
+                break;
+            case 2: paymentName = "카드";
+                break;
+            case 3: paymentName = "네이버페이";
+                break;
+            case 4: paymentName = "카카오페이";
+                break;
+            case 5: paymentName = "핸드폰 결제";
+                break;
+        }
+        
+        return paymentName;
+    }
     
 }

@@ -89,6 +89,7 @@ public class OrderController {
         log.info("order/orderCompleteDetail(orderId = {})", orderId);
         String storeName = orderService.getStoreNameByOrderId(orderId);
         String userAddress = orderService.getUserAddressByOrderId(orderId);
+        String paymentName = orderService.getPaymentName(orderId); 
         
         List<Menu> sideList = cartService.readAllSideMenuByKind();
         log.info("sideList 호출 완료");
@@ -97,6 +98,7 @@ public class OrderController {
         
         model.addAttribute("sideList", sideList);
         model.addAttribute("drinkList", drinkList);
+        model.addAttribute("paymentName", paymentName);
         
         List<OrderLog> orderLogList = orderService.getOrderLogListByOrderId(orderId);
         log.info("order/orderCompleteDetail(orderId = {})", orderLogList);
@@ -187,11 +189,13 @@ public class OrderController {
         Integer userId = userService.getUserIdByUserName(userName);
         List<Cart> cartList = cartService.readCartList(userId);
         Integer totalPrice = 0;
+        /*
         for (Cart c : cartList) {
             totalPrice =+ c.getPrice();
             log.info("totalPrice = {} ", totalPrice);
         }
         log.info("totalPrice = {} ", totalPrice);
+        */
         // 주문 영수증
         Order order = orderService.create(userName, storeName, address, pickUp, payment, userId);
         

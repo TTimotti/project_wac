@@ -137,6 +137,14 @@
                                                 </div>
                                             </dd>
                                         </dl>
+                                        <dl>
+                                            <dt>결제 방법</dt>
+                                            <dd>
+                                                <div class="list">
+                                                     <input type="text" id="userAddress" name="userAddress" th:value="${ paymentName }"  disabled="disabled">
+                                                </div>
+                                            </dd>
+                                        </dl>
                                     </div>
                                 </li>
                             </ul>
@@ -157,7 +165,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="cartinfo">
+                        <div class="cartinfo" style="display:none;">
                             <div class="c_btn item2">
                                 <a th:href="@{/order}">
                                     <button type="button" class="btn01 m ico add">
