@@ -617,3 +617,37 @@ label {
             margin-bottom: 30px;
             border-bottom: 3px solid #ffbc0d;
         }
+        
+        .paymentArea {
+            padding-bottom: 25px;
+            border-bottom: 3px dashed #ffbc0d;
+        }
+        
+        .paymentArea .payWrap .payment {
+            display: flex;
+            padding: 12px 0 12px 0;
+            font-size: 25px;
+            justify-content: center;
+        }
+        
+        .orderList .cart_list {
+            border-bottom: 3px dashed #ffbc0d;
+            margin-bottom: 21px;
+            display: block;
+        }
+        
+        .addressArea .cart_list {
+            border-bottom: 3px dashed #ffbc0d;
+            margin-bottom: 21px;
+        }
+        
+        .addressArea .cart_list .setmenu_detail {
+            border: none;
+            padding: 12px 64px 25px 64px;
+        }
+        
+        .addressArea .cart_list .setmenu_detail dl dd input {
+            background: none;
+            width:500px;
+            text-align: right;
+        }
