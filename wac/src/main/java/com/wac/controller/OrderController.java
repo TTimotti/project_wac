@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wac.domain.Cart;
 import com.wac.domain.Menu;
@@ -16,6 +17,7 @@ import com.wac.domain.OrderLog;
 import com.wac.dto.MenuSimpleDto;
 import com.wac.dto.OrderReadDto;
 import com.wac.dto.OrderTossDto;
+import com.wac.dto.PostReadDto;
 import com.wac.service.CartService;
 import com.wac.service.ImagesService;
 import com.wac.service.MenuService;
@@ -73,6 +75,25 @@ public class OrderController {
     public void readRecipt() {
         log.info("readAllPosts 호출(userId={})");
         
+        
+    }
+    
+    /**
+     * 
+     * @author 추지훈
+     */
+    @GetMapping("/order/orderCompleteDetail")
+    public String detail(@RequestParam("orderId") Integer orderId, Model model) {
+        log.info("order/orderCompleteDetail(orderId = {})", orderId);
+//        Order order = orderService.readOrder(orderId);
+        Integer userId = orderService.getUserIdByOrderId(orderId);
+        log.info("order/orderCompleteDetail(orderId = {})", orderId);
+        
+        List<OrderLog> orderLogList = orderService.getOrderLogListByOrderId(orderId);
+        log.info("order/orderCompleteDetail(orderId = {})", orderLogList);
+        model.addAttribute("cartList", orderLogList);
+        
+        return "/order/orderCompleteDetail?orderId=" + userId;
         
     }
     

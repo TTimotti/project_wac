@@ -113,4 +113,22 @@ public class OrderService {
         
         return list.stream().map(OrderReadDto::fromEntity).toList();
     }
+
+    public Order readOrder(Integer orderId) {
+        Order order = orderRepository.getOrderByOrderId(orderId);
+        return order;
+    }
+
+    public Integer getUserIdByOrderId(Integer orderId) {
+        log.info("오더아이디로 유저 아이디찾는 메서드 호출");
+        Integer userId = orderRepository.getUserIdByOrderId(orderId);
+        log.info("유저 아이디 = {}", userId);
+        return userId;
+    }
+
+    public List<OrderLog> getOrderLogListByOrderId(Integer orderId) {
+        List<OrderLog> list = orderLogRepository.getListByOrderId(orderId);
+        return list;
+    }
+    
 }

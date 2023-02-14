@@ -23,7 +23,7 @@ function updateOrderList(data) {
     let str = '';
     for (let o of data) {
         str +='<li class="card my-5 col-3 notice-2">' 
-        +'<a class="notice" href="/order/detail?orderId='+ o.orderId +'">'
+        +'<a class="notice" href="/order/orderCompleteDetail?orderId='+ o.orderId +'">'
         + '<div id="orderId">' + o.orderId + '</div>'
         + '<div id="userName"><strong>' + userName + '</strong></div>'
         + '<div id="createdTime">' + o.createdTime + '</div>'
