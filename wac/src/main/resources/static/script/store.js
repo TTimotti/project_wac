@@ -312,15 +312,26 @@ $(document).on("click", ".storeSearch-btn", function() {
 	const keyword = document.querySelector(".storeSearch").value;
 	dataPerPage = 3;
 	
+	if (keyword == ""){
+		
+		alert("검색어를 입력해주세요.");
+		
+	} else {
+	
 	axios
 		.get("/storeSearch", { params: { type, keyword } })
 		.then(response => {
 			totalData = response.data.length ;
 			globalData = response.data;
+			if(globalData == ""){
+				alert("찾을 수 없습니다.");
+			} else {
 			displayData(1, dataPerPage, response.data)
 			pasing(totalData, dataPerPage, pageCount, 1)
+			}
 		})
 		.catch(err => { console.log(err) });
+		}
 });
 
 $(document).on("click", "#toggle3-1", function() {

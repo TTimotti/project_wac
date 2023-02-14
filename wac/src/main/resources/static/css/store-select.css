@@ -4,9 +4,10 @@
 생성자 장민석.
 **/
 
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, select, textarea, p, blockquote, th, td, button {
-    margin: 0;
-    padding: 0;
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form,
+	fieldset, input, select, textarea, p, blockquote, th, td, button {
+	margin: 0;
+	padding: 0;
 }
 
 .storeContainer {
@@ -435,4 +436,7 @@ label {
 	border: none;
 	border-radius: 5px 5px 5px 5px;
 	padding-bottom:3px;
+}
+.storeSearch-btn:hover {
+	opacity: 0.5;
 }
