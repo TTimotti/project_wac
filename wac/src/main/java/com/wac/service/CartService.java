@@ -87,6 +87,7 @@ public class CartService {
                 .menuId5(cartDto.getMenuId5())
                 .menuId6(cartDto.getMenuId6())
                 .address(cartDto.getAddress())
+                .price(cartDto.getPrice())
                 .storeName(cartDto.getStoreName())
                 .image(cartDto.getImage())
                 .quantity(cartDto.getQuantity())

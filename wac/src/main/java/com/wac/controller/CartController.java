@@ -119,6 +119,7 @@ public class CartController {
         cart.setStoreName(data.getStoreName()); // 매장명 저장. 
         cart.setAddress(data.getUserAddress()); // 상세주소 저장.
         cart.setImage(menu.getImage()); // 이미지 저장.
+        cart.setPrice(menu.getPrice());
         if (menu.getKind() == 2) {
             cart.setMenuId2(data_menuId);
             log.info("중간점검 전 세트 카트 = {}", cart);

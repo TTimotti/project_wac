@@ -75,9 +75,7 @@ public class Cart extends BaseTimeEntity {
     @Column
     private Integer image; // 메뉴 이미지
     
-//    @Column(name = "shipping") // default: 1
-//    private Integer shipping; // 배송 전: 1, 배송 후: 2
+    @Column
+    private Integer price;
     
-//    @Column(name = "cart_indate")
-//    private LocalDateTime cartIndate; // 장바구니에 담은 날짜 ? 이건 createdate로 통일가능한지 고민좀
 }
