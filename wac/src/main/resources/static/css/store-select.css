@@ -70,9 +70,11 @@ a {
 	color: white;
 	font-size: 15px;
 	background-color: transparent;
-	padding:5px;
 }
 
+.infoa{
+	padding:5px;
+}
 #map {
 	margin: 5px;
 	height: 950px;

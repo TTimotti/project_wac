@@ -1,59 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{ /layout/basic-layout }">
-    
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{ /layout/basic-layout }">
+
 <title>Wacdonaldo</title>
 <div layout:fragment="content">
-<!-- 개발 공간. -->
+	<!-- 개발 공간. -->
 
-<div id="jb-sidebar-left">
-</div>
+	<div id="jb-sidebar-left"></div>
 
-<div id="jb-sidebar-left">
-</div>
+	<div id="jb-sidebar-left"></div>
 
-    <div id="jb-center">
-        <div class="visualArea bgMenu01">
-            <div class="inner">
-                <h1 class="titDep1">What's News</h1>
-                <p class="subCopy">
-                    <strong>왁도날드 프로모션</strong>
-                </p>
-<!--                 <ul class="navPath"> -->
-<!--                     <li><a href="javascript:goHome()">Home</a></li> -->
-<!--                     <li><a href="javascript:gotoMenu(1);">What's new</a></li> -->
-<!--                     <li><a href="javascript:gotoMenu(1);">프로모션</a></li> -->
-<!--                 </ul> -->
-            </div>
-        </div>
+	<div id="jb-center">
+		<div class="visualArea bgMenu01">
+			<div class="inner">
+				<h1 class="titDep1">What's News</h1>
+				<p class="subCopy">
+					<strong>왁도날드 프로모션</strong>
+				</p>
+				<!--                 <ul class="navPath"> -->
+				<!--                     <li><a href="javascript:goHome()">Home</a></li> -->
+				<!--                     <li><a href="javascript:gotoMenu(1);">What's new</a></li> -->
+				<!--                     <li><a href="javascript:gotoMenu(1);">프로모션</a></li> -->
+				<!--                 </ul> -->
+			</div>
+		</div>
 
-        <div id="adminOnly" style="display: block"> <!-- TODO 테스트 끝나고 none 으로 변경 후 js 주석해제 -->
-            <ul>
-                <li class="div_label" th:if="${ #authentication.name } == admin"><a th:href="@{ /post/create }">새 글 작성</a></li>
-            </ul>
-        </div>
+		<div id="adminOnly" style="display: block">
+			<!-- TODO 테스트 끝나고 none 으로 변경 후 js 주석해제 -->
+			<ul>
+				<li class="div_label" th:if="${ #authentication.name } == admin" style="margin-left:auto; margin-right:auto; text-align: center;"><a
+					th:href="@{ /post/create }">새 글 작성</a></li>
+			</ul>
+		</div>
 
-        <div class="contArea">
-            <div class="inner">
-            <br/>
-                <ul class="tabType01">
+		<div class="contArea">
+			<div class="inner">
+				<br />
+				<ul class="tabType01">
 
-                    <li class="q button promotion"><a class="q btn form-control" id="promotion">프로모션</a></li>
-                    <li class="q button post"><a class="q btn form-control" id="news">새로운 소식 (공지사항)</a></li>
+					<li class="q button promotion"><a class="q btn form-control"
+						id="promotion">프로모션</a></li>
+					<li class="q button post"><a class="q btn form-control"
+						id="news">새로운 소식 (공지사항)</a></li>
 
-                </ul>
-                <div class="postList">
-                    <p class="count" id="count"></p>
-                    <ul class="posts" id="posts">
+				</ul>
+				<div class="postList">
+					<p class="count" id="count"></p>
+					<ul class="posts" id="posts">
 
-                    </ul>
+					</ul>
 
-                </div>
-            </div>
-        </div>
+				</div>
+			</div>
+		</div>
 
-    </div>
+	</div>
 
 
 
@@ -121,12 +123,13 @@ function goHome() {
     </li>
 </script>
 <th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/post.css}">
+	<link rel="stylesheet" th:href="@{/css/post.css}">
 </th:block>
 <th:block layout:fragment="script">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script th:src="@{ /script/post.js }"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+	<script th:src="@{ /script/post.js }"></script>
 </th:block>
 </html>
 

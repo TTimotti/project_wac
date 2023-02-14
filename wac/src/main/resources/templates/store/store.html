@@ -42,17 +42,17 @@
 	</div>
 	<div class="storeContainer2">
 		<div class="storePlace">
-		<table class="storeTable">
-		</table>
+			<table class="storeTable">
+			</table>
 		</div>
 		<br/><br/><br/>
 		<div>
 			<ul id="storeTableNav"></ul>
 		</div>
 		<br/><br/><br/>
-		<button class="storeCreate" onclick="location.href='/storeCreate'" th:if="${ #authentication.name } == admin">매장 등록</button>
-		<input class="loginUser" type="hidden" th:value="${ #authentication.name }">
-		<input class="searchChoice" type="hidden"/>
+			<button class="storeCreate" onclick="location.href='/storeCreate'" th:if="${ #authentication.name } == admin">매장 등록</button>
+			<input class="loginUser" type="hidden" th:value="${ #authentication.name }">
+			<input class="searchChoice" type="hidden"/>
 	</div>
 </div>
 <th:block layout:fragment="script">
