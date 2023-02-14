@@ -73,11 +73,11 @@ public class HomeController {
      *  
      * @author: 추지훈
      */
-    @GetMapping("/order/orderComplete")
-    public String orderComplete() {
-        log.info("orderComplete()");
-        return "/order/orderComplete";
-    }
+//    @GetMapping("/order/orderComplete")
+//    public String orderComplete() {
+//        log.info("orderComplete()");
+//        return "/order/orderComplete";
+//    }
     
     /**
      *  

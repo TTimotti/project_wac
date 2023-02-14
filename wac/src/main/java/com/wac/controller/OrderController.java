@@ -63,6 +63,19 @@ public class OrderController {
         return ResponseEntity.ok(list);
     }
     
+    /**
+     * order 전체 리스트 사용자별로 불러오는 메서드.
+     * @param userName
+     * @return
+     * @author 추지훈
+     */
+    @GetMapping("/order/orderComplete")
+    public void readRecipt() {
+        log.info("readAllPosts 호출(userId={})");
+        
+        
+    }
+    
     
     @GetMapping("/order/cart")
     public void gotoCart(String userName, Model model) {

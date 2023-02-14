@@ -115,6 +115,10 @@
                     <div class="divLabel"></div>
                     <button class="btn" type="button" id="btnUpadte"
                         th:onclick="'location.href=\'' + @{/user/update?userId={userId} (userId = ${ user.userId })} + '\''">개인정보 변경</button>
+                        
+                        <br/><br/>
+                    <button class="btn" type="button" id="btnUpadte"
+                        th:onclick="'location.href=\'' + @{/order/orderComplete?userId={userId} (userId = ${ user.userId })} + '\''">내 주문내역</button>
 
                 </div>
             </form>

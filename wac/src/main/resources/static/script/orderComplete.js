@@ -19,9 +19,6 @@ function showOrderList(userName) {
 function updateOrderList(data) {
     const divPostList = document.querySelector('#orders');  
 
-    console.log("주문 번호", data[1].orderId);
-    console.log("주문 번호", data.orderId);
-    
 
     let str = '';
     for (let o of data) {
