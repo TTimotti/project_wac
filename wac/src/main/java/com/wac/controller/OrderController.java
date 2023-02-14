@@ -49,8 +49,11 @@ public class OrderController {
         log.info("gotoCart(userName={})", userName);
         
         List<Cart> cartList = cartService.readAllByUserName(userName);
+        log.info("cartList 호출 완료");
         List<Menu> sideList = cartService.readAllSideMenuByKind();
+        log.info("sideList 호출 완료");
         List<Menu> drinkList = cartService.readAllDrinkMenuByKind();
+        log.info("drinkList 호출 완료");
         
         model.addAttribute("cartList", cartList);
         model.addAttribute("sideList", sideList);

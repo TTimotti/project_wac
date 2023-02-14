@@ -11,6 +11,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const btnDrink = document.querySelector('#drink');
     const btnMorning = document.querySelector('#morning');
     const btnMorningMeal = document.querySelector('#morningMeal');
+    const userName = loginUser;
     
     console.log(storeName);
     console.log(userAddress);
@@ -79,7 +80,7 @@ function updateMenuList(data) {
         + '</strong><p class="en">' + m.menuEnName + '</p>'
         + '</div></a>'
         + '<div><form>'
-        + `<a class="btnTossCart btn btn-success" id="btnTossCart" data-menuId="${ m.menuId }" data-storeName="${ storeName }" data-userAddress="${ userAddress }">`
+        + `<a class="btnTossCart btn btn-success" id="btnTossCart" data-menuId="${ m.menuId }" data-storeName="${ storeName }" data-userAddress="${ userAddress }" ">`
         + '장바구니 추가'
         + '</button></form></div>'
         + '</li>';
@@ -101,8 +102,7 @@ function tossCartModal(event) {
     console.log(storeName);
     console.log("카트로 넘어가는 메뉴", data_menuId);
     console.log("유저이름", loginUser);
-
-    btnTossCart.href = "/order/cart?userName=" + loginUser;
+    
     console.log("페이지넘어가기", loginUser);
 
     const data = {
@@ -118,7 +118,8 @@ function tossCartModal(event) {
     .then(response => { 
         response.data; 
 
-        console.log("컨트롤러 넘어가는지 확인", data);    
+        location.href = "/order/cart?userName=" + userName;
+         
         })
     .catch(err => { console.log(err)});   
 

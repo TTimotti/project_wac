@@ -38,7 +38,8 @@ window.addEventListener('DOMContentLoaded', function() {
     let menuIdList = [];
     
     for (let i = 0 ; i < cartList.length ; i++) {
-        
+        console.log("메뉴아이디리스트");
+        console.log(menuIdList);
         if (cartList[i].menuId1 != null) {
             menuIdList.push(cartList[i].menuId1);
         } else if (cartList[i].menuId2 != null) {
@@ -55,7 +56,7 @@ window.addEventListener('DOMContentLoaded', function() {
     // menuIdList의 있는 menuId를 통해 메뉴 정보 가져오기.
     for (let i = 0 ; i < menuIdList.length ; i++) {
         menuId = menuIdList[i];
-
+        console.log(menuIdList[i]);
         axios
         .get('/cart/toss/' + menuId)
         .then(response => {writeMenuName(response.data)})
@@ -396,7 +397,7 @@ function tossOrder(event) {
     console.log("카트로 넘어가는 메뉴", data_menuId);
     console.log("유저이름", loginUser);
 
-    btnTossCart.href = "/order/cart?userName=" + loginUser;
+   
     console.log("페이지넘어가기", loginUser);
 
     const data = {
