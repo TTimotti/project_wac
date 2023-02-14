@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ /layout/basic-layout }">
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/orderDetail.css}">
+    <style>        
+        .orderList > button {
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            font-size: 50px;
+        }
+        .orderList > button:before {
+            display: block;
+            content: "+";
+            position: absolute;
+            top: -20px;
+            right: 55px;
+            width: 0px;
+            height: 27px;
+            font-size: 90px;
+            font-weight: 500;
+        }
+        
+        .titleName {
+            font-size: 50px; 
+            margin-bottom: 30px;
+            border-bottom: 3px solid #ffbc0d;
+        }
+        
+
+    </style>
+</th:block>
+
+<div layout:fragment="content">
+    <div class="wrapper">
+    <form id="formCreateCart" method="post" enctype="multipart/form-data">
+        <div id="container">
+            <div class="contents">
+                <!-- 상단 배너 -->
+                <div class="bannerArea bgImage">
+                    <div class="inner">
+                    <input type="hidden" id="userName" class="userName" name="userName" th:value="${ userName }" />
+                        <h1 class="title" data-title="프로모션" data-desc="프로모션">주문 상세내역</h1>
+                        
+                        
+                        
+                    </div> <!-- inner -->
+                </div> <!-- bannerArea -->
+                    <br/>
+                <!-- 주문 내역 -->
+                <div class="contArea">
+                    <div class="inner">
+
+                    <div class="orderList">
+                        <h1 class="titleName">주문내역</h1>
+                        <button type="button" value="▼">
+                        </button>
+                        <ul class="cart_list" style="border-bottom: 3px dashed #ffbc0d; margin-bottom: 21px;">
+                            <!-- 반복문 시작 -->
+                            <li th:each="cl : ${ cartList } " class="cartListInfo" th:data-index="${cl.cartId}">
+                                <div class="cont">
+                                    <div class="menu_titWrap">
+                                        <label class="menu_name">
+                                            <span class="tit">
+                                                <strong>
+                                                    <!-- 메뉴 이름 -->
+                                                    <span id="menuNameInfo" class="menuNameInfo">메뉴 이름</span>
+                                                </strong>
+                                            </span>
+                                            <span class="set_info"></span>
+                                            <span class="price">
+                                                <!-- 가격 -->
+                                                <strong>
+                                                    <span id="menuPriceInfo" class="menuPriceInfo" style="margin-left: 5px;">메뉴 가격</span>
+                                                    <span class="unit">원</span>
+                                                </strong>
+                                            </span>
+                                        </label> <!-- menuName -->
+                                        <!-- 메뉴 사진 -->
+                                        <div class="prd_img">
+                                            <span>
+                                                <img id="menuImageInfo" class="menuImageInfo" src="/image/display?fid=17" alt="메뉴 사진" style="display: inline; opacity: 1"/>
+                                            </span>
+                                        </div> <!-- prd_img -->
+                                    </div> <!-- menu_titWrap -->
+                                    
+                                    <!-- Controller에서 사이드에 관한 정보 가져오기. -->
+                                    <div id="isSetMenuInfo" class="setmenu_detail isSetMenuInfo">
+                                        <dl>
+                                            <dt>사이드</dt>
+                                            <dd>
+                                                <div class="list">
+                                                    <span id="sideMenuInfo" class="txt sideMenuInfo"></span>
+                                                    <strong class="amount">
+                                                        +
+                                                        <span id="extraChargeInfo" class="extraChargeInfo"></span>
+                                                        <span class="unit">원</span>
+                                                    </strong>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        
+                                        <dl>
+                                            <dt>음료</dt>
+                                            <dd>
+                                                <div class="list">
+                                                    <span id="drinkMenuInfo" class="txt drinkMenuInfo"></span>
+                                                    <strong class="amount">
+                                                        +
+                                                        <span id="extraChargeInfo2" class="extraChargeInfo2"></span>
+                                                        <span class="unit">원</span>
+                                                    </strong>
+                                                </div>
+                                            </dd>
+                                        </dl>                            
+                                    </div> <!-- setmenu_detail -->
+                                    
+                                    <!-- 수량 세기 -->
+                                    <div class="quantity">
+                                        <strong class="tit">수량</strong>
+                                        <div class="num_set">
+                                            <input type="number" readonly="readonly" id="menuQuantityInfo" class="menuQuantityInfo"/>
+                                        </div>
+                                    </div>
+                                </div> <!-- cont -->
+                                <div class="sumWrap">
+                                    <dl>
+                                        <dt>합계금액</dt>
+                                        <dd>
+                                            <strong>
+                                                <em>
+                                                    <span id="eachMenuPriceTotalInfo" class="eachMenuPriceTotalInfo">개별 메뉴 총 가격</span>
+                                                    <span class="unit">원</span>
+                                                </em>
+                                            </strong>
+                                        </dd>
+                                    </dl>
+                                </div> <!-- sumWrap -->
+                            </li> <!-- 반복문 끝 -->
+                        </ul>
+                        </div> <!-- orderList -->
+                                  <h1 class="titleName">결제 상세</h1>                      
+                        <div class="addressArea">
+
+                            <ul class="cart_list" style="border-bottom: 3px dashed #ffbc0d; margin-bottom: 21px;">
+                                <li>
+                                    <div class="setmenu_detail" style="border: none; padding: 12px 64px 25px 64px;">
+                                        <dl>
+                                            <dt>매장명</dt>
+                                            <dd>
+                                                <div class="list">
+                                                <input type="text" id="storeName" name="storeName" th:value="${ storeName }" readonly style="background: none; width:500px; text-align: right;" disabled>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>주문 주소</dt>
+                                            <dd>
+                                                <div class="list">
+                                                   	 <input type="text" id="userAddress" name="userAddress" th:value="${ userAddress }" style="background: none; width:500px; text-align: right;" disabled="disabled">
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>결제 방법</dt>
+                                            <dd>
+                                                <div class="list">
+                                                     <input type="text" id="payment" name="payment" th:value="수정" style="background: none; width:500px; text-align: right;" disabled="disabled">
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <br/>
+                        
+                        <div class="sumWrap">
+                            <dl>
+                                <dt>총 주문금액</dt>
+                                <dd>
+                                    <strong>
+                                        <em>
+                                            <span id="totalPriceInfo"></span>
+                                            <span class="unit">원</span>
+                                        </em>
+                                    </strong>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <div>
+        
+        </div>
+    </div>
+</div>  
+
+
+<th:block layout:fragment="script" th:inline="javaScript">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script>
+    const cartList = [[${ cartList }]];
+    const sideList = [[${ sideList }]];
+    const drinkList = [[${ drinkList }]];
+    </script>
+    <script th:src="@{/script/orderDetail.js}"></script>
+</th:block>
+
+</html>
