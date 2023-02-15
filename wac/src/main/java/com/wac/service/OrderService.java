@@ -128,13 +128,19 @@ public class OrderService {
         result.setPrice2(menu2.getPrice());
         }
         
-        if (menu3 != null) {
-        result.setPrice3(menu3.getPrice() - 2600);
-        }
         
-        if (menu4 != null) {
-        result.setPrice4(menu4.getPrice() - 2200);
+        if (menu2 != null && menu3 != null && menu4 != null) {
+            result.setPrice3(menu3.getPrice() - 2600);
+            result.setPrice4(menu4.getPrice() - 2200);
+        } else if (menu3 != null) {
+            result.setPrice3(menu3.getPrice());
+        } else if (menu4 != null) {
+            result.setPrice4(menu4.getPrice());
         }
+    
+        
+        
+        
         
         if (menu5 != null) {
             result.setPrice5(menu5.getPrice());
@@ -144,6 +150,8 @@ public class OrderService {
             result.setPrice6(menu6.getPrice());
             }
 
+        
+        
         
         log.info("영수증 만들고 오더로그 저장할떄 저장하기 직전 최종 값 result ={}", result);
         

@@ -79,10 +79,10 @@ window.addEventListener('DOMContentLoaded', function() {
                 menuPrice = cartList[i].price2;
                 menuPriceInfo[i].innerHTML = menuPrice;
             } else if (cartList[i].price3 != null) {
-                menuPrice = cartList[i].price3 + frenchFries;
+                menuPrice = cartList[i].price3;
                 menuPriceInfo[i].innerHTML = menuPrice;
             } else {
-                menuPrice = cartList[i].price4 + cocaCola;
+                menuPrice = cartList[i].price4;
                 menuPriceInfo[i].innerHTML = menuPrice;                
             }
             // 메뉴 사진.
