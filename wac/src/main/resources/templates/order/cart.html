@@ -85,7 +85,7 @@
                                                         <img th:src="@{/image/display?fid={fid} (fid = ${sl.image})}" th:alt="${sl.menuName}" style="width: 350px; height: 200px; "/>
                                                     </label>
                                                     <div style="text-align: center; margin: 10px 0;" th:text="${sl.menuName}"></div>
-                                                    <div style="text-align: center; margin: 10px 0;" th:text="'+ ' + ${sl.price - 2600} + 원"></div>
+                                                    <div style="text-align: center; margin: 10px 0;" th:text="'+ ' + (${sl.price} - ${frenchFries}) + '원'"></div>
                                                 </li>
                                             </ul>
                                         </div>
@@ -114,7 +114,7 @@
                                                         <img th:src="@{/image/display?fid={fid} (fid = ${dl.image})}" alt="음료메뉴" style="width: 350px; height: 200px; "/>
                                                     </label>
                                                     <div style="text-align: center; margin: 10px 0;" th:text="${dl.menuName}"></div>
-                                                    <div style="text-align: center; margin: 10px 0;" th:text="'+ ' +${dl.price - 2200} + 원"></div>
+                                                    <div style="text-align: center; margin: 10px 0;" th:text="'+ ' + (${dl.price} - ${cocaCola}) + '원'"></div>
                                                 </li>
                                             </ul>
                                         </div>                                   
@@ -210,6 +210,8 @@
     const cartList = [[${ cartList }]];
     const sideList = [[${ sideList }]];
     const drinkList = [[${ drinkList }]];
+    const cocaCola = [[${ cocaCola }]];
+    const frenchFries = [[${ frenchFries }]];
     </script>
     <script th:src="@{/script/cartDetail.js}"></script>
 </th:block>

@@ -67,17 +67,32 @@
 	position: fixed;
 	right: 0;
 	z-index: 9999;
-	width: 100px;
+	width: 110px;
 	height:200px;
 	float: right;
 	margin-right: 120px;
 	margin-bottom:30px;
 }
-
 .moveTop {
 	border-bottom: 2px solid black;
 	text-align: center;
 	font-weight: bolder;
 	cursor: pointer;
 	margin-bottom: 300px;
+	border-radius: 5px 5px 5px 5px;
+}
+.logo1 {
+	background-image: url('../img/logo/logo.jpg');
+	background-size: 110px;
+	width: 110px;
+	height: 85px;
+	border-radius: 7px 7px 7px 7px;
+}
+
+.logo2 {
+	background-image: url('../img/logo/sbs.png');
+	background-size: 110px;
+	width: 110px;
+	height: 78px;
+	border-radius: 5px 5px 5px 5px;
 }

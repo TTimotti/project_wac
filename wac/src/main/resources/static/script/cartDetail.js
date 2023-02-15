@@ -28,9 +28,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const btnPayment = document.querySelectorAll('#btnPayment');
     const btnMenuAdd = document.querySelectorAll('.btn01 m ico add');
     console.log("메뉴추가버튼 찾기", btnMenuAdd);
-    
-    const cocaCola = 2200;
-    const frenchFries = 2600;
+
     var totalPrice = 0;
     
 // READ
