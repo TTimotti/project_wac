@@ -66,21 +66,27 @@ function showMenuList(kind) {
 // 메뉴 그려주기
 function updateMenuList(data) {
     const divMenuList = document.querySelector('#menuList');
-
+    const sell = "y";
     let str = '';
     for (let m of data) {
-        str += '<li class="card my-5 col-3 float-left">'
-        + '<a href="/menu/menuDetail?kind='
-        + kind
-        + '&menuId='
-        + m.menuId /* 여기 링크에 상세페이지 달기 */
-        + '">'
-        + '<img src="/image/display?fid=' + m.image 
-        + '" alt="메뉴 이미지" style="width:250px; height:200px;"/>'
-        + '<div><strong class="ko">' + m.menuName
-        + '</strong><p class="en">' + m.menuEnName + '</p>'
-        + '</div></a>'
+        // if (m.sellyn == sell) {
+            str += '<li class="card my-5 col-3 float-left">'
+            + '<a href="/menu/menuDetail?kind='
+            + kind
+            + '&menuId='
+            + m.menuId /* 여기 링크에 상세페이지 달기 */
+            + '">'
+            + '<img src="/image/display?fid=' + m.image 
+            + '" alt="메뉴 이미지" style="width:250px; height:200px;"/>'
+            + '<div><strong class="ko">' + m.menuName
+            + '</strong><p class="en">' + m.menuEnName + '</p>'
+            + '</div></a>'
+            
+        //} else {
+        //    str += '<li class="card my-5 col-3 float-left">'
+        //}
         + '</li>';
+        
     }
     divMenuList.innerHTML = str;
 }
