@@ -38,4 +38,6 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     @Query("select o.payment from ORDERS o where o.orderId = :orderId")
     Integer getPaymentByOrderId(@Param("orderId") Integer orderId);
 
+    List<Order> findByOrderByOrderIdDesc();
+
 }

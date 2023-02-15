@@ -70,9 +70,21 @@ window.addEventListener('DOMContentLoaded', function() {
             menuNameInfo[i].innerHTML = data[i].menuName;
             
             // 메뉴 가격.
-            let menuPrice = data[i].price;
-            menuPriceInfo[i].innerHTML = menuPrice;
             
+            
+            if (cartList[i].price1 != null) {
+                var menuPrice = cartList[i].price1;
+                menuPriceInfo[i].innerHTML = menuPrice;
+            } else if (cartList[i].price2 != null) {
+                menuPrice = cartList[i].price2;
+                menuPriceInfo[i].innerHTML = menuPrice;
+            } else if (cartList[i].price3 != null) {
+                menuPrice = cartList[i].price3;
+                menuPriceInfo[i].innerHTML = menuPrice;
+            } else {
+                menuPrice = cartList[i].price4;
+                menuPriceInfo[i].innerHTML = menuPrice;                
+            }
             // 메뉴 사진.
             menuImageInfo[i].src = "/image/display?fid=" + data[i].image;
             
@@ -102,17 +114,16 @@ window.addEventListener('DOMContentLoaded', function() {
                 
                 if (side.menuId == cartList[i].menuId3) {
                     sideMenuInfo[i].innerHTML = side.menuName;
-                    extraCharge = side.price - frenchFries;
+                    extraCharge = cartList[i].price3;
                     extraChargeInfo[i].innerHTML = extraCharge;
                 }
             }
-            
             
             // 음료 이름과 추가요금
             for (drink of drinkList) {
                 if (drink.menuId == cartList[i].menuId4) {
                     drinkMenuInfo[i].innerHTML = drink.menuName;
-                    extraCharge2 = drink.price - cocaCola;
+                    extraCharge2 = cartList[i].price4;
                     extraChargeInfo2[i].innerHTML = extraCharge2;
                 }
             }

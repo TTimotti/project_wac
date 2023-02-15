@@ -48,7 +48,6 @@
                                                 <!-- 가격 -->
                                                 <strong>
                                                     <span id="menuPriceInfo" class="menuPriceInfo" style="margin-left: 5px;">메뉴 가격</span>
-                                                    <span th:text="${cl.price1}" style="margin-left: 5px;">메뉴 가격</span>
                                                     <span class="unit">원</span>
                                                 </strong>
                                             </span>
@@ -209,7 +208,7 @@
     const sideList = [[${ sideList }]];
     const drinkList = [[${ drinkList }]];
     </script>
-    <script th:src="@{/script/orderDetail.js}"></script>
+    <script th:src="@{/script/orderCompleteDetail.js}"></script>
 </th:block>
 
 </html>

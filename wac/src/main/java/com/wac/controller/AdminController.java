@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.wac.dto.OrderReadDto;
 import com.wac.dto.UserReadDto;
+import com.wac.service.OrderService;
 import com.wac.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 public class AdminController {
 	
 	private final UserService userService;
+	private final OrderService orderService;
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/admin")
@@ -48,6 +51,16 @@ public class AdminController {
         List<UserReadDto> userList = userService.readUserList();
 
         return userList;
+    }
+	
+	@GetMapping("/orders")
+    @ResponseBody
+    public List<OrderReadDto> readOrderList() {
+        log.info("readOrderList()");
+
+        List<OrderReadDto> orderList = orderService.readOrderList();
+
+        return orderList;
     }
 
     

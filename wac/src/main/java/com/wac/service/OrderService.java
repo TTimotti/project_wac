@@ -1,5 +1,6 @@
 package com.wac.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -127,22 +128,30 @@ public class OrderService {
         result.setPrice2(menu2.getPrice());
         }
         
-        if (menu3 != null) {
-        result.setPrice3(menu3.getPrice() - 2600);
-        }
         
-        if (menu4 != null) {
-        result.setPrice4(menu4.getPrice() - 2000);
+        if (menu2 != null && menu3 != null && menu4 != null) {
+            result.setPrice3(menu3.getPrice() - 2600);
+            result.setPrice4(menu4.getPrice() - 2200);
+        } else if (menu3 != null) {
+            result.setPrice3(menu3.getPrice());
+        } else if (menu4 != null) {
+            result.setPrice4(menu4.getPrice());
         }
+    
+        
+        
+        
         
         if (menu5 != null) {
-            result.setPrice5(menu5.getPrice() - 2000);
+            result.setPrice5(menu5.getPrice());
             }
         
         if (menu6 != null) {
-            result.setPrice6(menu6.getPrice() - 2000);
+            result.setPrice6(menu6.getPrice());
             }
 
+        
+        
         
         log.info("영수증 만들고 오더로그 저장할떄 저장하기 직전 최종 값 result ={}", result);
         
@@ -205,6 +214,20 @@ public class OrderService {
         }
         
         return paymentName;
+    }
+
+    /**
+     * @author 추
+     */
+    @Transactional(readOnly = true)
+    public List<OrderReadDto> readOrderList() {
+        List<Order> orders = orderRepository.findByOrderByOrderIdDesc();
+        List<OrderReadDto> orderList = new ArrayList<OrderReadDto>();
+        for (Order o : orders) {
+            orderList.add(OrderReadDto.fromEntity(o));
+        }
+        
+        return orderList;
     }
     
 }

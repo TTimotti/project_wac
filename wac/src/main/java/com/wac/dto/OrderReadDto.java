@@ -29,6 +29,7 @@ public class OrderReadDto {
                 .payment(entity.getPayment())
                 .storeName(entity.getStoreName())
                 .address(entity.getAddress())
+                .totalPrice(entity.getTotalPrice())
                 .createdTime(entity.getCreatedTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")))
                 .build();
     }
