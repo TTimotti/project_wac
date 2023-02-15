@@ -73,7 +73,7 @@ window.addEventListener('DOMContentLoaded', function() {
             
             
             if (cartList[i].price1 != null) {
-                let menuPrice = cartList[i].price1;
+                var menuPrice = cartList[i].price1;
                 menuPriceInfo[i].innerHTML = cartList[i].price1;
             } else {
                 menuPrice = cartList[i].price2;
