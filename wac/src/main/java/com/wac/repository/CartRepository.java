@@ -48,7 +48,7 @@ public interface CartRepository extends JpaRepository<Cart, Integer> {
     void deleteBycartId(Integer cartId);
 
     
-    @Query("")
-    Cart getCartByCartId(Integer cartId);	
+//    @Query("select c from CARTS c where c.cartId = :cartId")
+    Cart getCartByCartId(@Param("cardId") Integer cartId);	
 
 }

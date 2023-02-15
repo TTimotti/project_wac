@@ -90,6 +90,7 @@ public class OrderService {
     public OrderLog create(Integer orderId, Integer cartId, Integer userId, String userName) {
         
         Cart cart = cartRepository.getCartByCartId(cartId);
+        log.info("price ={}", cart);
         log.info("price ={}", cart.getPrice());
         
         // 해당 카트 내용 다 가져와서 및에 복붙처럼 저장.

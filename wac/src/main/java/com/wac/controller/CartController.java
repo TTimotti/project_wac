@@ -123,8 +123,8 @@ public class CartController {
         if (menu.getKind() == 2) {
             cart.setMenuId2(data_menuId);
             log.info("중간점검 전 세트 카트 = {}", cart);
-            Integer bugerByMealId = menuService.readBugerByMeal(data_menuId); // 세트에 해당하는 버거를 가져온다
-            cart.setMenuId1(bugerByMealId); // 버거 아이디 저장.
+//            Integer bugerByMealId = menuService.readBugerByMeal(data_menuId); // 세트에 해당하는 버거를 가져온다
+//            cart.setMenuId1(bugerByMealId); // 버거 아이디 저장.
             log.info("중간점검 후 세트 카트 = {}", cart);
             
             // 코카-콜라와 감자튀김 찾기.
