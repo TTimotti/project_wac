@@ -1,14 +1,11 @@
 /*!
-* Start Bootstrap - New Age v6.0.6 (https://startbootstrap.com/theme/new-age)
-* Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-new-age/blob/master/LICENSE)
+* 추지훈
 */
-//
-// Scripts
-// 
 
 window.addEventListener('DOMContentLoaded', event => {
 
+
+showOrderList()
     // Activate Bootstrap scrollspy on the main nav element
     const mainNav = document.body.querySelector('#mainNav');
     if (mainNav) {
@@ -30,5 +27,41 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     });
+
+
+function showOrderList() {
+    axios
+    .get('/admin/orders')
+    .then(response => { updateList(response.data) })
+    .catch(err => { console.log(err) });
+}
+
+// 메뉴 그려주는 함수
+function updateList(data) {
+    const userTable = document.querySelector('#tbody');  
+
+    let str = '';
+    for (let i of data) {
+        str += '<tr class="text-center">'
+        + '<th>'
+        + i.userId
+        + '</th><th>'
+        + i.storeName
+        + '</th><th>'
+        + i.address
+        + '</th><th>'
+        + i.totalPrice
+        + '</th><th>'
+        + i.createdTime
+        + '</th></tr>';
+        
+    }
+    userTable.innerHTML = str;
+
+}
+
+
+
+
 
 });

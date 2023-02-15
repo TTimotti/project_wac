@@ -1,5 +1,6 @@
 package com.wac.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -205,6 +206,20 @@ public class OrderService {
         }
         
         return paymentName;
+    }
+
+    /**
+     * @author 추
+     */
+    @Transactional(readOnly = true)
+    public List<OrderReadDto> readOrderList() {
+        List<Order> orders = orderRepository.findByOrderByOrderIdDesc();
+        List<OrderReadDto> orderList = new ArrayList<OrderReadDto>();
+        for (Order o : orders) {
+            orderList.add(OrderReadDto.fromEntity(o));
+        }
+        
+        return orderList;
     }
     
 }
