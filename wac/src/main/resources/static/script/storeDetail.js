@@ -14,3 +14,13 @@ btnDelete.addEventListener('click', function () {
         formDetailStore.submit();
     }
 });
+
+const loginUser = document.querySelector(".loginUser").value;
+
+if (loginUser != "admin"){
+	
+	alert("관리자만 접근이 가능 합니다.");
+	
+	location.href = "/user/signIn"
+	
+}

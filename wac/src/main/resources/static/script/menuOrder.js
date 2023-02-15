@@ -127,3 +127,16 @@ function tossCartModal(event) {
 };
 
 });
+
+
+/** 생성자 장민석 */
+// 로그인 안하면 주문 페이지 못들어가고 로그인페이지로 리턴 
+const loginUser = document.querySelector(".loginUser").value;
+
+if (loginUser == "anonymousUser"){
+	
+	alert("로그인 후 이용 해주세요.");
+	
+	location.href = "/user/signIn";
+	
+}
