@@ -278,3 +278,43 @@ ul, ol, li {
 	cursor: pointer;
 	font-weight: bolder;
 }
+
+.storeFont {
+	color: white;
+	font-size: 50px;
+	background-color: transparent;
+	padding-bottom:20px;
+	padding-top: 50px;
+	margin-left: 30px;
+}
+
+.navPath{
+	list-style: none;
+	padding: 0px;
+	padding-bottom: 50px;
+	margin-left:30px;
+}
+
+.navPath li+li:before {
+	content: '';
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	margin: 0 14px 0 10px;
+	vertical-align: middle;
+	border-radius: 100%;
+	background: #f5bd43;
+}
+
+.navPath li {
+	margin: 0px;
+	float: left;
+	background-color: transparent;
+}
+
+.atag {
+	color: white;
+	font-size: 15px;
+	background-color: transparent;
+	padding:5px;
+}
