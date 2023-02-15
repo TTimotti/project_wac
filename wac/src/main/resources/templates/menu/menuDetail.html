@@ -168,8 +168,7 @@
         style="text-align: right;">
         <a class="btn btn-success"
             th:href="@{ /menu/modify?id={id} (id = ${ menu.menuId }) }">
-            <button type="button" class="btnConfig"
-                id="btnUpdate">
+            <button th:if="${ #authentication.name } == admin" type="button" class="btnConfig" id="btnUpdate">
                 <span>수정하기</span>
             </button>
         </a>
