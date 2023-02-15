@@ -83,7 +83,7 @@ public class OrderService {
      * @return
      * @author 추지훈
      */
-    public OrderLog create(Integer orderId, Integer cartId, Integer userId, String userName) {
+    public OrderLog create(Integer orderId, Integer cartId, Integer userId, String userName, Integer pirce) {
         // TODO:
         Cart cart = cartRepository.getCartByCartId(cartId); 
         // 해당 카트 내용 다 가져와서 및에 복붙처럼 저장.
@@ -99,6 +99,7 @@ public class OrderService {
                 .menuId5(cart.getMenuId5())
                 .menuId6(cart.getMenuId6())
                 .quantity(cart.getQuantity())
+                .price(cart.getPrice())
                 .image(cart.getImage())
                 .build();
                 
