@@ -420,6 +420,19 @@ function tossOrder(event) {
     console.log("성공");
 };
 
+// 결제하기 버튼...
+const btnGoOrder = document.querySelector('#btnGoOrder');
+
+btnGoOrder.addEventListener('click', function() {
+     let cartListInfo = document.querySelector('.cartListInfo');
+     
+     if (cartListInfo != null) {
+        location.href = "/store-select";
+    } else {
+        alert("장바구니에 메뉴를 추가해주세요.");
+    }
+});
+
 
 
 
