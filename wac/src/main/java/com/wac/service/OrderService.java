@@ -132,15 +132,15 @@ public class OrderService {
         }
         
         if (menu4 != null) {
-        result.setPrice4(menu4.getPrice() - 2000);
+        result.setPrice4(menu4.getPrice() - 2200);
         }
         
         if (menu5 != null) {
-            result.setPrice5(menu5.getPrice() - 2000);
+            result.setPrice5(menu5.getPrice());
             }
         
         if (menu6 != null) {
-            result.setPrice6(menu6.getPrice() - 2000);
+            result.setPrice6(menu6.getPrice());
             }
 
         
