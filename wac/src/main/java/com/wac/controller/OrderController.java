@@ -189,15 +189,15 @@ public class OrderController {
         Integer userId = userService.getUserIdByUserName(userName);
         List<Cart> cartList = cartService.readCartList(userId);
         Integer totalPrice = 0;
-        /*
+        
         for (Cart c : cartList) {
-            totalPrice =+ c.getPrice();
+            totalPrice += c.getPrice();
             log.info("totalPrice = {} ", totalPrice);
         }
         log.info("totalPrice = {} ", totalPrice);
-        */
+        
         // 주문 영수증
-        Order order = orderService.create(userName, storeName, address, pickUp, payment, userId);
+        Order order = orderService.create(userName, storeName, address, pickUp, payment, userId, totalPrice);
         
         
         

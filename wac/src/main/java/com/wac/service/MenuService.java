@@ -63,6 +63,7 @@ public class MenuService {
      */
     public Menu create(MenuCreateDto dto, Integer fid) {
         log.info("Menu.create(dto={}, file = {})", dto, fid);
+        String sellyn = "y"; // 생성하면 판매중인 메뉴러 기본 설정. 
         
         Menu menu = Menu.builder()
                 .menuName(dto.getMenuName())
@@ -71,6 +72,7 @@ public class MenuService {
                 .content(dto.getContent())
                 .price(dto.getPrice())
                 .image(fid)
+                .sellyn(sellyn)
                 .build();
         
         Menu entity = menuRepository.save(menu);

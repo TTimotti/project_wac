@@ -61,13 +61,14 @@ public class OrderService {
      * @return
      * @author 추지훈
      */
-    public Order create(String userName, String storeName, String address, Integer pickUp, Integer payment, Integer userId) {
+    public Order create(String userName, String storeName, String address, Integer pickUp, Integer payment, Integer userId, Integer totalPrice) {
         Order order = Order.builder()
                 .pickupService(pickUp)
                 .payment(payment)
                 .userId(userId)
                 .storeName(storeName)
                 .address(address)
+                .totalPrice(totalPrice)
                 .build();
                 
        Order entity = orderRepository.save(order);

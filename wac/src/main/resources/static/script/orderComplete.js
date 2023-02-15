@@ -24,9 +24,9 @@ function updateOrderList(data) {
     for (let o of data) {
         str +='<li class="card my-5 col-3 notice-2">' 
         +'<a class="notice" href="/order/orderCompleteDetail?orderId='+ o.orderId +'">'
-        + '<div id="orderId">' + o.orderId + '</div>'
-        + '<div id="userName"><strong>' + userName + '</strong></div>'
-        + '<div id="createdTime">' + o.createdTime + '</div>'
+        + '<div id="orderId">' + o.createdTime + '</div>'
+        + '<div id="userName"><strong>' + o.storeName + o.address + '</strong></div>'
+        + '<div id="createdTime">' + o.totalPrice + '</div>'
         + '</a>'
         + '</li>';
         console.log("주문 번호", o.orderId);
