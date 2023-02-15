@@ -135,7 +135,7 @@ public class OrderService {
             result.setPrice3(menu3.getPrice() - 2600);
             result.setPrice4(menu4.getPrice() - 2200);
             
-            result.setFinalPrice(menu2.getPrice() - ((menu3.getPrice() - 2600) + (menu4.getPrice() - 2200)));
+            result.setFinalPrice(menu2.getPrice() + ((menu3.getPrice() - 2600) + (menu4.getPrice() - 2200)));
         } else if (menu3 != null) {
             result.setPrice3(menu3.getPrice());
             result.setFinalPrice(result.getPrice3());

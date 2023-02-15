@@ -216,14 +216,16 @@ public class OrderController {
             log.info("{}", order.getOrderId(), " 번 영수증의 상세 내역 = {}", orderlog);
             
             totalPrice += orderlog.getFinalPrice();
-            log.info("totalPrice = {} ", totalPrice);
-            
+            log.info("totalPrice1 = {} ", totalPrice);
+            order.setTotalPrice(totalPrice);
             log.info("저장한 장바구니내역은 바로 지워짐 지울 카트번호 cartId = {}", c.getCartId());
             cartService.delete(c.getCartId());
+            
         }
         log.info("카트에서 정보빼내서 영수증만들고 장바구니 내역을 주문 상세내역에 저장후 그 장바구니 삭제 => 완료");
         
-        log.info("totalPrice = {} ", totalPrice);
+        
+        log.info("totalPrice2 = {} ", totalPrice);
         
         
         
