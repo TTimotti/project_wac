@@ -18,7 +18,7 @@ a {
     
     /* 배너 사진 넣기 */
     .bannerArea.bgImage {
-        background: url('https://www.mcdonalds.co.kr/uploadFolder/images/whats/bg_visual_whats02.jpg') 50% 50% no-repeat;
+        background: url(https://www.mcdonalds.co.kr/uploadFolder/images/menu/2020/bg_visual_menu01.jpg) 50% 50% no-repeat;
     }     
     
     /* 배너 글 설정 */
@@ -80,6 +80,9 @@ a {
         padding: 30px 0 30px;
     }
     
+    .inner {
+    
+    }
     /* 메뉴 소개 컨텐츠 DIV */
     .contArea .inner {
         padding-left: 100px;
@@ -395,6 +398,45 @@ a {
         color: white;
     }
     
+    .storeFont {
+	color: white;
+	outline-color:black;
+	font-size: 50px;
+	background-color: transparent;
+	padding-bottom:20px;
+}
+
+.navPath{
+	list-style: none;
+	padding: 0px;
+	padding-bottom: 20px;
+	margin-top:50px;
+	margin-left:30px;
+}
+
+.navPath li+li:before {
+	content: '';
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	margin: 0 14px 0 10px;
+	vertical-align: middle;
+	border-radius: 100%;
+	background: #f5bd43;
+}
+
+.navPath li {
+	margin: 0px;
+	float: left;
+	background-color: transparent;
+}
+
+.atag {
+	color: white;
+	font-size: 15px;
+	background-color: transparent;
+	padding:5px;
+}
     
     
 

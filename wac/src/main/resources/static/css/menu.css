@@ -7,6 +7,13 @@
     background-size: 100% 290px;
 }
 
+.visualArea.bgMenu02 {
+    background-color: lightgray;
+    padding: 5px;
+    background-size: 100% 290px;
+    background-image: url('../img/storeselect.png');
+}
+
 .visualArea {
     display: flex;
     position: relative;
@@ -165,7 +172,7 @@ a{
 }
 
 .storeFont {
-	color: black;
+	color: white;
 	font-size: 50px;
 	background-color: transparent;
 	padding-bottom:20px;
@@ -176,7 +183,7 @@ a{
 .navPath{
 	list-style: none;
 	padding: 0px;
-	padding-bottom: 50px;
+	padding-bottom: 30px;
 	margin-left:30px;
 }
 
