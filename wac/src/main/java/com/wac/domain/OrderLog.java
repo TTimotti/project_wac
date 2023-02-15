@@ -67,6 +67,9 @@ public class OrderLog extends BaseTimeEntity {
     @Column
     private Integer image; // 메뉴 이미지
     
+    @Column
+    private Integer price;
+    
     
 //    @Column(name = "order_indate") // 크리에이트 모디파이 날짜로 해결될듯해서 주석처리 하겠습니다. 
 //    private Integer orderIndate; // 주문 날짜 

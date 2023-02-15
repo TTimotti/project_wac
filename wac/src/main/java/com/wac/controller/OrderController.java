@@ -78,7 +78,7 @@ public class OrderController {
     }
     
     /**
-     * 
+     * 결제 상세내역으로 넘어갈때 필요한 리스트 넘겨주기
      * @author 추지훈
      */
     @GetMapping("/order/orderCompleteDetail")
@@ -204,7 +204,7 @@ public class OrderController {
         // 주문 내역
         for (Cart c : cartList) {
             Integer cartId = c.getCartId();
-            OrderLog orderlog = orderService.create(order.getOrderId(), cartId, userId, userName);
+            OrderLog orderlog = orderService.create(order.getOrderId(), cartId, userId, userName, c.getPrice());
             log.info("{}", order.getOrderId(), " 번 영수증의 상세 내역 = {}", orderlog);
             
             log.info("저장한 장바구니내역은 바로 지워짐 지울 카트번호 cartId = {}", c.getCartId());
@@ -213,7 +213,7 @@ public class OrderController {
         log.info("카트에서 정보빼내서 영수증만들고 장바구니 내역을 주문 상세내역에 저장후 그 장바구니 삭제 => 완료");
         
         // 주소는 이제 어디로 넘길지.. 결제 완료 페이지를 띄울껀지 다시 홈으로 갈껀지 일단 home 으로 두겠음 ㅇㅇ 
-        return "redirect:/";
+        return "redirect:/order/orderCompleteDetail?orderId=" + order.getOrderId();
     }
     
     

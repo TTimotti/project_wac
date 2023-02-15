@@ -27,15 +27,14 @@
 
 		<div id="adminOnly" style="display: block">
 			<!-- TODO 테스트 끝나고 none 으로 변경 후 js 주석해제 -->
-			<ul>
-				<li class="div_label" th:if="${ #authentication.name } == admin" style="margin-left:auto; margin-right:auto; text-align: center;"><a
-					th:href="@{ /post/create }">새 글 작성</a></li>
+			<ul class="tabType01">
+				<li class="div_label" th:if="${ #authentication.name } == admin" style="margin-left:auto; margin-right:auto; text-align: center;">
+                <a class="q" th:href="@{ /post/create }">새 글 작성</a></li>
 			</ul>
 		</div>
 
 		<div class="contArea">
 			<div class="inner">
-				<br />
 				<ul class="tabType01">
 
 					<li class="q button promotion"><a class="q btn form-control"
