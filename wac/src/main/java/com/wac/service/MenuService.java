@@ -229,6 +229,12 @@ public class MenuService {
         log.info("메뉴메뉴={}", menus);
         return menus;
     }
+
+    public Integer readDefaultPriceByName(String name) {
+        Integer price = menuRepository.readDefaultPriceByName(name);
+        return price;
+    }
+    
     
 
 

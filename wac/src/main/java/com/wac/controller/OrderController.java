@@ -121,9 +121,20 @@ public class OrderController {
         List<Menu> drinkList = cartService.readAllDrinkMenuByKind();
         log.info("drinkList 호출 완료");
         
+        // 필요한 곳이 있다면.. 복사..
+        String cokeName = "코카-콜라";
+        String friesName = "후렌치 후라이";
+        
+        Integer cocaCola = menuService.readDefaultPriceByName(cokeName);
+        Integer frenchFries = menuService.readDefaultPriceByName(friesName);
+        model.addAttribute("cocaCola", cocaCola);
+        model.addAttribute("frenchFries", frenchFries);
+        
+        
         model.addAttribute("cartList", cartList);
         model.addAttribute("sideList", sideList);
         model.addAttribute("drinkList", drinkList);
+
         
     }
     
