@@ -74,10 +74,16 @@ window.addEventListener('DOMContentLoaded', function() {
             
             if (cartList[i].price1 != null) {
                 var menuPrice = cartList[i].price1;
-                menuPriceInfo[i].innerHTML = cartList[i].price1;
-            } else {
+                menuPriceInfo[i].innerHTML = menuPrice;
+            } else if (cartList[i].price2 != null) {
                 menuPrice = cartList[i].price2;
-                menuPriceInfo[i].innerHTML = cartList[i].price2;
+                menuPriceInfo[i].innerHTML = menuPrice;
+            } else if (cartList[i].price3 != null) {
+                menuPrice = cartList[i].price3 + frenchFries;
+                menuPriceInfo[i].innerHTML = menuPrice;
+            } else {
+                menuPrice = cartList[i].price4 + cocaCola;
+                menuPriceInfo[i].innerHTML = menuPrice;                
             }
             // 메뉴 사진.
             menuImageInfo[i].src = "/image/display?fid=" + data[i].image;
@@ -95,6 +101,8 @@ window.addEventListener('DOMContentLoaded', function() {
             let extraCharge2 = 0;
             // 사이드 이름과 추가요금
             // 사이드에 대한 정보 다 가져오지 말고, menuId, menuName, price만 가져오자!
+            
+            if (data[i].kind == 2) {
             for (side of sideList) {
                 /*
                 console.log(i +'번 째리스트');
@@ -118,6 +126,7 @@ window.addEventListener('DOMContentLoaded', function() {
                     extraCharge2 = cartList[i].price4;
                     extraChargeInfo2[i].innerHTML = extraCharge2;
                 }
+            }
             }
             
             

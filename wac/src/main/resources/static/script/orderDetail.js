@@ -89,6 +89,8 @@ window.addEventListener('DOMContentLoaded', function() {
             let extraCharge2 = 0;
             // 사이드 이름과 추가요금
             // 사이드에 대한 정보 다 가져오지 말고, menuId, menuName, price만 가져오자!
+            
+            if (data[i].kind == 2) {
             for (side of sideList) {
                 /*
                 console.log(i +'번 째리스트');
@@ -105,6 +107,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
+            
             // 음료 이름과 추가요금
             for (drink of drinkList) {
                 if (drink.menuId == cartList[i].menuId4) {
@@ -112,6 +115,7 @@ window.addEventListener('DOMContentLoaded', function() {
                     extraCharge2 = drink.price - cocaCola;
                     extraChargeInfo2[i].innerHTML = extraCharge2;
                 }
+            }
             }
             
             

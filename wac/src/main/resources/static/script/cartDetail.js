@@ -79,6 +79,7 @@ window.addEventListener('DOMContentLoaded', function() {
             menuImageInfo[i].src = "/image/display?fid=" + data.image;
             
             // 세트 메뉴 시, 사이드 메뉴 이름과 추가 요금.
+            if (data.kind == 2) {
             for (side of sideList) {
                 console.log(i +'번 째리스트');
                 console.log('사이드메뉴');
@@ -100,6 +101,7 @@ window.addEventListener('DOMContentLoaded', function() {
                     drinkMenuInfo[i].innerHTML = drink.menuName;
                     extraChargeInfo2[i].innerHTML = drinkExtraFee;
                 }
+            }
             }
             
             // 메뉴 + 사이드 변경 + 음료 변경 가격.
