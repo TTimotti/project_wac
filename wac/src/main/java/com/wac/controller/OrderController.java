@@ -204,7 +204,7 @@ public class OrderController {
         // 주문 내역
         for (Cart c : cartList) {
             Integer cartId = c.getCartId();
-            OrderLog orderlog = orderService.create(order.getOrderId(), cartId, userId, userName, c.getPrice());
+            OrderLog orderlog = orderService.create(order.getOrderId(), cartId, userId, userName);
             log.info("{}", order.getOrderId(), " 번 영수증의 상세 내역 = {}", orderlog);
             
             log.info("저장한 장바구니내역은 바로 지워짐 지울 카트번호 cartId = {}", c.getCartId());

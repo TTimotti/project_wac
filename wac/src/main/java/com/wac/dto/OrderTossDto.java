@@ -13,4 +13,5 @@ public class OrderTossDto {
     private Integer pickupService;
     private Integer payment;
 
+    
 }

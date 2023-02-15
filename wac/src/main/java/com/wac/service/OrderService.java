@@ -6,10 +6,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wac.domain.Cart;
+import com.wac.domain.Menu;
 import com.wac.domain.Order;
 import com.wac.domain.OrderLog;
 import com.wac.dto.OrderReadDto;
 import com.wac.repository.CartRepository;
+import com.wac.repository.MenuRepository;
 import com.wac.repository.OrderLogRepository;
 import com.wac.repository.OrderRepository;
 import com.wac.repository.UserRepository;
@@ -31,6 +33,8 @@ public class OrderService {
 	private final OrderLogRepository orderLogRepository;
 	
 	private final UserRepository userRepository;
+	
+	private final MenuRepository menuRepository;
 	
 	private final CartRepository cartRepository;
 	/**
@@ -83,9 +87,11 @@ public class OrderService {
      * @return
      * @author 추지훈
      */
-    public OrderLog create(Integer orderId, Integer cartId, Integer userId, String userName, Integer pirce) {
-        // TODO:
-        Cart cart = cartRepository.getCartByCartId(cartId); 
+    public OrderLog create(Integer orderId, Integer cartId, Integer userId, String userName) {
+        
+        Cart cart = cartRepository.getCartByCartId(cartId);
+        log.info("price ={}", cart.getPrice());
+        
         // 해당 카트 내용 다 가져와서 및에 복붙처럼 저장.
         OrderLog result = OrderLog.builder()
                 .orderId(orderId)
@@ -99,10 +105,46 @@ public class OrderService {
                 .menuId5(cart.getMenuId5())
                 .menuId6(cart.getMenuId6())
                 .quantity(cart.getQuantity())
-                .price(cart.getPrice())
                 .image(cart.getImage())
                 .build();
-                
+        
+
+        Menu menu1 = menuRepository.getMenuByDotCartId(cart.getMenuId1());
+        Menu menu2 = menuRepository.getMenuByDotCartId(cart.getMenuId2());
+        Menu menu3 = menuRepository.getMenuByDotCartId(cart.getMenuId3());
+        Menu menu4 = menuRepository.getMenuByDotCartId(cart.getMenuId4());
+        Menu menu5 = menuRepository.getMenuByDotCartId(cart.getMenuId5());
+        Menu menu6 = menuRepository.getMenuByDotCartId(cart.getMenuId6());
+        
+        log.info("여기까진 성공");
+        
+        if (menu1 != null) {
+        result.setPrice1(menu1.getPrice());
+        } 
+        
+        if (menu2 != null) {
+        result.setPrice2(menu2.getPrice());
+        }
+        
+        if (menu3 != null) {
+        result.setPrice3(menu3.getPrice() - 2600);
+        }
+        
+        if (menu4 != null) {
+        result.setPrice4(menu4.getPrice() - 2000);
+        }
+        
+        if (menu5 != null) {
+            result.setPrice5(menu5.getPrice() - 2000);
+            }
+        
+        if (menu6 != null) {
+            result.setPrice6(menu6.getPrice() - 2000);
+            }
+
+        
+        log.info("영수증 만들고 오더로그 저장할떄 저장하기 직전 최종 값 result ={}", result);
+        
         OrderLog entity = orderLogRepository.save(result);
         
         return entity;

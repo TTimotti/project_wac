@@ -9,6 +9,7 @@ import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -21,6 +22,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @Getter
+@Data
 @ToString
 @Entity(name = "ORDER_LOG")
 @SequenceGenerator(name = "ORDER_LOG_SEQ_GEN", sequenceName = "ORDER_LOG_SEQ", initialValue = 1, allocationSize = 1)
@@ -68,7 +70,22 @@ public class OrderLog extends BaseTimeEntity {
     private Integer image; // 메뉴 이미지
     
     @Column
-    private Integer price;
+    private Integer price1;
+    
+    @Column
+    private Integer price2;
+    
+    @Column
+    private Integer price3;
+    
+    @Column
+    private Integer price4;
+    
+    @Column
+    private Integer price5;
+    
+    @Column
+    private Integer price6;
     
     
 //    @Column(name = "order_indate") // 크리에이트 모디파이 날짜로 해결될듯해서 주석처리 하겠습니다. 

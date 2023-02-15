@@ -68,7 +68,7 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
      * @author 추지훈 
      */
 //    select RTRIM(menu_name, '세트') from menus where menu_id = 11;
-    @Query("select RTRIM(m.menuName, '세트') from MENUS m where m.menuId = :data_menuId")
+    @Query("select RTRIM(m.menuName, ' 세트') from MENUS m where m.menuId = :data_menuId")
     String readBugerNameByMealId(@Param("data_menuId") Integer data_menuId);
     
     /**
@@ -120,6 +120,15 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
 
     @Query("select new com.wac.dto.MenuSimpleDto(m.menuId, m.menuName, m.price) from MENUS m where m.kind = :kind order by m.menuId")
     List<MenuSimpleDto> findSimpleMenuByKindOrderByMenudId(@Param("kind") Integer kind);
+
+    /**
+     * 
+     * @param menuId1
+     * @return
+     * @author 추지훈
+     */
+    @Query("select m from MENUS m where m.menuId = :menuId")
+    Menu getMenuByDotCartId(@Param("menuId") Integer menuId);
     
 
     
