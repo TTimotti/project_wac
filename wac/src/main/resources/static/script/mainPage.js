@@ -32,7 +32,11 @@ prevBtn.addEventListener("click", () => {
 	
 });
 
+$(document).on("click", ".moveTop", function(event){
+	
+		event.preventDefault();
+		$('html, body').animate({ scrollTop: 0 }, 300);
 
-
+});
  
    

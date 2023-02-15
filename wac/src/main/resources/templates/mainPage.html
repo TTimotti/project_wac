@@ -16,6 +16,12 @@
 	</div>
     
 <div class="contArea">
+	<div class="left-bar"></div>
+	<div class="right-bar">
+		<h1 class="moveTop">TOP</h1>
+		<br/><br/><br/><br/><br/><br/><br/>
+		<div></div>
+	</div>
     <div class="inner">
         <ul class="tabType01">
             <!-- <li class="button promotion"><a class="btn form-control" id="promotion">프로모션</a></li>  -->
@@ -40,6 +46,8 @@
 
 <script layout:fragment="script" th:inline="javascript"></script>
 <th:block layout:fragment="script">	
+	<!-- Jquery JS-->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="https://kit.fontawesome.com/df851af08f.js" crossorigin="anonymous"></script>
     <script th:src="@{/script/mainPage.js}"></script>
