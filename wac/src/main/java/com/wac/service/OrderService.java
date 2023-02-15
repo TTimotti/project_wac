@@ -122,20 +122,26 @@ public class OrderService {
         
         if (menu1 != null) {
         result.setPrice1(menu1.getPrice());
+        result.setFinalPrice(result.getPrice1());
         } 
         
         if (menu2 != null) {
         result.setPrice2(menu2.getPrice());
+        result.setFinalPrice(result.getPrice2());
         }
         
         
         if (menu2 != null && menu3 != null && menu4 != null) {
             result.setPrice3(menu3.getPrice() - 2600);
             result.setPrice4(menu4.getPrice() - 2200);
+            
+            result.setFinalPrice(menu2.getPrice() - ((menu3.getPrice() - 2600) + (menu4.getPrice() - 2200)));
         } else if (menu3 != null) {
             result.setPrice3(menu3.getPrice());
+            result.setFinalPrice(result.getPrice3());
         } else if (menu4 != null) {
             result.setPrice4(menu4.getPrice());
+            result.setFinalPrice(result.getPrice4());
         }
     
         
@@ -144,10 +150,12 @@ public class OrderService {
         
         if (menu5 != null) {
             result.setPrice5(menu5.getPrice());
+            result.setFinalPrice(result.getPrice5());
             }
         
         if (menu6 != null) {
             result.setPrice6(menu6.getPrice());
+            result.setFinalPrice(result.getPrice6());
             }
 
         
