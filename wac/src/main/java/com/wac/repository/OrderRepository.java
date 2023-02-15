@@ -20,7 +20,7 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 	 */
 	Optional<Order> findByUserId(Integer userId);
 
-    @Query("select o from ORDERS o where o.userId = :userId")
+    @Query("select o from ORDERS o where o.userId = :userId order by o.orderId desc")
     List<Order> readAllList(@Param("userId") Integer userId);
 
     @Query("select o from ORDERS o where o.orderId = :orderId")
