@@ -120,14 +120,15 @@ public class OrderService {
         
         log.info("여기까진 성공");
         
+        
         if (menu1 != null) {
         result.setPrice1(menu1.getPrice());
-        result.setFinalPrice(result.getPrice1());
+        result.setFinalPrice(result.getPrice1() * result.getQuantity()); 
         } 
         
         if (menu2 != null) {
         result.setPrice2(menu2.getPrice());
-        result.setFinalPrice(result.getPrice2());
+        result.setFinalPrice(result.getPrice2()  * result.getQuantity());
         }
         
         
@@ -135,13 +136,13 @@ public class OrderService {
             result.setPrice3(menu3.getPrice() - 2600);
             result.setPrice4(menu4.getPrice() - 2200);
             
-            result.setFinalPrice(menu2.getPrice() + ((menu3.getPrice() - 2600) + (menu4.getPrice() - 2200)));
+            result.setFinalPrice((menu2.getPrice() + ((menu3.getPrice() - 2600) + (menu4.getPrice() - 2200))) * result.getQuantity());
         } else if (menu3 != null) {
             result.setPrice3(menu3.getPrice());
-            result.setFinalPrice(result.getPrice3());
+            result.setFinalPrice(result.getPrice3() * result.getQuantity());
         } else if (menu4 != null) {
             result.setPrice4(menu4.getPrice());
-            result.setFinalPrice(result.getPrice4());
+            result.setFinalPrice(result.getPrice4() * result.getQuantity());
         }
     
         
@@ -150,12 +151,12 @@ public class OrderService {
         
         if (menu5 != null) {
             result.setPrice5(menu5.getPrice());
-            result.setFinalPrice(result.getPrice5());
+            result.setFinalPrice(result.getPrice5() * result.getQuantity());
             }
         
         if (menu6 != null) {
             result.setPrice6(menu6.getPrice());
-            result.setFinalPrice(result.getPrice6());
+            result.setFinalPrice(result.getPrice6() * result.getQuantity());
             }
 
         
