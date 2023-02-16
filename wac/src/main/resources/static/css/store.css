@@ -226,14 +226,12 @@ th {
 	opacity: 0.5;
 }
 #storeTableNav li.on {
-    background: #FFD126;
     border-radius : 5px 5px 5px 5px;
 }
 
 #storeTableNav li.on a {
     background-color: black;
     font-size: 25px;
-    color: white;
 }
 
 /** 내 위치 버튼 **/
