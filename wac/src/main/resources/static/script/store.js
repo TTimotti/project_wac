@@ -9,7 +9,7 @@
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 	mapOption = {
 		center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-		level: 6 // 지도의 확대 레벨
+		level: 4 // 지도의 확대 레벨
 	};
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -135,7 +135,6 @@ function locationLoadSuccess(pos){
 function locationLoadError(pos){
     alert('위치 정보를 가져오는데 실패했습니다.');
 };
-
 // 위치 가져오기 버튼 클릭시
 function getCurrentPosBtn(){
     navigator.geolocation.getCurrentPosition(locationLoadSuccess,locationLoadError);

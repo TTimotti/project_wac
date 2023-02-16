@@ -278,8 +278,7 @@ th {
 .storeSearch-panel {
 	width: 1200px;
 	height: 100px;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 550px;
 	padding: 20px;
 	padding-bottom: 0px;
 }

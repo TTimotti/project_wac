@@ -249,7 +249,7 @@ function storeViewList(){
 		axios
 		.get("/storeList")
 		.then(response => {
-			totalData = response.data.length - 1;
+			totalData = response.data.length;
 			globalData = response.data;
 			displayData(1, dataPerPage, response.data)
 			pasing(totalData, dataPerPage, pageCount, 1)			
