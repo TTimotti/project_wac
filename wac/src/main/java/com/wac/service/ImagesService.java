@@ -53,6 +53,9 @@ public class ImagesService {
      * 메뉴 이미지 저장 메서드
      * 경로는 TEAMS_FID를 이용해서 IMAGES와 연동
      * C:\Users\sbs\이미지파일.확장자
+     * 
+     * FIXME 트랜잭션 처리
+     * 
      * @param file
      * @return fid 값(Integer)
      * @throws IllegalStateException 
@@ -78,14 +81,18 @@ public class ImagesService {
         String savedPath = fileDir + fileName + extension;
 
         // 파일 엔티티 생성
-        Images image = Images.builder().originalName(origName).fileName(fileName).fileUrl(savedPath)
-                .extension(extension).build();
+        Images image = Images.builder()
+                .originalName(origName)
+                .fileName(fileName)
+                .fileUrl(savedPath)
+                .extension(extension)
+                .build();
 
         File makeFolder = new File("D:\\wac");
         
         // 해당 디렉토리가 없을경우 디렉토리를 생성합니다.
         if (!makeFolder.exists()) {
-            makeFolder.mkdir(); //폴더 생성합니다.
+            makeFolder.mkdir(); //폴더 생성합니다. FIXME 파일 생성 실패시 예외처리
             log.info("폴더 생성");
         }
 

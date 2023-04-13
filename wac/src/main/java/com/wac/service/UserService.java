@@ -52,11 +52,12 @@ public class UserService {
      */
     @Transactional(readOnly = true)
     public List<UserReadDto> readUserList() {
-    	List<Users> users = userRepository.findByOrderByUserIdDesc();
-    	List<UserReadDto> userList = new ArrayList<UserReadDto>();
-    	for (Users u : users) {
-    		userList.add(UserReadDto.fromEntity(u));
-    	}
+        	List<Users> users = userRepository.findByOrderByUserIdDesc();
+        	List<UserReadDto> userList = new ArrayList<UserReadDto>();
+        	
+        	for (Users u : users) {
+        		userList.add(UserReadDto.fromEntity(u));
+        	}
         
         return userList;
     }

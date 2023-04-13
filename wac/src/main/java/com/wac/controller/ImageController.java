@@ -37,24 +37,26 @@ public class ImageController {
      * @author 김지훈
      */
     @GetMapping("/display")
-    public ResponseEntity<Resource> display(@RequestParam("fid") Integer fid) {
-        log.info("display(fid={})",fid);
+    public ResponseEntity<Resource> display(@RequestParam("fid") int fid) {
+        log.info("display(fid={})", fid);
         
         Images image = imagesService.readByFid(fid);
         String path = image.getFileUrl();        
         
-        File file = new File(path);
-        
+        File file = new File(path);        
         Path source = Paths.get(path);
         String headerString = null;
+        
         try {
             headerString = Files.probeContentType(source);
         } catch (IOException e) {
+            log.error(e.getMessage());
             e.printStackTrace();
         }
+        
         Resource resource = new FileSystemResource(file);
         HttpHeaders headers = new HttpHeaders();
-        headers.set("content-type", headerString);
+        headers.set("content-type", headerString); // content-type(Header) 설정
         
         log.info("resource ={}, header={}", resource, headers);
         return ResponseEntity.ok().headers(headers).body(resource);
